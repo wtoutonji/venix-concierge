@@ -1,0 +1,60 @@
+.venix-about h1, .venix-about h2, .venix-about h3 { color: var(--venix-fg-brand); font-family: var(--venix-font-display); text-transform: uppercase; }
+.venix-about h2 { font-size: clamp(22px, 2.5vw, 34px); font-weight: 500; letter-spacing: .14em; line-height: 1.35; margin: 14px 0 0; }
+.venix-about h3 { font-size: 16px; font-weight: 600; letter-spacing: .1em; line-height: 1.4; margin: 0 0 16px; }
+.venix-about p { line-height: 1.9; }
+.venix-eyebrow { color: var(--wp--preset--color--gold); font-size: 10px; font-weight: 600; letter-spacing: .28em; margin: 0; text-transform: uppercase; }
+.about-hero { align-items: flex-end; background: #1A0A0C; display: flex; height: 64vh; min-height: 480px; overflow: hidden; position: relative; }
+.about-hero__media, .about-media { background: linear-gradient(135deg, rgba(201, 167, 94, .18), transparent 55%), repeating-linear-gradient(45deg, rgba(201, 167, 94, .1) 0 1px, transparent 1px 14px), var(--venix-bg-inverse-alt); }
+.about-hero__media { inset: 0; position: absolute; }
+.about-hero__media::after { background: linear-gradient(to top, rgba(30, 6, 8, .95), rgba(30, 6, 8, .5) 50%, transparent); content: ''; inset: 0; position: absolute; }
+.about-hero__content { padding-bottom: 80px; position: relative; width: 100%; }
+.about-hero__content .venix-eyebrow { align-items: center; display: flex; gap: 14px; margin-bottom: 20px; }
+.about-hero__content .venix-eyebrow::before { background: var(--wp--preset--color--gold); content: ''; height: 1px; width: 36px; }
+.about-hero h1 { color: var(--venix-fg-inverse); font-size: clamp(28px, 4vw, 54px); font-weight: 400; letter-spacing: .12em; line-height: 1.22; margin: 0; max-width: 700px; }
+.about-story, .about-culture { padding-block: 110px; }
+.about-foundation, .about-approach, .about-values, .about-cta { padding-block: 100px; }
+.about-split { align-items: center; display: grid; gap: 80px; grid-template-columns: 1fr 1fr; }
+.about-copy p { color: rgba(44, 26, 29, .72); font-size: 15px; margin: 20px 0 0; }
+.about-copy .about-copy__muted { color: rgba(44, 26, 29, .6); font-size: 14px; }
+.about-rule { background: var(--venix-fg-brand); display: block; height: 1px; margin-top: 20px; width: 36px; }
+.about-media { border-radius: var(--venix-radius-sm); position: relative; }
+.about-media--portrait { aspect-ratio: 4 / 5; }
+.about-media--portrait span { background: var(--venix-bg-surface); border: 1px solid rgba(201, 167, 94, .35); border-radius: var(--venix-radius-sm); bottom: -18px; height: 100px; left: -18px; position: absolute; width: 100px; z-index: -1; }
+.about-media--landscape { aspect-ratio: 4 / 3; }
+.about-foundation { background: var(--venix-bg-surface); }
+.about-section-heading { margin-bottom: 56px; text-align: center; }
+.about-pmv-grid { display: grid; gap: 2px; grid-template-columns: repeat(3, 1fr); }
+.about-pmv-card { background: var(--venix-bg-page); border-top: 2px solid var(--venix-fg-brand); padding: 40px 36px 44px; }
+.about-pmv-card .venix-eyebrow { margin-bottom: 14px; }
+.about-pmv-card p:last-child { color: rgba(44, 26, 29, .68); font-size: 13px; margin: 0; }
+.about-approach__grid { align-items: start; display: grid; gap: 80px; grid-template-columns: .9fr 1.1fr; }
+.about-approach__intro { position: sticky; top: 100px; }
+.about-approach__intro > p:last-child { color: rgba(44, 26, 29, .65); font-size: 13.5px; margin: 20px 0 0; }
+.about-approach__list { list-style: none; margin: 0; padding: 0; }
+.about-approach__list li { border-bottom: 1px solid var(--venix-border-subtle); display: flex; gap: 28px; padding: 26px 0; }
+.about-approach__list > li > span { color: rgba(201, 167, 94, .4); flex: 0 0 36px; font-family: var(--venix-font-display); font-size: 28px; line-height: 1; }
+.about-approach__list h3 { font-size: 12.5px; letter-spacing: .12em; margin-bottom: 8px; }
+.about-approach__list p { color: rgba(44, 26, 29, .65); font-size: 13px; margin: 0; }
+.about-values { background: var(--venix-bg-inverse); overflow: hidden; position: relative; }
+.about-values::before, .about-cta::before { background-image: repeating-linear-gradient(45deg, var(--wp--preset--color--gold) 0 1px, transparent 1px 18px); content: ''; inset: 0; opacity: .035; position: absolute; }
+.about-values .container, .about-cta__content { position: relative; }
+.about-values h2, .about-values h3 { color: var(--venix-fg-inverse); }
+.about-values__grid { display: grid; gap: 2px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.about-values__grid article { background: rgba(255, 255, 255, .02); border-top: 2px solid var(--wp--preset--color--gold); padding: 28px 28px 34px; transition: background-color var(--venix-motion-base); }
+.about-values__grid article:hover { background: rgba(255, 255, 255, .055); }
+.about-values__grid .venix-eyebrow { margin-bottom: 12px; }
+.about-values__grid h3 { font-size: 14px; margin-bottom: 12px; }
+.about-values__grid p:last-child { color: rgba(230, 216, 199, .7); font-size: 12.5px; margin: 0; }
+.about-culture__points { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; list-style: none; margin: 36px 0 0; padding: 0; }
+.about-culture__points li { align-items: baseline; color: rgba(44, 26, 29, .68); display: flex; font-size: 12.5px; gap: 10px; line-height: 1.65; }
+.about-culture__points li::before { background: var(--wp--preset--color--gold); content: ''; flex: 0 0 14px; height: 1px; transform: translateY(-3px); }
+.about-cta { background: var(--wp--preset--color--brand); overflow: hidden; position: relative; text-align: center; }
+.about-cta::before { background-image: repeating-linear-gradient(45deg, var(--venix-bg-page) 0 1px, transparent 1px 18px); opacity: .06; }
+.about-cta__content { max-width: 760px; }
+.about-cta h2 { color: var(--venix-fg-inverse); font-size: clamp(22px, 2.8vw, 38px); font-weight: 400; margin: 0 0 22px; }
+.about-cta p { color: rgba(250, 251, 249, .8); font-size: 14.5px; margin: 0 0 38px; }
+.about-cta .venix-button--gold { background: var(--venix-bg-page); color: var(--venix-fg-brand); }
+.about-cta .venix-button--gold:hover { background: var(--venix-bg-surface-warm); }
+@media (max-width: 1024px) { .about-pmv-grid { grid-template-columns: repeat(2, 1fr); } .about-split, .about-approach__grid { gap: 48px; } }
+@media (max-width: 768px) { .about-split, .about-approach__grid, .about-pmv-grid, .about-culture__points { grid-template-columns: 1fr; } .about-approach__intro { position: static; } .about-hero__content { padding-bottom: 56px; } }
+@media (max-width: 480px) { .about-pmv-card { padding: 32px 24px; } .about-approach__list li { gap: 18px; } .about-cta .venix-button { width: 100%; } }

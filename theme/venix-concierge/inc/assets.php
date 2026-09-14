@@ -91,6 +91,11 @@ function venix_concierge_enqueue_global_assets() {
 		venix_concierge_enqueue_script( 'venix-concierge-reveal', '/assets/js/components/reveal.js' );
 	}
 
+	if ( venix_concierge_is_about_page() ) {
+		venix_concierge_enqueue_style( 'venix-concierge-about', '/assets/css/pages/about.css', array( 'venix-concierge-layout' ) );
+		venix_concierge_enqueue_component( 'button' );
+	}
+
 	venix_concierge_enqueue_script( 'venix-concierge-menu', '/assets/js/components/mobile-menu.js' );
 	venix_concierge_enqueue_style( 'venix-concierge-mobile-menu', '/assets/css/components/mobile-menu.css', array( 'venix-concierge-header' ) );
 }

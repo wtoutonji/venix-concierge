@@ -17,6 +17,45 @@ function venix_concierge_page_url( $slug, $anchor = '' ) {
 	return $anchor ? $url . '#' . rawurlencode( $anchor ) : $url;
 }
 
+/**
+ * Determine whether the queried page is the canonical About page or its translation.
+ *
+ * @return bool
+ */
+function venix_concierge_is_about_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$page_id = get_queried_object_id();
+
+	if ( ! $page_id ) {
+		return false;
+	}
+
+	if ( 'about' === get_post_field( 'post_name', $page_id ) ) {
+		return true;
+	}
+
+	if ( ! function_exists( 'pll_get_post_translations' ) ) {
+		return false;
+	}
+
+	$translations = pll_get_post_translations( $page_id );
+
+	if ( ! is_array( $translations ) ) {
+		return false;
+	}
+
+	foreach ( $translations as $translation_id ) {
+		if ( 'about' === get_post_field( 'post_name', $translation_id ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
 /** Render Polylang's switcher when Polylang is active. */
 function venix_concierge_render_language_switcher() {
 	if ( ! function_exists( 'pll_the_languages' ) ) {
