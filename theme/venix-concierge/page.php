@@ -14,6 +14,8 @@ get_header();
 	<?php get_template_part( 'template-parts/sections/services' ); ?>
 	<?php elseif ( venix_concierge_is_fleet_page() ) : ?>
 	<?php get_template_part( 'template-parts/sections/fleet' ); ?>
+	<?php elseif ( venix_concierge_is_contact_page() ) : ?>
+	<?php get_template_part( 'template-parts/sections/contact' ); ?>
 <?php else : ?>
 	<main id="primary" class="site-main">
 		<?php

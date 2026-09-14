@@ -84,6 +84,11 @@ function venix_concierge_is_fleet_page() {
 	return venix_concierge_is_page_role( 'fleet' );
 }
 
+/** Determine whether the queried page is Contact or its Polylang translation. */
+function venix_concierge_is_contact_page() {
+	return venix_concierge_is_page_role( 'contact' );
+}
+
 /** Render Polylang's switcher when Polylang is active. */
 function venix_concierge_render_language_switcher() {
 	if ( ! function_exists( 'pll_the_languages' ) ) {
