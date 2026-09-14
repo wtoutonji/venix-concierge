@@ -75,6 +75,15 @@ function venix_concierge_is_services_page() {
 	return venix_concierge_is_page_role( 'services' );
 }
 
+/**
+ * Determine whether the queried page is Fleet or its Polylang translation.
+ *
+ * @return bool
+ */
+function venix_concierge_is_fleet_page() {
+	return venix_concierge_is_page_role( 'fleet' );
+}
+
 /** Render Polylang's switcher when Polylang is active. */
 function venix_concierge_render_language_switcher() {
 	if ( ! function_exists( 'pll_the_languages' ) ) {
