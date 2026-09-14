@@ -1,0 +1,9 @@
+.site-footer {
+  border-top: 1px solid var(--tly-color-border-subtle);
+}
+
+.site-footer__inner {
+  padding-block: 3rem;
+  display: grid;
+  gap: var(--wp--preset--spacing--50);
+}

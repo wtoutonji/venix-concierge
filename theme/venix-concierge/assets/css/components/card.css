@@ -1,0 +1,14 @@
+.tly-card {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+
+.tly-card__media,
+.tly-card__body {
+  min-inline-size: 0;
+}
+
+.tly-card__body {
+  flex: 1 1 auto;
+}

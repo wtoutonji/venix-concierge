@@ -1,0 +1,32 @@
+{
+    "framework":  "Teelya WordPress Agency Framework",
+    "framework_version":  "1.4.0",
+    "hybrid_starter_version":  "1.0.1",
+    "hybrid_source":  {
+                          "name":  "Teelya",
+                          "theme_header_version":  "1.0.1",
+                          "nearest_tag":  "v1.0.1",
+                          "source_describe":  "v1.0.1",
+                          "commit":  "17d89e0f278308310af8a9f51b4a51f04cd096d9",
+                          "branch_at_import":  "develop"
+                      },
+    "project_name":  "Venix Concierge",
+    "slug":  "venix-concierge",
+    "project_type":  "standard",
+    "agent":  "both",
+    "identity":  {
+                     "theme_name":  "Venix Concierge",
+                     "theme_slug":  "venix-concierge",
+                     "text_domain":  "venix-concierge",
+                     "php_prefix":  "venix_concierge_",
+                     "asset_handle_prefix":  "venix-concierge-",
+                     "stable_component_css_prefix":  "tly-",
+                     "project_core_name":  "Venix Concierge Core",
+                     "project_core_slug":  "venix-concierge-core",
+                     "project_core_text_domain":  "venix-concierge-core",
+                     "store_core_name":  null,
+                     "store_core_slug":  null,
+                     "store_core_text_domain":  null
+                 },
+    "created_at":  "2026-09-14T22:30:14.2238786+03:00"
+}

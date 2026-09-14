@@ -1,0 +1,95 @@
+{
+    "source_theme":  {
+                         "name":  "Teelya",
+                         "theme_header_version":  "1.0.1",
+                         "nearest_tag":  "v1.0.1",
+                         "source_describe":  "v1.0.1",
+                         "commit":  "17d89e0f278308310af8a9f51b4a51f04cd096d9",
+                         "branch_at_import":  "develop"
+                     },
+    "import_date":  "2026-09-14",
+    "runtime_scope":  [
+                          "Hybrid PHP template hierarchy",
+                          "preset-first theme.json configuration",
+                          "global and conditional component asset loading",
+                          "progressively enhanced primary navigation",
+                          "template and breadcrumb helpers",
+                          "integration-friendly Gutenberg curation extension",
+                          "optional WooCommerce presentation support"
+                      ],
+    "components":  [
+                       {
+                           "name":  "Breadcrumb",
+                           "status":  "Experimental",
+                           "type":  "PHP template"
+                       },
+                       {
+                           "name":  "Pagination",
+                           "status":  "Experimental",
+                           "type":  "PHP template"
+                       },
+                       {
+                           "name":  "Container",
+                           "status":  "Experimental",
+                           "type":  "CSS primitive"
+                       },
+                       {
+                           "name":  "Section",
+                           "status":  "Experimental",
+                           "type":  "CSS primitive"
+                       },
+                       {
+                           "name":  "Grid",
+                           "status":  "Experimental",
+                           "type":  "CSS primitive"
+                       },
+                       {
+                           "name":  "Stack",
+                           "status":  "Experimental",
+                           "type":  "CSS primitive"
+                       },
+                       {
+                           "name":  "Accordion",
+                           "status":  "Experimental",
+                           "type":  "PHP and conditional CSS"
+                       },
+                       {
+                           "name":  "Dialog",
+                           "status":  "Experimental",
+                           "type":  "PHP and conditional CSS/JavaScript"
+                       },
+                       {
+                           "name":  "Card Shell",
+                           "status":  "Experimental",
+                           "type":  "conditional CSS primitive"
+                       }
+                   ],
+    "agency_adaptations":  [
+                               "Master development showcase routes are excluded from the client bootstrap.",
+                               "Generated projects render client-owned PHP prefixes, hooks, text domains and asset handles.",
+                               "Agency-owned inc/agency-editor.php preserves allowed-block policy narrowing across Hybrid editor synchronization.",
+                               "Stable tly-* component and layout CSS contracts retain their Teelya identifiers."
+                           ],
+    "excluded_master_only_paths":  [
+                                       ".agents/",
+                                       ".claude/",
+                                       ".codex/",
+                                       "inc/dev/",
+                                       "template-parts/dev/",
+                                       "assets/css/dev/",
+                                       "tests/",
+                                       "scripts/",
+                                       "node_modules/",
+                                       "vendor/",
+                                       "AGENTS.md",
+                                       "CLAUDE.md",
+                                       "CHANGELOG.md",
+                                       "docs/BROWSER-QA.md",
+                                       "playwright.config.js",
+                                       "package.json",
+                                       "package-lock.json"
+                                   ],
+    "schema_version":  2,
+    "agency_framework_version":  "1.4.0",
+    "hybrid_starter_version":  "1.0.1"
+}

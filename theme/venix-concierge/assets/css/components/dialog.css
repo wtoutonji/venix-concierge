@@ -1,0 +1,48 @@
+.tly-dialog {
+  inline-size: min(
+    var(--tly-layout-content),
+    calc(100% - var(--tly-space-page-gutter) - var(--tly-space-page-gutter))
+  );
+  max-block-size: calc(100vh - var(--tly-space-page-gutter) - var(--tly-space-page-gutter));
+  max-block-size: calc(100dvb - var(--tly-space-page-gutter) - var(--tly-space-page-gutter));
+  padding: var(--wp--preset--spacing--50);
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--tly-color-border-subtle);
+  border-radius: var(--tly-radius-md);
+  color: var(--wp--preset--color--text);
+  background: var(--wp--preset--color--background);
+}
+
+.tly-dialog::backdrop {
+  background: color-mix(in srgb, var(--wp--preset--color--text) 55%, transparent);
+}
+
+.tly-dialog__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--wp--preset--spacing--40);
+  margin-block-end: var(--wp--preset--spacing--40);
+}
+
+.tly-dialog__title,
+.tly-dialog__close-form {
+  margin: 0;
+}
+
+.tly-dialog__close {
+  min-inline-size: var(--tly-control-min-size);
+  min-block-size: var(--tly-control-min-size);
+  padding-inline: var(--wp--preset--spacing--40);
+  border: 1px solid currentColor;
+  border-radius: var(--tly-radius-sm);
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tly-dialog__close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}

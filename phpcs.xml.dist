@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="Generated Client Project">
+    <description>WordPress coding standards for generated client runtime code.</description>
+    <file>theme</file>
+    <file>project-core</file>
+
+    <arg name="extensions" value="php" />
+    <arg value="ps" />
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <rule ref="WordPress" />
+    <rule ref="PHPCompatibilityWP" />
+    <config name="minimum_supported_wp_version" value="7.0" />
+    <config name="testVersion" value="8.1-" />
+</ruleset>

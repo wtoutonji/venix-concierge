@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(wp db reset*)",
+      "Bash(wp db drop*)",
+      "Bash(wp site empty*)",
+      "Bash(rm -rf*)"
+    ]
+  }
+}

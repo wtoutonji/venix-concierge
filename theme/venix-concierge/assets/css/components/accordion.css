@@ -1,0 +1,22 @@
+.tly-accordion {
+  border-block-start: 1px solid var(--tly-color-border-subtle);
+}
+
+.tly-accordion__item {
+  border-block-end: 1px solid var(--tly-color-border-subtle);
+}
+
+.tly-accordion__summary {
+  min-block-size: var(--tly-control-min-size);
+  padding-block: var(--wp--preset--spacing--40);
+  cursor: pointer;
+}
+
+.tly-accordion__summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+
+.tly-accordion__content {
+  padding-block-end: var(--wp--preset--spacing--40);
+}

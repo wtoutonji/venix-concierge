@@ -1,0 +1,16 @@
+:root {
+  --tly-layout-wide: var(--wp--style--global--wide-size);
+  --tly-layout-content: var(--wp--style--global--content-size);
+  --tly-space-page-gutter: var(--wp--preset--spacing--page-gutter);
+  --tly-space-section: var(--wp--preset--spacing--section);
+  --tly-space-layout-gap: var(--wp--preset--spacing--60);
+  --tly-color-border-subtle: color-mix(in srgb, var(--wp--preset--color--text) 8%, transparent);
+
+  --tly-radius-sm: 0.5rem;
+  --tly-radius-md: 1rem;
+  --tly-radius-lg: 1.5rem;
+  --tly-radius-pill: 999px;
+
+  --tly-control-min-size: 2.75rem;
+  --tly-transition-fast: 180ms ease;
+}
