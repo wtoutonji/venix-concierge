@@ -23,6 +23,16 @@ function venix_concierge_page_url( $slug, $anchor = '' ) {
  * @return bool
  */
 function venix_concierge_is_about_page() {
+	return venix_concierge_is_page_role( 'about' );
+}
+
+/**
+ * Determine whether the queried page has a canonical page role or is its translation.
+ *
+ * @param string $slug Canonical English page slug.
+ * @return bool
+ */
+function venix_concierge_is_page_role( $slug ) {
 	if ( ! is_page() ) {
 		return false;
 	}
@@ -33,7 +43,7 @@ function venix_concierge_is_about_page() {
 		return false;
 	}
 
-	if ( 'about' === get_post_field( 'post_name', $page_id ) ) {
+	if ( $slug === get_post_field( 'post_name', $page_id ) ) {
 		return true;
 	}
 
@@ -48,12 +58,21 @@ function venix_concierge_is_about_page() {
 	}
 
 	foreach ( $translations as $translation_id ) {
-		if ( 'about' === get_post_field( 'post_name', $translation_id ) ) {
+		if ( $slug === get_post_field( 'post_name', $translation_id ) ) {
 			return true;
 		}
 	}
 
 	return false;
+}
+
+/**
+ * Determine whether the queried page is Services or its Polylang translation.
+ *
+ * @return bool
+ */
+function venix_concierge_is_services_page() {
+	return venix_concierge_is_page_role( 'services' );
 }
 
 /** Render Polylang's switcher when Polylang is active. */

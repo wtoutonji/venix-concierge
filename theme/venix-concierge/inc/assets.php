@@ -96,6 +96,12 @@ function venix_concierge_enqueue_global_assets() {
 		venix_concierge_enqueue_component( 'button' );
 	}
 
+	if ( venix_concierge_is_services_page() ) {
+		venix_concierge_enqueue_style( 'venix-concierge-services', '/assets/css/pages/services.css', array( 'venix-concierge-layout' ) );
+		venix_concierge_enqueue_component( 'button' );
+		venix_concierge_enqueue_component( 'badge' );
+	}
+
 	venix_concierge_enqueue_script( 'venix-concierge-menu', '/assets/js/components/mobile-menu.js' );
 	venix_concierge_enqueue_style( 'venix-concierge-mobile-menu', '/assets/css/components/mobile-menu.css', array( 'venix-concierge-header' ) );
 }
