@@ -1,0 +1,21 @@
+/* Venix Concierge — deliberate, unhurried motion.
+   Canonical durations are 150 / 250 / 400 / 600ms and are NEVER redefined.
+   Reduced-motion is applied behaviourally, not by mutating the tokens. */
+:root{
+  --t-motion-duration-fast:150ms; /* @kind other */
+  --t-motion-duration-base:250ms; /* @kind other */
+  --t-motion-duration-slow:400ms; /* @kind other */
+  --t-motion-duration-reveal:600ms; /* @kind other */
+
+  --t-motion-ease-standard:ease-in-out; /* @kind other */
+  --t-motion-ease-emphasized:cubic-bezier(0.25,0.46,0.45,0.94); /* @kind other */
+
+  --t-motion-transition-fast:var(--t-motion-duration-fast) var(--t-motion-ease-standard); /* @kind other */
+  --t-motion-transition-base:var(--t-motion-duration-base) var(--t-motion-ease-standard); /* @kind other */
+  --t-motion-transition-slow:var(--t-motion-duration-slow) var(--t-motion-ease-standard); /* @kind other */
+  --t-motion-transition-reveal:var(--t-motion-duration-reveal) var(--t-motion-ease-emphasized); /* @kind other */
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;transition-delay:0s!important;animation-delay:0s!important;scroll-behavior:auto!important}
+}

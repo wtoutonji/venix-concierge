@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Spacing" name="Shadows & Borders" subtitle="3 shadow levels, 4 border/divider styles" viewport="500x200" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-neutral-200); font-family: var(--t-font-body); padding: 24px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  .card-demo { background: var(--t-color-neutral-50); border-radius: var(--t-radius-card); padding: 16px 20px; }
+  .card-label { font-size: 8px; letter-spacing: 0.1em; color: var(--t-color-warm-300); text-transform: uppercase; margin-bottom: 6px; }
+  .shadow-box { width: 120px; height: 56px; background: var(--t-color-warm-100); border-radius: var(--t-radius-card); }
+  .border-row { display: flex; flex-direction: column; gap: 8px; }
+  .border-line { height: 1px; width: 200px; }
+  .border-item { display: flex; align-items: center; gap: 10px; }
+  .border-name { font-size: 8px; color: var(--t-color-warm-300); letter-spacing: var(--t-ls-ui); width: 80px; }
+</style>
+</head>
+<body>
+  <div>
+    <div class="card-label">Shadows</div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div>
+        <div class="shadow-box" style="box-shadow: var(--t-shadow-subtle);"></div>
+        <div class="card-label" style="margin-top:4px;">Subtle</div>
+      </div>
+      <div>
+        <div class="shadow-box" style="box-shadow: var(--t-shadow-card);"></div>
+        <div class="card-label" style="margin-top:4px;">Card</div>
+      </div>
+      <div>
+        <div class="shadow-box" style="box-shadow: var(--t-shadow-modal);"></div>
+        <div class="card-label" style="margin-top:4px;">Modal</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="card-label">Borders & Dividers</div>
+    <div class="border-row">
+      <div class="border-item"><div class="border-name">border-subtle</div><div class="border-line" style="background:var(--t-color-neutral-200);"></div></div>
+      <div class="border-item"><div class="border-name">border-warm</div><div class="border-line" style="background:var(--t-color-warm-200);"></div></div>
+      <div class="border-item"><div class="border-name">border-brand</div><div class="border-line" style="background:var(--t-color-brand-500);"></div></div>
+      <div class="border-item"><div class="border-name">border-accent</div><div class="border-line" style="background:var(--t-color-accent-500);"></div></div>
+      <div class="border-item"><div class="border-name">decorative rule</div><div style="width:40px; height:1px; background:var(--t-color-brand-500);"></div></div>
+    </div>
+  </div>
+</body>
+</html>

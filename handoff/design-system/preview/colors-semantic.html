@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Colors" name="Semantic Color Roles" subtitle="Token roles — text, bg, border, interactive" viewport="600x130" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-warm-100); font-family: var(--t-font-body); padding: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .token { background: var(--t-color-neutral-50); border: 1px solid var(--t-color-neutral-200); border-radius: var(--t-radius-card); padding: 10px 12px; display: flex; align-items: center; gap: 10px; }
+  .dot { width: 28px; height: 28px; border-radius: var(--t-radius-sm); flex-shrink: 0; border: 1px solid var(--t-color-neutral-200); }
+  .token-name { font-family: var(--t-font-body); font-size: 9px; letter-spacing: var(--t-ls-ui); color: var(--t-color-brand-500); text-transform: uppercase; font-weight: var(--t-fw-semibold); }
+  .token-desc { font-size: 9px; color: var(--t-color-warm-300); margin-top: 1px; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="token"><div class="dot" style="background:var(--t-color-brand-500);"></div><div><div class="token-name">--t-fg-brand</div><div class="token-desc">Headlines on light</div></div></div>
+  <div class="token"><div class="dot" style="background:var(--t-color-warm-100);border:1px solid var(--t-color-neutral-200);"></div><div><div class="token-name">--t-fg-inverse</div><div class="token-desc">Text on dark bg</div></div></div>
+  <div class="token"><div class="dot" style="background:var(--t-color-warm-300);"></div><div><div class="token-name">--t-fg-muted</div><div class="token-desc">Secondary labels</div></div></div>
+  <div class="token"><div class="dot" style="background:var(--t-color-accent-500);"></div><div><div class="token-name">--t-fg-accent</div><div class="token-desc">Gold on dark</div></div></div>
+  <div class="token"><div class="dot" style="background:var(--t-color-warm-100);border:1px solid var(--t-color-neutral-200);"></div><div><div class="token-name">--t-bg-page</div><div class="token-desc">Page background</div></div></div>
+  <div class="token"><div class="dot" style="background:var(--t-color-brand-700);"></div><div><div class="token-name">--t-bg-inverse</div><div class="token-desc">Hero / dark sections</div></div></div>
+  <div class="token"><div class="dot" style="background:var(--t-color-neutral-50);border:1px solid var(--t-color-neutral-200);"></div><div><div class="token-name">--t-bg-surface</div><div class="token-desc">Card surface</div></div></div>
+  <div class="token"><div class="dot" style="background:var(--t-color-neutral-200);"></div><div><div class="token-name">--t-border-subtle</div><div class="token-desc">Dividers / borders</div></div></div>
+</div>
+</body>
+</html>

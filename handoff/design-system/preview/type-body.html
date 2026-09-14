@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Type" name="Body & UI Type" subtitle="Montserrat — Label, Body Lg, Body, Body Sm, Caption" viewport="700x240" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-warm-100); font-family: var(--t-font-body); padding: 28px 32px; }
+  .row { border-bottom: 1px solid var(--t-color-neutral-200); padding: 12px 0; display: flex; align-items: baseline; gap: 24px; }
+  .row:last-child { border-bottom: none; }
+  .meta { width: 90px; flex-shrink: 0; font-size: 9px; color: var(--t-color-warm-300); letter-spacing: var(--t-ls-ui); text-transform: uppercase; line-height: 1.5; }
+  .label-spec { font-family: var(--t-font-body); font-size: 9px; letter-spacing: var(--t-ls-display); text-transform: uppercase; color: var(--t-color-warm-300); font-weight: var(--t-fw-medium); }
+  .body-lg { font-family: var(--t-font-body); font-size: 15px; font-weight: var(--t-fw-light); color: var(--t-color-brand-ink); letter-spacing: var(--t-ls-body); line-height: 1.8; }
+  .body-base { font-family: var(--t-font-body); font-size: 13px; font-weight: var(--t-fw-regular); color: var(--t-color-brand-ink); letter-spacing: var(--t-ls-body); line-height: 1.7; }
+  .body-sm { font-family: var(--t-font-body); font-size: 11px; font-weight: var(--t-fw-regular); color: var(--t-color-warm-300); letter-spacing: var(--t-ls-body); line-height: 1.6; }
+  .caption { font-family: var(--t-font-body); font-size: 10px; font-weight: var(--t-fw-medium); color: var(--t-color-warm-300); letter-spacing: 0.08em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="meta">Label<br>9px / 500</div>
+    <div class="label-spec">Exclusive · Discreet · Elegant</div>
+  </div>
+  <div class="row">
+    <div class="meta">Body Lg<br>15px / 300</div>
+    <div class="body-lg">We take care of everything, so you can focus on what truly matters.</div>
+  </div>
+  <div class="row">
+    <div class="meta">Body<br>13px / 400</div>
+    <div class="body-base">Venix Concierge delivers personalized services for discerning individuals who expect nothing less than excellence and discretion.</div>
+  </div>
+  <div class="row">
+    <div class="meta">Body Sm<br>11px / 400</div>
+    <div class="body-sm">All services are subject to availability. Terms and conditions apply.</div>
+  </div>
+  <div class="row">
+    <div class="meta">Caption<br>10px / 500</div>
+    <div class="caption">24/7 Concierge Support · Warsaw, Poland</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Badges & Tags" subtitle="6 badge variants, service tags with dot" viewport="620x130" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-warm-100); font-family: var(--t-font-body); padding: 24px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+  .lbl { font-size: 8px; color: var(--t-color-warm-300); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+
+  .badge {
+    display: inline-flex; align-items: center;
+    padding: 4px 10px; border-radius: var(--t-radius-sm);
+    font-family: var(--t-font-body); font-size: 8px;
+    font-weight: var(--t-fw-semibold); letter-spacing: var(--t-ls-tag); text-transform: uppercase;
+  }
+  .badge-primary { background: var(--t-color-brand-500); color: var(--t-color-warm-100); }
+  .badge-outline { background: transparent; color: var(--t-color-brand-500); border: 1px solid var(--t-color-brand-500); }
+  .badge-gold { background: var(--t-color-accent-500); color: var(--t-color-warm-100); }
+  .badge-neutral { background: var(--t-color-neutral-100); color: var(--t-color-brand-500); }
+  .badge-dark { background: var(--t-color-brand-700); color: var(--t-color-warm-200); }
+  .badge-muted { background: var(--t-color-neutral-200); color: var(--t-color-warm-300); }
+
+  .tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 5px 12px; border-radius: var(--t-radius-sm);
+    border: 1px solid var(--t-color-neutral-200);
+    font-size: 9px; color: var(--t-color-brand-500); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--t-color-accent-500); }
+</style>
+</head>
+<body>
+  <div class="lbl">Badges</div>
+  <div class="row">
+    <span class="badge badge-primary">VIP</span>
+    <span class="badge badge-outline">Member</span>
+    <span class="badge badge-gold">Exclusive</span>
+    <span class="badge badge-neutral">Active</span>
+    <span class="badge badge-dark">Priority</span>
+    <span class="badge badge-muted">Pending</span>
+  </div>
+  <div class="lbl">Service Tags</div>
+  <div class="row">
+    <span class="tag"><span class="tag-dot"></span>Private Air</span>
+    <span class="tag"><span class="tag-dot"></span>Chauffeur</span>
+    <span class="tag"><span class="tag-dot"></span>Yacht Charter</span>
+    <span class="tag"><span class="tag-dot"></span>Hotel</span>
+    <span class="tag"><span class="tag-dot"></span>Events</span>
+  </div>
+</body>
+</html>

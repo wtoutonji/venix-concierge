@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Form Inputs" subtitle="Text input, select, textarea, error state" viewport="600x260" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-warm-100); font-family: var(--t-font-body); padding: 28px 32px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field-label { font-family: var(--t-font-body); font-size: 9px; font-weight: var(--t-fw-semibold); letter-spacing: 0.14em; text-transform: uppercase; color: var(--t-color-brand-500); }
+  .input {
+    padding: 12px 14px;
+    background: var(--t-color-warm-100); border: 1px solid var(--t-color-neutral-200); border-radius: var(--t-radius-sm);
+    font-family: var(--t-font-body); font-size: 12px; color: var(--t-color-brand-ink);
+    letter-spacing: var(--t-ls-body); outline: none;
+    transition: border-color var(--t-motion-transition-base);
+  }
+  .input::placeholder { color: var(--t-color-warm-300); }
+  .input-focused { border-color: var(--t-border-focus); }
+  .input-error { border-color: var(--t-border-danger); }
+  .select {
+    padding: 12px 14px;
+    background: var(--t-color-warm-100); border: 1px solid var(--t-color-neutral-200); border-radius: var(--t-radius-sm);
+    font-family: var(--t-font-body); font-size: 12px; color: var(--t-color-brand-ink);
+    letter-spacing: var(--t-ls-body); appearance: none; width: 100%;
+  }
+  /* Chevron: geometry via mask, colour from the canonical token — no duplicated brand value */
+  .select-wrap { position: relative; display: flex; }
+  .select-wrap::after {
+    content: ''; position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    width: 10px; height: 6px; pointer-events: none;
+    background-color: var(--t-color-brand-500);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23000' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 10px 6px;
+    mask: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23000' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 10px 6px;
+  }
+  .hint { font-size: 9px; color: var(--t-color-warm-300); letter-spacing: 0.04em; }
+  .error-msg { font-size: 9px; color: var(--t-fg-danger); letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="field">
+    <div class="field-label">Full Name</div>
+    <input class="input" placeholder="Enter your name" readonly>
+  </div>
+  <div class="field">
+    <div class="field-label">Email Address</div>
+    <input class="input input-focused" value="guest@example.com" readonly>
+    <div class="hint">We will respond within 2 hours.</div>
+  </div>
+  <div class="field">
+    <div class="field-label">Service Type</div>
+    <span class="select-wrap"><select class="select">
+      <option>Chauffeur Service</option>
+      <option>Private Air Travel</option>
+      <option>Hotel Reservation</option>
+    </select></span>
+  </div>
+  <div class="field">
+    <div class="field-label">Phone Number</div>
+    <input class="input input-error" value="+48 000 000" readonly>
+    <div class="error-msg">Please enter a valid phone number.</div>
+  </div>
+</div>
+</body>
+</html>

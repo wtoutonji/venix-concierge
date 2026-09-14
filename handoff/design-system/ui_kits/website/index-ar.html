@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!-- @dsCard group="UI Kit — Website" name="Arabic UI Kit" subtitle="Full Arabic RTL page — nav, hero, services, process, contact, footer" viewport="1440x900" -->
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فينيكس كونسيرج — النظام التصميمي</title>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+/* ── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--t-bg-page); color: var(--t-fg-default); font-family: 'Noto Sans Arabic', sans-serif; direction: rtl; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* Arabic type helpers */
+.ar { font-family: 'Noto Sans Arabic', sans-serif; }
+.en { font-family: var(--t-font-display); direction: ltr; unicode-bidi: bidi-override; }
+
+/* ── Layout ─────────────────────────────────────────────── */
+.container { max-width: var(--t-layout-container); margin: 0 auto; padding: 0 48px; }
+
+/* ── NAV ─────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(90,14,26,0.97); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201,167,94,0.15);
+}
+.nav-inner {
+  max-width: var(--t-layout-container); margin: 0 auto; padding: 0 48px;
+  height: 72px; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { height: 30px; object-fit: contain; }
+.nav-links { display: flex; gap: 36px; align-items: center; flex-direction: row-reverse; }
+.nav-link {
+  font-family: 'Noto Sans Arabic', sans-serif; font-size: 13px; font-weight: 500;
+  color: var(--t-color-warm-200); position: relative; padding-bottom: 3px;
+  transition: color var(--t-motion-transition-base);
+}
+.nav-link::after {
+  content: ''; position: absolute; bottom: 0; right: 0; left: 100%;
+  height: 1px; background: var(--t-color-accent-500); transition: left var(--t-motion-transition-base);
+}
+.nav-link:hover { color: var(--t-color-warm-100); }
+.nav-link:hover::after { left: 0; }
+.nav-cta {
+  font-family: 'Noto Sans Arabic', sans-serif; font-size: 13px; font-weight: 600;
+  padding: 10px 22px; background: transparent;
+  color: var(--t-color-accent-500); border: 1px solid var(--t-color-accent-500);
+  border-radius: var(--t-radius-sm); cursor: pointer; transition: all var(--t-motion-transition-base);
+}
+.nav-cta:hover { background: var(--t-color-accent-500); color: var(--t-color-brand-700); }
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh; background: var(--t-color-brand-700);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; padding: 120px 48px 80px;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(122,19,34,0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 20%, rgba(201,167,94,0.08) 0%, transparent 50%);
+}
+.hero-pattern {
+  position: absolute; inset: 0; opacity: 0.03;
+  background-image: repeating-linear-gradient(
+    -45deg, var(--t-color-accent-500) 0, var(--t-color-accent-500) 1px, transparent 0, transparent 50%
+  );
+  background-size: 20px 20px;
+}
+.hero-content { position: relative; text-align: center; max-width: 800px; }
+.hero-eyebrow {
+  font-family: 'Noto Sans Arabic', sans-serif; font-size: 13px; font-weight: 500;
+  color: var(--t-color-accent-500); margin-bottom: 24px;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: ''; display: block; width: 40px; height: 1px; background: var(--t-color-accent-500); opacity: 0.5;
+}
+.hero-title {
+  font-family: 'Noto Sans Arabic', sans-serif; font-weight: 700;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.2; color: var(--t-color-warm-100);
+  margin-bottom: 24px;
+}
+.hero-title em { font-style: normal; color: var(--t-color-accent-500); }
+.hero-subtitle {
+  font-family: 'Noto Sans Arabic', sans-serif; font-weight: 300; font-size: 16px;
+  color: var(--t-color-warm-200); line-height: 2;
+  max-width: 520px; margin: 0 auto 48px;
+}
+.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; flex-direction: row-reverse; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 16px 40px; background: var(--t-color-brand-500); color: var(--t-color-warm-100);
+  font-family: 'Noto Sans Arabic', sans-serif; font-size: 14px; font-weight: 600;
+  border: none; border-radius: var(--t-radius-sm); cursor: pointer;
+  transition: background var(--t-motion-transition-base);
+}
+.btn-primary:hover { background: var(--t-color-brand-700); }
+.btn-ghost-light {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 15px 40px; background: transparent;
+  color: var(--t-color-warm-100); font-family: 'Noto Sans Arabic', sans-serif; font-size: 14px;
+  font-weight: 600;
+  border: 1px solid rgba(250,251,249,0.35); border-radius: var(--t-radius-sm);
+  cursor: pointer; transition: all var(--t-motion-transition-base);
+}
+.btn-ghost-light:hover { border-color: var(--t-color-warm-100); background: rgba(250,251,249,0.06); }
+
+/* ── SERVICES ─────────────────────────────────────────────── */
+.section-services { padding: var(--t-space-section) 0; background: var(--t-bg-page); }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-eyebrow {
+  font-size: 12px; color: var(--t-color-accent-500); font-weight: 600;
+  margin-bottom: 12px; display: block;
+  font-family: 'Noto Sans Arabic', sans-serif;
+}
+.section-title {
+  font-family: 'Noto Sans Arabic', sans-serif; font-weight: 700;
+  font-size: clamp(24px, 3vw, 40px);
+  color: var(--t-fg-brand); margin-bottom: 16px; line-height: 1.3;
+}
+.section-rule { width: 40px; height: 1px; background: var(--t-color-brand-500); margin: 12px auto; }
+.section-desc {
+  font-size: 14px; color: var(--t-fg-muted); line-height: 2;
+  max-width: 480px; margin: 0 auto; font-weight: 300;
+  font-family: 'Noto Sans Arabic', sans-serif;
+}
+.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.service-card {
+  background: var(--t-bg-surface); padding: 36px 28px 32px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: background var(--t-motion-transition-base); cursor: default;
+}
+.service-card:hover { background: var(--t-color-neutral-100); }
+.service-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: var(--t-color-brand-500); }
+.service-rule { width: 24px; height: 1px; background: var(--t-color-accent-500); }
+.service-title {
+  font-family: 'Noto Sans Arabic', sans-serif; font-size: 14px; font-weight: 600;
+  color: var(--t-fg-brand); line-height: 1.4;
+}
+.service-desc { font-size: 12px; color: var(--t-fg-muted); line-height: 1.9; font-family: 'Noto Sans Arabic', sans-serif; }
+
+/* ── QUOTE ─────────────────────────────────────────────────── */
+.section-quote {
+  background: var(--t-color-brand-700); padding: 100px 48px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.quote-text {
+  font-family: 'Noto Sans Arabic', sans-serif; font-weight: 700;
+  font-size: clamp(22px, 3vw, 40px);
+  color: var(--t-color-warm-100); max-width: 700px; margin: 0 auto 20px; line-height: 1.5;
+}
+.quote-attr {
+  font-size: 13px; color: var(--t-color-accent-500); font-family: 'Noto Sans Arabic', sans-serif;
+}
+
+/* ── PROCESS ─────────────────────────────────────────────────── */
+.section-process { padding: var(--t-space-section) 0; background: var(--t-color-warm-200); }
+.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 64px; }
+.process-step { padding: 32px 32px 32px 0; border-left: 1px solid var(--t-color-warm-300); }
+.process-step:first-child { border-left: none; }
+.process-step:not(:first-child) { padding-right: 32px; }
+.process-num {
+  font-family: var(--t-font-display); font-size: 48px; font-weight: 400;
+  color: rgba(122,19,34,0.12); line-height: 1; margin-bottom: 16px;
+  letter-spacing: 0; direction: ltr; display: block;
+}
+.process-title {
+  font-family: 'Noto Sans Arabic', sans-serif; font-size: 14px; font-weight: 600;
+  color: var(--t-fg-brand); margin-bottom: 10px;
+}
+.process-desc { font-size: 12px; color: var(--t-fg-muted); line-height: 1.9; font-family: 'Noto Sans Arabic', sans-serif; }
+
+/* ── CONTACT ──────────────────────────────────────────────── */
+.section-contact { padding: var(--t-space-section) 0; background: var(--t-bg-page); }
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-copy p { font-size: 13px; color: var(--t-fg-muted); line-height: 2; margin-top: 16px; font-weight: 300; font-family: 'Noto Sans Arabic', sans-serif; }
+.contact-detail { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+.contact-detail-item { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--t-fg-muted); flex-direction: row-reverse; justify-content: flex-end; }
+.contact-detail-item svg { color: var(--t-color-brand-500); flex-shrink: 0; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-label { font-size: 11px; color: var(--t-fg-brand); font-weight: 600; font-family: 'Noto Sans Arabic', sans-serif; }
+.form-input, .form-select, .form-textarea {
+  border: 1px solid var(--t-color-warm-300); border-radius: var(--t-radius-sm);
+  padding: 11px 14px; font-family: 'Noto Sans Arabic', sans-serif; font-size: 13px;
+  color: var(--t-fg-default); background: var(--t-bg-page); outline: none;
+  transition: border-color var(--t-motion-transition-base); text-align: right; direction: rtl;
+  -webkit-appearance: none;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--t-color-brand-500); }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--t-color-warm-300); }
+.form-textarea { resize: none; height: 80px; }
+.form-submit {
+  grid-column: 1 / -1; margin-top: 8px;
+  display: inline-flex; align-items: center; gap: 10px; flex-direction: row-reverse;
+  padding: 15px 36px; background: var(--t-color-brand-500); color: var(--t-color-warm-100);
+  font-family: 'Noto Sans Arabic', sans-serif; font-size: 14px; font-weight: 600;
+  border: none; border-radius: var(--t-radius-sm); cursor: pointer;
+  transition: background var(--t-motion-transition-base); width: fit-content;
+}
+.form-submit:hover { background: var(--t-color-brand-700); }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+.footer { background: var(--t-color-brand-700); padding: 60px 0 32px; }
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px;
+  padding-bottom: 48px; border-bottom: 1px solid rgba(201,167,94,0.15);
+}
+.footer-brand-desc { font-size: 12px; color: var(--t-color-warm-300); line-height: 2; margin-top: 16px; font-weight: 300; font-family: 'Noto Sans Arabic', sans-serif; }
+.footer-col-title { font-family: 'Noto Sans Arabic', sans-serif; font-size: 12px; font-weight: 700; color: var(--t-color-accent-500); margin-bottom: 16px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-link { font-size: 12px; color: var(--t-color-warm-300); transition: color var(--t-motion-transition-base); font-family: 'Noto Sans Arabic', sans-serif; }
+.footer-link:hover { color: var(--t-color-warm-100); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; flex-direction: row-reverse; }
+.footer-copy { font-size: 11px; color: var(--t-color-warm-300); font-family: 'Noto Sans Arabic', sans-serif; }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 11px; color: var(--t-color-warm-300); transition: color var(--t-motion-transition-base); font-family: 'Noto Sans Arabic', sans-serif; }
+.footer-legal a:hover { color: var(--t-color-warm-100); }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <img src="../../assets/logo-horizontal-white.png" class="nav-logo" alt="Venix Concierge">
+    <div class="nav-links">
+      <button class="nav-cta">احجز الآن</button>
+      <a href="#" class="nav-link">تواصل معنا</a>
+      <a href="#" class="nav-link">من نحن</a>
+      <a href="#" class="nav-link">التجربة</a>
+      <a href="#" class="nav-link">الخدمات</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ═════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">فينيكس كونسيرج</div>
+    <h1 class="hero-title">امتلك<br><em>اللحظة</em></h1>
+    <p class="hero-subtitle">نحن نهتم بكل التفاصيل، حتى تتفرغ لما يهمّك حقاً.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">اكتشف خدماتنا</button>
+      <button class="btn-ghost-light">تواصل مع الكونسيرج</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══════════════════════════════════════════════ -->
+<section class="section-services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">ما نقدّمه</span>
+      <h2 class="section-title">خدمات مخصّصة لك</h2>
+      <div class="section-rule"></div>
+      <p class="section-desc">مصمّمة لمن يستحق الأفضل — بأسلوب راقٍ وسريّة تامة.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="plane" width="28" height="28" stroke-width="1.2"></i></div>
+        <div class="service-rule"></div>
+        <div class="service-title">الطيران الخاص</div>
+        <div class="service-desc">وصول عالمي إلى الطائرات الخاصة والمروحيات وطائرات الأجرة.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="car" width="28" height="28" stroke-width="1.2"></i></div>
+        <div class="service-rule"></div>
+        <div class="service-title">السائق الخاص</div>
+        <div class="service-desc">نقل بري فاخر وسريّ في أرقى السيارات في أي مكان.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="building-2" width="28" height="28" stroke-width="1.2"></i></div>
+        <div class="service-rule"></div>
+        <div class="service-title">الفنادق والفلل</div>
+        <div class="service-desc">الوصول إلى أرقى العقارات حول العالم مع ترتيبات حصرية.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="anchor" width="28" height="28" stroke-width="1.2"></i></div>
+        <div class="service-rule"></div>
+        <div class="service-title">استئجار اليخوت</div>
+        <div class="service-desc">رحلات بحرية منتقاة في البحر المتوسط والكاريبي وما هو أبعد.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="star" width="28" height="28" stroke-width="1.2"></i></div>
+        <div class="service-rule"></div>
+        <div class="service-title">الفعاليات الحصرية</div>
+        <div class="service-desc">دعوات لحضور أبرز الحفلات والمهرجانات العالمية.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="shopping-bag" width="28" height="28" stroke-width="1.2"></i></div>
+        <div class="service-rule"></div>
+        <div class="service-title">التسوق الشخصي</div>
+        <div class="service-desc">مصمّمون متخصصون ووصول حصري إلى أبرز دور الأزياء العالمية.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="shield" width="28" height="28" stroke-width="1.2"></i></div>
+        <div class="service-rule"></div>
+        <div class="service-title">الأمن والخصوصية</div>
+        <div class="service-desc">سريّة مطلقة في كل خدمة مع ترتيبات أمنية احترافية عند الحاجة.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="phone" width="28" height="28" stroke-width="1.2"></i></div>
+        <div class="service-rule"></div>
+        <div class="service-title">كونسيرج 24/7</div>
+        <div class="service-desc">كونسيرجك المخصص متاح على مدار الساعة، في أي مكان بالعالم.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUOTE ══════════════════════════════════════════════════ -->
+<section class="section-quote">
+  <div class="quote-text">التفاصيل هي ما يصنع الفارق</div>
+  <div class="quote-attr">لأن كل لحظة تستحق الاهتمام</div>
+</section>
+
+<!-- ══ PROCESS ════════════════════════════════════════════════ -->
+<section class="section-process">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">كيف نعمل</span>
+      <h2 class="section-title">التميّز بلا تعقيد</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="process-steps">
+      <div class="process-step" style="border-left:1px solid var(--t-color-warm-300); padding-left:32px; padding-right:0;">
+        <span class="process-num">04</span>
+        <div class="process-title">عِش التجربة</div>
+        <div class="process-desc">انطلق واسترخِ واستمتع. نحن في خدمتك طوال الوقت.</div>
+      </div>
+      <div class="process-step" style="border-left:1px solid var(--t-color-warm-300); padding-left:32px; padding-right:0;">
+        <span class="process-num">03</span>
+        <div class="process-title">الترتيب</div>
+        <div class="process-desc">نتولّى كل التفاصيل بدقة. تأكّد فقط واستعد لتجربة استثنائية.</div>
+      </div>
+      <div class="process-step" style="border-left:1px solid var(--t-color-warm-300); padding-left:32px; padding-right:0;">
+        <span class="process-num">02</span>
+        <div class="process-title">الاستشارة</div>
+        <div class="process-desc">نستمع إلى متطلباتك ونصمم حلاً مخصصاً يناسب احتياجاتك.</div>
+      </div>
+      <div class="process-step" style="border-right:none; padding-right:0;">
+        <span class="process-num">01</span>
+        <div class="process-title">تواصل معنا</div>
+        <div class="process-desc">تواصل مع كونسيرجك عبر الهاتف أو البريد الإلكتروني أو البوابة الآمنة.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ════════════════════════════════════════════════ -->
+<section class="section-contact" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-copy">
+        <span class="section-eyebrow" style="text-align:right; display:block;">تواصل معنا</span>
+        <h2 class="section-title" style="text-align:right; font-size:clamp(22px,2.5vw,34px);">رحلتك<br>تبدأ هنا</h2>
+        <div class="section-rule" style="margin-right:0; margin-left:auto;"></div>
+        <p>فريق الكونسيرج لدينا متاح على مدار الساعة لمناقشة متطلباتك وتصميم تجربتك المخصصة.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-item">
+            <span>48+ 000 000 000</span>
+            <i data-lucide="phone" width="15" height="15" stroke-width="1.4"></i>
+          </div>
+          <div class="contact-detail-item">
+            <span>concierge@venix.pl</span>
+            <i data-lucide="mail" width="15" height="15" stroke-width="1.4"></i>
+          </div>
+          <div class="contact-detail-item">
+            <span>وارسو، بولندا</span>
+            <i data-lucide="map-pin" width="15" height="15" stroke-width="1.4"></i>
+          </div>
+        </div>
+      </div>
+      <form>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">الاسم الكامل</label>
+            <input type="text" class="form-input" placeholder="محمد العبدالله">
+          </div>
+          <div class="form-group">
+            <label class="form-label">رقم الهاتف</label>
+            <input type="tel" class="form-input" placeholder="+971 00 000 0000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">البريد الإلكتروني</label>
+            <input type="email" class="form-input" placeholder="m.alabdullah@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">الخدمة المطلوبة</label>
+            <select class="form-select">
+              <option value="">اختر الخدمة</option>
+              <option>الطيران الخاص</option>
+              <option>السائق الخاص</option>
+              <option>الفنادق والفلل</option>
+              <option>استئجار اليخوت</option>
+              <option>الفعاليات الحصرية</option>
+              <option>التسوق الشخصي</option>
+              <option>أخرى</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">متطلباتك</label>
+            <textarea class="form-textarea" placeholder="يرجى وصف متطلباتك والتواريخ المفضلة..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <i data-lucide="send" width="13" height="13" stroke-width="1.5"></i>
+            إرسال الطلب
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <img src="../../assets/logo-horizontal-white.png" style="height:28px; opacity:0.9;" alt="Venix Concierge">
+        <p class="footer-brand-desc">إدارة نمط حياة حصري وخدمات مخصصة للأفراد المميزين الذين لا يقبلون إلا الأفضل.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">الخدمات</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">الطيران الخاص</a>
+          <a href="#" class="footer-link">السائق الخاص</a>
+          <a href="#" class="footer-link">الفنادق والفلل</a>
+          <a href="#" class="footer-link">استئجار اليخوت</a>
+          <a href="#" class="footer-link">الفعاليات الحصرية</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">الشركة</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">من نحن</a>
+          <a href="#" class="footer-link">العضوية</a>
+          <a href="#" class="footer-link">شركاؤنا</a>
+          <a href="#" class="footer-link">وظائف</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">تواصل</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link" dir="ltr">+48 000 000 000</a>
+          <a href="#" class="footer-link" dir="ltr">concierge@venix.pl</a>
+          <a href="#" class="footer-link">وارسو، بولندا</a>
+          <a href="#" class="footer-link">دعم 24/7</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 فينيكس كونسيرج. جميع الحقوق محفوظة.</div>
+      <div class="footer-legal">
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">شروط الخدمة</a>
+        <a href="#">سياسة الكوكيز</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>

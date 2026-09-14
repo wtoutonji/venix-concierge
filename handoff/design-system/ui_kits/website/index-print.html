@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<title>Venix Concierge — UI Kit</title>
+<style>
+  /* ── PRINT BASE ──────────────────────────────────────── */
+  @page { size: A4 landscape; margin: 0; }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--t-font-body);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color: var(--t-fg-default);
+  }
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── PAGE WRAPPER ──────────────────────────────────── */
+  .page {
+    width: 297mm; min-height: 210mm;
+    position: relative; overflow: hidden;
+    break-before: page; break-inside: avoid;
+    display: flex; flex-direction: column;
+  }
+  .page:first-child { break-before: avoid; }
+
+  .container { max-width: 100%; padding: 0 52px; }
+
+  /* ── PAGE 1: HERO ─────────────────────────────────── */
+  .page-hero {
+    background: var(--t-color-brand-700);
+    align-items: center; justify-content: center;
+    text-align: center; padding: 0 48px;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: repeating-linear-gradient(45deg, var(--t-color-accent-500) 0, var(--t-color-accent-500) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px;
+  }
+  .hero-bg-grad {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(122,19,34,0.5) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(201,167,94,0.07) 0%, transparent 50%);
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-nav {
+    position: absolute; top: 0; left: 0; right: 0;
+    padding: 20px 52px; display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(201,167,94,0.15);
+  }
+  .hero-nav-logo { height: 26px; object-fit: contain; }
+  .hero-nav-links { display: flex; gap: 28px; align-items: center; }
+  .hero-nav-link { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--t-color-warm-200); }
+  .hero-nav-cta {
+    font-family: var(--t-font-display); font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 7px 18px; color: var(--t-color-accent-500); border: 1px solid var(--t-color-accent-500); border-radius: 2px;
+  }
+  .hero-eyebrow {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--t-color-accent-500); margin-bottom: 20px;
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; display: block; width: 36px; height: 1px; background: var(--t-color-accent-500); opacity: 0.5;
+  }
+  .hero-title {
+    font-family: var(--t-font-display); font-weight: 400; font-size: 72px;
+    letter-spacing: 0.28em; line-height: 1.05; text-transform: uppercase; color: var(--t-color-warm-100);
+    margin-bottom: 20px;
+  }
+  .hero-title em { font-style: normal; color: var(--t-color-accent-500); }
+  .hero-subtitle {
+    font-size: 14px; font-weight: 300; color: var(--t-color-warm-200);
+    letter-spacing: 0.04em; line-height: 1.8; max-width: 440px; margin: 0 auto 36px;
+  }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; }
+  .btn-primary {
+    padding: 13px 36px; background: var(--t-color-brand-500); color: var(--t-color-warm-100);
+    font-family: var(--t-font-display); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase; border-radius: 2px;
+  }
+  .btn-ghost {
+    padding: 12px 36px; background: transparent; color: var(--t-color-warm-100);
+    font-family: var(--t-font-display); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    border: 1px solid rgba(250,251,249,0.35); border-radius: 2px;
+  }
+
+  /* ── PAGE 2: SERVICES ────────────────────────────── */
+  .page-services { background: var(--t-bg-page); padding: 52px 0; }
+  .section-header { text-align: center; margin-bottom: 40px; }
+  .section-eyebrow {
+    font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--t-color-accent-500); font-weight: 600; margin-bottom: 10px; display: block;
+  }
+  .section-title {
+    font-family: var(--t-font-display); font-weight: 400; font-size: 32px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--t-fg-brand); margin-bottom: 10px;
+  }
+  .section-rule { width: 36px; height: 1px; background: var(--t-color-brand-500); margin: 10px auto; }
+  .section-desc { font-size: 12px; color: var(--t-fg-muted); line-height: 1.7; max-width: 420px; margin: 0 auto; font-weight: 300; }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .service-card { background: var(--t-bg-surface); padding: 28px 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .service-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: var(--t-color-brand-500); }
+  .service-icon svg { width: 24px; height: 24px; stroke: var(--t-color-brand-500); fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+  .service-rule { width: 20px; height: 1px; background: var(--t-color-accent-500); }
+  .service-title { font-family: var(--t-font-display); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--t-fg-brand); }
+  .service-desc { font-size: 10px; color: var(--t-fg-muted); line-height: 1.65; }
+
+  /* ── PAGE 3: QUOTE + PROCESS ─────────────────────── */
+  .page-process { background: var(--t-color-brand-700); }
+  .quote-block {
+    padding: 52px 52px 48px; text-align: center;
+    border-bottom: 1px solid rgba(201,167,94,0.15);
+  }
+  .quote-text {
+    font-family: var(--t-font-display); font-size: 36px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--t-color-warm-100); line-height: 1.25; margin-bottom: 12px;
+  }
+  .quote-attr { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--t-color-accent-500); }
+  .process-block { padding: 40px 52px 44px; }
+  .process-eyebrow { font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--t-color-accent-500); font-weight: 600; margin-bottom: 8px; display: block; text-align: center; }
+  .process-heading {
+    font-family: var(--t-font-display); font-size: 28px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--t-color-warm-100); margin-bottom: 8px; text-align: center;
+  }
+  .process-rule { width: 36px; height: 1px; background: var(--t-color-accent-500); margin: 0 auto 32px; }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .process-step { padding: 0 28px 0 0; border-right: 1px solid rgba(201,167,94,0.2); }
+  .process-step:last-child { border-right: none; padding-right: 0; padding-left: 28px; }
+  .process-step:not(:first-child) { padding-left: 28px; }
+  .process-num { font-family: var(--t-font-display); font-size: 40px; color: rgba(201,167,94,0.25); line-height: 1; margin-bottom: 12px; }
+  .process-title { font-family: var(--t-font-display); font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--t-color-warm-100); margin-bottom: 8px; }
+  .process-desc { font-size: 10px; color: var(--t-color-warm-200); line-height: 1.65; }
+
+  /* ── PAGE 4: CONTACT + FOOTER ────────────────────── */
+  .page-contact { background: var(--t-bg-page); padding: 52px 0 0; }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; padding: 0 52px 52px; }
+  .contact-rule { width: 36px; height: 1px; background: var(--t-color-brand-500); margin: 10px 0; }
+  .contact-title { font-family: var(--t-font-display); font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--t-fg-brand); line-height: 1.2; }
+  .contact-desc { font-size: 12px; color: var(--t-fg-muted); line-height: 1.8; margin-top: 14px; font-weight: 300; }
+  .contact-detail { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .contact-detail-item { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--t-fg-muted); }
+  .contact-detail-item svg { width: 13px; height: 13px; stroke: var(--t-color-brand-500); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-group { display: flex; flex-direction: column; gap: 5px; }
+  .form-group.full { grid-column: 1/-1; }
+  .form-label { font-size: 7px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--t-fg-brand); font-weight: 600; }
+  .form-field {
+    border: 1px solid var(--t-color-warm-300); border-radius: 2px; padding: 9px 12px;
+    font-family: var(--t-font-body); font-size: 11px; color: var(--t-fg-default);
+    background: var(--t-bg-page); height: 34px;
+  }
+  .form-textarea-field { height: 56px; border: 1px solid var(--t-color-warm-300); border-radius: 2px; padding: 9px 12px; background: var(--t-bg-page); }
+  .form-btn {
+    grid-column: 1/-1; padding: 12px 32px; background: var(--t-color-brand-500); color: var(--t-color-warm-100);
+    font-family: var(--t-font-display); font-size: 8px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase; border-radius: 2px;
+    width: fit-content; margin-top: 4px;
+  }
+
+  /* Footer on same page */
+  .footer-block {
+    background: var(--t-color-brand-700); padding: 36px 52px 24px;
+  }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 24px; border-bottom: 1px solid rgba(201,167,94,0.15); }
+  .footer-brand-desc { font-size: 10px; color: var(--t-color-warm-300); line-height: 1.7; margin-top: 12px; font-weight: 300; }
+  .footer-col-title { font-family: var(--t-font-display); font-size: 8px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--t-color-accent-500); margin-bottom: 12px; }
+  .footer-links { display: flex; flex-direction: column; gap: 8px; }
+  .footer-link { font-size: 10px; color: var(--t-color-warm-300); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; }
+  .footer-copy { font-size: 9px; color: var(--t-color-warm-300); }
+  .footer-legal { display: flex; gap: 20px; }
+  .footer-legal-link { font-size: 9px; color: var(--t-color-warm-300); }
+</style>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+<!-- ══ PAGE 1: HERO ══════════════════════════════════════ -->
+<div class="page page-hero">
+  <div class="hero-bg-grad"></div>
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-nav">
+    <img src="../../assets/logo-horizontal-white.png" class="hero-nav-logo" alt="Venix Concierge">
+    <div class="hero-nav-links">
+      <span class="hero-nav-link">Services</span>
+      <span class="hero-nav-link">Experience</span>
+      <span class="hero-nav-link">About</span>
+      <span class="hero-nav-link">Contact</span>
+      <span class="hero-nav-cta">Book Now</span>
+    </div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Venix Concierge</div>
+    <h1 class="hero-title">Own The<br><em>Moment</em></h1>
+    <p class="hero-subtitle">We take care of everything, so you can focus on what truly matters.</p>
+    <div class="hero-btns">
+      <span class="btn-primary">Discover Services</span>
+      <span class="btn-ghost">Contact Concierge</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 2: SERVICES ══════════════════════════════════ -->
+<div class="page page-services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">What We Offer</span>
+      <h2 class="section-title">Bespoke Services</h2>
+      <div class="section-rule"></div>
+      <p class="section-desc">Curated for those who demand the finest — delivered with absolute discretion.</p>
+    </div>
+  </div>
+  <div style="padding: 0 52px;">
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2 3 7l7 3.5L6.5 14H5l-2 2 3.5 1.5L8 21l2-2v-1.5L13.5 14l3.5 7z"/></svg></div>
+        <div class="service-rule"></div>
+        <div class="service-title">Private Air Travel</div>
+        <div class="service-desc">Global access to private jets, helicopters, and charter flights arranged to your schedule.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div class="service-rule"></div>
+        <div class="service-title">Luxury Chauffeur</div>
+        <div class="service-desc">Discreet, punctual ground transport in the finest vehicles, anywhere in the world.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="service-rule"></div>
+        <div class="service-title">Hotel & Villas</div>
+        <div class="service-desc">Access to the world's most exclusive properties, with bespoke arrangements and upgrades.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M3 17h18M3 17c0-4 2-6 5-7m13 7c0-4-2-6-5-7"/></svg></div>
+        <div class="service-rule"></div>
+        <div class="service-title">Yacht Charters</div>
+        <div class="service-desc">Curated voyages across the Mediterranean, Caribbean, and beyond.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="service-rule"></div>
+        <div class="service-title">VIP Events</div>
+        <div class="service-desc">Invitations to exclusive galas, premieres, and cultural events worldwide.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <div class="service-rule"></div>
+        <div class="service-title">Personal Shopping</div>
+        <div class="service-desc">Dedicated stylists and access to the finest fashion houses and private sales.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="service-rule"></div>
+        <div class="service-title">Security & Privacy</div>
+        <div class="service-desc">Absolute discretion in every service, with professional security arrangements available.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 5.95 5.95l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg></div>
+        <div class="service-rule"></div>
+        <div class="service-title">24/7 Concierge</div>
+        <div class="service-desc">Your dedicated concierge is available at any hour, anywhere in the world.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 3: QUOTE + PROCESS ══════════════════════════ -->
+<div class="page page-process">
+  <div class="quote-block">
+    <div class="quote-text">Details Make The Difference</div>
+    <div class="quote-attr">Because every moment matters</div>
+  </div>
+  <div class="process-block">
+    <span class="process-eyebrow">How It Works</span>
+    <div class="process-heading">Effortless Excellence</div>
+    <div class="process-rule"></div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <div class="process-title">Enquire</div>
+        <div class="process-desc">Contact your concierge by phone, email, or through our secure portal at any time.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <div class="process-title">Consult</div>
+        <div class="process-desc">We listen to your requirements and craft a bespoke solution tailored to your needs.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <div class="process-title">Arrange</div>
+        <div class="process-desc">Every detail is handled with precision. You simply confirm and prepare to experience.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <div class="process-title">Experience</div>
+        <div class="process-desc">Arrive, relax, and own the moment. We remain on-call throughout for any needs.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 4: CONTACT + FOOTER ══════════════════════════ -->
+<div class="page page-contact">
+  <div class="contact-inner">
+    <div>
+      <span class="section-eyebrow">Get In Touch</span>
+      <div class="contact-title">Your Journey<br>Begins Here</div>
+      <div class="contact-rule"></div>
+      <div class="contact-desc">Our concierge team is available around the clock to discuss your requirements and begin crafting your bespoke experience.</div>
+      <div class="contact-detail">
+        <div class="contact-detail-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 5.95 5.95l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+          <span>+48 000 000 000</span>
+        </div>
+        <div class="contact-detail-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>concierge@venix.pl</span>
+        </div>
+        <div class="contact-detail-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Warsaw, Poland</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="form-grid">
+        <div class="form-group">
+          <div class="form-label">Full Name</div>
+          <div class="form-field"></div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">Phone Number</div>
+          <div class="form-field"></div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">Email Address</div>
+          <div class="form-field"></div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">Service Required</div>
+          <div class="form-field"></div>
+        </div>
+        <div class="form-group full">
+          <div class="form-label">Your Requirements</div>
+          <div class="form-textarea-field"></div>
+        </div>
+        <div class="form-btn" style="grid-column:1/-1;">Submit Enquiry</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-block">
+    <div class="footer-top">
+      <div>
+        <img src="../../assets/logo-horizontal-white.png" style="height:22px; opacity:0.9;" alt="Venix Concierge">
+        <p class="footer-brand-desc">Exclusive lifestyle management and personalized services for discerning individuals who expect nothing less than excellence.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <span class="footer-link">Private Air Travel</span>
+          <span class="footer-link">Luxury Chauffeur</span>
+          <span class="footer-link">Hotel & Villas</span>
+          <span class="footer-link">Yacht Charters</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <span class="footer-link">About Us</span>
+          <span class="footer-link">Membership</span>
+          <span class="footer-link">Partners</span>
+          <span class="footer-link">Careers</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-links">
+          <span class="footer-link">+48 000 000 000</span>
+          <span class="footer-link">concierge@venix.pl</span>
+          <span class="footer-link">Warsaw, Poland</span>
+          <span class="footer-link">24/7 Support</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Venix Concierge. All rights reserved.</div>
+      <div class="footer-legal">
+        <span class="footer-legal-link">Privacy Policy</span>
+        <span class="footer-legal-link">Terms of Service</span>
+        <span class="footer-legal-link">Cookie Policy</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.fonts.ready.then(function() {
+    setTimeout(function() { window.print(); }, 500);
+  });
+</script>
+</body>
+</html>

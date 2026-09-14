@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Type" name="Type Scale" subtitle="Full size scale 20px–90px" viewport="600x260" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-warm-100); font-family: var(--t-font-body); padding: 28px 32px; }
+  .scale { display: flex; flex-direction: column; gap: 10px; }
+  .row { display: flex; align-items: center; gap: 16px; }
+  .px { font-size: 9px; color: var(--t-color-warm-300); letter-spacing: var(--t-ls-ui); width: 40px; flex-shrink: 0; text-align: right; }
+  .bar { height: 2px; background: var(--t-color-neutral-200); flex-shrink: 0; }
+  .sample { font-family: var(--t-font-display); color: var(--t-color-brand-500); text-transform: uppercase; letter-spacing: var(--t-ls-tag); line-height: 1; white-space: nowrap; overflow: hidden; }
+</style>
+</head>
+<body>
+<div class="scale">
+  <div class="row"><div class="px">90px</div><div class="bar" style="width:8px;"></div><div class="sample" style="font-size:44px;">Venix</div></div>
+  <div class="row"><div class="px">68px</div><div class="bar" style="width:8px;"></div><div class="sample" style="font-size:36px;">Venix</div></div>
+  <div class="row"><div class="px">52px</div><div class="bar" style="width:8px;"></div><div class="sample" style="font-size:28px;">Own The Moment</div></div>
+  <div class="row"><div class="px">38px</div><div class="bar" style="width:8px;"></div><div class="sample" style="font-size:22px;">Luxury Concierge</div></div>
+  <div class="row"><div class="px">30px</div><div class="bar" style="width:8px;"></div><div class="sample" style="font-size:17px; font-weight:600;">Chauffeur Services</div></div>
+  <div class="row"><div class="px">24px</div><div class="bar" style="width:8px;"></div><div class="sample" style="font-size:14px; font-weight:600;">Private Air Travel</div></div>
+  <div class="row"><div class="px">20px</div><div class="bar" style="width:8px;"></div><div class="sample" style="font-size:12px; font-weight:600;">Hotel Reservations</div></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,370 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/core/**",
+              "index.js"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Cinzel|Montserrat|Noto Sans Arabic))/i]",
+        "message": "Font not provided by the design system. Available: Cinzel, Montserrat, Noto Sans Arabic."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute > JSXIdentifier[name!=/^(?:tone|dot|children|key|ref|className|style|children)$/]",
+        "message": "<Badge> doesn't accept that prop. Declared props: tone, dot, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:brand|outline|gold|solid|dark|muted|warm|inverse)$/]",
+        "message": "<Badge> tone must be one of 'brand' | 'outline' | 'gold' | 'solid' | 'dark' | 'muted' | 'warm' | 'inverse'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|as|children|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, as, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|ghost|gold|text|ghost-inverse)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'ghost' | 'gold' | 'text' | 'ghost-inverse'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='as'] > Literal[value!=/^(?:button|a)$/]",
+        "message": "<Button> as must be one of 'button' | 'a'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute > JSXIdentifier[name!=/^(?:tone|elevated|eyebrow|rule|title|children|key|ref|className|style|children)$/]",
+        "message": "<Card> doesn't accept that prop. Declared props: tone, elevated, eyebrow, rule, title, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:surface|warm|inverse)$/]",
+        "message": "<Card> tone must be one of 'surface' | 'warm' | 'inverse'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:as|label|hint|invalid|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: as, label, hint, invalid."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute[name.name='as'] > Literal[value!=/^(?:input|select|textarea)$/]",
+        "message": "<Input> as must be one of 'input' | 'select' | 'textarea'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Badge": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "Card": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--t-bg-inverse",
+      "--t-bg-inverse-alt",
+      "--t-bg-page",
+      "--t-bg-subtle",
+      "--t-bg-surface",
+      "--t-bg-surface-warm",
+      "--t-border-accent",
+      "--t-border-danger",
+      "--t-border-focus",
+      "--t-border-muted",
+      "--t-border-on-inverse",
+      "--t-border-strong",
+      "--t-border-subtle",
+      "--t-border-warm",
+      "--t-border-width-hairline",
+      "--t-border-width-rule",
+      "--t-color-accent-500",
+      "--t-color-brand-500",
+      "--t-color-brand-700",
+      "--t-color-brand-900",
+      "--t-color-brand-ink",
+      "--t-color-danger-500",
+      "--t-color-neutral-0",
+      "--t-color-neutral-100",
+      "--t-color-neutral-1000",
+      "--t-color-neutral-200",
+      "--t-color-neutral-50",
+      "--t-color-warm-100",
+      "--t-color-warm-200",
+      "--t-color-warm-300",
+      "--t-fg-accent",
+      "--t-fg-brand",
+      "--t-fg-brand-strong",
+      "--t-fg-danger",
+      "--t-fg-default",
+      "--t-fg-inverse",
+      "--t-fg-inverse-muted",
+      "--t-fg-muted",
+      "--t-font-arabic",
+      "--t-font-body",
+      "--t-font-body-ar",
+      "--t-font-display",
+      "--t-font-display-ar",
+      "--t-fs-2xl",
+      "--t-fs-3xl",
+      "--t-fs-4xl",
+      "--t-fs-5xl",
+      "--t-fs-6xl",
+      "--t-fs-base",
+      "--t-fs-lg",
+      "--t-fs-md",
+      "--t-fs-sm",
+      "--t-fs-xl",
+      "--t-fs-xs",
+      "--t-fw-bold",
+      "--t-fw-display-ar",
+      "--t-fw-light",
+      "--t-fw-medium",
+      "--t-fw-regular",
+      "--t-fw-semibold",
+      "--t-interactive-accent",
+      "--t-interactive-ghost-hover",
+      "--t-interactive-primary",
+      "--t-interactive-primary-active",
+      "--t-interactive-primary-hover",
+      "--t-layout-bp-2xl",
+      "--t-layout-bp-lg",
+      "--t-layout-bp-md",
+      "--t-layout-bp-sm",
+      "--t-layout-bp-xl",
+      "--t-layout-container",
+      "--t-layout-container-wide",
+      "--t-layout-gutter",
+      "--t-layout-gutter-sm",
+      "--t-layout-reading",
+      "--t-lh-body-ar",
+      "--t-lh-display-ar",
+      "--t-lh-normal",
+      "--t-lh-relaxed",
+      "--t-lh-snug",
+      "--t-lh-tight",
+      "--t-ls-body",
+      "--t-ls-body-ar",
+      "--t-ls-button",
+      "--t-ls-display",
+      "--t-ls-display-ar",
+      "--t-ls-headline",
+      "--t-ls-subhead",
+      "--t-ls-tag",
+      "--t-ls-ui",
+      "--t-motion-duration-base",
+      "--t-motion-duration-fast",
+      "--t-motion-duration-reveal",
+      "--t-motion-duration-slow",
+      "--t-motion-ease-emphasized",
+      "--t-motion-ease-standard",
+      "--t-motion-transition-base",
+      "--t-motion-transition-fast",
+      "--t-motion-transition-reveal",
+      "--t-motion-transition-slow",
+      "--t-radius-button",
+      "--t-radius-card",
+      "--t-radius-lg",
+      "--t-radius-md",
+      "--t-radius-none",
+      "--t-radius-sm",
+      "--t-shadow-card",
+      "--t-shadow-modal",
+      "--t-shadow-subtle",
+      "--t-space-1",
+      "--t-space-10",
+      "--t-space-12",
+      "--t-space-16",
+      "--t-space-2",
+      "--t-space-20",
+      "--t-space-24",
+      "--t-space-3",
+      "--t-space-32",
+      "--t-space-4",
+      "--t-space-5",
+      "--t-space-6",
+      "--t-space-8",
+      "--t-space-section",
+      "--t-space-section-sm",
+      "--t-z-header",
+      "--t-z-modal"
+    ],
+    "tokenKinds": {
+      "--t-color-brand-500": "color",
+      "--t-color-brand-700": "color",
+      "--t-color-brand-900": "color",
+      "--t-color-brand-ink": "color",
+      "--t-color-accent-500": "color",
+      "--t-color-danger-500": "color",
+      "--t-color-warm-100": "color",
+      "--t-color-warm-200": "color",
+      "--t-color-warm-300": "color",
+      "--t-color-neutral-0": "color",
+      "--t-color-neutral-50": "color",
+      "--t-color-neutral-100": "color",
+      "--t-color-neutral-200": "color",
+      "--t-color-neutral-1000": "color",
+      "--t-bg-page": "color",
+      "--t-bg-surface": "color",
+      "--t-bg-surface-warm": "color",
+      "--t-bg-subtle": "color",
+      "--t-bg-inverse": "color",
+      "--t-bg-inverse-alt": "color",
+      "--t-fg-default": "color",
+      "--t-fg-brand": "color",
+      "--t-fg-brand-strong": "color",
+      "--t-fg-muted": "color",
+      "--t-fg-accent": "color",
+      "--t-fg-inverse": "color",
+      "--t-fg-inverse-muted": "color",
+      "--t-border-subtle": "color",
+      "--t-border-warm": "color",
+      "--t-border-muted": "color",
+      "--t-border-strong": "color",
+      "--t-border-accent": "color",
+      "--t-border-on-inverse": "color",
+      "--t-fg-danger": "color",
+      "--t-border-danger": "color",
+      "--t-interactive-primary": "color",
+      "--t-interactive-primary-hover": "color",
+      "--t-interactive-primary-active": "color",
+      "--t-interactive-accent": "color",
+      "--t-interactive-ghost-hover": "color",
+      "--t-border-focus": "color",
+      "--t-font-display": "font",
+      "--t-font-body": "font",
+      "--t-font-arabic": "font",
+      "--t-fw-light": "font",
+      "--t-fw-regular": "font",
+      "--t-fw-medium": "font",
+      "--t-fw-semibold": "font",
+      "--t-fw-bold": "font",
+      "--t-fs-xs": "spacing",
+      "--t-fs-sm": "spacing",
+      "--t-fs-base": "spacing",
+      "--t-fs-md": "spacing",
+      "--t-fs-lg": "spacing",
+      "--t-fs-xl": "spacing",
+      "--t-fs-2xl": "spacing",
+      "--t-fs-3xl": "spacing",
+      "--t-fs-4xl": "spacing",
+      "--t-fs-5xl": "spacing",
+      "--t-fs-6xl": "spacing",
+      "--t-lh-tight": "font",
+      "--t-lh-snug": "font",
+      "--t-lh-normal": "font",
+      "--t-lh-relaxed": "font",
+      "--t-ls-display": "font",
+      "--t-ls-headline": "font",
+      "--t-ls-subhead": "font",
+      "--t-ls-ui": "font",
+      "--t-ls-body": "font",
+      "--t-ls-button": "font",
+      "--t-ls-tag": "font",
+      "--t-font-display-ar": "font",
+      "--t-font-body-ar": "font",
+      "--t-fw-display-ar": "font",
+      "--t-ls-display-ar": "font",
+      "--t-ls-body-ar": "font",
+      "--t-lh-display-ar": "font",
+      "--t-lh-body-ar": "font",
+      "--t-space-1": "spacing",
+      "--t-space-2": "spacing",
+      "--t-space-3": "spacing",
+      "--t-space-4": "spacing",
+      "--t-space-5": "spacing",
+      "--t-space-6": "spacing",
+      "--t-space-8": "spacing",
+      "--t-space-10": "spacing",
+      "--t-space-12": "spacing",
+      "--t-space-16": "spacing",
+      "--t-space-20": "spacing",
+      "--t-space-24": "spacing",
+      "--t-space-32": "spacing",
+      "--t-space-section": "spacing",
+      "--t-space-section-sm": "spacing",
+      "--t-layout-bp-sm": "other",
+      "--t-layout-bp-md": "other",
+      "--t-layout-bp-lg": "other",
+      "--t-layout-bp-xl": "other",
+      "--t-layout-bp-2xl": "other",
+      "--t-layout-container": "other",
+      "--t-layout-container-wide": "other",
+      "--t-layout-reading": "other",
+      "--t-layout-gutter": "other",
+      "--t-layout-gutter-sm": "other",
+      "--t-z-header": "other",
+      "--t-z-modal": "other",
+      "--t-radius-none": "radius",
+      "--t-radius-sm": "radius",
+      "--t-radius-card": "radius",
+      "--t-radius-md": "radius",
+      "--t-radius-button": "radius",
+      "--t-radius-lg": "radius",
+      "--t-shadow-subtle": "shadow",
+      "--t-shadow-card": "shadow",
+      "--t-shadow-modal": "shadow",
+      "--t-border-width-hairline": "other",
+      "--t-border-width-rule": "other",
+      "--t-motion-duration-fast": "other",
+      "--t-motion-duration-base": "other",
+      "--t-motion-duration-slow": "other",
+      "--t-motion-duration-reveal": "other",
+      "--t-motion-ease-standard": "other",
+      "--t-motion-ease-emphasized": "other",
+      "--t-motion-transition-fast": "other",
+      "--t-motion-transition-base": "other",
+      "--t-motion-transition-slow": "other",
+      "--t-motion-transition-reveal": "other"
+    },
+    "fontFamilies": [
+      "Cinzel",
+      "Montserrat",
+      "Noto Sans Arabic"
+    ]
+  }
+}

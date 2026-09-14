@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Type" name="Arabic Typography" subtitle="Noto Sans Arabic — display, body, label scale RTL" viewport="700x380" -->
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-warm-100); padding: 28px 32px; direction: rtl; }
+
+  .row {
+    border-bottom: 1px solid var(--t-color-neutral-200); padding: 14px 0;
+    display: flex; align-items: baseline; gap: 24px;
+    flex-direction: row-reverse;
+  }
+  .row:last-child { border-bottom: none; }
+  .meta {
+    width: 100px; flex-shrink: 0; font-family: var(--t-font-body);
+    font-size: 9px; color: var(--t-color-warm-300); letter-spacing: var(--t-ls-ui);
+    text-transform: uppercase; line-height: 1.5; text-align: left; direction: ltr;
+  }
+
+  /* Arabic display — heavy weight for impact */
+  .ar-display {
+    font-family: var(--t-font-arabic);
+    font-weight: var(--t-fw-bold); color: var(--t-color-brand-500); line-height: 1.2;
+  }
+  /* Arabic body — regular/light */
+  .ar-body {
+    font-family: var(--t-font-arabic);
+    font-weight: var(--t-fw-regular); color: var(--t-color-brand-ink); line-height: 1.9;
+    letter-spacing: 0;
+  }
+  .ar-label {
+    font-family: var(--t-font-arabic);
+    font-weight: var(--t-fw-semibold); color: var(--t-color-warm-300); line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="meta">Display<br>52px / 700</div>
+    <div class="ar-display" style="font-size:38px;">امتلك اللحظة</div>
+  </div>
+  <div class="row">
+    <div class="meta">H1<br>38px / 700</div>
+    <div class="ar-display" style="font-size:28px;">فينيكس كونسيرج</div>
+  </div>
+  <div class="row">
+    <div class="meta">H2<br>28px / 600</div>
+    <div class="ar-display" style="font-size:20px; font-weight:600;">خدمات حصرية وراقية</div>
+  </div>
+  <div class="row">
+    <div class="meta">H3<br>20px / 600</div>
+    <div class="ar-display" style="font-size:15px; font-weight:600;">السائق الخاص · الطيران الخاص</div>
+  </div>
+  <div class="row">
+    <div class="meta">Label<br>11px / 600</div>
+    <div class="ar-label" style="font-size:11px;">حصري · دقيق · سري</div>
+  </div>
+  <div class="row">
+    <div class="meta">Body Lg<br>15px / 300</div>
+    <div class="ar-body" style="font-size:14px; font-weight:300;">نحن نهتم بكل التفاصيل، حتى تتفرغ لما يهمّك حقاً.</div>
+  </div>
+  <div class="row">
+    <div class="meta">Body<br>13px / 400</div>
+    <div class="ar-body" style="font-size:12px;">تقدم فينيكس كونسيرج خدمات مخصصة للأفراد المميزين الذين لا يقبلون إلا الأفضل.</div>
+  </div>
+  <div class="row">
+    <div class="meta">Caption<br>10px / 500</div>
+    <div class="ar-label" style="font-size:10px;">دعم على مدار الساعة · وارسو، بولندا</div>
+  </div>
+</body>
+</html>

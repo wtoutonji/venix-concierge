@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Buttons" subtitle="Primary, Ghost, Gold, Text, on-dark variants" viewport="700x300" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-warm-100); font-family: var(--t-font-body); padding: 28px 32px; }
+  button, .btn-text { white-space: nowrap; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+  .row:last-child { margin-bottom: 0; }
+  .label { font-size: 8px; color: var(--t-color-warm-300); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+
+  /* Primary */
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 12px 32px;
+    background: var(--t-color-brand-500); color: var(--t-color-warm-100);
+    font-family: var(--t-font-display); font-size: 10px; font-weight: var(--t-fw-semibold);
+    letter-spacing: var(--t-ls-button); text-transform: uppercase;
+    border: none; border-radius: var(--t-radius-button); cursor: pointer;
+    transition: background var(--t-motion-transition-base);
+  }
+  .btn-primary:hover { background: var(--t-color-brand-700); }
+
+  /* Ghost / Outline */
+  .btn-ghost {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 11px 32px;
+    background: transparent; color: var(--t-color-brand-500);
+    font-family: var(--t-font-display); font-size: 10px; font-weight: var(--t-fw-semibold);
+    letter-spacing: var(--t-ls-button); text-transform: uppercase;
+    border: 1px solid var(--t-color-brand-500); border-radius: var(--t-radius-button); cursor: pointer;
+    transition: all var(--t-motion-transition-base);
+  }
+  .btn-ghost:hover { background: var(--t-color-brand-500); color: var(--t-color-warm-100); }
+
+  /* Gold / Accent */
+  .btn-gold {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 12px 32px;
+    background: var(--t-color-accent-500); color: var(--t-color-warm-100);
+    font-family: var(--t-font-display); font-size: 10px; font-weight: var(--t-fw-semibold);
+    letter-spacing: var(--t-ls-button); text-transform: uppercase;
+    border: none; border-radius: var(--t-radius-button); cursor: pointer;
+  }
+
+  /* Ghost on dark */
+  .dark-bar { background: var(--t-color-brand-700); padding: 20px 24px; border-radius: var(--t-radius-button); display: flex; gap: 12px; align-items: center; }
+  .btn-ghost-dark {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 11px 32px;
+    background: transparent; color: var(--t-color-warm-100);
+    font-family: var(--t-font-display); font-size: 10px; font-weight: var(--t-fw-semibold);
+    letter-spacing: var(--t-ls-button); text-transform: uppercase;
+    border: 1px solid var(--t-border-on-inverse); border-radius: var(--t-radius-button); cursor: pointer;
+    transition: all var(--t-motion-transition-base);
+  }
+  .btn-text {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--t-color-brand-500); font-family: var(--t-font-body); font-size: 10px;
+    font-weight: var(--t-fw-semibold); letter-spacing: var(--t-ls-tag); text-transform: uppercase;
+    background: none; border: none; cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-text::after { content: '→'; }
+
+  /* Small */
+  .btn-sm {
+    display: inline-flex; align-items: center;
+    padding: 8px 20px; background: var(--t-color-brand-500); color: var(--t-color-warm-100);
+    font-family: var(--t-font-display); font-size: 9px; font-weight: var(--t-fw-semibold);
+    letter-spacing: var(--t-ls-button); text-transform: uppercase;
+    border: none; border-radius: var(--t-radius-button); cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="label">Primary · Ghost · Accent</div>
+  <div class="row">
+    <button class="btn-primary">Book Now</button>
+    <button class="btn-ghost">Learn More</button>
+    <button class="btn-gold">Request Access</button>
+    <button class="btn-sm">Enquire</button>
+  </div>
+  <div class="label">On Dark Background</div>
+  <div class="dark-bar">
+    <button class="btn-primary">Book Now</button>
+    <button class="btn-ghost-dark">Learn More</button>
+    <button class="btn-text" style="color:var(--t-color-accent-500);">Discover Services</button>
+  </div>
+  <div class="row" style="margin-top:14px;">
+    <button class="btn-text">View All Services</button>
+  </div>
+</body>
+</html>

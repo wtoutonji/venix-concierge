@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Logo" subtitle="All logo variants, brand patterns, icon sizes + usage" viewport="700x480" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-neutral-200); font-family: var(--t-font-body); padding: 0; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .cell { padding: 28px 32px; display: flex; flex-direction: column; gap: 14px; }
+  .cell-light { background: var(--t-color-warm-100); }
+  .cell-dark  { background: var(--t-color-brand-700); }
+  .cell-champagne { background: var(--t-color-warm-200); }
+  .cell-icon { background: var(--t-color-brand-700); }
+
+  .logo-row { display: flex; align-items: center; gap: 24px; }
+  .label { font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--t-color-warm-300); }
+  .label-light { color: rgba(201,167,94,0.7); }
+
+  /* Brand mark / icon — extracted as inline SVG approximation of the V wing */
+  .icon-demo { display: flex; align-items: center; gap: 20px; }
+
+  /* Pattern demo */
+  .pattern-box {
+    height: 56px; border-radius: var(--t-radius-sm);
+    background-image: repeating-linear-gradient(
+      45deg, rgba(90,14,26,0.12) 0, rgba(90,14,26,0.12) 1px, transparent 0, transparent 50%
+    );
+    background-size: 14px 14px;
+    background-color: var(--t-color-warm-100);
+  }
+  .pattern-box-dark {
+    height: 56px; border-radius: var(--t-radius-sm);
+    background-image: repeating-linear-gradient(
+      45deg, rgba(201,167,94,0.12) 0, rgba(201,167,94,0.12) 1px, transparent 0, transparent 50%
+    );
+    background-size: 14px 14px;
+    background-color: var(--t-color-brand-700);
+  }
+  .pattern-usage { font-size: 9px; color: var(--t-color-warm-300); letter-spacing: 0.04em; line-height: 1.6; max-width: 220px; }
+
+  .full { grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+<div class="grid">
+
+  <!-- Light bg — burgundy logos -->
+  <div class="cell cell-light">
+    <div class="label">On Light — Burgundy Logos</div>
+    <img src="../assets/logo-horizontal.png" style="height:32px; object-fit:contain; object-position:left;" alt="Horizontal logo">
+    <img src="../assets/logo-vertical.png" style="height:64px; object-fit:contain; object-position:left;" alt="Vertical logo">
+  </div>
+
+  <!-- Dark bg — white logos -->
+  <div class="cell cell-dark">
+    <div class="label label-light">On Dark — White Logos</div>
+    <img src="../assets/logo-horizontal-white.png" style="height:32px; object-fit:contain; object-position:left;" alt="Horizontal white logo">
+    <img src="../assets/logo-vertical-white.png" style="height:64px; object-fit:contain; object-position:left;" alt="Vertical white logo">
+  </div>
+
+  <!-- Patterns -->
+  <div class="cell cell-champagne">
+    <div class="label">Brand Pattern — On Light</div>
+    <div class="pattern-box"></div>
+    <div class="pattern-usage">Diagonal line texture, 45°, burgundy at 12% opacity. Use subtly on section backgrounds, cards, print materials, and packaging.</div>
+  </div>
+
+  <div class="cell cell-icon">
+    <div class="label label-light">Brand Pattern — On Dark</div>
+    <div class="pattern-box-dark"></div>
+    <div class="pattern-usage" style="color:rgba(201,167,94,0.6);">Same diagonal pattern, gold at 12% opacity. Used in hero sections and dark-background overlays.</div>
+  </div>
+
+  <!-- Icon usage full width -->
+  <div class="cell cell-dark full" style="align-items:center; text-align:center; padding:20px 32px;">
+    <div class="label label-light">Brand Mark (Icon) — The V Wing · Represents freedom, movement, and elevated experiences</div>
+    <div style="display:flex; gap:40px; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:4px;">
+      <!-- Large decorative use -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <img src="../assets/logo-vertical-white.png" style="height:80px; object-fit:contain;" alt="Icon large">
+        <span style="font-size:8px;color:rgba(201,167,94,0.6);letter-spacing:0.1em;text-transform:uppercase;">Large / Hero</span>
+      </div>
+      <!-- Medium -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <img src="../assets/logo-vertical-white.png" style="height:48px; object-fit:contain;" alt="Icon medium">
+        <span style="font-size:8px;color:rgba(201,167,94,0.6);letter-spacing:0.1em;text-transform:uppercase;">Medium / Nav</span>
+      </div>
+      <!-- Small favicon use -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <img src="../assets/logo-vertical-white.png" style="height:28px; object-fit:contain;" alt="Icon small">
+        <span style="font-size:8px;color:rgba(201,167,94,0.6);letter-spacing:0.1em;text-transform:uppercase;">Small / Favicon</span>
+      </div>
+      <!-- Watermark use -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <img src="../assets/logo-vertical-white.png" style="height:80px; object-fit:contain; opacity:0.06;" alt="Icon watermark">
+        <span style="font-size:8px;color:rgba(201,167,94,0.6);letter-spacing:0.1em;text-transform:uppercase;">Watermark</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

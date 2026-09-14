@@ -1,0 +1,20 @@
+/* Venix Concierge — spacing scale (4px base, generous luxury rhythm) */
+:root{
+  --t-space-1:4px;
+  --t-space-2:8px;
+  --t-space-3:12px;
+  --t-space-4:16px;
+  --t-space-5:20px;
+  --t-space-6:24px;
+  --t-space-8:32px;
+  --t-space-10:40px;
+  --t-space-12:48px;
+  --t-space-16:64px;
+  --t-space-20:80px;
+  --t-space-24:96px;
+  --t-space-32:128px;
+
+  /* Section rhythm */
+  --t-space-section:100px;
+  --t-space-section-sm:60px;
+}

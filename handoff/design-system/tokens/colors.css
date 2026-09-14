@@ -1,0 +1,63 @@
+/* Venix Concierge — color primitives + semantic roles */
+:root{
+  /* Brand primitives — burgundy family */
+  --t-color-brand-500:#7A1322;
+  --t-color-brand-700:#5A0E1A;
+  --t-color-brand-900:#3D0910;
+  --t-color-brand-ink:#2C1A1D;
+
+  /* Accent primitive — gold */
+  --t-color-accent-500:#C9A75E;
+
+  /* Feedback primitive — pre-existing approved error red (was unmanaged #C0392B) */
+  --t-color-danger-500:#C0392B;
+
+  /* Warm neutrals */
+  --t-color-warm-100:#FAFBF9;
+  --t-color-warm-200:#E6D8C7;
+  --t-color-warm-300:#C8B6A6;
+
+  /* Cool/blush neutrals */
+  --t-color-neutral-0:#FFFFFF;
+  --t-color-neutral-50:#FBF5F6;
+  --t-color-neutral-100:#F6ECEF;
+  --t-color-neutral-200:#EDE6E8;
+  --t-color-neutral-1000:#0D0D0D;
+
+  /* Semantic — backgrounds */
+  --t-bg-page:var(--t-color-warm-100);
+  --t-bg-surface:var(--t-color-neutral-50);
+  --t-bg-surface-warm:var(--t-color-warm-200);
+  --t-bg-subtle:var(--t-color-neutral-100);
+  --t-bg-inverse:var(--t-color-brand-700);
+  --t-bg-inverse-alt:var(--t-color-brand-500);
+
+  /* Semantic — foregrounds */
+  --t-fg-default:var(--t-color-brand-ink);
+  --t-fg-brand:var(--t-color-brand-500);
+  --t-fg-brand-strong:var(--t-color-brand-700);
+  --t-fg-muted:var(--t-color-warm-300);
+  --t-fg-accent:var(--t-color-accent-500);
+  --t-fg-inverse:var(--t-color-warm-100);
+  --t-fg-inverse-muted:var(--t-color-warm-200);
+
+  /* Semantic — borders */
+  --t-border-subtle:var(--t-color-neutral-200);
+  --t-border-warm:var(--t-color-warm-200);
+  --t-border-muted:var(--t-color-warm-300);
+  --t-border-strong:var(--t-color-brand-500);
+  --t-border-accent:var(--t-color-accent-500);
+  --t-border-on-inverse:rgba(250,251,249,0.35);
+
+  /* Semantic — feedback */
+  --t-fg-danger:var(--t-color-danger-500);
+  --t-border-danger:var(--t-color-danger-500);
+
+  /* Semantic — interactive */
+  --t-interactive-primary:var(--t-color-brand-500);
+  --t-interactive-primary-hover:var(--t-color-brand-700);
+  --t-interactive-primary-active:var(--t-color-brand-900);
+  --t-interactive-accent:var(--t-color-accent-500);
+  --t-interactive-ghost-hover:var(--t-color-neutral-100);
+  --t-border-focus:var(--t-color-brand-500);
+}

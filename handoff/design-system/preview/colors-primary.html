@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Colors" name="Primary Colors" subtitle="Burgundy, Deep Wine, Merlot, Gold" viewport="500x140" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-warm-100); font-family: var(--t-font-body); padding: 24px; }
+  .swatches { display: flex; gap: 12px; }
+  .swatch { flex: 1; border-radius: var(--t-radius-card); overflow: hidden; }
+  .swatch-color { height: 80px; }
+  .swatch-info { padding: 8px 0 0; }
+  .swatch-name { font-family: var(--t-font-display); font-size: 9px; letter-spacing: var(--t-ls-subhead); text-transform: uppercase; color: var(--t-color-brand-ink); margin-bottom: 2px; }
+  .swatch-hex { font-size: 10px; color: var(--t-color-brand-500); letter-spacing: var(--t-ls-ui); }
+  .swatch-role { font-size: 9px; color: var(--t-color-warm-300); margin-top: 2px; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+<div class="swatches">
+  <div class="swatch">
+    <div class="swatch-color" style="background:var(--t-color-brand-500);"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Burgundy</div>
+      <div class="swatch-hex">#7A1322</div>
+      <div class="swatch-role">Primary Brand</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:var(--t-color-brand-700);"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Deep Wine</div>
+      <div class="swatch-hex">#5A0E1A</div>
+      <div class="swatch-role">Dark / Hover</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:var(--t-color-brand-900);"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Merlot</div>
+      <div class="swatch-hex">#3D0910</div>
+      <div class="swatch-role">Active / Press</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:var(--t-color-accent-500); border: 1px solid var(--t-color-warm-200);"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Gold</div>
+      <div class="swatch-hex">#C9A75E</div>
+      <div class="swatch-role">Accent</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

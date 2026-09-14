@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Cards" subtitle="Service card, feature card, dark card" viewport="680x200" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--t-color-neutral-200); font-family: var(--t-font-body); padding: 24px; display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+
+  .card-service {
+    background: var(--t-color-neutral-50); border-radius: var(--t-radius-card);
+    box-shadow: var(--t-shadow-card);
+    width: 160px; overflow: hidden;
+  }
+  .card-img { height: 80px; background: var(--t-color-brand-700); display: flex; align-items: center; justify-content: center; }
+  .card-body { padding: 14px 16px; }
+  .card-rule { width: 24px; height: 1px; background: var(--t-color-accent-500); margin-bottom: 8px; }
+  .card-title { font-family: var(--t-font-display); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--t-color-brand-500); margin-bottom: 4px; }
+  .card-desc { font-size: 10px; color: var(--t-color-warm-300); line-height: 1.5; letter-spacing: var(--t-ls-body); }
+
+  .card-feature {
+    background: var(--t-color-warm-100); border-radius: var(--t-radius-card);
+    box-shadow: var(--t-shadow-card);
+    padding: 18px 20px; width: 220px;
+    border-top: 2px solid var(--t-color-brand-500);
+  }
+  .feat-label { font-size: 8px; letter-spacing: 0.2em; color: var(--t-color-warm-300); text-transform: uppercase; margin-bottom: 8px; }
+  .feat-title { font-family: var(--t-font-display); font-size: 12px; letter-spacing: var(--t-ls-subhead); text-transform: uppercase; color: var(--t-color-brand-500); margin-bottom: 6px; }
+  .feat-desc { font-size: 10px; color: var(--t-color-brand-ink); line-height: 1.6; }
+
+  .card-dark {
+    background: var(--t-color-brand-700); border-radius: var(--t-radius-card);
+    padding: 20px; width: 180px;
+  }
+  .card-dark .card-rule { background: var(--t-color-accent-500); }
+  .card-dark .card-title { color: var(--t-color-warm-200); }
+  .card-dark .card-desc { color: var(--t-color-warm-300); }
+</style>
+</head>
+<body>
+  <div class="card-service">
+    <div class="card-img">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A75E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2 3 7l7 3.5L6.5 14H5l-2 2 3.5 1.5L8 21l2-2v-1.5L13.5 14l3.5 7z"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="card-rule"></div>
+      <div class="card-title">Private Air</div>
+      <div class="card-desc">Global access to private jets and charter flights.</div>
+    </div>
+  </div>
+
+  <div class="card-service">
+    <div class="card-img" style="background:var(--t-color-brand-500);">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E6D8C7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="card-rule"></div>
+      <div class="card-title">Chauffeur</div>
+      <div class="card-desc">Discreet, punctual luxury ground transport.</div>
+    </div>
+  </div>
+
+  <div class="card-feature">
+    <div class="feat-label">24 / 7 Service</div>
+    <div class="feat-title">Always Available</div>
+    <div class="feat-desc">Your dedicated concierge is available around the clock, anywhere in the world.</div>
+  </div>
+
+  <div class="card-dark">
+    <div class="card-rule"></div>
+    <div class="card-title">Yacht Charters</div>
+    <div class="card-desc">Curated voyages across the Mediterranean and beyond.</div>
+  </div>
+</body>
+</html>

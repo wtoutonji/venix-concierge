@@ -1,0 +1,16 @@
+/* Venix Concierge — shape and shadow character: minimal radius, low soft wine shadows */
+:root{
+  --t-radius-none:0px;
+  --t-radius-sm:2px;
+  --t-radius-card:3px; /* approved card radius */
+  --t-radius-md:4px;
+  --t-radius-button:6px;
+  --t-radius-lg:8px; /* media/imagery only */
+
+  --t-shadow-subtle:0 1px 4px rgba(90,14,26,0.04);
+  --t-shadow-card:0 2px 16px rgba(90,14,26,0.06);
+  --t-shadow-modal:0 8px 40px rgba(90,14,26,0.14);
+
+  --t-border-width-hairline:1px; /* @kind other */
+  --t-border-width-rule:1px; /* @kind other */
+}
