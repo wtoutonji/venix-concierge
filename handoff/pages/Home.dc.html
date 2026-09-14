@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Venix Concierge | Chauffeur Service in Warsaw</title>
+<meta name="description" content="Private chauffeur services, executive transportation and airport transfers in Warsaw. Venix Concierge — every journey, handled with precision.">
+<!-- Canonical Design System entry: styles.css. Its 8 token sheets are linked
+     directly (in styles.css order) so they load in parallel and are applied before
+     first paint — a single @import chain leaves var(--t-*) unresolved on cold load. -->
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/colors.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/typography.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/layout.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/effects.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/motion.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/base.css">
+<script src="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/_ds_bundle.js"></script>
+<style>
+/* Page-level rules only — box model, body/link/type resets, Arabic & RTL typography
+   and canonical type classes all come from the Design System (styles.css → tokens/base.css).
+   This page defines no shared visual values of its own. */
+html{scroll-behavior:smooth;}
+input,select,textarea,button{font-family:var(--t-font-body);}
+input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,button:focus-visible{outline:var(--t-border-width-hairline) solid var(--t-border-focus);outline-width:2px;outline-offset:2px;}
+input::placeholder,textarea::placeholder{color:var(--t-fg-muted);}
+select option{color:var(--t-fg-default);}
+.vx-sel{position:relative;display:block;}
+.vx-sel>select{width:100%;}
+.vx-sel::after{content:"";position:absolute;inset-inline-end:14px;top:50%;margin-top:-3px;width:10px;height:6px;pointer-events:none;background-color:var(--t-interactive-primary);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center/10px 6px;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center/10px 6px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.vx-reveal{animation:fadeUp var(--t-motion-transition-slow) both;}
+#process [data-vx-4col] > div:nth-child(n+2){padding-inline-start:8px;}
+/* Section reveal on scroll — Design System reveal easing/duration */
+[data-vx-reveal]{opacity:0;transform:translateY(26px);transition:opacity var(--t-motion-transition-reveal),transform var(--t-motion-transition-reveal);will-change:opacity,transform;}
+[data-vx-reveal].vx-in{opacity:1;transform:none;}
+/* ── Canonical Venix breakpoint system: sm 480 · md 768 · lg 1024 · xl 1280 · 2xl 1440 ──
+   Media queries cannot read custom properties, so the canonical pixel values are written
+   literally here; they mirror the Design System breakpoint scale and are not a page-level
+   breakpoint system. Legacy 600 / 900 / 1100 thresholds have been removed.
+   lg 1024 — desktop nav collapses to the burger menu; 3/4-column grids halve.
+   md  768 — all two-column editorial splits and card grids stack to one column.
+   sm  480 — gutters tighten; remaining multi-column grids stack. */
+@media(max-width:1280px){[data-vx-pad]{padding-inline:40px!important;}[data-vx-desktop]{gap:18px!important;}[data-vx-hero-pad]{padding-inline:40px!important;}}
+@media(max-width:1024px){[data-vx-desktop]{display:none!important;}[data-vx-burger]{display:inline-flex!important;}[data-vx-4col]{grid-template-columns:1fr 1fr!important;}[data-vx-3col]{grid-template-columns:1fr 1fr!important;}}
+@media(max-width:768px){[data-vx-split]{grid-template-columns:1fr!important;}[data-vx-2col]{grid-template-columns:1fr!important;}[data-vx-3col]{grid-template-columns:1fr!important;}[data-vx-fleet-featured]{grid-template-columns:1fr!important;}.vx-fleet-num{display:none!important;}[data-vx-hero-pad]{padding-inline:32px!important;padding-bottom:64px!important;}[data-vx-pad]{padding-inline:32px!important;}}
+@media(max-width:480px){[data-vx-4col]{grid-template-columns:1fr!important;}[data-vx-hero-pad]{padding-inline:20px!important;padding-bottom:56px!important;}[data-vx-pad]{padding-inline:20px!important;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;animation:none!important;}[data-vx-reveal]{opacity:1!important;transform:none!important;}}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     VENIX CONCIERGE — HOME · canonical page-design handoff (.dc.html)
+     Design System: Venix Concierge (authoritative for colors, type, spacing,
+     radii, shadows, motion, interaction states). This page owns composition only.
+     Section order: Header (sticky) · Hero (cinematic, full-bleed media) ·
+     Trust intro · Services overview · Fleet preview · Why Venix · Events &
+     delegations · How it works · Who we serve · Inquiry · Footer.
+     Responsive: canonical 480/768/1024/1280/1440 (see breakpoint note above).
+     Media: hero = full-bleed image or video still behind a bottom-up gradient
+     scrim, content anchored bottom-left; all other slots are sized placeholders
+     retaining aspect ratio, crop and focal intent.
+     Interaction intent: sticky header, burger nav below lg, hover darkening,
+     visible focus rings, fade-up section reveals honouring prefers-reduced-motion.
+     Prototype constructs (sc-if / sc-for / image-slot / state) express design
+     intent only — not production implementation.
+     ══════════════════════════════════════════════════════════════════════════ -->
+
+<div id="top" style="min-width:0;">
+
+<a href="#main-content" style="position:fixed;top:-64px;left:16px;z-index:400;background:var(--t-color-brand-500);color:var(--t-color-warm-100);padding:10px 18px;font-size:11px;letter-spacing:0.1em;text-decoration:none;border-radius:var(--t-radius-sm);transition:top 200ms;" style-focus="top:14px;">Skip to content</a>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header role="banner" style="position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(61,9,16,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,167,94,0.15);">
+  <div data-vx-pad="" style="max-width:1360px;margin:0 auto;padding:0 52px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+
+    <a href="#top" aria-label="Venix Concierge — home" style="display:flex;align-items:center;flex-shrink:0;text-decoration:none;">
+      <img src="assets/logo-horizontal-white.png" alt="Venix Concierge" style="height:28px;width:auto;display:block;">
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <nav data-vx-desktop="" aria-label="Main navigation" style="display:flex;align-items:center;gap:28px;flex:1;justify-content:center;">
+
+      <a href="#top" style="font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Home</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Strona główna</sc-if>
+      </a>
+
+      <a href="About.dc.html" style="font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">About</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">O nas</sc-if>
+      </a>
+
+      <!-- Services dropdown -->
+      <div style="position:relative;" onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeDropdowns }}">
+        <button style="display:inline-flex;align-items:center;gap:6px;font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);background:transparent;border:none;cursor:pointer;padding:28px 0;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);" aria-haspopup="true" aria-expanded="{{ servicesOpen }}">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługi</sc-if>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div role="menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:-1px;background:var(--t-color-brand-900);border:1px solid rgba(201,167,94,0.2);border-top:2px solid var(--t-color-accent-500);min-width:280px;box-shadow:0 12px 40px rgba(0,0,0,0.35);z-index:300;" class="vx-reveal">
+            <sc-for list="{{ servicesMenuItems }}" as="si" hint-placeholder-count="4">
+              <a href="{{ si.href }}" style="display:block;padding:14px 22px;text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);transition:background 180ms;" style-hover="background:rgba(201,167,94,0.08);">
+                <div style="font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);">{{ si.name }}</div>
+                <div style="font-size:10.5px;color:rgba(200,182,166,0.7);margin-top:4px;letter-spacing:0.03em;">{{ si.desc }}</div>
+              </a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- Other Services dropdown -->
+      <div style="position:relative;" onMouseEnter="{{ openOther }}" onMouseLeave="{{ closeDropdowns }}">
+        <button style="display:inline-flex;align-items:center;gap:6px;font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);background:transparent;border:none;cursor:pointer;padding:28px 0;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);" aria-haspopup="true" aria-expanded="{{ otherOpen }}">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Other Services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Inne usługi</sc-if>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <sc-if value="{{ otherOpen }}" hint-placeholder-val="{{ false }}">
+          <div role="menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:-1px;background:var(--t-color-brand-900);border:1px solid rgba(201,167,94,0.2);border-top:2px solid var(--t-color-accent-500);min-width:280px;box-shadow:0 12px 40px rgba(0,0,0,0.35);z-index:300;" class="vx-reveal">
+            <sc-for list="{{ otherMenuItems }}" as="oi" hint-placeholder-count="5">
+              <a href="{{ oi.href }}" style="display:block;padding:14px 22px;text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);transition:background 180ms;" style-hover="background:rgba(201,167,94,0.08);">
+                <div style="font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);">{{ oi.name }}</div>
+                <div style="font-size:10.5px;color:rgba(200,182,166,0.7);margin-top:4px;letter-spacing:0.03em;">{{ oi.desc }}</div>
+              </a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+
+      <a href="Fleet.dc.html" style="font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Fleet</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Flota</sc-if>
+      </a>
+
+      <a href="Contact.dc.html" style="font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Contact</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Kontakt</sc-if>
+      </a>
+    </nav>
+
+    <!-- Desktop: lang + CTA -->
+    <div data-vx-desktop="" style="display:flex;align-items:center;gap:18px;flex-shrink:0;">
+      <div role="group" aria-label="Language" style="display:flex;align-items:center;gap:8px;">
+        <button onClick="{{ setEn }}" style="{{ enBtnStyle }}" aria-label="English">EN</button>
+        <span aria-hidden="true" style="color:rgba(201,167,94,0.3);font-size:10px;">|</span>
+        <button onClick="{{ setPl }}" style="{{ plBtnStyle }}" aria-label="Polski">PL</button>
+      </div>
+      <a href="Contact.dc.html" style="font-family:var(--t-font-display);font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:11px 22px;color:var(--t-color-accent-500);border:1px solid var(--t-color-accent-500);border-radius:var(--t-radius-sm);text-decoration:none;white-space:nowrap;transition:all 240ms;" style-hover="background:var(--t-color-accent-500);color:var(--t-color-brand-900);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request a Chauffeur</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów szofera</sc-if>
+      </a>
+    </div>
+
+    <!-- Mobile burger -->
+    <button data-vx-burger="" onClick="{{ toggleMenu }}" aria-label="Open menu" aria-expanded="{{ menuOpen }}" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:1px solid rgba(201,167,94,0.45);border-radius:var(--t-radius-sm);cursor:pointer;color:var(--t-color-warm-200);flex-shrink:0;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- ═══════════════════ MOBILE MENU ═══════════════════ -->
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Navigation menu" style="position:fixed;inset:0;z-index:300;background:var(--t-color-brand-900);display:flex;flex-direction:column;overflow-y:auto;">
+
+  <div style="padding:18px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,167,94,0.12);">
+    <img src="assets/logo-horizontal-white.png" alt="Venix Concierge" style="height:26px;width:auto;">
+    <button onClick="{{ closeMenu }}" aria-label="Close menu" style="width:44px;height:44px;background:transparent;border:1px solid rgba(201,167,94,0.45);border-radius:var(--t-radius-sm);cursor:pointer;color:var(--t-color-warm-200);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Mobile navigation" style="flex:1;padding:12px 0;">
+
+    <a href="#top" onClick="{{ closeMenu }}" style="display:block;padding:16px 28px;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-100);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Home</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Strona główna</sc-if>
+    </a>
+
+    <a href="About.dc.html" onClick="{{ closeMenu }}" style="display:block;padding:16px 28px;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-100);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">About</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">O nas</sc-if>
+    </a>
+
+    <!-- Mobile Services accordion -->
+    <div style="border-bottom:1px solid rgba(201,167,94,0.1);">
+      <button onClick="{{ toggleMobileServices }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 28px;background:transparent;border:none;cursor:pointer;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-100);text-align:left;">
+        <span><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługi</sc-if></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--t-color-accent-500)" stroke-width="2" stroke-linecap="round"><path d="{{ mobileServicesChevron }}"></path></svg>
+      </button>
+      <sc-if value="{{ mobileServicesOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="background:rgba(0,0,0,0.18);padding:4px 0 8px;">
+          <sc-for list="{{ servicesMenuItems }}" as="si" hint-placeholder-count="4">
+            <a href="{{ si.href }}" onClick="{{ closeMenu }}" style="display:block;padding:12px 28px 12px 40px;font-size:11.5px;letter-spacing:0.06em;color:var(--t-color-warm-200);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.06);" style-hover="color:var(--t-color-warm-100);">{{ si.name }}</a>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+
+    <!-- Mobile Other Services accordion -->
+    <div style="border-bottom:1px solid rgba(201,167,94,0.1);">
+      <button onClick="{{ toggleMobileOther }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 28px;background:transparent;border:none;cursor:pointer;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-100);text-align:left;">
+        <span><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Other Services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Inne usługi</sc-if></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--t-color-accent-500)" stroke-width="2" stroke-linecap="round"><path d="{{ mobileOtherChevron }}"></path></svg>
+      </button>
+      <sc-if value="{{ mobileOtherOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="background:rgba(0,0,0,0.18);padding:4px 0 8px;">
+          <sc-for list="{{ otherMenuItems }}" as="oi" hint-placeholder-count="5">
+            <a href="{{ oi.href }}" onClick="{{ closeMenu }}" style="display:block;padding:12px 28px 12px 40px;font-size:11.5px;letter-spacing:0.06em;color:var(--t-color-warm-200);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.06);" style-hover="color:var(--t-color-warm-100);">{{ oi.name }}</a>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+
+    <a href="Fleet.dc.html" onClick="{{ closeMenu }}" style="display:block;padding:16px 28px;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-100);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Fleet</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Flota</sc-if>
+    </a>
+
+    <a href="Contact.dc.html" onClick="{{ closeMenu }}" style="display:block;padding:16px 28px;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-100);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Contact</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Kontakt</sc-if>
+    </a>
+
+  </nav>
+
+  <div style="padding:24px 28px;border-top:1px solid rgba(201,167,94,0.12);display:flex;flex-direction:column;gap:18px;">
+    <div style="display:flex;gap:12px;">
+      <button onClick="{{ setEn }}" style="{{ enBtnStyleMobile }}">EN</button>
+      <button onClick="{{ setPl }}" style="{{ plBtnStyleMobile }}">PL</button>
+    </div>
+    <a href="Contact.dc.html" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:center;padding:16px 36px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);font-family:var(--t-font-display);font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;border-radius:var(--t-radius-sm);text-decoration:none;">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request a Chauffeur</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów szofera</sc-if>
+    </a>
+  </div>
+
+</div>
+</sc-if>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<main id="main-content">
+
+<!-- ── HERO: Cinematic — 100vh ── -->
+<section data-screen-label="Hero — cinematic" style="position:relative;height:100vh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden;background-color:#1A0A0C;">
+
+  <!-- Full-bleed background: drop a photo, or swap for a <video> covering the same layer -->
+  <div aria-hidden="true" style="position:absolute;inset:0;">
+    <image-slot id="home-hero-bg" shape="rect" fit="cover" placeholder="Drop hero image or video still — full-bleed background" style="width:100%;height:100%;"></image-slot>
+  </div>
+
+  <!-- Gradient overlay -->
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to top, rgba(30,6,8,0.97) 0%, rgba(30,6,8,0.72) 35%, rgba(30,6,8,0.25) 65%, rgba(30,6,8,0.08) 100%);"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to right, rgba(30,6,8,0.2) 0%, transparent 55%);"></div>
+
+  <!-- Content -->
+  <div data-vx-hero-pad="" style="position:relative;max-width:1360px;margin:0 auto;width:100%;padding:0 72px 88px;">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px;">
+      <span style="width:36px;height:1px;background:var(--t-color-accent-500);display:block;"></span>
+      <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);text-wrap:balance;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Warsaw, Poland · Chauffeur &amp; Concierge</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Warszawa · Szofer i concierge</sc-if>
+      </span>
+    </div>
+    <h1 style="font-family:var(--t-font-display);font-weight:400;font-size:clamp(30px,4.4vw,62px);letter-spacing:0.12em;line-height:1.2;text-transform:uppercase;color:var(--t-color-warm-100);margin:0 0 22px;max-width:820px;text-wrap:balance;">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Every journey,<br>handled with precision</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Każda podróż,<br>dopracowana z precyzją</sc-if>
+    </h1>
+    <p style="font-weight:300;font-size:16px;color:rgba(230,216,199,0.88);letter-spacing:0.03em;line-height:1.9;max-width:520px;margin:0 0 38px;">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Private chauffeur services, executive transportation and coordinated mobility for events and delegations — in Warsaw and beyond.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Prywatne usługi szoferskie, transport dla kadry zarządzającej oraz skoordynowana mobilność dla wydarzeń i delegacji — w Warszawie i poza nią.</sc-if>
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+      <a href="#inquiry" style="white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;padding:16px 38px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);font-family:var(--t-font-display);font-size:10.5px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;border-radius:var(--t-radius-sm);text-decoration:none;transition:background 240ms;" style-hover="background:var(--t-color-brand-700);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request a Chauffeur</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów szofera</sc-if>
+      </a>
+      <a href="#fleet" style="white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;padding:15px 38px;background:transparent;color:var(--t-color-warm-100);font-family:var(--t-font-display);font-size:10.5px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;border:1px solid rgba(250,251,249,0.38);border-radius:var(--t-radius-sm);text-decoration:none;transition:all 240ms;" style-hover="border-color:var(--t-color-warm-100);background:rgba(250,251,249,0.06);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Explore the Fleet</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Poznaj flotę</sc-if>
+      </a>
+    </div>
+    <div style="margin-top:40px;font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:rgba(200,182,166,0.5);">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Operating since 2024 · Private · Corporate · Diplomatic</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Działamy od 2024 · Klienci prywatni · Firmy · Dyplomacja</sc-if>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div aria-hidden="true" style="position:absolute;right:56px;bottom:36px;display:flex;flex-direction:column;align-items:center;gap:7px;">
+    <span style="font-size:8px;letter-spacing:0.34em;text-transform:uppercase;color:rgba(201,167,94,0.55);">Scroll</span>
+    <div style="width:1px;height:52px;background:linear-gradient(to bottom,rgba(201,167,94,0.55),transparent);"></div>
+  </div>
+
+</section>
+
+<!-- ═══ TRUST INTRO — editorial split ═══ -->
+<section id="about" data-screen-label="About / Trust intro" style="background:var(--t-color-warm-100);padding:110px 0;">
+  <div data-vx-pad="" data-vx-split="" style="max-width:1360px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+
+    <div>
+      <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);">Venix Concierge · Warsaw</span>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(24px,2.6vw,36px);letter-spacing:0.14em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.3;margin:16px 0 0;text-wrap:balance;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">More than transportation. A service shaped around you.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Więcej niż transport. Usługa zbudowana wokół Państwa.</sc-if>
+      </h2>
+      <span style="display:block;width:36px;height:1px;background:var(--t-color-brand-500);margin:22px 0;"></span>
+      <p style="font-size:15px;line-height:1.95;color:rgba(44,26,29,0.72);margin:0 0 22px;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Venix Concierge is a Warsaw-based chauffeur and concierge company, operating since 2024. We coordinate private journeys, executive transportation, airport transfers and the movement of delegations and events — with precision, discretion and personal attention at every stage.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Venix Concierge to warszawska firma szoferska i concierge, działająca od 2024 roku. Koordynujemy podróże prywatne, transport dla kadry zarządzającej, transfery lotniskowe oraz obsługę delegacji i wydarzeń — z precyzją, dyskrecją i osobistą uwagą na każdym etapie.</sc-if>
+      </p>
+      <p style="font-size:14px;line-height:1.9;color:rgba(44,26,29,0.6);margin:0 0 36px;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Our purpose is to build bridges of meaningful connection — between cultures, between clients and the city, and between the logistics of travel and the ease of arrival. We handle the details so you can focus on what matters.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Naszym celem jest budowanie mostów porozumienia — między kulturami, klientami a miastem, między logistyką podróży a komfortem przyjazdu. Zajmujemy się szczegółami, byście mogli skupić się na tym, co ważne.</sc-if>
+      </p>
+      <a href="#inquiry" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-brand-700);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Begin your arrangement</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Rozpocznij ustalenia</sc-if>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+      </a>
+    </div>
+
+    <!-- Photo -->
+    <div style="position:relative;">
+      <div style="aspect-ratio:3/4;border-radius:var(--t-radius-sm);overflow:hidden;">
+        <img src="https://placehold.co/480x640" alt="A Venix Concierge chauffeur stands beside a premium vehicle in Warsaw." style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ MAIN SERVICES — image cards ═══ -->
+<section id="services" data-screen-label="Main services" style="background:var(--t-color-neutral-50);padding:100px 0;">
+  <div data-vx-pad="" style="max-width:1360px;margin:0 auto;padding:0 52px;">
+    <div style="text-align:center;margin-bottom:56px;">
+      <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">What we arrange</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Co organizujemy</sc-if>
+      </span>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(22px,2.5vw,34px);letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.3;margin:14px 0 0;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Main services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługi główne</sc-if>
+      </h2>
+      <span style="display:block;width:36px;height:1px;background:var(--t-color-brand-500);margin:18px auto 0;"></span>
+    </div>
+
+    <!-- 2 × 2 grid -->
+    <div data-vx-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+
+      <!-- Service 1: Chauffeur & Private Transfers -->
+      <div style="background:var(--t-color-warm-100);display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/9;overflow:hidden;">
+          <img src="https://placehold.co/640x360" alt="A chauffeur opens the rear door of a Mercedes-Benz at a hotel entrance in Warsaw." style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:34px 34px 36px;display:flex;flex-direction:column;gap:13px;flex:1;">
+          <span style="display:block;width:24px;height:1px;background:var(--t-color-accent-500);"></span>
+          <h3 style="font-family:var(--t-font-display);font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.5;margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Chauffeur-driven transfers &amp; private hire</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Transfery z szoferem i wynajem prywatny</sc-if>
+          </h3>
+          <p style="font-size:13px;line-height:1.85;color:rgba(44,26,29,0.65);margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">A professional chauffeur and premium vehicle, arranged around your itinerary — hourly, full-day, city-to-city, or custom.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Profesjonalny szofer i pojazd klasy premium, dopasowane do Państwa planu — na godziny, cały dzień, między miastami lub na zamówienie.</sc-if>
+          </p>
+          <div style="font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-300);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Private clients · Executives</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Klienci prywatni · Kadra zarządzająca</sc-if>
+          </div>
+          <a href="#inquiry" style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request a private transfer</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów transfer prywatny</sc-if>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 2: Airport Transfers -->
+      <div style="background:var(--t-color-warm-100);display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/9;overflow:hidden;">
+          <img src="https://placehold.co/640x360" alt="A chauffeur waits in an airport arrivals hall holding a name card." style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:34px 34px 36px;display:flex;flex-direction:column;gap:13px;flex:1;">
+          <span style="display:block;width:24px;height:1px;background:var(--t-color-accent-500);"></span>
+          <h3 style="font-family:var(--t-font-display);font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.5;margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Airport transfers</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Transfery lotniskowe</sc-if>
+          </h3>
+          <p style="font-size:13px;line-height:1.85;color:rgba(44,26,29,0.65);margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Composed arrivals and departures at Warsaw's airports, with the vehicle matched to passengers and luggage. Groups and multi-vehicle arrangements available.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Spokojne przyloty i wyloty na warszawskich lotniskach, z pojazdem dobranym do liczby pasażerów i bagażu. Obsługa grup i wielu pojazdów możliwa.</sc-if>
+          </p>
+          <div style="font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-300);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Travellers · Families · Groups</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Podróżni · Rodziny · Grupy</sc-if>
+          </div>
+          <a href="#inquiry" style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Arrange an airport transfer</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Umów transfer lotniskowy</sc-if>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 3: Events -->
+      <div style="background:var(--t-color-warm-100);display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/9;overflow:hidden;">
+          <img src="https://placehold.co/640x360" alt="Mercedes-Benz vehicles coordinated outside a Warsaw conference centre entrance." style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:34px 34px 36px;display:flex;flex-direction:column;gap:13px;flex:1;">
+          <span style="display:block;width:24px;height:1px;background:var(--t-color-accent-500);"></span>
+          <h3 style="font-family:var(--t-font-display);font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.5;margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Business &amp; private events</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Wydarzenia biznesowe i prywatne</sc-if>
+          </h3>
+          <p style="font-size:13px;line-height:1.85;color:rgba(44,26,29,0.65);margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Coordinated guest movement for conferences, galas and private celebrations — multiple vehicles, single point of contact, precise timing.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Skoordynowany transport gości na konferencje, gale i uroczystości — wiele pojazdów, jeden punkt kontaktu, precyzyjne terminy.</sc-if>
+          </p>
+          <div style="font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-300);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Organisers · Companies · Hosts</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Organizatorzy · Firmy · Gospodarze</sc-if>
+          </div>
+          <a href="#inquiry" style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Plan event transportation</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zaplanuj transport na wydarzenie</sc-if>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 4: Delegations -->
+      <div style="background:var(--t-color-warm-100);display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/9;overflow:hidden;">
+          <img src="https://placehold.co/640x360" alt="A black Mercedes-Benz S-Class arrives at an official building entrance in Warsaw." style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:34px 34px 36px;display:flex;flex-direction:column;gap:13px;flex:1;">
+          <span style="display:block;width:24px;height:1px;background:var(--t-color-accent-500);"></span>
+          <h3 style="font-family:var(--t-font-display);font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.5;margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Delegations &amp; diplomatic transfers</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Delegacje i transfery dyplomatyczne</sc-if>
+          </h3>
+          <p style="font-size:13px;line-height:1.85;color:rgba(44,26,29,0.65);margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Discreet, punctual transportation for embassies, delegations and official guests, coordinated with your appointed team.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Dyskretny, punktualny transport dla ambasad, delegacji i gości oficjalnych, koordynowany z wyznaczonym zespołem.</sc-if>
+          </p>
+          <div style="font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-300);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Embassies · Delegations · Officials</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Ambasady · Delegacje · Goście oficjalni</sc-if>
+          </div>
+          <a href="#inquiry" style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Discuss a delegation</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Omów potrzeby delegacji</sc-if>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDITORIAL PHOTO BAND ═══ -->
+<section data-screen-label="Editorial photo band" style="position:relative;height:440px;overflow:hidden;background-color:var(--t-color-brand-ink);background-image:url('https://placehold.co/1600x440/2C1A1D/2C1A1D'), repeating-linear-gradient(45deg,rgba(201,167,94,0.07) 0,rgba(201,167,94,0.07) 1px,transparent 1px,transparent 50%);background-size:cover, 14px 14px;display:flex;align-items:center;justify-content:center;">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(30,8,10,0.7);"></div>
+  <div style="position:relative;text-align:center;padding:0 52px;">
+    <blockquote style="font-family:var(--t-font-display);font-weight:400;font-size:clamp(17px,2.2vw,28px);letter-spacing:0.22em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.65;margin:0;text-wrap:balance;">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">When every detail is considered,<br>the journey becomes the experience.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Gdy każdy szczegół jest przemyślany,<br>podróż staje się przeżyciem.</sc-if>
+    </blockquote>
+    <div style="width:36px;height:1px;background:var(--t-color-accent-500);margin:24px auto 0;"></div>
+  </div>
+</section>
+
+<!-- ═══ BRAND PROMISE ═══ -->
+<section data-screen-label="Brand promise" style="background:var(--t-color-brand-700);padding:110px 0;position:relative;overflow:hidden;">
+  <div aria-hidden="true" style="position:absolute;inset:0;opacity:0.035;background-image:repeating-linear-gradient(45deg,var(--t-color-accent-500) 0,var(--t-color-accent-500) 1px,transparent 1px,transparent 50%);background-size:18px 18px;"></div>
+  <div data-vx-pad="" data-vx-split="" style="position:relative;max-width:1360px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <div>
+      <h2 style="font-family:var(--t-font-display);font-weight:400;font-size:clamp(24px,3vw,42px);letter-spacing:0.14em;line-height:1.35;text-transform:uppercase;color:var(--t-color-warm-100);margin:0 0 26px;text-wrap:balance;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">You enjoy the moment.<br><span style="color:var(--t-color-accent-500);">We handle the details.</span></sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Chwila należy do Państwa.<br><span style="color:var(--t-color-accent-500);">Szczegóły do nas.</span></sc-if>
+      </h2>
+      <p style="font-weight:300;font-size:14.5px;color:var(--t-color-warm-200);line-height:1.95;letter-spacing:0.03em;max-width:440px;margin:0 0 40px;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Behind every composed arrival is quiet, careful work — so the journey itself asks nothing of you. We coordinate the planning, the timing, the vehicle, the route, and the communication, so your focus stays where it should.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Za każdym spokojnym przyjazdem stoi cicha, staranna praca — tak, aby sama podróż nie wymagała od Państwa niczego. Koordynujemy planowanie, terminarz, pojazd, trasę i komunikację, by Państwa uwaga mogła pozostać tam, gdzie powinna.</sc-if>
+      </p>
+      <div data-vx-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px;">
+        <sc-for list="{{ promiseItems }}" as="pi" hint-placeholder-count="6">
+          <div style="border-top:1px solid rgba(201,167,94,0.25);padding:16px 0 20px;">
+            <div style="font-family:var(--t-font-display);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);">{{ pi.title }}</div>
+            <div style="font-size:12px;color:rgba(230,216,199,0.7);line-height:1.8;margin-top:7px;">{{ pi.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <!-- Promise image -->
+    <div style="position:relative;aspect-ratio:4/5;border:1px solid rgba(201,167,94,0.28);border-radius:var(--t-radius-sm);overflow:hidden;">
+      <img src="https://placehold.co/480x600" alt="A Venix Concierge chauffeur adjusts his cufflinks before an assignment." style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FLEET ═══ -->
+<section id="fleet" data-screen-label="Fleet" style="background:var(--t-color-warm-100);padding:110px 0;">
+  <div data-vx-pad="" style="max-width:1360px;margin:0 auto;padding:0 52px;">
+
+    <!-- Fleet header -->
+    <div data-vx-split="" style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;margin-bottom:52px;">
+      <div>
+        <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">The fleet</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Flota</sc-if>
+        </span>
+        <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(22px,2.6vw,34px);letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.3;margin:14px 0 0;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Matched to the journey</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Dobrana do podróży</sc-if>
+        </h2>
+        <p style="font-size:13.5px;line-height:1.85;color:rgba(44,26,29,0.6);max-width:500px;margin:14px 0 0;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">The right vehicle is not simply a matter of size — it should match the journey, the passengers and the occasion.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Właściwy pojazd to nie tylko kwestia wielkości — powinien odpowiadać podróży, pasażerom i okazji.</sc-if>
+        </p>
+      </div>
+      <div style="font-size:11px;font-style:italic;color:var(--t-color-warm-300);line-height:1.7;max-width:210px;text-align:right;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Model, configuration and colour may vary.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Model, konfiguracja i kolor mogą się różnić.</sc-if>
+      </div>
+    </div>
+
+    <!-- S-Class featured card -->
+    <div data-vx-fleet-featured="" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;border:1px solid var(--t-color-neutral-200);border-radius:var(--t-radius-sm);overflow:hidden;margin-bottom:24px;box-shadow:0 2px 20px rgba(90,14,26,0.07);">
+      <div style="min-height:340px;position:relative;overflow:hidden;">
+        <img src="https://placehold.co/700x500" alt="A black Mercedes-Benz S-Class parked on a Warsaw boulevard at golden hour." style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
+      </div>
+      <div style="padding:44px 44px 44px;background:var(--t-color-warm-100);display:flex;flex-direction:column;justify-content:center;gap:16px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:5px 12px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);border-radius:var(--t-radius-sm);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Flagship sedan</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Flagowy sedan</sc-if>
+          </span>
+          <span style="font-size:9px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-accent-500);">Executive · VIP</span>
+        </div>
+        <div>
+          <h3 style="font-family:var(--t-font-display);font-size:28px;font-weight:500;letter-spacing:0.1em;color:var(--t-color-brand-500);margin:0;line-height:1.2;">Mercedes-Benz S-Class</h3>
+          <div style="width:36px;height:1px;background:var(--t-color-accent-500);margin:14px 0;"></div>
+        </div>
+        <p style="font-size:13px;line-height:1.85;color:rgba(44,26,29,0.65);margin:0;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">The flagship choice for executive and diplomatic travel, important private occasions and VIP airport arrivals. An environment of quiet distinction and precise comfort.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Flagowy wybór dla podróży przedstawicielskich i dyplomatycznych, ważnych okazji prywatnych oraz przylotów VIP. Środowisko cichej elegancji i precyzyjnego komfortu.</sc-if>
+        </p>
+        <div style="font-size:10.5px;color:var(--t-color-warm-300);font-style:italic;">[Confirm passenger &amp; luggage capacity]</div>
+        <a href="#inquiry" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;border-radius:var(--t-radius-sm);text-decoration:none;align-self:flex-start;transition:background 240ms;margin-top:6px;" style-hover="background:var(--t-color-brand-700);">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request the S-Class</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów S-Klasa</sc-if>
+        </a>
+      </div>
+    </div>
+
+    <!-- Row 2: E-Class + V-Class -->
+    <div data-vx-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;">
+
+      <div style="border:1px solid var(--t-color-neutral-200);border-radius:var(--t-radius-sm);overflow:hidden;box-shadow:var(--t-shadow-card);display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/10;overflow:hidden;">
+          <img src="https://placehold.co/640x400" alt="A black Mercedes-Benz E-Class in a Warsaw business district." style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:28px 30px 32px;display:flex;flex-direction:column;gap:12px;flex:1;background:var(--t-color-warm-100);">
+          <span style="font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:4px 11px;background:var(--t-color-neutral-100);color:var(--t-color-brand-500);border-radius:var(--t-radius-sm);align-self:flex-start;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Executive sedan</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Sedan biznesowy</sc-if>
+          </span>
+          <h3 style="font-family:var(--t-font-display);font-size:20px;font-weight:600;letter-spacing:0.08em;color:var(--t-color-brand-500);margin:0;">Mercedes-Benz E-Class</h3>
+          <div style="width:28px;height:1px;background:var(--t-color-accent-500);"></div>
+          <p style="font-size:12.5px;line-height:1.85;color:rgba(44,26,29,0.65);margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Premium business travel, corporate airport transfers and daily chauffeur requirements. Refined, discreet and dependable.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Transport biznesowy klasy premium, korporacyjne transfery lotniskowe i codzienna obsługa szoferska. Elegancki, dyskretny i niezawodny.</sc-if>
+          </p>
+          <div style="font-size:10px;color:var(--t-color-warm-300);font-style:italic;">[Confirm passenger &amp; luggage capacity]</div>
+          <a href="#inquiry" style="margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request the E-Class</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów E-Klasa</sc-if>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--t-color-neutral-200);border-radius:var(--t-radius-sm);overflow:hidden;box-shadow:var(--t-shadow-card);display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/10;overflow:hidden;">
+          <img src="https://placehold.co/640x400" alt="A black Mercedes-Benz V-Class at a Warsaw hotel entrance." style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:28px 30px 32px;display:flex;flex-direction:column;gap:12px;flex:1;background:var(--t-color-warm-100);">
+          <span style="font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:4px 11px;background:var(--t-color-neutral-100);color:var(--t-color-brand-500);border-radius:var(--t-radius-sm);align-self:flex-start;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Luxury van</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Van klasy premium</sc-if>
+          </span>
+          <h3 style="font-family:var(--t-font-display);font-size:20px;font-weight:600;letter-spacing:0.08em;color:var(--t-color-brand-500);margin:0;">Mercedes-Benz V-Class</h3>
+          <div style="width:28px;height:1px;background:var(--t-color-accent-500);"></div>
+          <p style="font-size:12.5px;line-height:1.85;color:rgba(44,26,29,0.65);margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Families, executive teams and small groups travelling together — airport transfers, city journeys and event transport.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Rodziny, zespoły i mniejsze grupy podróżujące razem — transfery lotniskowe, przejazdy miejskie i transport na wydarzenia.</sc-if>
+          </p>
+          <div style="font-size:10px;color:var(--t-color-warm-300);font-style:italic;">[Confirm passenger &amp; luggage capacity]</div>
+          <a href="#inquiry" style="margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request the V-Class</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów V-Klasa</sc-if>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Row 3: V-Class XL + Sprinter -->
+    <div data-vx-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;">
+
+      <div style="border:1px solid var(--t-color-neutral-200);border-radius:var(--t-radius-sm);overflow:hidden;box-shadow:var(--t-shadow-card);display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/10;overflow:hidden;">
+          <img src="https://placehold.co/640x400" alt="A Mercedes-Benz V-Class Extra Long at a Warsaw airport road." style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:28px 30px 32px;display:flex;flex-direction:column;gap:12px;flex:1;background:var(--t-color-warm-100);">
+          <span style="font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:4px 11px;background:var(--t-color-neutral-100);color:var(--t-color-brand-500);border-radius:var(--t-radius-sm);align-self:flex-start;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Luxury van · Extended</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Van premium · Przedłużony</sc-if>
+          </span>
+          <h3 style="font-family:var(--t-font-display);font-size:18px;font-weight:600;letter-spacing:0.07em;color:var(--t-color-brand-500);margin:0;line-height:1.3;">Mercedes-Benz V-Class<br>Extra Long</h3>
+          <div style="width:28px;height:1px;background:var(--t-color-accent-500);"></div>
+          <p style="font-size:12.5px;line-height:1.85;color:rgba(44,26,29,0.65);margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Extended cabin for additional luggage or longer journeys, with the same refined comfort as the standard V-Class.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Przedłużona kabina na dodatkowy bagaż lub dłuższe trasy, z tym samym wyrafinowanym komfortem co standardowy V-Class.</sc-if>
+          </p>
+          <div style="font-size:10px;color:var(--t-color-warm-300);font-style:italic;">[Confirm passenger &amp; luggage capacity]</div>
+          <a href="#inquiry" style="margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request the V-Class XL</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów V-Klasa XL</sc-if>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--t-color-neutral-200);border-radius:var(--t-radius-sm);overflow:hidden;box-shadow:var(--t-shadow-card);display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/10;overflow:hidden;">
+          <img src="https://placehold.co/640x400" alt="A Mercedes-Benz Sprinter at a Warsaw hotel entrance for group transport." style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:28px 30px 32px;display:flex;flex-direction:column;gap:12px;flex:1;background:var(--t-color-warm-100);">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;background:var(--t-color-brand-700);color:var(--t-color-warm-100);border-radius:var(--t-radius-sm);">9</span>
+            <span style="font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);border-radius:var(--t-radius-sm);">16</span>
+            <span style="font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;background:var(--t-color-neutral-100);color:var(--t-color-brand-500);border-radius:var(--t-radius-sm);">19</span>
+            <span style="font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;color:var(--t-color-warm-300);">
+              <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">seats</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">miejsc</sc-if>
+            </span>
+          </div>
+          <h3 style="font-family:var(--t-font-display);font-size:20px;font-weight:600;letter-spacing:0.08em;color:var(--t-color-brand-500);margin:0;">Mercedes-Benz Sprinter</h3>
+          <div style="width:28px;height:1px;background:var(--t-color-accent-500);"></div>
+          <p style="font-size:12.5px;line-height:1.85;color:rgba(44,26,29,0.65);margin:0;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Group transportation for conferences, delegations, weddings and events — available in 9, 16 and 19-seat configurations.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Transport grupowy na konferencje, delegacje, śluby i wydarzenia — dostępny w konfiguracji na 9, 16 i 19 miejsc.</sc-if>
+          </p>
+          <div style="font-size:10px;color:var(--t-color-warm-300);font-style:italic;">[Confirm exact seat &amp; luggage configuration]</div>
+          <a href="#inquiry" style="margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request a Sprinter</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów Sprinter</sc-if>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Fleet helper -->
+    <div style="background:var(--t-color-neutral-100);border:1px solid var(--t-color-neutral-200);border-radius:var(--t-radius-sm);padding:26px 34px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+      <div>
+        <div style="font-family:var(--t-font-display);font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--t-color-brand-500);margin-bottom:6px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Not sure which vehicle suits your journey?</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Nie wiedzą Państwo, który pojazd będzie odpowiedni?</sc-if>
+        </div>
+        <div style="font-size:13px;color:rgba(44,26,29,0.65);line-height:1.7;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Share your passenger count, luggage and route — our team will recommend the right option.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Prosimy podać liczbę pasażerów, bagaż i trasę — nasz zespół zarekomenduje właściwy pojazd.</sc-if>
+        </div>
+      </div>
+      <a href="#inquiry" style="display:inline-flex;align-items:center;justify-content:center;padding:13px 28px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;border-radius:var(--t-radius-sm);text-decoration:none;white-space:nowrap;transition:background 240ms;" style-hover="background:var(--t-color-brand-700);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Get a recommendation</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Otrzymaj rekomendację</sc-if>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ WHY VENIX ═══ -->
+<section id="why" data-screen-label="Why Venix Concierge" style="background:var(--t-color-neutral-100);padding:100px 0;">
+  <div data-vx-pad="" style="max-width:1360px;margin:0 auto;padding:0 52px;">
+    <div style="text-align:center;margin-bottom:52px;">
+      <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Why Venix Concierge</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Dlaczego Venix Concierge</sc-if>
+      </span>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(22px,2.5vw,34px);letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.3;margin:14px 0 0;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">The standards behind the service</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Standardy, które za nami stoją</sc-if>
+      </h2>
+      <span style="display:block;width:36px;height:1px;background:var(--t-color-brand-500);margin:18px auto 0;"></span>
+    </div>
+    <div data-vx-3col="" style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px 48px;">
+      <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="6">
+        <div style="border-top:1px solid var(--t-color-accent-500);padding-top:20px;">
+          <div style="font-family:var(--t-font-display);font-size:12.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.5;">{{ p.title }}</div>
+          <div style="font-size:13px;line-height:1.85;color:rgba(44,26,29,0.65);margin-top:10px;">{{ p.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EVENTS & DELEGATIONS ═══ -->
+<section id="events" data-screen-label="Events and delegations" style="background:var(--t-color-brand-900);padding:110px 0;position:relative;overflow:hidden;">
+  <div aria-hidden="true" style="position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,var(--t-color-accent-500) 0,var(--t-color-accent-500) 1px,transparent 1px,transparent 50%);background-size:18px 18px;"></div>
+  <div data-vx-pad="" data-vx-split="" style="position:relative;max-width:1360px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:center;">
+    <div>
+      <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Events &amp; delegations</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Wydarzenia i delegacje</sc-if>
+      </span>
+      <h2 style="font-family:var(--t-font-display);font-weight:400;font-size:clamp(22px,2.8vw,38px);letter-spacing:0.13em;line-height:1.35;text-transform:uppercase;color:var(--t-color-warm-100);margin:18px 0 22px;text-wrap:balance;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">When every arrival matters, coordination becomes part of the experience</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Gdy liczy się każdy przyjazd, koordynacja staje się częścią doświadczenia</sc-if>
+      </h2>
+      <p style="font-weight:300;font-size:14px;color:var(--t-color-warm-200);line-height:1.95;max-width:480px;margin:0 0 30px;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">For conferences, official visits, weddings and multi-day programmes, we plan and manage the movement of guests, executives and delegations — with one responsible point of contact.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Przy konferencjach, wizytach oficjalnych, ślubach i programach wielodniowych planujemy i prowadzimy przejazdy gości, kadry i delegacji — z jednym odpowiedzialnym punktem kontaktu.</sc-if>
+      </p>
+      <div data-vx-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:10px 32px;margin-bottom:38px;">
+        <sc-for list="{{ eventPoints }}" as="e" hint-placeholder-count="6">
+          <div style="display:flex;align-items:baseline;gap:10px;font-size:12px;color:rgba(230,216,199,0.82);line-height:1.65;">
+            <span style="display:block;width:14px;height:1px;background:var(--t-color-accent-500);flex-shrink:0;transform:translateY(-3px);"></span>{{ e }}
+          </div>
+        </sc-for>
+      </div>
+      <a href="#inquiry" style="display:inline-flex;align-items:center;justify-content:center;padding:15px 36px;background:transparent;color:var(--t-color-accent-500);font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;border:1px solid var(--t-color-accent-500);border-radius:var(--t-radius-sm);text-decoration:none;transition:all 240ms;" style-hover="background:var(--t-color-accent-500);color:var(--t-color-brand-900);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Discuss your requirements</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Omów swoje potrzeby</sc-if>
+      </a>
+    </div>
+    <!-- Events image -->
+    <div style="aspect-ratio:4/5;border:1px solid rgba(201,167,94,0.25);border-radius:var(--t-radius-sm);overflow:hidden;">
+      <img src="https://placehold.co/480x600" alt="Several Venix Concierge vehicles coordinated outside a Warsaw conference venue at dusk." style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section id="process" data-screen-label="How it works" style="background:var(--t-color-warm-100);padding:110px 0;">
+  <div data-vx-pad="" style="max-width:1360px;margin:0 auto;padding:0 52px;">
+    <div style="text-align:center;margin-bottom:60px;">
+      <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">How it works</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Jak to działa</sc-if>
+      </span>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(22px,2.5vw,34px);letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.3;margin:14px 0 0;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">From request to arrival</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Od zapytania do przyjazdu</sc-if>
+      </h2>
+      <span style="display:block;width:36px;height:1px;background:var(--t-color-brand-500);margin:18px auto 0;"></span>
+    </div>
+    <div data-vx-4col="" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--t-color-neutral-200);">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+        <div style="padding:36px 36px 36px 0;border-right:1px solid var(--t-color-neutral-200);margin-right:0;">
+          <div style="font-family:var(--t-font-display);font-size:48px;font-weight:400;color:rgba(201,167,94,0.38);line-height:1;margin-bottom:18px;">{{ s.num }}</div>
+          <div style="font-family:var(--t-font-display);font-size:12.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.5;">{{ s.title }}</div>
+          <div style="font-size:12.5px;color:rgba(44,26,29,0.62);line-height:1.85;margin-top:10px;">{{ s.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ADDITIONAL SERVICES ═══ -->
+<section id="additional" data-screen-label="Additional services" style="background:var(--t-color-neutral-50);padding:100px 0;">
+  <div data-vx-pad="" style="max-width:1360px;margin:0 auto;padding:0 52px;">
+    <div style="text-align:center;margin-bottom:52px;">
+      <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Beyond the journey</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Poza samą podróżą</sc-if>
+      </span>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(22px,2.5vw,34px);letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.3;margin:14px 0 0;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Other services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Inne usługi</sc-if>
+      </h2>
+      <span style="display:block;width:36px;height:1px;background:var(--t-color-brand-500);margin:18px auto 0;"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 0;">
+      <sc-for list="{{ extras }}" as="x" hint-placeholder-count="5">
+        <div style="border-top:2px solid var(--t-color-accent-500);border-right:1px solid var(--t-color-neutral-200);padding:28px 28px 32px;background:var(--t-color-warm-100);display:flex;flex-direction:column;gap:11px;transition:background 220ms;" style-hover="background:var(--t-color-neutral-100);">
+          <div style="color:var(--t-color-brand-500);">{{ x.icon }}</div>
+          <div style="font-family:var(--t-font-display);font-size:12.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.5;">{{ x.title }}</div>
+          <div style="font-size:12.5px;line-height:1.85;color:rgba(44,26,29,0.65);">{{ x.desc }}</div>
+          <a href="#inquiry" style="margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);">{{ x.cta }}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+          </a>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:40px auto 0;max-width:620px;text-align:center;font-size:11px;font-style:italic;line-height:1.85;color:var(--t-color-warm-300);">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Selected specialist services are coordinated through authorised partners and are subject to assessment, availability, licensing requirements and applicable regulations. [Confirm service partner arrangements]</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Wybrane usługi specjalistyczne koordynujemy z autoryzowanymi partnerami; podlegają one ocenie, dostępności, wymogom licencyjnym i obowiązującym przepisom. [Do potwierdzenia: ustalenia partnerskie]</sc-if>
+    </p>
+  </div>
+</section>
+
+<!-- ═══ WHO WE SERVE ═══ -->
+<section data-screen-label="Who we serve" style="background:var(--t-color-brand-700);padding:100px 0;position:relative;overflow:hidden;">
+  <div aria-hidden="true" style="position:absolute;inset:0;opacity:0.035;background-image:repeating-linear-gradient(45deg,var(--t-color-accent-500) 0,var(--t-color-accent-500) 1px,transparent 1px,transparent 50%);background-size:18px 18px;"></div>
+  <div data-vx-pad="" style="max-width:1360px;margin:0 auto;padding:0 52px;position:relative;">
+
+    <div style="display:grid;grid-template-columns:1fr auto;align-items:end;gap:32px;margin-bottom:52px;">
+      <div>
+        <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Who we serve</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Komu służymy</sc-if>
+        </span>
+        <h2 style="font-family:var(--t-font-display);font-weight:400;font-size:clamp(22px,2.4vw,32px);letter-spacing:0.14em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.35;margin:14px 0 0;text-wrap:balance;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">A service shaped for those who expect more</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługa stworzona dla wymagających</sc-if>
+        </h2>
+      </div>
+      <div style="width:36px;height:1px;background:var(--t-color-accent-500);"></div>
+    </div>
+
+    <div data-vx-3col="" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+
+      <!-- Private travellers -->
+      <div style="border-top:2px solid var(--t-color-accent-500);padding:28px 28px 32px;background:rgba(255,255,255,0.02);transition:background 220ms;" style-hover="background:rgba(255,255,255,0.055);">
+        <div style="color:var(--t-color-accent-500);margin-bottom:14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+        <div style="font-family:var(--t-font-display);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.4;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Private travellers</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Klienci prywatni</sc-if>
+        </div>
+        <div style="font-size:12px;color:rgba(230,216,199,0.65);line-height:1.8;margin-top:9px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Individuals seeking refined, discreet transportation for private and leisure journeys.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Osoby poszukujące eleganckiego, dyskretnego transportu prywatnego.</sc-if>
+        </div>
+      </div>
+
+      <!-- Executives -->
+      <div style="border-top:2px solid var(--t-color-accent-500);padding:28px 28px 32px;background:rgba(255,255,255,0.02);transition:background 220ms;" style-hover="background:rgba(255,255,255,0.055);">
+        <div style="color:var(--t-color-accent-500);margin-bottom:14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path></svg></div>
+        <div style="font-family:var(--t-font-display);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.4;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Executives</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Kadra zarządzająca</sc-if>
+        </div>
+        <div style="font-size:12px;color:rgba(230,216,199,0.65);line-height:1.8;margin-top:9px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Senior leaders who require precise, private travel arrangements and personal attention.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Liderzy wymagający precyzyjnych, prywatnych ustaleń podróżniczych.</sc-if>
+        </div>
+      </div>
+
+      <!-- Companies -->
+      <div style="border-top:2px solid var(--t-color-accent-500);padding:28px 28px 32px;background:rgba(255,255,255,0.02);transition:background 220ms;" style-hover="background:rgba(255,255,255,0.055);">
+        <div style="color:var(--t-color-accent-500);margin-bottom:14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M9 21V7l7-4v18"></path><path d="M9 11H5a2 2 0 0 0-2 2v8"></path></svg></div>
+        <div style="font-family:var(--t-font-display);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.4;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Companies</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Firmy</sc-if>
+        </div>
+        <div style="font-size:12px;color:rgba(230,216,199,0.65);line-height:1.8;margin-top:9px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Corporate teams, travel managers and executive assistants coordinating business travel.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Firmy, menedżerowie podróży i asystenci koordynujący transport służbowy.</sc-if>
+        </div>
+      </div>
+
+      <!-- Embassies -->
+      <div style="border-top:2px solid rgba(201,167,94,0.35);padding:28px 28px 32px;background:rgba(255,255,255,0.015);transition:background 220ms;" style-hover="background:rgba(255,255,255,0.05);">
+        <div style="color:var(--t-color-accent-500);margin-bottom:14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21v-8M9 21v-8M15 21v-8M19 21v-8M12 3 3 8.5h18z"></path></svg></div>
+        <div style="font-family:var(--t-font-display);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.4;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Embassies</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Ambasady</sc-if>
+        </div>
+        <div style="font-size:12px;color:rgba(230,216,199,0.65);line-height:1.8;margin-top:9px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Diplomatic missions and consular staff requiring discreet, protocol-aware transportation.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Misje dyplomatyczne i personel konsularny wymagający dyskretnego transportu.</sc-if>
+        </div>
+      </div>
+
+      <!-- Delegations -->
+      <div style="border-top:2px solid rgba(201,167,94,0.35);padding:28px 28px 32px;background:rgba(255,255,255,0.015);transition:background 220ms;" style-hover="background:rgba(255,255,255,0.05);">
+        <div style="color:var(--t-color-accent-500);margin-bottom:14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+        <div style="font-family:var(--t-font-display);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.4;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Delegations</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Delegacje</sc-if>
+        </div>
+        <div style="font-size:12px;color:rgba(230,216,199,0.65);line-height:1.8;margin-top:9px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Official groups, government representatives and international organisations visiting Warsaw.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Grupy oficjalne, przedstawiciele rządowi i organizacje międzynarodowe w Warszawie.</sc-if>
+        </div>
+      </div>
+
+      <!-- Event organisers -->
+      <div style="border-top:2px solid rgba(201,167,94,0.35);padding:28px 28px 32px;background:rgba(255,255,255,0.015);transition:background 220ms;" style-hover="background:rgba(255,255,255,0.05);">
+        <div style="color:var(--t-color-accent-500);margin-bottom:14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1.5"></rect><path d="M16 3v4M8 3v4M3 10.5h18M9.5 15.5h5"></path></svg></div>
+        <div style="font-family:var(--t-font-display);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.4;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Event organisers</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Organizatorzy wydarzeń</sc-if>
+        </div>
+        <div style="font-size:12px;color:rgba(230,216,199,0.65);line-height:1.8;margin-top:9px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Conference, gala and celebration coordinators managing multi-vehicle guest transport.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Organizatorzy konferencji, gal i uroczystości zarządzający transportem gości.</sc-if>
+        </div>
+      </div>
+
+      <!-- Hotels -->
+      <div style="border-top:2px solid rgba(201,167,94,0.2);padding:28px 28px 32px;background:rgba(255,255,255,0.01);transition:background 220ms;" style-hover="background:rgba(255,255,255,0.04);">
+        <div style="color:var(--t-color-accent-500);margin-bottom:14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
+        <div style="font-family:var(--t-font-display);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.4;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Hotels &amp; hospitality</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Hotele i branża hotelarska</sc-if>
+        </div>
+        <div style="font-size:12px;color:rgba(230,216,199,0.65);line-height:1.8;margin-top:9px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Hospitality partners and their distinguished guests requiring seamless arrival arrangements.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Partnerzy hotelarscy i ich wymagający goście oczekujący płynnych transferów.</sc-if>
+        </div>
+      </div>
+
+      <!-- Wedding planners -->
+      <div style="border-top:2px solid rgba(201,167,94,0.2);padding:28px 28px 32px;background:rgba(255,255,255,0.01);transition:background 220ms;" style-hover="background:rgba(255,255,255,0.04);">
+        <div style="color:var(--t-color-accent-500);margin-bottom:14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
+        <div style="font-family:var(--t-font-display);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.4;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Wedding planners</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Organizatorzy ślubów</sc-if>
+        </div>
+        <div style="font-size:12px;color:rgba(230,216,199,0.65);line-height:1.8;margin-top:9px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Couples, families and celebration coordinators arranging elegant occasion transport.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Pary, rodziny i koordynatorzy uroczystości organizujący elegancki transport.</sc-if>
+        </div>
+      </div>
+
+      <!-- International guests -->
+      <div style="border-top:2px solid rgba(201,167,94,0.2);padding:28px 28px 32px;background:rgba(255,255,255,0.01);transition:background 220ms;" style-hover="background:rgba(255,255,255,0.04);">
+        <div style="color:var(--t-color-accent-500);margin-bottom:14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+        <div style="font-family:var(--t-font-display);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.4;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">International guests</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Goście z zagranicy</sc-if>
+        </div>
+        <div style="font-size:12px;color:rgba(230,216,199,0.65);line-height:1.8;margin-top:9px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Visitors arriving in Warsaw from across the world who need a trusted, local partner.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Goście przybywający do Warszawy z całego świata szukający zaufanego partnera.</sc-if>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:52px;text-align:center;">
+      <a href="#inquiry" style="display:inline-flex;align-items:center;justify-content:center;padding:15px 38px;background:transparent;color:var(--t-color-accent-500);font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;border:1px solid var(--t-color-accent-500);border-radius:var(--t-radius-sm);text-decoration:none;transition:all 240ms;" style-hover="background:var(--t-color-accent-500);color:var(--t-color-brand-900);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request a Chauffeur</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów szofera</sc-if>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIAL PLACEHOLDER ═══ -->
+<section data-screen-label="Testimonial" style="background:var(--t-color-warm-100);padding:90px 0;">
+  <div data-vx-pad="" style="max-width:700px;margin:0 auto;padding:0 52px;text-align:center;">
+    <div aria-hidden="true" style="font-family:var(--t-font-display);font-size:72px;line-height:0.6;color:rgba(201,167,94,0.45);">“</div>
+    <p style="font-family:var(--t-font-display);font-size:16px;letter-spacing:0.07em;line-height:2.1;color:rgba(122,19,34,0.45);font-style:italic;margin:28px 0;">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">[Approved client testimonial to be supplied. No fabricated quotations are used in this prototype.]</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">[Miejsce na zatwierdzoną opinię klienta. W prototypie nie stosujemy fikcyjnych cytatów.]</sc-if>
+    </p>
+    <div style="font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--t-color-warm-300);">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">[Client name &amp; role — with permission]</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">[Imię i rola klienta — za zgodą]</sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INQUIRY FORM ═══ -->
+<section id="inquiry" data-screen-label="Inquiry form" style="background:var(--t-color-neutral-100);padding:110px 0;">
+  <div data-vx-pad="" data-vx-split="" style="max-width:1360px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:0.82fr 1.18fr;gap:88px;align-items:start;">
+
+    <!-- Left: intro -->
+    <div style="padding-top:8px;">
+      <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Begin the arrangement</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Rozpocznij ustalenia</sc-if>
+      </span>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(22px,2.5vw,34px);letter-spacing:0.14em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.4;margin:16px 0 0;text-wrap:balance;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Tell us where you need to be. We handle the rest.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Prosimy powiedzieć, gdzie mają Państwo być. Resztą zajmiemy się my.</sc-if>
+      </h2>
+      <span style="display:block;width:36px;height:1px;background:var(--t-color-brand-500);margin:22px 0;"></span>
+      <p style="font-size:13.5px;line-height:1.9;color:rgba(44,26,29,0.68);margin:0 0 36px;">
+        <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Share your route, schedule and requirements. Our team will review the details and reply with a tailored proposal through your preferred method of contact.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Prosimy o przekazanie trasy, terminu i wymagań. Nasz zespół przeanalizuje szczegóły i odpowie dopasowaną propozycją wybraną przez Państwa drogą kontaktu.</sc-if>
+      </p>
+      <div style="display:flex;flex-direction:column;gap:16px;font-size:12.5px;color:rgba(44,26,29,0.68);letter-spacing:0.03em;">
+        <div style="display:flex;align-items:center;gap:13px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--t-color-brand-500)" stroke-width="1.4" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg>
+          [Insert verified phone number]
+        </div>
+        <div style="display:flex;align-items:center;gap:13px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--t-color-brand-500)" stroke-width="1.4" stroke-linecap="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l2-5a8.4 8.4 0 1 1 16-4.5z"></path></svg>
+          [Insert WhatsApp number]
+        </div>
+        <div style="display:flex;align-items:center;gap:13px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--t-color-brand-500)" stroke-width="1.4" stroke-linecap="round"><rect x="2.5" y="5" width="19" height="14" rx="1.5"></rect><path d="m3 6.5 9 6.5 9-6.5"></path></svg>
+          [Insert verified email]
+        </div>
+        <div style="display:flex;align-items:center;gap:13px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--t-color-brand-500)" stroke-width="1.4" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Warsaw, Poland · [Confirm operating area]</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Warszawa · [Do potwierdzenia: obszar działania]</sc-if>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div>
+
+      <!-- Success state -->
+      <sc-if value="{{ formSuccess }}" hint-placeholder-val="{{ false }}">
+        <div style="background:var(--t-color-warm-100);border:1px solid rgba(201,167,94,0.5);border-top:3px solid var(--t-color-accent-500);border-radius:var(--t-radius-sm);padding:48px 44px;text-align:center;">
+          <div style="width:48px;height:48px;border:1px solid var(--t-color-accent-500);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--t-color-accent-500)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+          </div>
+          <h3 style="font-family:var(--t-font-display);font-size:15px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--t-color-brand-500);margin:0 0 14px;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request received</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zapytanie zostało odebrane</sc-if>
+          </h3>
+          <p style="font-size:13px;line-height:1.9;color:rgba(44,26,29,0.68);margin:0 0 28px;">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Thank you. The Venix Concierge team will review your details and contact you through your preferred method. [Prototype: no message was actually sent.]</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Dziękujemy. Zespół Venix Concierge przeanalizuje Państwa szczegóły i skontaktuje się wybraną drogą. [Prototyp: wiadomość nie została wysłana.]</sc-if>
+          </p>
+          <button onClick="{{ resetForm }}" style="font-family:var(--t-font-display);font-size:9.5px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:12px 26px;background:transparent;color:var(--t-color-brand-500);border:1px solid var(--t-color-brand-500);border-radius:var(--t-radius-sm);cursor:pointer;transition:all 220ms;" style-hover="background:var(--t-color-brand-500);color:var(--t-color-warm-100);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Send another request</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Wyślij kolejne zapytanie</sc-if>
+          </button>
+        </div>
+      </sc-if>
+
+      <!-- Form -->
+      <sc-if value="{{ formActive }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" novalidate="" style="background:var(--t-color-warm-100);border:1px solid var(--t-color-neutral-200);border-radius:var(--t-radius-sm);padding:40px 38px;display:flex;flex-direction:column;gap:20px;">
+
+          <!-- Error summary -->
+          <sc-if value="{{ hasErrors }}" hint-placeholder-val="{{ false }}">
+            <div role="alert" style="background:var(--t-color-neutral-100);border:1px solid var(--t-border-danger);border-left:3px solid var(--t-border-danger);border-radius:var(--t-radius-sm);padding:14px 18px;">
+              <div style="font-size:11.5px;font-weight:600;color:var(--t-fg-danger);margin-bottom:6px;letter-spacing:0.06em;">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Please check the highlighted fields</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Prosimy sprawdzić zaznaczone pola</sc-if>
+              </div>
+              <ul style="margin:0;padding-left:16px;font-size:11.5px;color:rgba(44,26,29,0.75);line-height:1.7;">
+                <sc-for list="{{ errorList }}" as="er" hint-placeholder-count="2">
+                  <li>{{ er }}</li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-if>
+
+          <!-- Row 1: Name + Email -->
+          <div data-vx-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <label for="vx-name" style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-ink);">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Full Name <span style="color:var(--t-color-brand-500);">*</span></sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Imię i nazwisko <span style="color:var(--t-color-brand-500);">*</span></sc-if>
+              </label>
+              <input id="vx-name" name="fullName" type="text" autocomplete="name" required="" aria-invalid="{{ aiName }}" style="{{ fldName }}" placeholder="">
+              <sc-if value="{{ errName }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:10.5px;color:var(--t-fg-danger);letter-spacing:0.03em;">{{ errNameMsg }}</span></sc-if>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <label for="vx-email" style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-ink);">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Email Address <span style="color:var(--t-color-brand-500);">*</span></sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Adres e-mail <span style="color:var(--t-color-brand-500);">*</span></sc-if>
+              </label>
+              <input id="vx-email" name="email" type="email" autocomplete="email" required="" aria-invalid="{{ aiEmail }}" style="{{ fldEmail }}" placeholder="">
+              <sc-if value="{{ errEmail }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:10.5px;color:var(--t-fg-danger);letter-spacing:0.03em;">{{ errEmailMsg }}</span></sc-if>
+            </div>
+          </div>
+
+          <!-- Row 2: Phone + Service -->
+          <div data-vx-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <label for="vx-phone" style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-ink);">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Phone / WhatsApp</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Telefon / WhatsApp</sc-if>
+                <span style="font-size:10px;font-weight:400;letter-spacing:0.06em;text-transform:none;color:var(--t-color-warm-300);margin-left:6px;">
+                  <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">(optional)</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">(opcjonalnie)</sc-if>
+                </span>
+              </label>
+              <input id="vx-phone" name="phone" type="tel" autocomplete="tel" style="{{ fldBase }}" placeholder="+48 ...">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <label for="vx-service" style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-ink);">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Required Service <span style="color:var(--t-color-brand-500);">*</span></sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Rodzaj usługi <span style="color:var(--t-color-brand-500);">*</span></sc-if>
+              </label>
+              <span class="vx-sel"><select id="vx-service" name="service" required="" aria-invalid="{{ aiService }}" style="{{ fldService }}">
+                <sc-for list="{{ serviceOptions }}" as="so" hint-placeholder-count="8">
+                  <option value="{{ so.v }}">{{ so.l }}</option>
+                </sc-for>
+              </select></span>
+              <sc-if value="{{ errService }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:10.5px;color:var(--t-fg-danger);letter-spacing:0.03em;">{{ errServiceMsg }}</span></sc-if>
+            </div>
+          </div>
+
+          <!-- Row 3: Date + Passengers -->
+          <div data-vx-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <label for="vx-date" style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-ink);">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Pickup Date <span style="color:var(--t-color-brand-500);">*</span></sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Data odbioru <span style="color:var(--t-color-brand-500);">*</span></sc-if>
+              </label>
+              <input id="vx-date" name="pickupDate" type="date" required="" aria-invalid="{{ aiDate }}" style="{{ fldDate }}">
+              <sc-if value="{{ errDate }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:10.5px;color:var(--t-fg-danger);letter-spacing:0.03em;">{{ errDateMsg }}</span></sc-if>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <label for="vx-pax" style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-ink);">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Passengers</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Pasażerowie</sc-if>
+                <span style="font-size:10px;font-weight:400;letter-spacing:0.06em;text-transform:none;color:var(--t-color-warm-300);margin-left:6px;">
+                  <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">(optional)</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">(opcjonalnie)</sc-if>
+                </span>
+              </label>
+              <input id="vx-pax" name="passengers" type="number" min="1" max="50" style="{{ fldBase }}" placeholder="">
+            </div>
+          </div>
+
+          <!-- Row 4: Pickup + Destination -->
+          <div data-vx-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <label for="vx-from" style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-ink);">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Pickup Location <span style="color:var(--t-color-brand-500);">*</span></sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Miejsce odbioru <span style="color:var(--t-color-brand-500);">*</span></sc-if>
+              </label>
+              <input id="vx-from" name="pickupLocation" type="text" required="" aria-invalid="{{ aiFrom }}" style="{{ fldFrom }}" placeholder="">
+              <sc-if value="{{ errFrom }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:10.5px;color:var(--t-fg-danger);letter-spacing:0.03em;">{{ errFromMsg }}</span></sc-if>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <label for="vx-to" style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-ink);">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Destination</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Cel podróży</sc-if>
+                <span style="font-size:10px;font-weight:400;letter-spacing:0.06em;text-transform:none;color:var(--t-color-warm-300);margin-left:6px;">
+                  <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">(optional)</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">(opcjonalnie)</sc-if>
+                </span>
+              </label>
+              <input id="vx-to" name="destination" type="text" style="{{ fldBase }}" placeholder="">
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <label for="vx-msg" style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-ink);">
+              <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Message or Special Requirements</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Wiadomość lub wymagania specjalne</sc-if>
+              <span style="font-size:10px;font-weight:400;letter-spacing:0.06em;text-transform:none;color:var(--t-color-warm-300);margin-left:6px;">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">(optional)</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">(opcjonalnie)</sc-if>
+              </span>
+            </label>
+            <textarea id="vx-msg" name="message" rows="4" style="{{ fldMsg }}"></textarea>
+          </div>
+
+          <!-- Consent -->
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
+              <input type="checkbox" name="consent" required="" style="width:16px;height:16px;margin-top:2px;accent-color:var(--t-color-brand-500);flex-shrink:0;cursor:pointer;">
+              <span style="font-size:11.5px;line-height:1.7;color:rgba(44,26,29,0.68);">
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">I confirm I have read and agree to the <a href="#top" style="color:var(--t-color-brand-500);text-underline-offset:3px;">Privacy Policy</a> and consent to Venix Concierge processing my details to respond to this inquiry. <span style="color:var(--t-color-brand-500);">*</span></sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Potwierdzam, że zapoznałem/am się z <a href="#top" style="color:var(--t-color-brand-500);text-underline-offset:3px;">Polityką prywatności</a> i wyrażam zgodę na przetwarzanie moich danych przez Venix Concierge w celu udzielenia odpowiedzi na to zapytanie. <span style="color:var(--t-color-brand-500);">*</span></sc-if>
+              </span>
+            </label>
+            <sc-if value="{{ errConsent }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:10.5px;color:var(--t-fg-danger);padding-left:28px;letter-spacing:0.03em;">{{ errConsentMsg }}</span></sc-if>
+          </div>
+
+          <!-- Submit -->
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:6px;border-top:1px solid var(--t-color-neutral-200);">
+            <span style="font-size:10px;font-style:italic;color:var(--t-color-warm-300);letter-spacing:0.04em;line-height:1.7;">
+              <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Prototype — form submissions are simulated.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Prototyp — wysyłka formularza jest symulowana.</sc-if>
+            </span>
+            <button type="submit" style="{{ submitStyle }}" disabled="{{ sending }}">{{ submitLabel }}</button>
+          </div>
+
+        </form>
+      </sc-if>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer role="contentinfo" style="background:var(--t-color-brand-900);padding:64px 0 32px;">
+  <div data-vx-pad="" style="max-width:1360px;margin:0 auto;padding:0 52px;">
+    <div data-vx-4col="" style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(201,167,94,0.12);">
+      <div>
+        <img src="assets/logo-horizontal-white.png" alt="Venix Concierge" style="height:28px;width:auto;">
+        <p style="font-size:11.5px;color:var(--t-color-warm-300);line-height:1.9;font-weight:300;margin:18px 0 0;max-width:260px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Chauffeur services, executive transportation and luxury concierge in Warsaw — precise, discreet, personal.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługi szoferskie, transport reprezentacyjny i concierge klasy premium w Warszawie — precyzyjne, dyskretne, osobiste.</sc-if>
+        </p>
+        <div style="font-size:8.5px;letter-spacing:0.38em;text-transform:uppercase;color:var(--t-color-accent-500);margin-top:20px;">Own the moment</div>
+      </div>
+      <div>
+        <div style="font-family:var(--t-font-display);font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--t-color-accent-500);margin-bottom:16px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Navigation</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Nawigacja</sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#top" style="font-size:11.5px;color:var(--t-color-warm-300);letter-spacing:0.04em;text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Home</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Strona główna</sc-if>
+          </a>
+          <a href="#about" style="font-size:11.5px;color:var(--t-color-warm-300);letter-spacing:0.04em;text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">About</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">O nas</sc-if>
+          </a>
+          <a href="#services" style="font-size:11.5px;color:var(--t-color-warm-300);letter-spacing:0.04em;text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługi</sc-if>
+          </a>
+          <a href="#fleet" style="font-size:11.5px;color:var(--t-color-warm-300);letter-spacing:0.04em;text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Fleet</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Flota</sc-if>
+          </a>
+          <a href="#inquiry" style="font-size:11.5px;color:var(--t-color-warm-300);letter-spacing:0.04em;text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Contact</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Kontakt</sc-if>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--t-font-display);font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--t-color-accent-500);margin-bottom:16px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługi</sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ footerServices }}" as="fs" hint-placeholder-count="7">
+            <a href="#services" style="font-size:11.5px;color:var(--t-color-warm-300);letter-spacing:0.04em;text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">{{ fs }}</a>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--t-font-display);font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--t-color-accent-500);margin-bottom:16px;">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Contact</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Kontakt</sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:11.5px;color:var(--t-color-warm-300);letter-spacing:0.03em;line-height:1.7;">
+          <span>[Insert verified phone]</span>
+          <span>[Insert WhatsApp]</span>
+          <span>[Insert verified email]</span>
+          <span>
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Warsaw · [Confirm hours]</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Warszawa · [Godziny do potwierdzenia]</sc-if>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding-top:22px;">
+      <div style="font-size:10px;color:var(--t-color-warm-300);letter-spacing:0.06em;">© 2026 Venix Concierge · Warszawa</div>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;">
+        <a href="#top" style="font-size:10px;color:var(--t-color-warm-300);letter-spacing:0.06em;text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Privacy Policy — in preparation</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Polityka prywatności — w przygotowaniu</sc-if>
+        </a>
+        <a href="#top" style="font-size:10px;color:var(--t-color-warm-300);letter-spacing:0.06em;text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Terms — in preparation</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Regulamin — w przygotowaniu</sc-if>
+        </a>
+      </div>
+    </div>
+    <div style="margin-top:18px;font-size:9.5px;font-style:italic;color:rgba(200,182,166,0.45);letter-spacing:0.04em;">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Homepage prototype · Form submissions are simulated · About, Services, Fleet and Contact pages follow approval.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Prototyp strony głównej · Wysyłka formularza symulowana · Podstrony po akceptacji.</sc-if>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1440 }
+}">
+class Component extends DCLogic {
+  state = {
+    lang: 'en',
+    menuOpen: false,
+    activeDropdown: null,   // 'services' | 'other' | null
+    mobileServicesOpen: false,
+    mobileOtherOpen: false,
+    status: 'idle',         // idle | sending | success
+    errors: {}
+  };
+
+  componentWillUnmount() { clearTimeout(this._dt); clearTimeout(this._st); }
+
+  submit = (e) => {
+    e.preventDefault();
+    if (this.state.status === 'sending') return;
+    const fd = new FormData(e.target);
+    const v = (k) => String(fd.get(k) || '').trim();
+    const errs = {};
+    if (!v('fullName')) errs.fullName = true;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))) errs.email = true;
+    if (!v('service')) errs.service = true;
+    if (!v('pickupDate')) errs.pickupDate = true;
+    if (!v('pickupLocation')) errs.pickupLocation = true;
+    if (!fd.get('consent')) errs.consent = true;
+    this.setState({ errors: errs });
+    if (Object.keys(errs).length) return;
+    this.setState({ status: 'sending' });
+    clearTimeout(this._st);
+    this._st = setTimeout(() => this.setState({ status: 'success' }), 1300);
+  };
+
+  componentDidMount() {
+    if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    const scan = () => {
+      const nodes = document.querySelectorAll('main section, main [data-vx-reveal-item]');
+      nodes.forEach((n, i) => {
+        if (n.hasAttribute('data-vx-reveal') || n.closest('[data-screen-label="Hero — cinematic"]')) return;
+        n.setAttribute('data-vx-reveal', '');
+        n.style.transitionDelay = (Math.min(i, 3) * 70) + 'ms';
+        this._io.observe(n);
+      });
+    };
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('vx-in'); this._io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    this._scan = scan;
+    scan();
+    this._rescan = setTimeout(scan, 600);
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    clearTimeout(this._rescan);
+  }
+
+  renderVals() {
+    const en = this.state.lang === 'en';
+    const T = (e, p) => (en ? e : p);
+    const errs = this.state.errors;
+    const ad = this.state.activeDropdown;
+
+    /* ── Language buttons ── */
+    const lbBase = { background: 'transparent', border: 'none', cursor: 'pointer', letterSpacing: '0.18em', transition: 'color 220ms, border-color 220ms' };
+    const enBtnStyle = { ...lbBase, fontSize: '10px', fontWeight: en ? 700 : 500, color: en ? 'var(--t-color-accent-500)' : 'rgba(230,216,199,0.55)', borderBottom: en ? '1px solid var(--t-color-accent-500)' : '1px solid transparent', padding: '4px 2px' };
+    const plBtnStyle = { ...lbBase, fontSize: '10px', fontWeight: !en ? 700 : 500, color: !en ? 'var(--t-color-accent-500)' : 'rgba(230,216,199,0.55)', borderBottom: !en ? '1px solid var(--t-color-accent-500)' : '1px solid transparent', padding: '4px 2px' };
+    const enBtnStyleMobile = { padding: '10px 20px', fontSize: '11px', fontWeight: 600, letterSpacing: '0.18em', border: '1px solid var(--t-color-accent-500)', borderRadius: 'var(--t-radius-sm)', cursor: 'pointer', background: en ? 'var(--t-color-accent-500)' : 'transparent', color: en ? 'var(--t-color-brand-900)' : 'var(--t-color-warm-200)' };
+    const plBtnStyleMobile = { padding: '10px 20px', fontSize: '11px', fontWeight: 600, letterSpacing: '0.18em', border: '1px solid var(--t-color-accent-500)', borderRadius: 'var(--t-radius-sm)', cursor: 'pointer', background: !en ? 'var(--t-color-accent-500)' : 'transparent', color: !en ? 'var(--t-color-brand-900)' : 'var(--t-color-warm-200)' };
+
+    /* ── Dropdown menus ── */
+    const servicesMenuItems = [
+      { href: 'Services.dc.html#chauffeur', name: T('Chauffeur & Private Transfers', 'Szofer i transfery prywatne'), desc: T('Hourly, full-day, city-to-city journeys', 'Na godziny, cały dzień lub między miastami') },
+      { href: 'Services.dc.html#airport', name: T('Airport Transfers', 'Transfery lotniskowe'), desc: T('Arrivals, departures & group coordination', 'Przyloty, wyloty i obsługa grup') },
+      { href: 'Services.dc.html#events', name: T('Business & Private Events', 'Wydarzenia biznesowe i prywatne'), desc: T('Conferences, galas, celebrations', 'Konferencje, gale, uroczystości') },
+      { href: 'Services.dc.html#delegations', name: T('Delegations & Diplomatic', 'Delegacje i dyplomacja'), desc: T('Embassies, delegations, official guests', 'Ambasady, delegacje, goście oficjalni') }
+    ];
+    const otherMenuItems = [
+      { href: 'Services.dc.html#protection', name: T('Private Protection', 'Ochrona osobista'), desc: T('Authorised security coordination', 'Koordynacja z autoryzowanymi partnerami') },
+      { href: 'Services.dc.html#flights', name: T('Private Flights', 'Loty prywatne'), desc: T('Charter inquiries & ground–air coordination', 'Zapytania czarterowe i transport naziemny') },
+      { href: 'Services.dc.html#embassy', name: T('Embassy Services', 'Obsługa ambasad'), desc: T('Official guests & scheduling support', 'Goście oficjalni i wsparcie logistyczne') },
+      { href: 'Services.dc.html#concierge', name: T('Concierge Services', 'Usługi concierge'), desc: T('Reservations, itineraries, special requests', 'Rezerwacje, plany pobytu, życzenia') },
+      { href: 'Services.dc.html#weddings', name: T('Weddings', 'Śluby i wesela'), desc: T('Couples, families & guest coordination', 'Para młoda, rodziny i koordynacja gości') }
+    ];
+
+    /* ── Promise items ── */
+    const promiseItems = [
+      { title: T('Planning & timing', 'Planowanie i harmonogram'), desc: T('Schedules built around your day.', 'Harmonogramy budowane wokół Państwa dnia.') },
+      { title: T('Route & flight details', 'Trasa i dane lotu'), desc: T('Journey information checked in advance.', 'Informacje weryfikowane z wyprzedzeniem.') },
+      { title: T('Vehicle preparation', 'Przygotowanie pojazdu'), desc: T('Every vehicle presented professionally.', 'Każdy pojazd przygotowany profesjonalnie.') },
+      { title: T('Privacy at every stage', 'Prywatność na każdym etapie'), desc: T('Discreet conduct and confidential handling.', 'Dyskretne zachowanie i poufność.') },
+      { title: T('Clear confirmations', 'Jasne potwierdzenia'), desc: T('You always know what has been arranged.', 'Zawsze wiedzą Państwo, co ustalono.') },
+      { title: T('Calm adaptation', 'Spokojna reakcja'), desc: T('When plans change, we work to adapt.', 'Gdy plany się zmieniają, dostosowujemy się.') }
+    ];
+
+    /* ── Pillars ── */
+    const pillars = [
+      { title: T('Precision in every detail', 'Precyzja w każdym szczególe'), desc: T('From pickup to destination, each journey is carefully coordinated.', 'Od odbioru po cel — każdy przejazd starannie skoordynowany.') },
+      { title: T('Discretion you can rely on', 'Dyskrecja, na której można polegać'), desc: T('Privacy and professional conduct are central to every service.', 'Prywatność i profesjonalizm są podstawą każdej usługi.') },
+      { title: T('Clear communication', 'Jasna komunikacja'), desc: T('Straightforward information and a clearly managed inquiry process.', 'Przejrzyste informacje i czytelny proces zapytania.') },
+      { title: T('Service that adapts', 'Usługa, która się dostosowuje'), desc: T('When requirements change, the team responds calmly and works to accommodate the new plan.', 'Gdy plany się zmieniają, zespół reaguje spokojnie.') },
+      { title: T('A personal approach', 'Indywidualne podejście'), desc: T('Every request is handled according to the client\'s individual needs.', 'Każde zapytanie prowadzimy zgodnie z indywidualnymi potrzebami.') },
+      { title: T('International understanding', 'Międzynarodowe zrozumienie'), desc: T('Designed for clients from different cultures, industries and backgrounds.', 'Usługa dla klientów z różnych kultur i środowisk.') }
+    ];
+
+    /* ── Event points ── */
+    const eventPoints = [
+      T('Multi-vehicle coordination', 'Koordynacja wielu pojazdów'),
+      T('Airport & hotel transfers', 'Transfery lotniskowe i hotelowe'),
+      T('Guest schedules & pickups', 'Harmonogramy i odbiory gości'),
+      T('Conference transportation', 'Transport konferencyjny'),
+      T('Embassy & delegation movements', 'Przejazdy ambasad i delegacji'),
+      T('On-site coordination, when arranged', 'Koordynacja na miejscu — po uzgodnieniu')
+    ];
+
+    /* ── Steps ── */
+    const steps = [
+      { num: '01', title: T('Share your requirements', 'Przekaż wymagania'), desc: T('Provide the journey, date, passengers, vehicle preference and any special requirements.', 'Prosimy o trasę, datę, liczbę pasażerów, preferencje pojazdu i wymagania specjalne.') },
+      { num: '02', title: T('Receive a tailored proposal', 'Otrzymaj dopasowaną propozycję'), desc: T('We review the request and prepare an appropriate service recommendation.', 'Analizujemy zapytanie i przygotowujemy rekomendację.') },
+      { num: '03', title: T('Confirm the arrangement', 'Potwierdź ustalenia'), desc: T('Once approved, every journey detail is confirmed in writing.', 'Po akceptacji wszystkie szczegóły zostają potwierdzone na piśmie.') },
+      { num: '04', title: T('Travel with confidence', 'Podróżuj z pewnością'), desc: T('The service is carried out with professional care, discretion and attention to detail.', 'Usługę realizujemy z profesjonalną starannością i dyskrecją.') }
+    ];
+
+    /* ── Extras ── */
+    const iconSvg = (d) => React.createElement('svg', { width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'var(--t-color-brand-500)', strokeWidth: '1.2', strokeLinecap: 'round', strokeLinejoin: 'round' }, React.createElement('path', { d }));
+    const extras = [
+      { title: T('Private protection', 'Ochrona osobista'), desc: T('Coordination of professional security arrangements through authorised providers.', 'Koordynacja ochrony przez autoryzowane podmioty.'), cta: T('Inquire', 'Zapytaj'), icon: iconSvg('M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z') },
+      { title: T('Private flights', 'Loty prywatne'), desc: T('Charter inquiry assistance and seamless ground-to-air coordination.', 'Wsparcie przy czarterze i transport naziemny.'), cta: T('Inquire', 'Zapytaj'), icon: iconSvg('M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z') },
+      { title: T('Embassy services', 'Obsługa ambasad'), desc: T('Transportation and scheduling support for official visitors and embassy guests.', 'Transport i logistyka dla gości oficjalnych i ambasad.'), cta: T('Inquire', 'Zapytaj'), icon: iconSvg('M3 21h18M5 21v-8M9 21v-8M15 21v-8M19 21v-8M12 3 3 8.5h18z') },
+      { title: T('Concierge services', 'Usługi concierge'), desc: T('Personal arrangements surrounding your visit — reservations, itineraries, special requests.', 'Osobiste ustalenia wokół Państwa wizyty.'), cta: T('Inquire', 'Zapytaj'), icon: iconSvg('M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM12 12v.01') },
+      { title: T('Weddings', 'Śluby i wesela'), desc: T('Elegant, precisely timed transportation for couples, families and guests.', 'Eleganckie, punktualne przejazdy dla pary młodej i gości.'), cta: T('Inquire', 'Zapytaj'), icon: iconSvg('M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z') }
+    ];
+
+    /* ── Clients strip ── */
+    const clients = [
+      T('Private travellers', 'Klienci prywatni'), T('Executives', 'Kadra zarządzająca'),
+      T('Companies', 'Firmy'), T('Embassies', 'Ambasady'), T('Delegations', 'Delegacje'),
+      T('Event organisers', 'Organizatorzy wydarzeń'), T('Hotels', 'Hotele'),
+      T('Wedding planners', 'Organizatorzy ślubów'), T('International guests', 'Goście z zagranicy')
+    ];
+
+    const footerServices = [
+      T('Private transfers', 'Transfery prywatne'), T('Airport transfers', 'Transfery lotniskowe'),
+      T('Events', 'Wydarzenia'), T('Delegations', 'Delegacje'), T('Private protection', 'Ochrona osobista'),
+      T('Concierge', 'Concierge'), T('Weddings', 'Śluby')
+    ];
+
+    /* ── Form ── */
+    const fldBase = { width: '100%', padding: '12px 14px', background: 'var(--t-color-warm-100)', border: '1px solid var(--t-color-neutral-200)', borderRadius: 'var(--t-radius-sm)', fontSize: '13px', color: 'var(--t-color-brand-ink)', letterSpacing: '0.02em', fontFamily: 'var(--t-font-body)' };
+    const fldErr = { ...fldBase, border: '1px solid var(--t-border-danger)', background: 'var(--t-bg-surface)' };
+
+    const errMsgs = {
+      fullName: T('Please share your name so we know how to address you.', 'Prosimy o podanie imienia i nazwiska.'),
+      email: T('Please enter a valid email address so our team can reply.', 'Prosimy o poprawny adres e-mail.'),
+      service: T('Please choose the service you require.', 'Prosimy o wybór rodzaju usługi.'),
+      pickupDate: T('Please choose a pickup date.', 'Prosimy o wybór daty odbioru.'),
+      pickupLocation: T('Please tell us where the journey begins.', 'Prosimy o miejsce rozpoczęcia podróży.'),
+      consent: T('Please confirm consent so we may respond to your inquiry.', 'Prosimy o potwierdzenie zgody.')
+    };
+
+    const serviceOptions = [
+      { v: '', l: T('Select a service…', 'Proszę wybrać usługę…') },
+      { v: 'private-transfer', l: T('Private transfer / chauffeur hire', 'Transfer prywatny / wynajem szofera') },
+      { v: 'airport', l: T('Airport transfer', 'Transfer lotniskowy') },
+      { v: 'event', l: T('Event transportation', 'Transport na wydarzenie') },
+      { v: 'delegation', l: T('Delegation / diplomatic transfer', 'Delegacja / transfer dyplomatyczny') },
+      { v: 'wedding', l: T('Wedding transportation', 'Transport ślubny') },
+      { v: 'concierge', l: T('Concierge assistance', 'Usługi concierge') },
+      { v: 'other', l: T('Other / custom quotation', 'Inne / indywidualna wycena') }
+    ];
+
+    const submitStyle = {
+      fontFamily: 'var(--t-font-display)', fontSize: '10.5px', fontWeight: 600,
+      letterSpacing: '0.2em', textTransform: 'uppercase', padding: '15px 36px',
+      background: this.state.status === 'sending' ? 'var(--t-color-warm-300)' : 'var(--t-color-brand-500)',
+      color: 'var(--t-color-warm-100)', border: 'none', borderRadius: 'var(--t-radius-sm)',
+      cursor: this.state.status === 'sending' ? 'default' : 'pointer',
+      transition: 'background 240ms'
+    };
+
+    const errorList = Object.keys(errs).map((k) => errMsgs[k]).filter(Boolean);
+
+    return {
+      isEn: en, isPl: !en,
+      setEn: () => this.setState({ lang: 'en' }),
+      setPl: () => this.setState({ lang: 'pl' }),
+      enBtnStyle, plBtnStyle, enBtnStyleMobile, plBtnStyleMobile,
+
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+
+      servicesOpen: ad === 'services',
+      otherOpen: ad === 'other',
+      openServices: () => { clearTimeout(this._dt); this.setState({ activeDropdown: 'services' }); },
+      openOther: () => { clearTimeout(this._dt); this.setState({ activeDropdown: 'other' }); },
+      closeDropdowns: () => { this._dt = setTimeout(() => this.setState({ activeDropdown: null }), 160); },
+
+      mobileServicesOpen: this.state.mobileServicesOpen,
+      mobileOtherOpen: this.state.mobileOtherOpen,
+      toggleMobileServices: () => this.setState((s) => ({ mobileServicesOpen: !s.mobileServicesOpen })),
+      toggleMobileOther: () => this.setState((s) => ({ mobileOtherOpen: !s.mobileOtherOpen })),
+      mobileServicesChevron: this.state.mobileServicesOpen ? 'M18 15l-6-6-6 6' : 'M6 9l6 6 6-6',
+      mobileOtherChevron: this.state.mobileOtherOpen ? 'M18 15l-6-6-6 6' : 'M6 9l6 6 6-6',
+
+      servicesMenuItems, otherMenuItems,
+      promiseItems, pillars, eventPoints, steps, extras, clients, footerServices,
+
+      fldBase, fldName: errs.fullName ? fldErr : fldBase,
+      fldEmail: errs.email ? fldErr : fldBase,
+      fldService: { ...fldBase, paddingInlineEnd: '34px', WebkitAppearance: 'none', appearance: 'none', ...(errs.service ? { border: '1px solid var(--t-border-danger)', background: 'var(--t-bg-surface)' } : {}) },
+      fldDate: { ...fldBase, ...(errs.pickupDate ? { border: '1px solid var(--t-border-danger)', background: 'var(--t-bg-surface)' } : {}) },
+      fldFrom: errs.pickupLocation ? fldErr : fldBase,
+      fldMsg: { ...fldBase, minHeight: '110px', resize: 'vertical' },
+
+      serviceOptions,
+      errName: !!errs.fullName, errNameMsg: errMsgs.fullName,
+      errEmail: !!errs.email, errEmailMsg: errMsgs.email,
+      errService: !!errs.service, errServiceMsg: errMsgs.service,
+      errDate: !!errs.pickupDate, errDateMsg: errMsgs.pickupDate,
+      errFrom: !!errs.pickupLocation, errFromMsg: errMsgs.pickupLocation,
+      errConsent: !!errs.consent, errConsentMsg: errMsgs.consent,
+      aiName: errs.fullName ? 'true' : 'false', aiEmail: errs.email ? 'true' : 'false', aiService: errs.service ? 'true' : 'false', aiDate: errs.pickupDate ? 'true' : 'false', aiFrom: errs.pickupLocation ? 'true' : 'false',
+
+      hasErrors: errorList.length > 0,
+      errorList,
+      submit: this.submit,
+      resetForm: () => this.setState({ status: 'idle', errors: {} }),
+      formActive: this.state.status !== 'success',
+      formSuccess: this.state.status === 'success',
+      sending: this.state.status === 'sending',
+      submitLabel: this.state.status === 'sending' ? T('Sending…', 'Wysyłanie…') : T('Send My Request', 'Wyślij zapytanie'),
+      submitStyle
+    };
+  }
+}
+</script>
+</body>
+</html>

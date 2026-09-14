@@ -16,14 +16,7 @@ if ( is_home() ) {
 get_header();
 ?>
 
-<main id="primary" class="site-main">
-	<?php
-	while ( have_posts() ) :
-		the_post();
-		the_content();
-	endwhile;
-	?>
-</main>
+<?php get_template_part( 'template-parts/sections/home' ); ?>
 
 <?php
 get_footer();

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Chauffeur and Private Transfer Services in Warsaw | Venix Concierge</title>
+<meta name="description" content="Private transfers, airport chauffeur, event transportation, diplomatic transfers, concierge services and weddings in Warsaw. Venix Concierge.">
+<!-- Canonical Design System entry: styles.css. Its 8 token sheets are linked
+     directly (in styles.css order) so they load in parallel and are applied before
+     first paint — a single @import chain leaves var(--t-*) unresolved on cold load. -->
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/colors.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/typography.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/layout.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/effects.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/motion.css">
+<link rel="stylesheet" href="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/tokens/base.css">
+<script src="_ds/venix-concierge-design-system-019dd584-d1c8-7e74-9991-71daebb356e2/_ds_bundle.js"></script>
+<style>
+/* Page-level rules only — box model, body/link/type resets, Arabic & RTL typography
+   and canonical type classes all come from the Design System (styles.css → tokens/base.css).
+   This page defines no shared visual values of its own. */
+html{scroll-behavior:smooth;}
+input,select,textarea,button{font-family:var(--t-font-body);}
+input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,button:focus-visible{outline:var(--t-border-width-hairline) solid var(--t-border-focus);outline-width:2px;outline-offset:2px;}
+input::placeholder,textarea::placeholder{color:var(--t-fg-muted);}
+select option{color:var(--t-fg-default);}
+/* ── Canonical Venix breakpoint system: sm 480 · md 768 · lg 1024 · xl 1280 · 2xl 1440 ──
+   Media queries cannot read custom properties, so the canonical pixel values are written
+   literally here; they mirror the Design System breakpoint scale and are not a page-level
+   breakpoint system. Legacy 600 / 900 / 1100 thresholds have been removed.
+   lg 1024 — desktop nav collapses to the burger menu; 3/4-column grids halve.
+   md  768 — all two-column editorial splits and card grids stack to one column.
+   sm  480 — gutters tighten; remaining multi-column grids stack. */
+@media(max-width:1280px){[data-vx-pad]{padding-inline:40px!important;}[data-vx-desktop]{gap:18px!important;}}
+@media(max-width:1024px){[data-vx-desktop]{display:none!important;}[data-vx-burger]{display:inline-flex!important;}[data-vx-3col]{grid-template-columns:1fr 1fr!important;}}
+@media(max-width:768px){[data-vx-split]{grid-template-columns:1fr!important;}[data-vx-2col]{grid-template-columns:1fr!important;}[data-vx-3col]{grid-template-columns:1fr!important;}[data-vx-pad]{padding-inline:32px!important;}}
+@media(max-width:480px){[data-vx-pad]{padding-inline:20px!important;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;animation:none!important;}[data-vx-reveal]{opacity:1!important;transform:none!important;}}
+</style>
+</helmet>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     VENIX CONCIERGE — SERVICES · canonical page-design handoff (.dc.html)
+     Section order: Header · Hero · Service anchors (Chauffeur · Airport ·
+     Events · Delegations) as alternating image/text splits separated by 1px
+     dividers and alternating surfaces · Additional services intro (dark) ·
+     Protection · Private flights · remaining additional services · Closing CTA · Footer.
+     Media: each service pairs one 4:3 image slot with its copy; image side
+     alternates left/right down the page and stacks image-first below md.
+     Design System: Venix Concierge (authoritative for colors, type, spacing,
+     radii, shadows, motion, interaction states). This page owns composition only.
+     Responsive: canonical 480/768/1024/1280/1440 (see breakpoint note above).
+     Interaction intent: sticky header, burger nav below lg, hover darkening,
+     visible focus rings, reduced-motion respected.
+     Prototype constructs (sc-if / sc-for / image-slot / state) express design
+     intent only — not production implementation.
+     ══════════════════════════════════════════════════════════════════════════ -->
+
+<div id="top">
+<a href="#main-content" style="position:fixed;top:-64px;left:16px;z-index:400;background:var(--t-color-brand-500);color:var(--t-color-warm-100);padding:10px 18px;font-size:11px;letter-spacing:0.1em;text-decoration:none;border-radius:var(--t-radius-sm);transition:top 200ms;" style-focus="top:14px;">Skip to content</a>
+
+<!-- HEADER -->
+<header role="banner" style="position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(61,9,16,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,167,94,0.15);">
+  <div data-vx-pad style="max-width:1360px;margin:0 auto;padding:0 52px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+    <a href="Home.dc.html" aria-label="Venix Concierge" style="display:flex;align-items:center;text-decoration:none;flex-shrink:0;"><img src="assets/logo-horizontal-white.png" alt="Venix Concierge" style="height:28px;width:auto;"></img></a>
+    <nav data-vx-desktop aria-label="Main navigation" style="display:flex;align-items:center;gap:28px;flex:1;justify-content:center;">
+      <a href="Home.dc.html" style="font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Home</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Strona główna</sc-if></a>
+      <a href="About.dc.html" style="font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">About</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">O nas</sc-if></a>
+      <div style="position:relative;" onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeDropdowns }}">
+        <button style="display:inline-flex;align-items:center;gap:6px;font-size:9.5px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--t-color-accent-500);background:transparent;border:none;border-bottom:1px solid rgba(201,167,94,0.5);padding:28px 0 2px;cursor:pointer;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługi</sc-if><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:50%;transform:translateX(-50%);background:var(--t-color-brand-900);border:1px solid rgba(201,167,94,0.2);border-top:2px solid var(--t-color-accent-500);min-width:280px;box-shadow:0 12px 40px rgba(0,0,0,0.35);z-index:300;">
+            <sc-for list="{{ svcMenu }}" as="si" hint-placeholder-count="4"><a href="{{ si.href }}" style="display:block;padding:14px 22px;text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);transition:background 180ms;" style-hover="background:rgba(201,167,94,0.08);"><div style="font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);">{{ si.name }}</div><div style="font-size:10.5px;color:rgba(200,182,166,0.7);margin-top:4px;">{{ si.desc }}</div></a></sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <div style="position:relative;" onMouseEnter="{{ openOther }}" onMouseLeave="{{ closeDropdowns }}">
+        <button style="display:inline-flex;align-items:center;gap:6px;font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);background:transparent;border:none;cursor:pointer;padding:28px 0;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Other Services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Inne usługi</sc-if><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+        <sc-if value="{{ otherOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:50%;transform:translateX(-50%);background:var(--t-color-brand-900);border:1px solid rgba(201,167,94,0.2);border-top:2px solid var(--t-color-accent-500);min-width:280px;box-shadow:0 12px 40px rgba(0,0,0,0.35);z-index:300;">
+            <sc-for list="{{ othMenu }}" as="oi" hint-placeholder-count="5"><a href="{{ oi.href }}" style="display:block;padding:14px 22px;text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);transition:background 180ms;" style-hover="background:rgba(201,167,94,0.08);"><div style="font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-warm-100);">{{ oi.name }}</div><div style="font-size:10.5px;color:rgba(200,182,166,0.7);margin-top:4px;">{{ oi.desc }}</div></a></sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <a href="Fleet.dc.html" style="font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Fleet</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Flota</sc-if></a>
+      <a href="Contact.dc.html" style="font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(230,216,199,0.8);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Contact</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Kontakt</sc-if></a>
+    </nav>
+    <div data-vx-desktop style="display:flex;align-items:center;gap:18px;flex-shrink:0;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button onClick="{{ setEn }}" style="{{ enBtn }}" aria-label="English">EN</button>
+        <span style="color:rgba(201,167,94,0.3);font-size:10px;">|</span>
+        <button onClick="{{ setPl }}" style="{{ plBtn }}" aria-label="Polski">PL</button>
+      </div>
+      <a href="Contact.dc.html" style="font-family:var(--t-font-display);font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:11px 22px;color:var(--t-color-accent-500);border:1px solid var(--t-color-accent-500);border-radius:var(--t-radius-sm);text-decoration:none;white-space:nowrap;transition:all 240ms;" style-hover="background:var(--t-color-accent-500);color:var(--t-color-brand-900);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request a Chauffeur</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów szofera</sc-if></a>
+    </div>
+    <button data-vx-burger onClick="{{ toggleMenu }}" aria-label="Open menu" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:1px solid rgba(201,167,94,0.45);border-radius:var(--t-radius-sm);cursor:pointer;color:var(--t-color-warm-200);flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:300;background:var(--t-color-brand-900);display:flex;flex-direction:column;overflow-y:auto;">
+  <div style="padding:18px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,167,94,0.12);">
+    <img src="assets/logo-horizontal-white.png" alt="Venix Concierge" style="height:26px;"></img>
+    <button onClick="{{ closeMenu }}" style="width:44px;height:44px;background:transparent;border:1px solid rgba(201,167,94,0.45);border-radius:var(--t-radius-sm);cursor:pointer;color:var(--t-color-warm-200);display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+  </div>
+  <nav style="flex:1;padding:12px 0;">
+    <a href="Home.dc.html" style="display:block;padding:16px 28px;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-100);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);">Home</a>
+    <a href="About.dc.html" style="display:block;padding:16px 28px;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-100);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);">About</a>
+    <a href="Services.dc.html" style="display:block;padding:16px 28px;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-accent-500);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);">Services</a>
+    <a href="Fleet.dc.html" style="display:block;padding:16px 28px;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-100);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);">Fleet</a>
+    <a href="Contact.dc.html" style="display:block;padding:16px 28px;font-family:var(--t-font-display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-warm-100);text-decoration:none;border-bottom:1px solid rgba(201,167,94,0.1);">Contact</a>
+  </nav>
+  <div style="padding:24px 28px;border-top:1px solid rgba(201,167,94,0.12);">
+    <a href="Contact.dc.html" style="display:flex;align-items:center;justify-content:center;padding:16px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);font-family:var(--t-font-display);font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;border-radius:var(--t-radius-sm);text-decoration:none;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request a Chauffeur</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów szofera</sc-if></a>
+  </div>
+</div>
+</sc-if>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section data-screen-label="Hero" style="position:relative;height:56vh;min-height:400px;display:flex;align-items:flex-end;overflow:hidden;background-color:#1A0A0C;background-image:url('https://placehold.co/1920x1080/1A0A0C/1A0A0C'), repeating-linear-gradient(45deg,rgba(122,19,34,0.14) 0,rgba(122,19,34,0.14) 1px,transparent 1px,transparent 50%);background-size:cover, 14px 14px;background-position:center, 0 0;">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,6,8,0.96) 0%,rgba(30,6,8,0.45) 55%,transparent 100%);"></div>
+  <div data-vx-pad style="position:relative;max-width:1360px;margin:0 auto;width:100%;padding:0 52px 72px;">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+      <span style="width:36px;height:1px;background:var(--t-color-accent-500);display:block;"></span>
+      <span style="font-size:9.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--t-color-accent-500);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">What we offer</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Co oferujemy</sc-if></span>
+    </div>
+    <h1 style="font-family:var(--t-font-display);font-weight:400;font-size:clamp(26px,3.8vw,52px);letter-spacing:0.12em;line-height:1.22;text-transform:uppercase;color:var(--t-color-warm-100);margin:0;max-width:700px;text-wrap:balance;">
+      <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Every detail, considered in full</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Każdy szczegół, dokładnie przemyślany</sc-if>
+    </h1>
+  </div>
+</section>
+
+<!-- ANCHOR NAV -->
+<nav aria-label="Service sections" style="position:sticky;top:76px;z-index:100;background:rgba(250,251,249,0.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--t-color-neutral-200);overflow-x:auto;-webkit-overflow-scrolling:touch;">
+  <div style="display:flex;gap:0;min-width:max-content;padding:0 52px;">
+    <sc-for list="{{ anchorLinks }}" as="al" hint-placeholder-count="9">
+      <a href="{{ al.href }}" style="{{ al.style }}">{{ al.label }}</a>
+    </sc-for>
+  </div>
+</nav>
+
+<!-- ══ MAIN SERVICES ══ -->
+<div style="background:var(--t-color-warm-100);">
+
+<!-- Service 1: Chauffeur -->
+<section id="chauffeur" data-screen-label="Chauffeur transfers" style="padding:90px 0;border-bottom:1px solid var(--t-color-neutral-200);">
+  <div data-vx-pad data-vx-split style="max-width:1360px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <span style="font-size:9px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;padding:4px 12px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);border-radius:var(--t-radius-sm);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Main service</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługa główna</sc-if></span>
+      </div>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(20px,2.2vw,30px);letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.35;margin:0 0 16px;text-wrap:balance;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Chauffeur-driven transfers &amp; private hire</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Transfery z szoferem i wynajem prywatny</sc-if></h2>
+      <div style="width:36px;height:1px;background:var(--t-color-accent-500);margin-bottom:20px;"></div>
+      <p style="font-size:13.5px;line-height:1.95;color:rgba(44,26,29,0.72);margin:0 0 24px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">A professional chauffeur and premium vehicle, arranged entirely around your itinerary. Whether you need a driver for a single appointment or a full day of engagements, the service is shaped to your schedule — not ours.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Profesjonalny szofer i pojazd klasy premium, zorganizowane w całości wokół Państwa planu. Niezależnie czy potrzebują Państwo kierowcy na jedno spotkanie, czy na cały dzień — usługa dostosowana jest do Państwa harmonogramu, nie naszego.</sc-if></p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+        <sc-for list="{{ chauffeurBenefits }}" as="b" hint-placeholder-count="5">
+          <div style="display:flex;align-items:baseline;gap:12px;font-size:12.5px;color:rgba(44,26,29,0.7);">
+            <span style="width:14px;height:1px;background:var(--t-color-accent-500);display:block;flex-shrink:0;transform:translateY(-3px);"></span>{{ b }}
+          </div>
+        </sc-for>
+      </div>
+      <div style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t-color-warm-300);margin-bottom:22px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">For: Private clients · Executives · Companies</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Dla: Klientów prywatnych · Kadry zarządzającej · Firm</sc-if></div>
+      <a href="Contact.dc.html" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;border-radius:var(--t-radius-sm);text-decoration:none;transition:background 240ms;" style-hover="background:var(--t-color-brand-700);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request a private transfer</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów transfer prywatny</sc-if></a>
+    </div>
+    <div style="aspect-ratio:4/3;border-radius:var(--t-radius-sm);overflow:hidden;">
+      <img src="https://placehold.co/600x450" alt="A Venix Concierge chauffeur opens the door of a Mercedes-Benz S-Class at a Warsaw business address." style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- Service 2: Airport -->
+<section id="airport" data-screen-label="Airport transfers" style="padding:90px 0;border-bottom:1px solid var(--t-color-neutral-200);background:var(--t-color-neutral-50);">
+  <div data-vx-pad data-vx-split style="max-width:1360px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+    <div style="aspect-ratio:4/3;border-radius:var(--t-radius-sm);overflow:hidden;">
+      <img src="https://placehold.co/600x450" alt="A chauffeur waits in a Warsaw airport arrivals hall holding a name card." style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <span style="font-size:9px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;padding:4px 12px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);border-radius:var(--t-radius-sm);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Main service</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługa główna</sc-if></span>
+      </div>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(20px,2.2vw,30px);letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.35;margin:0 0 16px;text-wrap:balance;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Airport transfers</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Transfery lotniskowe</sc-if></h2>
+      <div style="width:36px;height:1px;background:var(--t-color-accent-500);margin-bottom:20px;"></div>
+      <p style="font-size:13.5px;line-height:1.95;color:rgba(44,26,29,0.72);margin:0 0 24px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Professional arrivals and departures at Warsaw's airports. The vehicle is matched to the number of passengers and luggage. Multi-vehicle coordination is available for larger groups. Arrivals and departures are managed with care and clear communication.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Profesjonalne przyloty i wyloty na warszawskich lotniskach. Pojazd dobierany jest do liczby pasażerów i bagażu. Dostępna koordynacja wielu pojazdów dla większych grup. Przyloty i wyloty są obsługiwane z troską i przejrzystą komunikacją.</sc-if></p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+        <sc-for list="{{ airportBenefits }}" as="b" hint-placeholder-count="5">
+          <div style="display:flex;align-items:baseline;gap:12px;font-size:12.5px;color:rgba(44,26,29,0.7);"><span style="width:14px;height:1px;background:var(--t-color-accent-500);display:block;flex-shrink:0;transform:translateY(-3px);"></span>{{ b }}</div>
+        </sc-for>
+      </div>
+      <div style="background:var(--t-color-neutral-100);border:1px solid var(--t-color-neutral-200);border-radius:var(--t-radius-sm);padding:14px 18px;margin-bottom:24px;font-size:11.5px;color:rgba(44,26,29,0.6);font-style:italic;line-height:1.7;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Please note: flight tracking, free waiting time and terminal access are subject to confirmation. Share your flight details when making your request.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Uwaga: śledzenie lotów, bezpłatny czas oczekiwania i dostęp do terminala podlegają potwierdzeniu. Prosimy podać dane lotu przy składaniu zamówienia.</sc-if></div>
+      <a href="Contact.dc.html" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;border-radius:var(--t-radius-sm);text-decoration:none;transition:background 240ms;" style-hover="background:var(--t-color-brand-700);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Arrange an airport transfer</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Umów transfer lotniskowy</sc-if></a>
+    </div>
+  </div>
+</section>
+
+<!-- Service 3: Events -->
+<section id="events" data-screen-label="Business and private events" style="padding:90px 0;border-bottom:1px solid var(--t-color-neutral-200);">
+  <div data-vx-pad data-vx-split style="max-width:1360px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="font-size:9px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;padding:4px 12px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);border-radius:var(--t-radius-sm);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Main service</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługa główna</sc-if></span></div>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(20px,2.2vw,30px);letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.35;margin:0 0 16px;text-wrap:balance;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Business &amp; private events</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Wydarzenia biznesowe i prywatne</sc-if></h2>
+      <div style="width:36px;height:1px;background:var(--t-color-accent-500);margin-bottom:20px;"></div>
+      <p style="font-size:13.5px;line-height:1.95;color:rgba(44,26,29,0.72);margin:0 0 24px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Transportation coordination for conferences, corporate dinners, exhibitions, galas and private celebrations. Multiple vehicles, coordinated schedules and a single point of contact — so the movement of your guests is handled as smoothly as the event itself.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Koordynacja transportu na konferencje, kolacje korporacyjne, wystawy, gale i uroczystości prywatne. Wiele pojazdów, skoordynowane harmonogramy i jeden punkt kontaktu — tak, aby przemieszczanie się gości przebiegało tak sprawnie jak samo wydarzenie.</sc-if></p>
+      <div data-vx-2col style="display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;margin-bottom:28px;">
+        <sc-for list="{{ eventsBenefits }}" as="b" hint-placeholder-count="6"><div style="display:flex;align-items:baseline;gap:10px;font-size:12px;color:rgba(44,26,29,0.7);"><span style="width:14px;height:1px;background:var(--t-color-accent-500);display:block;flex-shrink:0;transform:translateY(-3px);"></span>{{ b }}</div></sc-for>
+      </div>
+      <a href="Contact.dc.html" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;border-radius:var(--t-radius-sm);text-decoration:none;transition:background 240ms;" style-hover="background:var(--t-color-brand-700);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Plan event transportation</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zaplanuj transport na wydarzenie</sc-if></a>
+    </div>
+    <div style="aspect-ratio:4/3;border-radius:var(--t-radius-sm);overflow:hidden;">
+      <img src="https://placehold.co/600x450" alt="Several Venix Concierge vehicles coordinated at a Warsaw conference centre entrance at dusk." style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- Service 4: Delegations -->
+<section id="delegations" data-screen-label="Delegations and diplomatic" style="padding:90px 0;border-bottom:2px solid var(--t-color-neutral-200);background:var(--t-color-neutral-50);">
+  <div data-vx-pad data-vx-split style="max-width:1360px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+    <div style="aspect-ratio:4/3;border-radius:var(--t-radius-sm);overflow:hidden;">
+      <img src="https://placehold.co/600x450" alt="A black Mercedes-Benz S-Class arrives at an official building entrance in Warsaw." style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="font-size:9px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;padding:4px 12px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);border-radius:var(--t-radius-sm);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Main service</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługa główna</sc-if></span></div>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(20px,2.2vw,30px);letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.35;margin:0 0 16px;text-wrap:balance;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Delegations &amp; diplomatic transfers</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Delegacje i transfery dyplomatyczne</sc-if></h2>
+      <div style="width:36px;height:1px;background:var(--t-color-accent-500);margin-bottom:20px;"></div>
+      <p style="font-size:13.5px;line-height:1.95;color:rgba(44,26,29,0.72);margin:0 0 24px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Discreet, punctual transportation for embassies, diplomatic delegations, government representatives and official guests visiting Warsaw. Arrangements are coordinated with your appointed team member, with full confidentiality at every stage.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Dyskretny, punktualny transport dla ambasad, delegacji dyplomatycznych, przedstawicieli rządowych i gości oficjalnych odwiedzających Warszawę. Ustalenia koordynowane są z wyznaczonym członkiem zespołu, przy zachowaniu pełnej poufności na każdym etapie.</sc-if></p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+        <sc-for list="{{ delegationBenefits }}" as="b" hint-placeholder-count="5"><div style="display:flex;align-items:baseline;gap:12px;font-size:12.5px;color:rgba(44,26,29,0.7);"><span style="width:14px;height:1px;background:var(--t-color-accent-500);display:block;flex-shrink:0;transform:translateY(-3px);"></span>{{ b }}</div></sc-for>
+      </div>
+      <p style="font-size:11px;font-style:italic;color:var(--t-color-warm-300);line-height:1.7;margin:0 0 22px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Note: We do not claim diplomatic accreditation, police escort, special road privileges or government authorization.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Uwaga: Nie posiadamy akredytacji dyplomatycznej, eskorty policji, specjalnych uprawnień drogowych ani upoważnienia rządowego.</sc-if></p>
+      <a href="Contact.dc.html" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;background:var(--t-color-brand-500);color:var(--t-color-warm-100);font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;border-radius:var(--t-radius-sm);text-decoration:none;transition:background 240ms;" style-hover="background:var(--t-color-brand-700);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Discuss a delegation requirement</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Omów potrzeby delegacji</sc-if></a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ══ ADDITIONAL SERVICES HEADER ══ -->
+<section id="additional" data-screen-label="Additional services intro" style="background:var(--t-color-brand-700);padding:64px 0;">
+  <div data-vx-pad style="max-width:1360px;margin:0 auto;padding:0 52px;">
+    <div data-vx-split style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div>
+        <h2 style="font-family:var(--t-font-display);font-weight:400;font-size:clamp(20px,2.4vw,32px);letter-spacing:0.13em;text-transform:uppercase;color:var(--t-color-warm-100);margin:0 0 16px;text-wrap:balance;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Other services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Inne usługi</sc-if></h2>
+        <p style="font-size:13px;color:rgba(230,216,199,0.8);line-height:1.9;margin:0;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">A selection of specialist services, coordinated through appropriate, authorised partners and subject to assessment, availability and applicable regulations.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Wybrane usługi specjalistyczne koordynowane przez odpowiednich, autoryzowanych partnerów, podlegające ocenie, dostępności i obowiązującym przepisom.</sc-if></p>
+      </div>
+      <div style="font-size:11.5px;font-style:italic;color:rgba(200,182,166,0.6);line-height:1.85;border-left:1px solid rgba(201,167,94,0.2);padding-left:36px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">For each additional service, we will clarify scope, availability and partner arrangements as part of your inquiry response. We do not make guarantees regarding service availability.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Dla każdej usługi dodatkowej wyjaśnimy zakres, dostępność i ustalenia z partnerami w odpowiedzi na zapytanie. Nie składamy gwarancji dotyczących dostępności usług.</sc-if></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ADDITIONAL SERVICES ══ -->
+<div style="background:var(--t-color-warm-100);">
+
+<!-- Protection -->
+<section id="protection" data-screen-label="Private protection" style="padding:80px 0;border-bottom:1px solid var(--t-color-neutral-200);">
+  <div data-vx-pad data-vx-split style="max-width:1360px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="font-size:9px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;padding:4px 12px;background:var(--t-color-neutral-100);color:var(--t-color-brand-500);border-radius:var(--t-radius-sm);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Additional service</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługa dodatkowa</sc-if></span></div>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(18px,2vw,26px);letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.35;margin:0 0 14px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Private protection</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Ochrona osobista</sc-if></h2>
+      <div style="width:28px;height:1px;background:var(--t-color-accent-500);margin-bottom:18px;"></div>
+      <p style="font-size:13px;line-height:1.9;color:rgba(44,26,29,0.70);margin:0 0 20px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Coordination of professional security arrangements through authorised and appropriately licensed providers. This may include close protection, secure transport coordination and risk-aware planning for events or travel.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Koordynacja profesjonalnych ustaleń bezpieczeństwa przez autoryzowanych i odpowiednio licencjonowanych dostawców. Może obejmować ochronę osobistą, koordynację bezpiecznego transportu i planowanie z uwzględnieniem ryzyka.</sc-if></p>
+      <p style="font-size:11px;font-style:italic;color:var(--t-color-warm-300);line-height:1.7;margin:0 0 22px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Subject to assessment, provider availability, licensing requirements and applicable regulations.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Podlega ocenie, dostępności dostawcy, wymogom licencyjnym i obowiązującym przepisom.</sc-if></p>
+      <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Discuss a protection requirement</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Omów potrzebę ochrony</sc-if><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg></a>
+    </div>
+    <div style="aspect-ratio:4/3;border-radius:var(--t-radius-sm);overflow:hidden;">
+      <img src="https://placehold.co/600x450" alt="A discreet security professional beside a vehicle in Warsaw." style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- Flights -->
+<section id="flights" data-screen-label="Private flights" style="padding:80px 0;border-bottom:1px solid var(--t-color-neutral-200);background:var(--t-color-neutral-50);">
+  <div data-vx-pad data-vx-split style="max-width:1360px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+    <div style="aspect-ratio:4/3;border-radius:var(--t-radius-sm);overflow:hidden;">
+      <img src="https://placehold.co/600x450" alt="A private aviation terminal with a Mercedes-Benz S-Class nearby." style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="font-size:9px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;padding:4px 12px;background:var(--t-color-neutral-100);color:var(--t-color-brand-500);border-radius:var(--t-radius-sm);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Additional service</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługa dodatkowa</sc-if></span></div>
+      <h2 style="font-family:var(--t-font-display);font-weight:500;font-size:clamp(18px,2vw,26px);letter-spacing:0.12em;text-transform:uppercase;color:var(--t-color-brand-500);line-height:1.35;margin:0 0 14px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Private flights</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Loty prywatne</sc-if></h2>
+      <div style="width:28px;height:1px;background:var(--t-color-accent-500);margin-bottom:18px;"></div>
+      <p style="font-size:13px;line-height:1.9;color:rgba(44,26,29,0.70);margin:0 0 20px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Assistance with private charter inquiries, ground-to-air coordination and chauffeur transfers to and from airports for private aviation. We do not operate aircraft or hold air-carrier status — we coordinate the ground experience around your flight.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Wsparcie przy zapytaniach czarterowych, koordynacja transportu naziemno-lotniczego i transfery szoferskie na lotniska dla lotnictwa prywatnego. Nie obsługujemy samolotów ani nie posiadamy statusu przewoźnika lotniczego — koordynujemy doświadczenie naziemne wokół lotu.</sc-if></p>
+      <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--t-font-display);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;" style-hover="color:var(--t-color-brand-700);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request private aviation assistance</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zapytaj o wsparcie lotnicze</sc-if><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- Embassy, Concierge, Weddings — compact cards -->
+<section style="padding:80px 0;">
+  <div data-vx-pad style="max-width:1360px;margin:0 auto;padding:0 52px;">
+    <div data-vx-3col style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+
+      <div id="embassy" style="border-top:2px solid var(--t-color-accent-500);padding:36px 34px 40px;background:var(--t-color-warm-100);display:flex;flex-direction:column;gap:12px;">
+        <div style="aspect-ratio:16/9;border-radius:var(--t-radius-sm);overflow:hidden;margin-bottom:4px;">
+          <img src="https://placehold.co/640x360" alt="Venix Concierge service" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="font-size:8.5px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;padding:3px 10px;background:var(--t-color-neutral-100);color:var(--t-color-brand-500);border-radius:var(--t-radius-sm);align-self:flex-start;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Additional</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Dodatkowa</sc-if></div>
+        <h2 style="font-family:var(--t-font-display);font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--t-color-brand-500);margin:0;line-height:1.35;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Embassy services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Obsługa ambasad</sc-if></h2>
+        <div style="width:24px;height:1px;background:var(--t-color-accent-500);"></div>
+        <p style="font-size:12.5px;line-height:1.85;color:rgba(44,26,29,0.68);margin:0;flex:1;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Transportation and scheduling support for official visitors, embassy guests and diplomatic delegations — airport arrivals, hotel connections and venue transfers handled with discretion.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Transport i wsparcie logistyczne dla gości oficjalnych, gości ambasad i delegacji dyplomatycznych — przyloty lotniskowe, połączenia hotelowe i transfery do obiektów obsługiwane z dyskrecją.</sc-if></p>
+        <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;margin-top:auto;" style-hover="color:var(--t-color-brand-700);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Discuss requirements</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Omów wymagania</sc-if><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg></a>
+      </div>
+
+      <div id="concierge" style="border-top:2px solid var(--t-color-accent-500);padding:36px 34px 40px;background:var(--t-color-neutral-50);display:flex;flex-direction:column;gap:12px;">
+        <div style="aspect-ratio:16/9;border-radius:var(--t-radius-sm);overflow:hidden;margin-bottom:4px;">
+          <img src="https://placehold.co/640x360" alt="Venix Concierge service" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="font-size:8.5px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;padding:3px 10px;background:var(--t-color-neutral-100);color:var(--t-color-brand-500);border-radius:var(--t-radius-sm);align-self:flex-start;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Additional</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Dodatkowa</sc-if></div>
+        <h2 style="font-family:var(--t-font-display);font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--t-color-brand-500);margin:0;line-height:1.35;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Concierge services</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługi concierge</sc-if></h2>
+        <div style="width:24px;height:1px;background:var(--t-color-accent-500);"></div>
+        <p style="font-size:12.5px;line-height:1.85;color:rgba(44,26,29,0.68);margin:0;flex:1;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Personalised assistance surrounding your visit — restaurant reservations, hotel coordination, itinerary support, shopping appointments and other practical arrangements that enhance your time in Warsaw.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Spersonalizowana pomoc wokół Państwa wizyty — rezerwacje restauracji, koordynacja hotelu, wsparcie przy planowaniu pobytu, terminy zakupów i inne praktyczne ustalenia zwiększające komfort pobytu w Warszawie.</sc-if></p>
+        <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;margin-top:auto;" style-hover="color:var(--t-color-brand-700);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Request concierge assistance</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zamów usługi concierge</sc-if><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg></a>
+      </div>
+
+      <div id="weddings" style="border-top:2px solid var(--t-color-accent-500);padding:36px 34px 40px;background:var(--t-color-warm-100);display:flex;flex-direction:column;gap:12px;">
+        <div style="aspect-ratio:16/9;border-radius:var(--t-radius-sm);overflow:hidden;margin-bottom:4px;">
+          <img src="https://placehold.co/640x360" alt="Venix Concierge service" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="font-size:8.5px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;padding:3px 10px;background:var(--t-color-neutral-100);color:var(--t-color-brand-500);border-radius:var(--t-radius-sm);align-self:flex-start;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Additional</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Dodatkowa</sc-if></div>
+        <h2 style="font-family:var(--t-font-display);font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--t-color-brand-500);margin:0;line-height:1.35;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Weddings</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Śluby i wesela</sc-if></h2>
+        <div style="width:24px;height:1px;background:var(--t-color-accent-500);"></div>
+        <p style="font-size:12.5px;line-height:1.85;color:rgba(44,26,29,0.68);margin:0;flex:1;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Elegant, precisely timed transportation for couples, families and guests. Multiple vehicles, coordinated pickups, hotel-to-venue transfers and evening returns — all managed with care and presentation.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Elegancki, punktualny transport dla pary młodej, rodzin i gości. Wiele pojazdów, skoordynowane odbiory, transfery hotel-obiekt i powroty wieczorne — wszystko z troską i należytą prezentacją.</sc-if></p>
+        <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-color-brand-500);text-decoration:none;margin-top:auto;" style-hover="color:var(--t-color-brand-700);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Plan wedding transportation</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Zaplanuj transport ślubny</sc-if><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M14 7l5 5-5 5"></path></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- CTA -->
+<section data-screen-label="Closing CTA" style="background:var(--t-color-brand-500);padding:90px 0;">
+  <div data-vx-pad style="max-width:760px;margin:0 auto;padding:0 52px;text-align:center;">
+    <h2 style="font-family:var(--t-font-display);font-weight:400;font-size:clamp(22px,2.6vw,36px);letter-spacing:0.14em;text-transform:uppercase;color:var(--t-color-warm-100);line-height:1.35;margin:0 0 20px;text-wrap:balance;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Not sure which service you need?</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Nie wiedzą Państwo, która usługa jest właściwa?</sc-if></h2>
+    <p style="font-size:14px;color:rgba(250,251,249,0.8);line-height:1.9;margin:0 0 36px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Tell us about your journey, occasion or requirements. We will recommend the most appropriate arrangement and follow up with a clear proposal.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Prosimy opisać podróż, okazję lub wymagania. Zarekomendujemy najbardziej odpowiednie rozwiązanie i odpowiemy z jasną propozycją.</sc-if></p>
+    <a href="Contact.dc.html" style="display:inline-flex;align-items:center;justify-content:center;padding:16px 40px;background:var(--t-color-warm-100);color:var(--t-color-brand-500);font-family:var(--t-font-display);font-size:10.5px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;border-radius:var(--t-radius-sm);text-decoration:none;transition:all 240ms;" style-hover="background:var(--t-color-warm-200);"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Discuss your requirements</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Omów swoje potrzeby</sc-if></a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo" style="background:var(--t-color-brand-900);padding:64px 0 32px;">
+  <div data-vx-pad style="max-width:1360px;margin:0 auto;padding:0 52px;">
+    <div data-vx-split style="display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:44px;border-bottom:1px solid rgba(201,167,94,0.12);">
+      <div>
+        <img src="assets/logo-horizontal-white.png" alt="Venix Concierge" style="height:28px;"></img>
+        <p style="font-size:11.5px;color:var(--t-color-warm-300);line-height:1.9;font-weight:300;margin:16px 0 0;max-width:260px;"><sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Chauffeur services, executive transportation and luxury concierge in Warsaw.</sc-if><sc-if value="{{ isPl }}" hint-placeholder-val="{{ false }}">Usługi szoferskie, transport reprezentacyjny i concierge w Warszawie.</sc-if></p>
+        <div style="font-size:8.5px;letter-spacing:0.38em;text-transform:uppercase;color:var(--t-color-accent-500);margin-top:18px;">Own the moment</div>
+      </div>
+      <div>
+        <div style="font-family:var(--t-font-display);font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--t-color-accent-500);margin-bottom:14px;">Navigation</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="Home.dc.html" style="font-size:11.5px;color:var(--t-color-warm-300);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">Home</a>
+          <a href="About.dc.html" style="font-size:11.5px;color:var(--t-color-warm-300);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">About</a>
+          <a href="Services.dc.html" style="font-size:11.5px;color:var(--t-color-accent-500);text-decoration:none;">Services</a>
+          <a href="Fleet.dc.html" style="font-size:11.5px;color:var(--t-color-warm-300);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">Fleet</a>
+          <a href="Contact.dc.html" style="font-size:11.5px;color:var(--t-color-warm-300);text-decoration:none;transition:color 220ms;" style-hover="color:var(--t-color-warm-100);">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--t-font-display);font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--t-color-accent-500);margin-bottom:14px;">Contact</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:11.5px;color:var(--t-color-warm-300);line-height:1.7;">
+          <span>[Insert verified phone]</span>
+          <span>[Insert WhatsApp]</span>
+          <span>[Insert verified email]</span>
+          <span>Warsaw, Poland</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-top:20px;">
+      <div style="font-size:10px;color:var(--t-color-warm-300);">© 2026 Venix Concierge · Warszawa</div>
+      <a href="#" style="font-size:10px;color:var(--t-color-warm-300);text-decoration:none;" style-hover="color:var(--t-color-warm-100);">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'en', menuOpen: false, activeDropdown: null };
+  componentWillUnmount() { clearTimeout(this._dt); }
+
+  renderVals() {
+    const en = this.state.lang === 'en';
+    const T = (e, p) => (en ? e : p);
+    const ad = this.state.activeDropdown;
+    const lb = { background: 'transparent', border: 'none', cursor: 'pointer', letterSpacing: '0.18em', fontSize: '10px', padding: '4px 2px' };
+    const enBtn = { ...lb, fontWeight: en ? 700 : 500, color: en ? 'var(--t-color-accent-500)' : 'rgba(230,216,199,0.55)', borderBottom: en ? '1px solid var(--t-color-accent-500)' : '1px solid transparent' };
+    const plBtn = { ...lb, fontWeight: !en ? 700 : 500, color: !en ? 'var(--t-color-accent-500)' : 'rgba(230,216,199,0.55)', borderBottom: !en ? '1px solid var(--t-color-accent-500)' : '1px solid transparent' };
+
+    const svcMenu = [
+      { href: '#chauffeur', name: T('Chauffeur & Private Transfers', 'Szofer i transfery prywatne'), desc: T('Hourly, full-day, city-to-city', 'Na godziny, cały dzień, między miastami') },
+      { href: '#airport', name: T('Airport Transfers', 'Transfery lotniskowe'), desc: T('Arrivals, departures & groups', 'Przyloty, wyloty i grupy') },
+      { href: '#events', name: T('Business & Private Events', 'Wydarzenia biznesowe i prywatne'), desc: T('Conferences, galas, celebrations', 'Konferencje, gale, uroczystości') },
+      { href: '#delegations', name: T('Delegations & Diplomatic', 'Delegacje i dyplomacja'), desc: T('Embassies, delegations, officials', 'Ambasady, delegacje, goście oficjalni') }
+    ];
+    const othMenu = [
+      { href: '#protection', name: T('Private Protection', 'Ochrona osobista'), desc: T('Authorised security coordination', 'Koordynacja ochrony') },
+      { href: '#flights', name: T('Private Flights', 'Loty prywatne'), desc: T('Charter & ground-air coordination', 'Czarter i koordynacja') },
+      { href: '#embassy', name: T('Embassy Services', 'Obsługa ambasad'), desc: T('Official guests & scheduling', 'Goście oficjalni i logistyka') },
+      { href: '#concierge', name: T('Concierge Services', 'Usługi concierge'), desc: T('Reservations, itineraries, requests', 'Rezerwacje, plany, życzenia') },
+      { href: '#weddings', name: T('Weddings', 'Śluby i wesela'), desc: T('Couples, families & guests', 'Para, rodziny i goście') }
+    ];
+
+    const aStyle = (id) => `display:inline-block;padding:14px 22px;font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(44,26,29,0.65);text-decoration:none;border-right:1px solid var(--t-color-neutral-200);white-space:nowrap;transition:all 180ms;`;
+
+    const anchorLinks = [
+      { href: '#chauffeur', label: T('Chauffeur', 'Szofer'), style: aStyle('chauffeur') },
+      { href: '#airport', label: T('Airport', 'Lotnisko'), style: aStyle('airport') },
+      { href: '#events', label: T('Events', 'Wydarzenia'), style: aStyle('events') },
+      { href: '#delegations', label: T('Delegations', 'Delegacje'), style: aStyle('delegations') },
+      { href: '#protection', label: T('Protection', 'Ochrona'), style: aStyle('protection') },
+      { href: '#flights', label: T('Private Flights', 'Loty prywatne'), style: aStyle('flights') },
+      { href: '#embassy', label: T('Embassy', 'Ambasady'), style: aStyle('embassy') },
+      { href: '#concierge', label: T('Concierge', 'Concierge'), style: aStyle('concierge') },
+      { href: '#weddings', label: T('Weddings', 'Śluby'), style: aStyle('weddings') }
+    ];
+
+    const chauffeurBenefits = [
+      T('Professional, experienced chauffeur', 'Profesjonalny, doświadczony szofer'),
+      T('Premium Mercedes-Benz vehicle matched to requirements', 'Pojazd Mercedes-Benz klasy premium dobrany do wymagań'),
+      T('Flexible pickup and destination, including multiple stops', 'Elastyczne miejsce odbioru i celu, w tym wiele przystanków'),
+      T('Hourly, full-day and multi-day hire options', 'Wynajem na godziny, cały dzień i wiele dni'),
+      T('Private and discreet at every stage', 'Prywatny i dyskretny na każdym etapie')
+    ];
+    const airportBenefits = [
+      T('Vehicle matched to passenger count and luggage', 'Pojazd dobrany do liczby pasażerów i bagażu'),
+      T('Arrivals and departures at Warsaw Chopin and other airports', 'Przyloty i wyloty na Okęciu i innych lotniskach'),
+      T('Multi-vehicle coordination for groups', 'Koordynacja wielu pojazdów dla grup'),
+      T('Clear communication from booking to arrival', 'Przejrzysta komunikacja od rezerwacji do przyjazdu'),
+      T('Hotel, venue and onward connection transfers', 'Transfery do hotelu, obiektu i dalej')
+    ];
+    const eventsBenefits = [
+      T('Multi-vehicle fleet coordination', 'Koordynacja floty wielu pojazdów'),
+      T('Hotel-to-venue and return transfers', 'Transfery hotel–obiekt i powrotne'),
+      T('Guest pickup schedules and manifests', 'Harmonogramy i listy odbioru gości'),
+      T('Driver dispatch and on-site coordination', 'Dyspozycja kierowców i koordynacja na miejscu'),
+      T('Airport arrivals for travelling guests', 'Przyloty lotniskowe dla gości z odległych miejsc'),
+      T('Single point of contact for the organiser', 'Jeden punkt kontaktu dla organizatora')
+    ];
+    const delegationBenefits = [
+      T('Full confidentiality at every stage', 'Pełna poufność na każdym etapie'),
+      T('Multi-vehicle coordination for larger delegations', 'Koordynacja wielu pojazdów dla większych delegacji'),
+      T('Airport, hotel, embassy and venue transfers', 'Transfery lotniskowe, hotelowe, ambasadowe i do obiektów'),
+      T('Coordinated with your appointed team member', 'Koordynowane z wyznaczonym członkiem Państwa zespołu'),
+      T('Professional vehicle presentation throughout', 'Profesjonalna prezentacja pojazdu przez cały czas')
+    ];
+
+    return {
+      isEn: en, isPl: !en,
+      setEn: () => this.setState({ lang: 'en' }),
+      setPl: () => this.setState({ lang: 'pl' }),
+      enBtn, plBtn,
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      servicesOpen: ad === 'services', otherOpen: ad === 'other',
+      openServices: () => { clearTimeout(this._dt); this.setState({ activeDropdown: 'services' }); },
+      openOther: () => { clearTimeout(this._dt); this.setState({ activeDropdown: 'other' }); },
+      closeDropdowns: () => { this._dt = setTimeout(() => this.setState({ activeDropdown: null }), 160); },
+      svcMenu, othMenu, anchorLinks,
+      chauffeurBenefits, airportBenefits, eventsBenefits, delegationBenefits
+    };
+  }
+}
+</script>
+</body>
+</html>

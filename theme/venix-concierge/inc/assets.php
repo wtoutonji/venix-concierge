@@ -84,9 +84,15 @@ function venix_concierge_enqueue_global_assets() {
 	venix_concierge_enqueue_style( 'venix-concierge-header', '/assets/css/header.css', array( 'venix-concierge-layout' ) );
 	venix_concierge_enqueue_style( 'venix-concierge-footer', '/assets/css/footer.css', array( 'venix-concierge-layout' ) );
 
-	if ( has_nav_menu( 'primary' ) ) {
-		venix_concierge_enqueue_script( 'venix-concierge-menu', '/assets/js/components/mobile-menu.js' );
+	if ( is_front_page() ) {
+		venix_concierge_enqueue_style( 'venix-concierge-home', '/assets/css/pages/home.css', array( 'venix-concierge-layout' ) );
+		venix_concierge_enqueue_component( 'button' );
+		venix_concierge_enqueue_component( 'input' );
+		venix_concierge_enqueue_script( 'venix-concierge-reveal', '/assets/js/components/reveal.js' );
 	}
+
+	venix_concierge_enqueue_script( 'venix-concierge-menu', '/assets/js/components/mobile-menu.js' );
+	venix_concierge_enqueue_style( 'venix-concierge-mobile-menu', '/assets/css/components/mobile-menu.css', array( 'venix-concierge-header' ) );
 }
 add_action( 'wp_enqueue_scripts', 'venix_concierge_enqueue_global_assets' );
 
