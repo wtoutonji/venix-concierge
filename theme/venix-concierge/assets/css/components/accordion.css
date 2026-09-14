@@ -8,7 +8,7 @@
 
 .tly-accordion__summary {
   min-block-size: var(--tly-control-min-size);
-  padding-block: var(--wp--preset--spacing--40);
+  padding-block: var(--wp--preset--spacing--4);
   cursor: pointer;
 }
 
@@ -18,5 +18,5 @@
 }
 
 .tly-accordion__content {
-  padding-block-end: var(--wp--preset--spacing--40);
+  padding-block-end: var(--wp--preset--spacing--4);
 }

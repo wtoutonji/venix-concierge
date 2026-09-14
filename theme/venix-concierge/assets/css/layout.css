@@ -15,6 +15,19 @@
   padding-block: var(--tly-space-section);
 }
 
+.venix-surface {
+  background: var(--venix-bg-surface);
+}
+
+.venix-surface--warm {
+  background: var(--venix-bg-surface-warm);
+}
+
+.venix-surface--inverse {
+  background: var(--venix-bg-inverse);
+  color: var(--venix-fg-inverse);
+}
+
 .tly-grid,
 .post-grid {
   --tly-grid-min: 18rem;
@@ -31,4 +44,18 @@
   display: flex;
   flex-direction: column;
   gap: var(--tly-stack-gap);
+}
+
+@media (max-width: 768px) {
+  .tly-container,
+  .content-width,
+  .tly-container--wide,
+  .container {
+    inline-size: min(calc(100% - var(--wp--preset--spacing--gutter-compact) - var(--wp--preset--spacing--gutter-compact)), var(--tly-layout-wide));
+  }
+
+  .tly-section,
+  .section {
+    padding-block: var(--wp--preset--spacing--section-compact);
+  }
 }

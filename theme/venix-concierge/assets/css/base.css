@@ -12,10 +12,55 @@ html {
   html {
     scroll-behavior: auto;
   }
+
+  *,
+  *::before,
+  *::after {
+    animation-delay: 0s !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
   margin: 0;
+  background: var(--venix-bg-page);
+  color: var(--venix-fg-default);
+  font-family: var(--venix-font-body);
+  font-size: var(--wp--preset--font-size--base);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--venix-fg-brand);
+  font-family: var(--venix-font-display);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+a {
+  color: var(--venix-fg-brand);
+  transition: color var(--venix-motion-base);
+}
+
+a:hover {
+  color: var(--venix-fg-brand-strong);
+}
+
+:focus-visible {
+  outline: 2px solid var(--venix-border-focus);
+  outline-offset: 3px;
 }
 
 img,
@@ -23,10 +68,6 @@ svg,
 video {
   display: block;
   max-width: 100%;
-}
-
-a {
-  color: inherit;
 }
 
 button,
@@ -57,6 +98,41 @@ textarea {
   height: auto;
   padding: 0.75rem 1rem;
   clip: auto;
-  background: #fff;
-  color: #000;
+  background: var(--venix-bg-page);
+  color: var(--venix-fg-default);
+}
+
+::selection {
+  background: var(--wp--preset--color--champagne);
+  color: var(--venix-fg-default);
+}
+
+[lang="ar"],
+[dir="rtl"] {
+  font-family: var(--venix-font-arabic);
+  letter-spacing: 0;
+  line-height: 2;
+}
+
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3,
+[lang="ar"] h4,
+[lang="ar"] h5,
+[lang="ar"] h6,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: var(--venix-font-arabic);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+[dir="rtl"] .venix-icon-directional {
+  transform: scaleX(-1);
 }

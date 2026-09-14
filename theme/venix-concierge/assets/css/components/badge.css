@@ -1,0 +1,26 @@
+.venix-badge {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--venix-radius-sm);
+  display: inline-flex;
+  font-family: var(--venix-font-body);
+  font-size: var(--wp--preset--font-size--xs);
+  font-weight: 600;
+  gap: var(--wp--preset--spacing--2);
+  letter-spacing: 0.16em;
+  padding: var(--wp--preset--spacing--1) var(--wp--preset--spacing--3);
+  text-transform: uppercase;
+}
+
+.venix-badge--brand { background: var(--venix-bg-subtle); border-color: var(--venix-border-subtle); color: var(--venix-fg-brand); }
+.venix-badge--outline { border-color: var(--wp--preset--color--brand); color: var(--venix-fg-brand); }
+.venix-badge--gold { background: var(--wp--preset--color--gold); color: var(--venix-fg-inverse); }
+.venix-badge--solid { background: var(--wp--preset--color--brand); color: var(--venix-fg-inverse); }
+.venix-badge--dark { background: var(--venix-bg-inverse); color: var(--venix-fg-inverse-muted); }
+.venix-badge--muted { background: var(--wp--preset--color--blush-dark); color: var(--venix-fg-muted); }
+.venix-badge--warm { background: var(--venix-bg-surface-warm); border-color: var(--venix-border-warm); color: var(--venix-fg-brand-strong); }
+.venix-badge--inverse { border-color: var(--venix-border-on-inverse); color: var(--venix-fg-inverse-muted); }
+.venix-badge__dot { background: var(--wp--preset--color--gold); border-radius: 50%; flex-shrink: 0; height: 5px; width: 5px; }
+
+[dir="rtl"] .venix-badge { font-family: var(--venix-font-arabic); letter-spacing: 0; text-transform: none; }

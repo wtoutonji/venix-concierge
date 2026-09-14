@@ -1,0 +1,33 @@
+.venix-button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--venix-radius-button);
+  color: var(--venix-fg-brand);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--venix-font-display);
+  font-size: var(--wp--preset--font-size--sm);
+  font-weight: 600;
+  gap: var(--wp--preset--spacing--2);
+  justify-content: center;
+  letter-spacing: 0.22em;
+  padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--8);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color var(--venix-motion-base), border-color var(--venix-motion-base), color var(--venix-motion-base);
+}
+
+.venix-button--primary { background: var(--wp--preset--color--brand); color: var(--venix-fg-inverse); }
+.venix-button--primary:hover { background: var(--wp--preset--color--brand-deep); color: var(--venix-fg-inverse); }
+.venix-button--ghost { border-color: var(--wp--preset--color--brand); color: var(--venix-fg-brand); }
+.venix-button--ghost:hover { background: var(--wp--preset--color--brand); color: var(--venix-fg-inverse); }
+.venix-button--gold { background: var(--wp--preset--color--gold); color: var(--venix-fg-inverse); }
+.venix-button--text { font-family: var(--venix-font-body); letter-spacing: 0.16em; padding: 0; }
+.venix-button--text::after { content: "→"; margin-inline-start: var(--wp--preset--spacing--2); }
+.venix-button--ghost-inverse { border-color: var(--venix-border-on-inverse); color: var(--venix-fg-inverse); }
+.venix-button--sm { font-size: var(--wp--preset--font-size--xs); padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--5); }
+.venix-button--lg { font-size: var(--wp--preset--font-size--base); padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--10); }
+
+[dir="rtl"] .venix-button { font-family: var(--venix-font-arabic); letter-spacing: 0; text-transform: none; }

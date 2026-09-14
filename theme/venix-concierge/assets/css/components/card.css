@@ -1,14 +1,19 @@
-.tly-card {
-  display: flex;
-  flex-direction: column;
-  min-inline-size: 0;
-}
+.tly-card { display: flex; flex-direction: column; min-inline-size: 0; }
+.tly-card__media, .tly-card__body { min-inline-size: 0; }
+.tly-card__body { flex: 1 1 auto; }
 
-.tly-card__media,
-.tly-card__body {
-  min-inline-size: 0;
-}
+.venix-card { background: var(--venix-bg-surface); border: 1px solid var(--venix-border-subtle); border-radius: var(--venix-radius-card); color: var(--venix-fg-default); display: flex; flex-direction: column; gap: var(--wp--preset--spacing--4); padding: var(--wp--preset--spacing--8); }
+.venix-card--warm { background: var(--venix-bg-surface-warm); border-color: var(--venix-border-warm); }
+.venix-card--inverse { background: var(--venix-bg-inverse); border-color: transparent; color: var(--venix-fg-inverse); }
+.venix-card--elevated { box-shadow: var(--venix-shadow-card); }
+.venix-card__body { display: flex; flex-direction: column; gap: var(--wp--preset--spacing--4); }
+.venix-card__rule { background: var(--wp--preset--color--gold); height: 1px; width: 24px; }
+.venix-card__eyebrow { color: var(--venix-fg-muted); font-family: var(--venix-font-body); font-size: var(--wp--preset--font-size--xs); font-weight: 600; letter-spacing: 0.28em; margin: 0; text-transform: uppercase; }
+.venix-card__title { color: var(--venix-fg-brand); font-family: var(--venix-font-display); font-size: var(--wp--preset--font-size--lg); font-weight: 600; letter-spacing: 0.12em; line-height: 1.3; margin: 0; text-transform: uppercase; }
+.venix-card__content { color: var(--venix-fg-default); font-family: var(--venix-font-body); font-size: var(--wp--preset--font-size--sm); letter-spacing: 0.02em; line-height: 1.6; }
+.venix-card__content > :first-child { margin-block-start: 0; }
+.venix-card__content > :last-child { margin-block-end: 0; }
+.venix-card--inverse .venix-card__eyebrow, .venix-card--inverse .venix-card__title { color: var(--venix-fg-inverse-muted); }
+.venix-card--inverse .venix-card__content { color: var(--venix-fg-muted); }
 
-.tly-card__body {
-  flex: 1 1 auto;
-}
+[dir="rtl"] .venix-card__eyebrow, [dir="rtl"] .venix-card__title, [dir="rtl"] .venix-card__content { font-family: var(--venix-font-arabic); letter-spacing: 0; text-transform: none; }

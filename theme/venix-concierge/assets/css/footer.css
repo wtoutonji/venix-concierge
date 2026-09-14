@@ -5,5 +5,5 @@
 .site-footer__inner {
   padding-block: 3rem;
   display: grid;
-  gap: var(--wp--preset--spacing--50);
+  gap: var(--wp--preset--spacing--6);
 }

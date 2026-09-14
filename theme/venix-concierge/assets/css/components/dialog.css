@@ -5,25 +5,25 @@
   );
   max-block-size: calc(100vh - var(--tly-space-page-gutter) - var(--tly-space-page-gutter));
   max-block-size: calc(100dvb - var(--tly-space-page-gutter) - var(--tly-space-page-gutter));
-  padding: var(--wp--preset--spacing--50);
+  padding: var(--wp--preset--spacing--6);
   overflow: auto;
   overscroll-behavior: contain;
   border: 1px solid var(--tly-color-border-subtle);
   border-radius: var(--tly-radius-md);
-  color: var(--wp--preset--color--text);
-  background: var(--wp--preset--color--background);
+  color: var(--venix-fg-default);
+  background: var(--venix-bg-page);
 }
 
 .tly-dialog::backdrop {
-  background: color-mix(in srgb, var(--wp--preset--color--text) 55%, transparent);
+  background: color-mix(in srgb, var(--venix-fg-default) 55%, transparent);
 }
 
 .tly-dialog__header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: var(--wp--preset--spacing--40);
-  margin-block-end: var(--wp--preset--spacing--40);
+  gap: var(--wp--preset--spacing--4);
+  margin-block-end: var(--wp--preset--spacing--4);
 }
 
 .tly-dialog__title,
@@ -34,7 +34,7 @@
 .tly-dialog__close {
   min-inline-size: var(--tly-control-min-size);
   min-block-size: var(--tly-control-min-size);
-  padding-inline: var(--wp--preset--spacing--40);
+  padding-inline: var(--wp--preset--spacing--4);
   border: 1px solid currentColor;
   border-radius: var(--tly-radius-sm);
   color: inherit;
