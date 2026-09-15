@@ -35,24 +35,29 @@ $venix_concierge_culture_points = array(
 	'Awareness of cultural expectations',
 	'Discretion in all contexts',
 );
+$venix_concierge_about_content = venix_concierge_about_content();
+$venix_concierge_pmv           = $venix_concierge_about_content['pmv']['items'];
+$venix_concierge_approach      = $venix_concierge_about_content['approach']['items'];
+$venix_concierge_values        = $venix_concierge_about_content['values']['items'];
+$venix_concierge_culture_points = $venix_concierge_about_content['culture']['points'];
 ?>
 <main id="primary" class="site-main venix-about">
 	<section class="about-hero">
 		<div class="about-hero__media" aria-hidden="true"></div>
 		<div class="container about-hero__content">
-			<p class="venix-eyebrow">About Venix Concierge</p>
-			<h1>Luxury service, built on trust</h1>
+			<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_about_content['hero']['eyebrow'] ); ?></p>
+			<h1><?php echo esc_html( $venix_concierge_about_content['hero']['title'] ); ?></h1>
 		</div>
 	</section>
 
 	<section class="section about-story">
 		<div class="container about-split about-story__grid">
 			<div class="about-copy">
-				<p class="venix-eyebrow">Our story</p>
-				<h2>A deliberate beginning</h2>
+				<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_about_content['story']['eyebrow'] ); ?></p>
+				<h2><?php echo esc_html( $venix_concierge_about_content['story']['title'] ); ?></h2>
 				<span class="about-rule" aria-hidden="true"></span>
-				<p>Venix Concierge began in Warsaw in 2024 with a deliberate intention: to offer private and professional clients a more seamless, precise and personal way to move through the city and beyond. We understood from the outset that premium transportation was not simply about the vehicle. It was about reliability, discretion and the confidence that every detail had been considered before the journey began.</p>
-				<p class="about-copy__muted">We are building a reputation through consistent, careful execution — one well-managed journey at a time. Our ambition is to grow into a trusted presence across Europe, carrying the same standards wherever we operate.</p>
+				<p><?php echo esc_html( $venix_concierge_about_content['story']['copy'] ); ?></p>
+				<p class="about-copy__muted"><?php echo esc_html( $venix_concierge_about_content['story']['supporting_copy'] ); ?></p>
 			</div>
 			<div class="about-media about-media--portrait" role="img" aria-label="Photography placeholder: a black Mercedes-Benz on a Warsaw boulevard in warm evening light."><span aria-hidden="true"></span></div>
 		</div>
@@ -61,8 +66,8 @@ $venix_concierge_culture_points = array(
 	<section class="section about-foundation">
 		<div class="container">
 			<header class="about-section-heading">
-				<p class="venix-eyebrow">Our foundation</p>
-				<h2>Purpose, mission &amp; vision</h2>
+				<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_about_content['pmv']['eyebrow'] ); ?></p>
+				<h2><?php echo esc_html( $venix_concierge_about_content['pmv']['title'] ); ?></h2>
 			</header>
 			<div class="about-pmv-grid">
 				<?php foreach ( $venix_concierge_pmv as $venix_concierge_item ) : ?>
@@ -79,9 +84,9 @@ $venix_concierge_culture_points = array(
 	<section class="section about-approach">
 		<div class="container about-approach__grid">
 			<div class="about-approach__intro">
-				<p class="venix-eyebrow">How we work</p>
-				<h2>Our approach to every arrangement</h2>
-				<p>Every engagement — whether a single airport transfer or a multi-day delegation programme — follows the same discipline. We listen first, then plan, communicate, and deliver.</p>
+				<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_about_content['approach']['eyebrow'] ); ?></p>
+				<h2><?php echo esc_html( $venix_concierge_about_content['approach']['title'] ); ?></h2>
+				<p><?php echo esc_html( $venix_concierge_about_content['approach']['copy'] ); ?></p>
 			</div>
 			<ol class="about-approach__list">
 				<?php foreach ( $venix_concierge_approach as $venix_concierge_item ) : ?>
@@ -94,8 +99,8 @@ $venix_concierge_culture_points = array(
 	<section class="section about-values">
 		<div class="container">
 			<header class="about-section-heading">
-				<p class="venix-eyebrow">What we stand for</p>
-				<h2>Our values in practice</h2>
+				<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_about_content['values']['eyebrow'] ); ?></p>
+				<h2><?php echo esc_html( $venix_concierge_about_content['values']['title'] ); ?></h2>
 			</header>
 			<div class="about-values__grid">
 				<?php foreach ( $venix_concierge_values as $venix_concierge_item ) : ?>
@@ -109,11 +114,11 @@ $venix_concierge_culture_points = array(
 		<div class="container about-split about-culture__grid">
 			<div class="about-media about-media--landscape" role="img" aria-label="Photography placeholder: international travellers arriving at Warsaw airport, greeted by a Venix Concierge representative."></div>
 			<div class="about-copy">
-				<p class="venix-eyebrow">International service</p>
-				<h2>Beyond language. Cultural understanding.</h2>
+				<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_about_content['culture']['eyebrow'] ); ?></p>
+				<h2><?php echo esc_html( $venix_concierge_about_content['culture']['title'] ); ?></h2>
 				<span class="about-rule" aria-hidden="true"></span>
-				<p>International service requires more than the ability to communicate in a second language. It requires cultural awareness, respect for different protocols and expectations, and the ability to adapt professional conduct to different contexts.</p>
-				<p class="about-copy__muted">Our service is designed for clients from across the world — visitors, executives, diplomats and families — each arriving with their own standards, preferences and expectations. We approach every arrangement with the awareness that different clients may require different things, and we adapt accordingly.</p>
+				<p><?php echo esc_html( $venix_concierge_about_content['culture']['copy'] ); ?></p>
+				<p class="about-copy__muted"><?php echo esc_html( $venix_concierge_about_content['culture']['supporting_copy'] ); ?></p>
 				<ul class="about-culture__points"><?php foreach ( $venix_concierge_culture_points as $venix_concierge_point ) : ?><li><?php echo esc_html( $venix_concierge_point ); ?></li><?php endforeach; ?></ul>
 			</div>
 		</div>
@@ -121,9 +126,9 @@ $venix_concierge_culture_points = array(
 
 	<section class="section about-cta">
 		<div class="container about-cta__content">
-			<h2>Your requirements are personal. The service should be too.</h2>
-			<p>Share your journey requirements with us. Our team will review the details and prepare a considered response.</p>
-			<?php get_template_part( 'template-parts/components/button/button', null, array( 'label' => 'Discuss your journey', 'url' => venix_concierge_page_url( 'contact' ), 'variant' => 'gold' ) ); ?>
+			<h2><?php echo esc_html( $venix_concierge_about_content['cta']['title'] ); ?></h2>
+			<p><?php echo esc_html( $venix_concierge_about_content['cta']['copy'] ); ?></p>
+			<?php get_template_part( 'template-parts/components/button/button', null, array( 'label' => $venix_concierge_about_content['cta']['button'], 'url' => venix_concierge_page_url( 'contact' ), 'variant' => 'gold' ) ); ?>
 		</div>
 	</section>
 </main>

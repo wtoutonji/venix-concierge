@@ -2,11 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	var form = document.querySelector('[data-contact-form]');
 	if (!form) return;
 	var step = 1;
-	var titles = [['Your contact details', 'How should we reach you?'], ['Service selection', 'What service do you require?'], ['Journey information', 'Where and when?'], ['Additional requirements', 'Anything else to note?']];
+	var titles = JSON.parse(form.dataset.contactSteps || '[]');
 	var checks = { 1: [['fullName', function (v) { return v.trim() !== ''; }], ['email', function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }]], 2: [['service', function (v) { return v !== ''; }]], 3: [['pickup', function (v) { return v.trim() !== ''; }], ['date', function (v) { return v !== ''; }]], 4: [['consent', function (_, input) { return input.checked; }]] };
 	function render() {
 		form.querySelectorAll('[data-contact-step]').forEach(function (panel) { panel.hidden = Number(panel.dataset.contactStep) !== step; });
-		document.querySelector('[data-contact-title]').textContent = titles[step - 1][0]; document.querySelector('[data-contact-subtitle]').textContent = titles[step - 1][1];
+		var currentStep = titles[step - 1] || {};
+		document.querySelector('[data-contact-title]').textContent = currentStep.title || ''; document.querySelector('[data-contact-subtitle]').textContent = currentStep.subtitle || '';
 		document.querySelectorAll('[data-contact-progress]').forEach(function (item) { var n = Number(item.dataset.contactProgress); item.classList.toggle('is-active', n === step); item.classList.toggle('is-complete', n < step); item.textContent = n < step ? '✓' : n; });
 		document.querySelectorAll('[data-contact-connector]').forEach(function (connector) { connector.classList.toggle('is-complete', Number(connector.dataset.contactConnector) < step); });
 		document.querySelector('[data-contact-back]').hidden = step === 1; document.querySelector('[data-contact-next]').hidden = step === 4; document.querySelector('[data-contact-submit]').hidden = step !== 4;

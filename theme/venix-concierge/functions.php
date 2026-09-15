@@ -16,6 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'/inc/editor.php',
 		'/inc/agency-editor.php',
 		'/inc/performance.php',
+		'/inc/i18n.php',
+		'/inc/content/home.php',
+		'/inc/content/about.php',
+		'/inc/content/services.php',
+		'/inc/content/fleet.php',
+		'/inc/content/contact.php',
 		'/inc/template-tags.php',
 		'/inc/navigation.php',
 	);

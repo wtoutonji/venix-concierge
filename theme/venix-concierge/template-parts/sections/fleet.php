@@ -9,93 +9,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$venix_concierge_contact_url = venix_concierge_page_url( 'contact' );
-$venix_concierge_vehicles    = array(
-	array(
-		'id'         => 'sclass',
-		'name'       => 'Mercedes-Benz S-Class',
-		'badge'      => 'Flagship sedan',
-		'sub_badge'  => 'Executive · VIP · Diplomatic',
-		'columns'    => 'media-wide',
-		'copy'       => 'The flagship choice for executive and diplomatic travel, important private occasions and VIP airport arrivals. An environment of quiet distinction and precise comfort, designed for those who expect nothing to be left to chance.',
-		'use_cases'  => array( 'Executive and diplomatic travel', 'Important private occasions', 'VIP airport arrivals and departures' ),
-		'cta'        => 'Request the S-Class',
-		'media_alt'  => 'Photography placeholder: a black Mercedes-Benz S-Class on a Warsaw boulevard at golden hour.',
-		'interior'   => array(
-			'Photography placeholder: S-Class rear cabin with warm leather upholstery, ambient lighting and refined materials.',
-			'Photography placeholder: S-Class front cabin detail with instrumentation, steering wheel and driver’s environment.',
-		),
-	),
-	array(
-		'id'         => 'eclass',
-		'name'       => 'Mercedes-Benz E-Class',
-		'badge'      => 'Executive sedan',
-		'sub_badge'  => 'Corporate · Airport · Daily',
-		'columns'    => 'details-wide',
-		'copy'       => 'Premium business travel, corporate airport transfers and daily chauffeur requirements. Refined, discreet and dependable — a consistent professional presence for demanding schedules.',
-		'use_cases'  => array( 'Corporate travel and business appointments', 'Airport transfers — arrivals and departures', 'Daily and multi-day chauffeur hire' ),
-		'cta'        => 'Request the E-Class',
-		'media_alt'  => 'Photography placeholder: a black Mercedes-Benz E-Class in a Warsaw business district.',
-	),
-	array(
-		'id'         => 'vclass',
-		'name'       => 'Mercedes-Benz V-Class',
-		'badge'      => 'Luxury van',
-		'sub_badge'  => 'Families · Groups · Events',
-		'columns'    => 'media-wide',
-		'copy'       => 'Families, executive teams and small groups travelling together in comfort. The V-Class combines generous interior space with premium presentation, making it equally suited to airport transfers, event transport and multi-stop city journeys.',
-		'use_cases'  => array( 'Airport transfers for families and groups', 'Executive team travel', 'Event guest transportation' ),
-		'cta'        => 'Request the V-Class',
-		'media_alt'  => 'Photography placeholder: a black Mercedes-Benz V-Class at a Warsaw hotel entrance.',
-		'interior'   => array(
-			'Photography placeholder: V-Class rear seating area with individual seats, warm ambient tone and generous legroom.',
-			'Photography placeholder: V-Class luggage area, clean and accessible for airport transfers with checked baggage.',
-		),
-	),
-	array(
-		'id'         => 'vclassxl',
-		'name'       => 'Mercedes-Benz V-Class Extra Long',
-		'badge'      => 'Luxury van · Extended',
-		'sub_badge'  => 'Groups · Luggage · Long routes',
-		'columns'    => 'details-wide',
-		'copy'       => 'The extended version of the V-Class provides additional cabin length for groups with more luggage, longer intercity journeys or when extra interior space improves comfort for the passengers.',
-		'use_cases'  => array( 'Groups with substantial luggage', 'Longer intercity journeys', 'Event and delegation transport' ),
-		'cta'        => 'Request the V-Class XL',
-		'media_alt'  => 'Photography placeholder: a Mercedes-Benz V-Class Extra Long on a Warsaw airport road.',
-	),
-	array(
-		'id'         => 'sprinter',
-		'name'       => 'Mercedes-Benz Sprinter',
-		'badge'      => 'Group transport',
-		'sub_badge'  => '9 · 16 · 19 passenger configurations',
-		'columns'    => 'media-wide',
-		'copy'       => 'Group transportation for conferences, delegations, weddings and events — available in 9, 16 and 19-seat configurations. Professional presentation, coordinated scheduling and driver dispatch. The right choice when groups need to move together with comfort and punctuality.',
-		'use_cases'  => array( 'Conference and corporate event transport', 'Delegation and embassy group movements', 'Wedding guest coordination' ),
-		'cta'        => 'Request a Sprinter',
-		'media_alt'  => 'Photography placeholder: a Mercedes-Benz Sprinter at a Warsaw conference centre for group transport.',
-	),
-);
-
-$venix_concierge_recommendation_points = array(
-	array( 'Passengers', 'How many people are travelling?' ),
-	array( 'Luggage', 'Checked bags, hand luggage, equipment?' ),
-	array( 'Occasion', 'Business, event, airport, private?' ),
-);
+$venix_concierge_contact_url   = venix_concierge_page_url( 'contact' );
+$venix_concierge_fleet_content = venix_concierge_fleet_content();
+$venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 ?>
 <main id="main-content" class="site-main venix-fleet">
 	<section class="fleet-hero">
 		<div class="fleet-hero__media" aria-hidden="true"></div>
 		<div class="container fleet-hero__content">
-			<p class="venix-eyebrow">The fleet</p>
-			<h1>The right vehicle for every journey</h1>
-			<p>A curated fleet of Mercedes-Benz vehicles, each selected to serve different journey types, passenger groups and occasions with equal professionalism.</p>
+			<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_fleet_content['hero']['eyebrow'] ); ?></p>
+			<h1><?php echo esc_html( $venix_concierge_fleet_content['hero']['title'] ); ?></h1>
+			<p><?php echo esc_html( $venix_concierge_fleet_content['hero']['copy'] ); ?></p>
 		</div>
 	</section>
 
-	<section class="fleet-notice" aria-label="Fleet availability notice">
+	<section class="fleet-notice" aria-label="<?php echo esc_attr( $venix_concierge_fleet_content['notice']['aria_label'] ); ?>">
 		<div class="container fleet-notice__inner">
-			<p>Exact model, configuration, colour and availability may vary. Passenger and luggage capacities to be confirmed.</p>
-			<a href="<?php echo esc_url( $venix_concierge_contact_url ); ?>">Need a vehicle recommendation? Contact us <span class="venix-icon-directional" aria-hidden="true">→</span></a>
+			<p><?php echo esc_html( $venix_concierge_fleet_content['notice']['copy'] ); ?></p>
+			<a href="<?php echo esc_url( $venix_concierge_contact_url ); ?>"><?php echo esc_html( $venix_concierge_fleet_content['notice']['link'] ); ?> <span class="venix-icon-directional" aria-hidden="true">→</span></a>
 		</div>
 	</section>
 
@@ -118,7 +49,7 @@ $venix_concierge_recommendation_points = array(
 									<li><?php echo esc_html( $venix_concierge_use_case ); ?></li>
 								<?php endforeach; ?>
 							</ul>
-							<p class="fleet-vehicle__capacity">[Confirm passenger &amp; luggage capacity]</p>
+							<p class="fleet-vehicle__capacity"><?php echo esc_html( $venix_concierge_fleet_content['capacity_placeholder'] ); ?></p>
 							<?php get_template_part( 'template-parts/components/button/button', null, array( 'label' => $venix_concierge_vehicle['cta'], 'url' => $venix_concierge_contact_url, 'variant' => 'primary' ) ); ?>
 						</div>
 					</div>
@@ -137,13 +68,13 @@ $venix_concierge_recommendation_points = array(
 	<section class="fleet-recommendation">
 		<div class="container fleet-recommendation__inner">
 			<div class="fleet-recommendation__copy">
-				<p class="venix-eyebrow">Not sure?</p>
-				<h2>We will recommend the right vehicle for your journey</h2>
-				<p>Share your passenger count, luggage requirements, journey type and any special needs. Our team will suggest the most appropriate option and confirm availability.</p>
-				<?php get_template_part( 'template-parts/components/button/button', null, array( 'label' => 'Get a vehicle recommendation', 'url' => $venix_concierge_contact_url, 'variant' => 'ghost-inverse' ) ); ?>
+				<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_fleet_content['recommendation']['eyebrow'] ); ?></p>
+				<h2><?php echo esc_html( $venix_concierge_fleet_content['recommendation']['title'] ); ?></h2>
+				<p><?php echo esc_html( $venix_concierge_fleet_content['recommendation']['copy'] ); ?></p>
+				<?php get_template_part( 'template-parts/components/button/button', null, array( 'label' => $venix_concierge_fleet_content['recommendation']['button'], 'url' => $venix_concierge_contact_url, 'variant' => 'ghost-inverse' ) ); ?>
 			</div>
 			<div class="fleet-recommendation__points">
-				<?php foreach ( $venix_concierge_recommendation_points as $venix_concierge_point ) : ?>
+				<?php foreach ( $venix_concierge_fleet_content['recommendation']['points'] as $venix_concierge_point ) : ?>
 					<div><h3><?php echo esc_html( $venix_concierge_point[0] ); ?></h3><p><?php echo esc_html( $venix_concierge_point[1] ); ?></p></div>
 				<?php endforeach; ?>
 			</div>

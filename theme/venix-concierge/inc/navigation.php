@@ -9,10 +9,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Return a production page URL, with a safe home fallback until the page exists. */
+/**
+ * Return a current-language page URL from a canonical page role.
+ *
+ * @param string $slug   Shared canonical page slug.
+ * @param string $anchor Optional stable fragment identifier.
+ * @return string
+ */
 function venix_concierge_page_url( $slug, $anchor = '' ) {
-	$page = get_page_by_path( $slug );
-	$url  = $page ? get_permalink( $page ) : home_url( '/' );
+	if ( 'home' === $slug && function_exists( 'pll_home_url' ) ) {
+		$url = pll_home_url( venix_concierge_current_language() );
+	} else {
+		$page = get_page_by_path( $slug );
+
+		if ( $page && function_exists( 'pll_get_post' ) ) {
+			$translated_page_id = pll_get_post( $page->ID, venix_concierge_current_language() );
+
+			if ( ! $translated_page_id ) {
+				return '';
+			}
+
+			$page = get_post( $translated_page_id );
+		}
+
+		$url = $page ? get_permalink( $page ) : ( function_exists( 'pll_home_url' ) ? pll_home_url( venix_concierge_current_language() ) : home_url( '/' ) );
+	}
 
 	return $anchor ? $url . '#' . rawurlencode( $anchor ) : $url;
 }
@@ -98,6 +119,7 @@ function venix_concierge_render_language_switcher() {
 	$languages = pll_the_languages(
 		array(
 			'raw' => 1,
+			'hide_if_no_translation' => 1,
 		)
 	);
 	if ( empty( $languages ) || ! is_array( $languages ) ) {
@@ -105,7 +127,11 @@ function venix_concierge_render_language_switcher() {
 	}
 	echo '<nav class="venix-language-switcher" aria-label="' . esc_attr__( 'Language', 'venix-concierge' ) . '">';
 	foreach ( $languages as $language ) {
-		printf( '<a href="%1$s" lang="%2$s"%3$s>%4$s</a>', esc_url( $language['url'] ), esc_attr( ! empty( $language['hreflang'] ) ? $language['hreflang'] : $language['slug'] ), ! empty( $language['current_lang'] ) ? ' aria-current="true"' : '', esc_html( strtoupper( $language['slug'] ) ) );
+		if ( empty( $language['url'] ) ) {
+			continue;
+		}
+
+		printf( '<a href="%1$s" lang="%2$s"%3$s>%4$s</a>', esc_url( $language['url'] ), esc_attr( ! empty( $language['hreflang'] ) ? $language['hreflang'] : $language['slug'] ), ! empty( $language['current_lang'] ) ? ' aria-current="page"' : '', esc_html( strtoupper( $language['slug'] ) ) );
 	}
 	echo '</nav>';
 }
