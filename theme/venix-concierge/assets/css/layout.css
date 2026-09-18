@@ -10,6 +10,14 @@
   margin-inline: auto;
 }
 
+@media (min-width: 1281px) {
+  .tly-container--wide,
+  .container {
+    inline-size: min(100%, var(--tly-layout-wide));
+    padding-inline: 52px;
+  }
+}
+
 .tly-section,
 .section {
   padding-block: var(--tly-space-section);

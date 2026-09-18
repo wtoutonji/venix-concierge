@@ -2,10 +2,10 @@
 .venix-services h2 { font-size: clamp(20px, 2.2vw, 30px); margin: 16px 0; }
 .venix-services p { line-height: 1.9; }
 .services-hero { align-items: flex-end; background: #1A0A0C; display: flex; height: 56vh; min-height: 400px; overflow: hidden; position: relative; }
-.services-hero__media, .services-media, .services-compact__media { background: linear-gradient(135deg, rgba(201, 167, 94, .18), transparent 55%), repeating-linear-gradient(45deg, rgba(201, 167, 94, .1) 0 1px, transparent 1px 14px), var(--venix-bg-inverse-alt); }
+.services-hero__media, .services-media, .services-compact__media { background: var(--venix-bg-inverse-alt); }
 .services-hero__media { inset: 0; position: absolute; }
 .services-hero__media::after { background: linear-gradient(to top, rgba(30, 6, 8, .96), rgba(30, 6, 8, .45) 55%, transparent); content: ''; inset: 0; position: absolute; }
-.services-hero__content { padding-bottom: 72px; position: relative; width: 100%; }
+.services-hero__content { padding-bottom: 72px; position: relative; }
 .services-hero .venix-eyebrow { align-items: center; color: var(--wp--preset--color--gold); display: flex; font-size: 10px; font-weight: 600; gap: 14px; letter-spacing: .3em; margin: 0 0 18px; text-transform: uppercase; }
 .services-hero .venix-eyebrow::before { background: var(--wp--preset--color--gold); content: ''; height: 1px; width: 36px; }
 .services-hero h1 { color: var(--venix-fg-inverse); font-size: clamp(26px, 3.8vw, 52px); font-weight: 400; margin: 0; max-width: 700px; }

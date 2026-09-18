@@ -136,3 +136,6 @@ textarea {
 [dir="rtl"] .venix-icon-directional {
   transform: scaleX(-1);
 }
+/* Media Library slots retain their parent frame while awaiting an attachment. */
+.venix-media-slot { background: var(--wp--preset--color--blush); overflow: hidden; }
+.venix-media-slot__image { display: block; height: 100%; object-fit: cover; width: 100%; }

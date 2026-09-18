@@ -1,8 +1,8 @@
 .venix-contact h1, .venix-contact h2, .venix-contact h3 { color: var(--venix-fg-brand); font-family: var(--venix-font-display); text-transform: uppercase; }
 .venix-contact .venix-eyebrow { color: var(--wp--preset--color--gold); font-size: 10px; font-weight: 600; letter-spacing: .28em; margin: 0; text-transform: uppercase; }
-.contact-hero { align-items: flex-end; background-color: #1A0A0C; background-image: repeating-linear-gradient(45deg, rgba(122, 19, 34, .14) 0 1px, transparent 1px 14px); display: flex; height: 48vh; min-height: 360px; overflow: hidden; position: relative; }
+.contact-hero { align-items: flex-end; background-color: #1A0A0C; display: flex; height: 48vh; min-height: 360px; overflow: hidden; position: relative; }.contact-hero__media { inset: 0; position: absolute; }
 .contact-hero__scrim { background: linear-gradient(to top, rgba(30, 6, 8, .96), rgba(30, 6, 8, .4) 60%, transparent); inset: 0; position: absolute; }
-.contact-hero__content { padding-bottom: 72px; position: relative; width: 100%; }
+.contact-hero__content { padding-bottom: 72px; position: relative; }
 .contact-hero .venix-eyebrow { align-items: center; display: flex; gap: 14px; margin-bottom: 18px; }
 .contact-hero .venix-eyebrow::before { background: var(--wp--preset--color--gold); content: ''; height: 1px; width: 36px; }
 .contact-hero h1 { color: var(--venix-fg-inverse); font-size: clamp(26px, 3.8vw, 52px); font-weight: 400; letter-spacing: .12em; line-height: 1.22; margin: 0; max-width: 640px; }

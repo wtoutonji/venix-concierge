@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'/inc/agency-editor.php',
 		'/inc/performance.php',
 		'/inc/i18n.php',
+		'/inc/media.php',
 		'/inc/content/home.php',
 		'/inc/content/about.php',
 		'/inc/content/services.php',
