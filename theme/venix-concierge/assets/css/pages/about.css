@@ -19,42 +19,67 @@
 .about-rule { background: var(--venix-fg-brand); display: block; height: 1px; margin-top: 20px; width: 36px; }
 .about-media { border-radius: var(--venix-radius-sm); position: relative; }
 .about-media--portrait { aspect-ratio: 4 / 5; }
-.about-media--portrait span { background: var(--venix-bg-surface); border: 1px solid rgba(201, 167, 94, .35); border-radius: var(--venix-radius-sm); bottom: -18px; height: 100px; left: -18px; position: absolute; width: 100px; z-index: -1; }
 .about-media--landscape { aspect-ratio: 4 / 3; }
+.venix-about .about-story .venix-eyebrow { color: var(--wp--preset--color--gold); font-size: 9.5px; letter-spacing: .3em; margin: 0; }
+.about-story .about-split { gap: 80px; }
+.venix-about .about-story h2 { line-height: 1.3; text-wrap: balance; }
+.about-story .about-copy p:not(.venix-eyebrow):not(.about-copy__muted) { line-height: 1.95; }
 .about-foundation { background: var(--venix-bg-surface); }
 .about-section-heading { margin-bottom: 56px; text-align: center; }
+/* The DC sets the section eyebrow inline inside a 15px / 1.6 line box; a block eyebrow needs that 24px line height to keep the h2 offset. */
+.venix-about .about-foundation .about-section-heading .venix-eyebrow { font-size: 9.5px; letter-spacing: .3em; line-height: 24px; }
+.venix-about .about-foundation .about-section-heading h2 { letter-spacing: .16em; line-height: 1.3; }
+.about-foundation > .container { inline-size: min(100%, 1360px); padding-inline: 52px; }
 .about-pmv-grid { display: grid; gap: 2px; grid-template-columns: repeat(3, 1fr); }
 .about-pmv-card { background: var(--venix-bg-page); border-top: 2px solid var(--venix-fg-brand); padding: 40px 36px 44px; }
-.about-pmv-card .venix-eyebrow { margin-bottom: 14px; }
+.about-pmv-card .venix-eyebrow { font-size: 9px; letter-spacing: .3em; line-height: 1.6; margin-bottom: 14px; }
 .about-pmv-card p:last-child { color: rgba(44, 26, 29, .68); font-size: 13px; margin: 0; }
-.about-approach__grid { align-items: start; display: grid; gap: 80px; grid-template-columns: .9fr 1.1fr; }
+.about-approach { background: var(--venix-bg-page); }
+.about-approach .about-approach__grid { align-items: start; display: grid; gap: 80px; grid-template-columns: .9fr 1.1fr; inline-size: min(100%, 1360px); padding-inline: 52px; }
 .about-approach__intro { position: sticky; top: 100px; }
-.about-approach__intro > p:last-child { color: rgba(44, 26, 29, .65); font-size: 13.5px; margin: 20px 0 0; }
+/* The DC sets the eyebrow inline inside a 15px / 1.6 line box; a block eyebrow needs that 24px line height to keep the h2 offset. */
+.about-approach .about-approach__intro .venix-eyebrow { display: block; font-size: 9.5px; letter-spacing: .3em; line-height: 24px; margin: 0; }
+.venix-about .about-approach__intro h2 { font-size: clamp(22px, 2.4vw, 32px); margin: 14px 0 20px; text-wrap: balance; }
+.about-approach__intro > p:last-child { color: rgba(44, 26, 29, .65); font-size: 13.5px; margin: 0; }
 .about-approach__list { list-style: none; margin: 0; padding: 0; }
-.about-approach__list li { border-bottom: 1px solid var(--venix-border-subtle); display: flex; gap: 28px; padding: 26px 0; }
+.about-approach__list li { border-bottom: 1px solid var(--venix-border-subtle); display: flex; gap: 28px; margin: 0; padding: 26px 0; }
 .about-approach__list > li > span { color: rgba(201, 167, 94, .4); flex: 0 0 36px; font-family: var(--venix-font-display); font-size: 28px; line-height: 1; }
-.about-approach__list h3 { font-size: 12.5px; letter-spacing: .12em; margin-bottom: 8px; }
-.about-approach__list p { color: rgba(44, 26, 29, .65); font-size: 13px; margin: 0; }
+.venix-about .about-approach__list h3 { font-size: 12.5px; letter-spacing: .12em; line-height: 1.6; margin: 0 0 8px; }
+.venix-about .about-approach__list p { color: rgba(44, 26, 29, .65); font-size: 13px; line-height: 1.85; margin: 0; }
 .about-values { background: var(--venix-bg-inverse); overflow: hidden; position: relative; }
-.about-values::before, .about-cta::before { background-image: repeating-linear-gradient(45deg, var(--wp--preset--color--gold) 0 1px, transparent 1px 18px); content: ''; inset: 0; opacity: .035; position: absolute; }
+.about-values::before { background-image: repeating-linear-gradient(45deg, var(--wp--preset--color--gold) 0 1px, transparent 1px 50%); background-size: 18px 18px; content: ''; inset: 0; opacity: .035; position: absolute; }
+.about-cta::before { content: ''; inset: 0; position: absolute; }
 .about-values .container, .about-cta__content { position: relative; }
+.about-values > .container { inline-size: min(100%, 1360px); padding-inline: 52px; }
+/* The DC sets the section eyebrow as an inline span inside the heading's 15px / 1.6 line box; keep it inline so the h2 offset matches. */
+.venix-about .about-values .about-section-heading .venix-eyebrow { display: inline; font-size: 9.5px; letter-spacing: .3em; line-height: 1.6; margin: 0; }
+.venix-about .about-values .about-section-heading h2 { font-weight: 400; letter-spacing: .16em; line-height: 1.3; }
 .about-values h2, .about-values h3 { color: var(--venix-fg-inverse); }
 .about-values__grid { display: grid; gap: 2px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .about-values__grid article { background: rgba(255, 255, 255, .02); border-top: 2px solid var(--wp--preset--color--gold); padding: 28px 28px 34px; transition: background-color var(--venix-motion-base); }
 .about-values__grid article:hover { background: rgba(255, 255, 255, .055); }
-.about-values__grid .venix-eyebrow { margin-bottom: 12px; }
+.about-values__grid .venix-eyebrow { font-family: var(--venix-font-display); font-size: 11.5px; letter-spacing: .12em; line-height: 1.6; margin-bottom: 12px; }
 .about-values__grid h3 { font-size: 14px; margin-bottom: 12px; }
-.about-values__grid p:last-child { color: rgba(230, 216, 199, .7); font-size: 12.5px; margin: 0; }
-.about-culture__points { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; list-style: none; margin: 36px 0 0; padding: 0; }
+.about-values__grid p:last-child { color: rgba(230, 216, 199, .7); font-size: 12.5px; line-height: 1.85; margin: 0; }
+.about-story > .container, .about-culture > .container { inline-size: min(100%, 1360px); padding-inline: 52px; }
+.about-culture .about-split { gap: 80px; }
+/* The DC sets the eyebrow as an inline span inside the copy column's 15px / 1.6 line box; keep it inline so the h2 offset matches and generic About paragraph rules cannot restyle it. */
+.venix-about .about-culture .venix-eyebrow { color: var(--wp--preset--color--gold); display: inline; font-size: 9.5px; letter-spacing: .3em; line-height: 1.6; margin: 0; }
+.venix-about .about-culture h2 { font-size: clamp(22px, 2.4vw, 32px); text-wrap: balance; }
+.about-culture .about-rule { margin: 20px 0; }
+.venix-about .about-culture .about-copy p:not(.venix-eyebrow):not(.about-copy__muted) { line-height: 1.95; margin: 0 0 18px; }
+.venix-about .about-culture .about-copy .about-copy__muted { line-height: 1.9; margin: 0 0 36px; }
+.about-culture__points { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; list-style: none; margin: 0; padding: 0; }
 .about-culture__points li { align-items: baseline; color: rgba(44, 26, 29, .68); display: flex; font-size: 12.5px; gap: 10px; line-height: 1.65; }
 .about-culture__points li::before { background: var(--wp--preset--color--gold); content: ''; flex: 0 0 14px; height: 1px; transform: translateY(-3px); }
 .about-cta { background: var(--wp--preset--color--brand); overflow: hidden; position: relative; text-align: center; }
-.about-cta::before { background-image: repeating-linear-gradient(45deg, var(--venix-bg-page) 0 1px, transparent 1px 18px); opacity: .06; }
-.about-cta__content { max-width: 760px; }
-.about-cta h2 { color: var(--venix-fg-inverse); font-size: clamp(22px, 2.8vw, 38px); font-weight: 400; margin: 0 0 22px; }
+.about-cta::before { background-image: repeating-linear-gradient(45deg, var(--venix-bg-page) 0 1px, transparent 1px 50%); background-size: 18px 18px; opacity: .06; }
+.about-cta > .about-cta__content { inline-size: min(100%, 760px); max-width: 760px; padding-inline: 52px; }
+.about-cta h2 { color: var(--venix-fg-inverse); font-size: clamp(22px, 2.8vw, 38px); font-weight: 400; margin: 0 0 22px; text-wrap: balance; }
 .about-cta p { color: rgba(250, 251, 249, .8); font-size: 14.5px; margin: 0 0 38px; }
-.about-cta .venix-button--gold { background: var(--venix-bg-page); color: var(--venix-fg-brand); }
+.about-cta .venix-button--gold { background: var(--venix-bg-page); border: 0; border-radius: var(--venix-radius-sm); color: var(--venix-fg-brand); font-size: 10.5px; padding: 16px 40px; transition: background-color 240ms; }
 .about-cta .venix-button--gold:hover { background: var(--venix-bg-surface-warm); }
-@media (max-width: 1024px) { .about-pmv-grid { grid-template-columns: repeat(2, 1fr); } .about-split, .about-approach__grid { gap: 48px; } }
-@media (max-width: 768px) { .about-split, .about-approach__grid, .about-pmv-grid, .about-culture__points { grid-template-columns: 1fr; } .about-approach__intro { position: static; } .about-hero__content { padding-bottom: 56px; } }
-@media (max-width: 480px) { .about-pmv-card { padding: 32px 24px; } .about-approach__list li { gap: 18px; } .about-cta .venix-button { width: 100%; } }
+@media (max-width: 1280px) { .about-cta > .about-cta__content { padding-inline: 40px; } .about-story > .container, .about-foundation > .container, .about-culture > .container, .about-values > .container, .about-approach .about-approach__grid { padding-inline: 40px; } }
+@media (max-width: 1024px) { .about-pmv-grid { grid-template-columns: repeat(2, 1fr); } .about-split { gap: 48px; } }
+@media (max-width: 768px) { .about-cta > .about-cta__content { padding-inline: 32px; } .about-split, .about-pmv-grid, .about-culture__points { grid-template-columns: 1fr; } .about-approach__intro { position: static; } .about-story > .container, .about-foundation > .container, .about-culture > .container, .about-values > .container { padding-inline: 32px; } .about-approach .about-approach__grid { grid-template-columns: 1fr; padding-inline: 32px; } .about-hero__content { padding-bottom: 56px; } }
+@media (max-width: 480px) { .about-story > .container, .about-foundation > .container, .about-culture > .container, .about-values > .container, .about-approach .about-approach__grid { padding-inline: 20px; } .about-cta > .about-cta__content { padding-inline: 20px; } }
