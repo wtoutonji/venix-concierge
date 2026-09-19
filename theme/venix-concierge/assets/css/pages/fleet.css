@@ -12,4 +12,4 @@
 @media (max-width: 1280px) { .fleet-notice__inner, .fleet-vehicles > .container, .fleet-recommendation > .container { padding-inline: 40px; } }
 @media (max-width: 1024px) { .fleet-recommendation__points { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) { .fleet-notice__inner, .fleet-vehicles > .container, .fleet-recommendation > .container { padding-inline: 32px; }.fleet-vehicle__card, .fleet-vehicle__card--media-wide, .fleet-vehicle__card--details-wide, .fleet-recommendation__inner, .fleet-recommendation__points { grid-template-columns: 1fr; } }
-@media (max-width: 480px) { .fleet-notice__inner, .fleet-vehicles > .container, .fleet-recommendation > .container { padding-inline: 20px; } }
+@media (max-width: 480px) { .fleet-notice__inner, .fleet-vehicles > .container, .fleet-recommendation > .container { padding-inline: 20px; }.fleet-vehicle__interior { grid-template-columns: 1fr; } }
