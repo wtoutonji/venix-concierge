@@ -51,7 +51,7 @@ $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 									<li><?php echo esc_html( $venix_concierge_use_case ); ?></li>
 								<?php endforeach; ?>
 							</ul>
-							<p class="fleet-vehicle__capacity"><?php echo esc_html( $venix_concierge_fleet_content['capacity_placeholder'] ); ?></p>
+							<?php get_template_part( 'template-parts/components/capacity/capacity', null, array( 'vehicle' => $venix_concierge_vehicle['id'] ) ); ?>
 							<?php get_template_part( 'template-parts/components/button/button', null, array( 'label' => $venix_concierge_vehicle['cta'], 'url' => $venix_concierge_contact_url, 'variant' => 'primary' ) ); ?>
 						</div>
 					</div>

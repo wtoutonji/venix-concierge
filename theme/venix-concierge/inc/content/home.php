@@ -87,7 +87,8 @@ function venix_concierge_home_content() {
 			'title'    => $copy( 'Matched to the journey', 'Dobrana do podróży' ),
 			'copy'     => $copy( 'The right vehicle is not simply a matter of size — it should match the journey, the passengers and the occasion.', 'Właściwy pojazd to nie tylko kwestia wielkości — powinien odpowiadać podróży, pasażerom i okazji.' ),
 			'note'     => $copy( 'Model, configuration and colour may vary.', 'Model, konfiguracja i kolor mogą się różnić.' ),
-			'capacity_placeholder' => '[Confirm passenger & luggage capacity]',
+			'featured_id' => 'sclass',
+			'vehicle_ids' => array( 'eclass', 'vclass', 'vclassxl', 'sprinter' ),
 			'featured' => array( $copy( 'Flagship sedan', 'Flagowy sedan' ), 'Executive · VIP', 'Mercedes-Benz S-Class', $copy( 'The flagship choice for executive and diplomatic travel, important private occasions and VIP airport arrivals. An environment of quiet distinction and precise comfort.', 'Flagowy wybór dla podróży przedstawicielskich i dyplomatycznych, ważnych okazji prywatnych oraz przylotów VIP. Środowisko cichej elegancji i precyzyjnego komfortu.' ), $copy( 'Request the S-Class', 'Zamów S-Klasa' ) ),
 			'vehicles' => array(
 				array( $copy( 'Executive sedan', 'Sedan biznesowy' ), 'Mercedes-Benz E-Class', $copy( 'Premium business travel, corporate airport transfers and daily chauffeur requirements. Refined, discreet and dependable.', 'Transport biznesowy klasy premium, korporacyjne transfery lotniskowe i codzienna obsługa szoferska. Elegancki, dyskretny i niezawodny.' ), $copy( 'Request the E-Class', 'Zamów E-Klasa' ) ),

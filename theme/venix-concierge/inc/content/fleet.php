@@ -1,6 +1,6 @@
 <?php
 /**
- * Approved Fleet page copy.
+ * Approved Fleet page copy and shared vehicle capacity.
  *
  * @package VenixConcierge
  */
@@ -25,7 +25,6 @@ function venix_concierge_fleet_content() {
 			'copy'       => $copy( 'Exact model, configuration, colour and availability may vary. Passenger and luggage capacities to be confirmed.', 'Dokładny model, konfiguracja, kolor i dostępność mogą się różnić. Pojemność pasażerska i bagażowa do potwierdzenia.' ),
 			'link'       => $copy( 'Need a vehicle recommendation? Contact us', 'Potrzebują Państwo rekomendacji? Skontaktuj się' ),
 		),
-		'capacity_placeholder' => '[Confirm passenger & luggage capacity]',
 		'vehicles' => array(
 			array(
 				'id'        => 'sclass',
@@ -131,4 +130,69 @@ function venix_concierge_fleet_content() {
 			'contact_placeholder' => '[Insert verified phone]',
 		),
 	);
+}
+
+/**
+ * Confirmed passenger and luggage capacity per vehicle id.
+ *
+ * Single source for Home and Fleet. Capacities are still unconfirmed client
+ * data: keep null until confirmed, then set a number or short string, for
+ * example 'passengers' => 3. Null, empty or non-scalar values render as TBC.
+ *
+ * @return array<string, array{passengers: int|string|null, luggage: int|string|null}>
+ */
+function venix_concierge_fleet_capacity_data() {
+	return array(
+		'sclass'   => array(
+			'passengers' => null,
+			'luggage'    => null,
+		),
+		'eclass'   => array(
+			'passengers' => null,
+			'luggage'    => null,
+		),
+		'vclass'   => array(
+			'passengers' => null,
+			'luggage'    => null,
+		),
+		'vclassxl' => array(
+			'passengers' => null,
+			'luggage'    => null,
+		),
+		'sprinter' => array(
+			'passengers' => null,
+			'luggage'    => null,
+		),
+	);
+}
+
+/**
+ * Get display-ready capacity items for a vehicle.
+ *
+ * @param string $vehicle_id Fleet vehicle id, for example 'sclass'.
+ * @return array<int, array{key: string, label: string, value: string, confirmed: bool}>
+ */
+function venix_concierge_vehicle_capacity( $vehicle_id ) {
+	$data        = venix_concierge_fleet_capacity_data();
+	$capacity    = isset( $data[ $vehicle_id ] ) && is_array( $data[ $vehicle_id ] ) ? $data[ $vehicle_id ] : array();
+	$unconfirmed = venix_concierge_language_copy( 'TBC', 'Do potw.' );
+	$labels      = array(
+		'passengers' => venix_concierge_language_copy( 'Passengers', 'Pasażerowie' ),
+		'luggage'    => venix_concierge_language_copy( 'Luggage', 'Bagaż' ),
+	);
+	$items       = array();
+
+	foreach ( $labels as $key => $label ) {
+		$value     = isset( $capacity[ $key ] ) && is_scalar( $capacity[ $key ] ) ? trim( (string) $capacity[ $key ] ) : '';
+		$confirmed = '' !== $value;
+
+		$items[] = array(
+			'key'       => $key,
+			'label'     => $label,
+			'value'     => $confirmed ? $value : $unconfirmed,
+			'confirmed' => $confirmed,
+		);
+	}
+
+	return $items;
 }

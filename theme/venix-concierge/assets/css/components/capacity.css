@@ -1,0 +1,40 @@
+.venix-capacity {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wp--preset--spacing--2);
+  margin: 0;
+}
+
+.venix-capacity__item {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--venix-border-subtle);
+  border-radius: var(--venix-radius-sm);
+  color: var(--venix-fg-brand);
+  display: inline-flex;
+  gap: var(--wp--preset--spacing--3);
+  max-inline-size: 100%;
+  padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--4);
+}
+
+.venix-capacity__icon {
+  block-size: 20px;
+  flex: 0 0 auto;
+  inline-size: 20px;
+}
+
+.venix-capacity__value {
+  color: var(--venix-fg-default);
+  font-family: var(--venix-font-body);
+  font-size: var(--wp--preset--font-size--sm);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.venix-capacity__value--tbc {
+  color: rgba(44, 26, 29, 0.65);
+}

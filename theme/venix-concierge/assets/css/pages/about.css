@@ -22,6 +22,10 @@
 .about-media--landscape { aspect-ratio: 4 / 3; }
 .venix-about .about-story .venix-eyebrow { color: var(--wp--preset--color--gold); font-size: 9.5px; letter-spacing: .3em; margin: 0; }
 .about-story .about-split { gap: 80px; }
+/* The DC sets a 100px outlined square behind the Story image, offset -18px bottom-left. The media wrapper is the clipped element here, so it stays unclipped and rounds the image itself; it creates no stacking context so the z-index: -1 square sits behind the wrapper background, as in the DC. */
+.about-story .about-media { overflow: visible; }
+.about-story .about-media .venix-media-slot__image { border-radius: inherit; }
+.about-story .about-media::after { background: var(--venix-bg-subtle); border: 1px solid rgba(201, 167, 94, .35); border-radius: var(--venix-radius-sm); bottom: -18px; content: ''; height: 100px; left: -18px; pointer-events: none; position: absolute; width: 100px; z-index: -1; }
 .venix-about .about-story h2 { line-height: 1.3; text-wrap: balance; }
 .about-story .about-copy p:not(.venix-eyebrow):not(.about-copy__muted) { line-height: 1.95; }
 .about-foundation { background: var(--venix-bg-surface); }
