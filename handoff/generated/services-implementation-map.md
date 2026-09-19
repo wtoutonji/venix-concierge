@@ -37,3 +37,11 @@ Future media replacement: current media slots intentionally use the established 
 9. Private flights: “Assistance with private charter inquiries, ground-to-air coordination and chauffeur transfers to and from airports for private aviation. We do not operate aircraft or hold air-carrier status — we coordinate the ground experience around your flight.” CTA: “Request private aviation assistance”.
 10. Embassy services: “Transportation and scheduling support for official visitors, embassy guests and diplomatic delegations — airport arrivals, hotel connections and venue transfers handled with discretion.” CTA: “Discuss requirements”. Concierge services: “Personalised assistance surrounding your visit — restaurant reservations, hotel coordination, itinerary support, shopping appointments and other practical arrangements that enhance your time in Warsaw.” CTA: “Request concierge assistance”. Weddings: “Elegant, precisely timed transportation for couples, families and guests. Multiple vehicles, coordinated pickups, hotel-to-venue transfers and evening returns — all managed with care and presentation.” CTA: “Plan wedding transportation”.
 11. Closing CTA: “Not sure which service you need?” “Tell us about your journey, occasion or requirements. We will recommend the most appropriate arrangement and follow up with a clear proposal.” CTA: “Discuss your requirements”.
+
+## Final intentional overrides of the canonical `Services.dc.html`
+
+`handoff/pages/Services.dc.html` is unchanged; production deliberately differs as follows.
+
+- **Service tabs:** centered on desktop; on narrow viewports they scroll horizontally (no wrapping).
+- **Split sections:** at **768px and below** each main/additional service split stacks **image first, then copy**, regardless of the desktop image/text order.
+- **Layering:** the sticky Services tab bar uses `z-index: 90`, below the global fixed header at `z-index: 100`.

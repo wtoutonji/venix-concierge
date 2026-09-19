@@ -46,28 +46,41 @@ The services fragments remain unchanged in both languages: `chauffeur`,
   marks the current item with `aria-current="page"`.
 - Menus remain WordPress/Polylang data. The theme fallback is only for an
   unassigned menu and uses the same URL resolver.
-- Contact’s behavior script reads server-rendered step labels from the form;
-  it contains no language-state or UI-copy dictionary.
+- Contact renders the shared inquiry form partial with server-selected
+  current-language copy. There is no Contact behavior script and no
+  language-state or UI-copy dictionary in JavaScript.
 
-## Classic menu provisioning
+## Classic menu configuration (live, verified)
 
 Polylang 3.8.5 stores per-language classic-menu location assignments in its
 own managed options after the WordPress Admin menu-location workflow. It does
-not expose a stable public API to assign those locations. The bootstrap script
-therefore does **not** write plugin internals.
+not expose a stable public API to assign those locations, so the bootstrap
+script does **not** write plugin internals. The menus below were created in
+**Appearance → Menus** and assigned through Polylang's language-aware Locations
+UI. Verified read-only against `http://venix-concierge.local` (matches
+`LOCAL_URL`); no menu data was changed in the handoff pass.
 
-Create these menus in **Appearance → Menus**, assign each through Polylang's
-language-aware Locations UI, and set its menu language/translation:
-
-| Menu | Location | Items in order |
+| Menu | Location (Polylang key) | Items in order |
 | --- | --- | --- |
-| Primary EN | primary | Home, About, Services (Chauffeur & Private Transfers; Airport Transfers; Business & Private Events; Delegations & Diplomatic), Other services (Private Protection; Private Flights; Embassy Services; Concierge Services; Weddings), Fleet, Contact |
-| Primary PL | primary | Strona główna, O nas, Usługi (Szofer i transfery prywatne; Transfery lotniskowe; Wydarzenia biznesowe i prywatne; Delegacje i dyplomacja), Inne usługi (Ochrona osobista; Loty prywatne; Obsługa ambasad; Usługi concierge; Śluby i wesela), Flota, Kontakt |
+| Primary EN | `primary` | Home, About, Services (Chauffeur & Private Transfers; Airport Transfers; Business & Private Events; Delegations & Diplomatic), Other Services (Private Protection; Embassy Services; Private Flights; Concierge Services; Weddings), Fleet, Contact |
+| Primary PL | `primary` (PL) | Strona główna, O nas, Usługi (Szofer i transfery prywatne; Transfery lotniskowe; Wydarzenia biznesowe i prywatne; Delegacje i dyplomacja), Inne usługi (Ochrona osobista; Obsługa ambasad; Loty prywatne; Usługi concierge; Śluby i wesela), Flota, Kontakt |
+| Footer EN | `footer` | Home, About, Services, Fleet, Contact |
+| Footer PL | `footer` (PL) | Strona główna, O nas, Usługi, Flota, Kontakt |
 
-Every Services child must use its translated Services page plus the unchanged
-fragment ID. Footer and legal locations remain unassigned: the frozen footer
-only consumes them when a menu exists, and no approved footer/legal menu data
-has been supplied.
+- Every Services child uses its translated Services page plus the unchanged
+  fragment ID (`/services/#chauffeur` and `/pl/services/#chauffeur`, etc.).
+  The “Other Services” / “Inne usługi” parents are custom links to the
+  Services page.
+- The `footer` location is assigned **per language**: `footer` → Footer EN and
+  `footer___pl` → Footer PL. Likewise `primary` → Primary EN and
+  `primary___pl` → Primary PL. The shared PHP footer consumes whichever menu
+  Polylang resolves for the current language.
+- The `legal` location is registered by the theme but **remains unassigned**.
+  The footer renders no legal menu until approved legal/privacy pages and
+  menu data are supplied (see unresolved client data in
+  `site-implementation-map.md`).
+- Programmatic assignment by the setup script remains prohibited; re-assign
+  through the Polylang Locations UI if a menu is ever recreated.
 
 ## SEO matrix
 
@@ -86,11 +99,11 @@ is introduced here; those remain with Polylang and the future SEO owner.
 
 | Page | Status |
 | --- | --- |
-| Home | COMPLETE — `inc/content/home.php` explicitly maps all approved canonical Home visible EN/PL copy, including testimonial, inquiry form, and the Home-only footer. The inquiry remains intentionally disabled with no backend behavior. |
+| Home | COMPLETE — `inc/content/home.php` explicitly maps all approved canonical Home visible EN/PL copy, including testimonial, inquiry form, and the Home-only footer. The inquiry (shared inquiry-form partial) remains a disabled prototype with no backend behavior. |
 | About | COMPLETE — `inc/content/about.php` explicitly maps all approved canonical About visible EN/PL copy and its About-specific shared-footer content. |
 | Services | COMPLETE — `inc/content/services.php` explicitly maps all approved canonical Services visible EN/PL copy and its Services-specific shared-footer content. |
 | Fleet | COMPLETE — `inc/content/fleet.php` explicitly maps all approved canonical Fleet visible EN/PL copy and its Fleet-specific shared-footer content. |
-| Contact | COMPLETE — `inc/content/contact.php` explicitly maps all approved canonical Contact visible EN/PL copy and its Contact-specific shared-footer content; submission remains disabled. |
+| Contact | COMPLETE — `inc/content/contact.php` explicitly maps the approved Contact hero, information column, next-steps and map copy plus its Contact-specific shared-footer content. The form is the shared Home inquiry form (`inc/content/home.php` `form` group); submission remains disabled. |
 
 ### Home completion findings
 
@@ -123,19 +136,19 @@ is introduced here; those remain with Polylang and the future SEO owner.
 - Frozen page areas: COMPLETE — Hero, availability notice, five vehicles, and recommendation retain the 8-area sequence.
 - Vehicles: COMPLETE — S-Class, E-Class, V-Class, V-Class Extra Long, and Sprinter remain in canonical order; each retains 3 use cases.
 - Interiors: COMPLETE — S-Class has 2 approved interior descriptions and V-Class has 2; no interiors were introduced for other vehicles.
-- Capacity: the approved unresolved `[Confirm passenger & luggage capacity]` placeholder is retained as explicit Fleet data without fabricated capacities.
+- Capacity: the earlier `[Confirm passenger & luggage capacity]` text placeholder is superseded by the shared capacity component. Values are `null` in `venix_concierge_fleet_capacity_data()` and render as `TBC` (EN) / `Do potw.` (PL); no capacities are fabricated (see `site-implementation-map.md`).
 - Fleet footer: COMPLETE — Fleet-specific brand copy, navigation/contact headings, and location are explicitly mapped; WordPress/Polylang remains the owner of actual menu labels.
 - Accessibility-only strings without approved Polish wording in `Fleet.dc.html`: `Venix Concierge home`, `Open menu`, `Primary navigation`, and `Legal navigation`; the approved vehicle and interior accessibility wording is explicitly mapped. These remaining safe labels do not affect approved visible Fleet copy completion.
 
 ### Contact completion findings
 
 - Contact PL status: COMPLETE — all 3 frozen page areas are explicitly mapped.
-- Inquiry UI: COMPLETE — 4 steps; 8 service options; 6 vehicle options; 5 journey options; 4 vehicle-count options; and 4 special-request options remain in canonical order.
-- Validation: COMPLETE — localized summary and six inline error messages retain the existing six required-field contracts and error relationships.
-- Submission: intentionally disabled; no backend, recipient, network, storage, simulated success, or processing behavior is present.
-- Client placeholders retained: `[Insert verified phone number]`, `[Insert WhatsApp number]`, `[Insert verified email address]`, `Warsaw, Poland · [Confirm operating hours]`, and `[Insert verified phone]` in the shared footer.
+- Inquiry UI: intentional design override — Contact renders the exact shared Home inquiry form (9 fields plus consent, 7 service options plus placeholder) via `template-parts/components/inquiry-form/inquiry-form.php`. The canonical four-step wizard, its step/vehicle/journey option lists, and its inline-validation script were removed.
+- Validation: native browser required/type semantics only; no custom validation summary or per-field error script is loaded on Contact.
+- Submission: intentionally disabled (`Form setup pending`); no backend, recipient, network, storage, simulated success, or processing behavior is present.
+- Client placeholders retained: `[Insert verified phone number]`, `[Insert WhatsApp number]`, `[Insert verified email address]`, `Warsaw, Poland · [Confirm operating hours]`, and `[Insert verified phone]` in the shared footer. All remain unresolved client data.
 - Contact footer: COMPLETE — Contact-specific brand copy, tagline, navigation/contact headings, and location are explicitly mapped; WordPress/Polylang remains the owner of actual menu labels.
-- Accessibility-only strings without approved Polish wording in `Contact.dc.html`: `Venix Concierge home`, `Open menu`, `Primary navigation`, and `Legal navigation`. Progress, grouping, validation-summary, and map labels have approved Polish wording and are explicitly mapped.
+- Accessibility-only strings without approved Polish wording in `Contact.dc.html`: `Venix Concierge home`, `Open menu`, `Primary navigation`, and `Legal navigation`. The map label has approved Polish wording and is explicitly mapped.
 - Polish SEO: UNRESOLVED — no approved Polish title or description exists; no SEO system or English meta is forced onto Polish.
 
 ## Local setup gate
