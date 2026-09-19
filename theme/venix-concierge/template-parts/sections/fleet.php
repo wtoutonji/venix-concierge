@@ -38,11 +38,13 @@ $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 						<?php venix_concierge_render_media( venix_concierge_media_attachment_id( 'fleet.' . str_replace( 'vclassxl', 'v_class_extra_long', str_replace( 'class', '_class', $venix_concierge_vehicle['id'] ) ) . '.exterior' ), array( 'class' => 'fleet-vehicle__media', 'alt' => str_replace( 'Alt: ', '', $venix_concierge_vehicle['media_alt'] ), 'sizes' => '(min-width: 769px) 55vw, 100vw' ) ); ?>
 						<div class="fleet-vehicle__details">
 							<div class="fleet-vehicle__badges">
-								<?php get_template_part( 'template-parts/components/badge/badge', null, array( 'label' => $venix_concierge_vehicle['badge'], 'tone' => 'brand' ) ); ?>
-								<span><?php echo esc_html( $venix_concierge_vehicle['sub_badge'] ); ?></span>
+								<?php get_template_part( 'template-parts/components/badge/badge', null, array( 'label' => $venix_concierge_vehicle['badge'], 'tone' => 'solid' ) ); ?>
+								<span class="fleet-vehicle__meta"><?php echo esc_html( $venix_concierge_vehicle['sub_badge'] ); ?></span>
 							</div>
-							<h2><?php echo esc_html( $venix_concierge_vehicle['name'] ); ?></h2>
-							<span class="fleet-rule" aria-hidden="true"></span>
+							<div class="fleet-vehicle__title">
+								<h2><?php echo esc_html( $venix_concierge_vehicle['name'] ); ?></h2>
+								<span class="fleet-rule" aria-hidden="true"></span>
+							</div>
 							<p class="fleet-vehicle__copy"><?php echo esc_html( $venix_concierge_vehicle['copy'] ); ?></p>
 							<ul>
 								<?php foreach ( $venix_concierge_vehicle['use_cases'] as $venix_concierge_use_case ) : ?>
@@ -68,7 +70,7 @@ $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 	<section class="fleet-recommendation">
 		<div class="container fleet-recommendation__inner">
 			<div class="fleet-recommendation__copy">
-				<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_fleet_content['recommendation']['eyebrow'] ); ?></p>
+				<p class="venix-eyebrow"><span><?php echo esc_html( $venix_concierge_fleet_content['recommendation']['eyebrow'] ); ?></span></p>
 				<h2><?php echo esc_html( $venix_concierge_fleet_content['recommendation']['title'] ); ?></h2>
 				<p><?php echo esc_html( $venix_concierge_fleet_content['recommendation']['copy'] ); ?></p>
 				<?php get_template_part( 'template-parts/components/button/button', null, array( 'label' => $venix_concierge_fleet_content['recommendation']['button'], 'url' => $venix_concierge_contact_url, 'variant' => 'ghost-inverse' ) ); ?>
