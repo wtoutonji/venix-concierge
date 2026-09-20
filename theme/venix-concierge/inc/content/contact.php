@@ -10,7 +10,12 @@ function venix_concierge_contact_content() {
 			'title' => $copy( 'Share your requirements. We will handle the rest.', 'Prosimy opisać wymagania. Resztą zajmiemy się my.' ),
 			'copy' => $copy( 'Provide your journey details, schedule and any special requirements. Our team will review the information and contact you through your preferred method with a considered proposal.', 'Prosimy podać szczegóły podróży, harmonogram i wszelkie specjalne wymagania. Nasz zespół przeanalizuje informacje i skontaktuje się z Państwem wybraną drogą z przemyślaną propozycją.' ),
 			'details_label' => $copy( 'Contact details', 'Dane kontaktowe' ),
-			'details' => array( '[Insert verified phone number]', '[Insert WhatsApp number]', '[Insert verified email address]', $copy( 'Warsaw, Poland · [Confirm operating hours]', 'Warszawa · [Potwierdzić godziny pracy]' ) ),
+			'detail_labels' => array(
+				'phone' => $copy( 'Phone', 'Telefon' ),
+				'whatsapp' => 'WhatsApp',
+				'email' => $copy( 'Email', 'E-mail' ),
+				'address' => $copy( 'Address', 'Adres' ),
+			),
 			'next_title' => $copy( 'What happens next', 'Co się stanie dalej' ),
 			'next_steps' => array(
 				$copy( 'Your request is reviewed by our team — typically within one business day.', 'Zapytanie jest weryfikowane przez nasz zespół — zazwyczaj w ciągu jednego dnia roboczego.' ),
@@ -19,6 +24,5 @@ function venix_concierge_contact_content() {
 			),
 		),
 		'location' => array( 'aria_label' => $copy( 'Map showing the Venix Concierge Warsaw base location.', 'Mapa przedstawiająca bazową lokalizację Venix Concierge w Warszawie.' ) ),
-		'footer' => array( 'brand_copy' => $copy( 'Chauffeur services, executive transportation and luxury concierge in Warsaw.', 'Usługi szoferskie, transport reprezentacyjny i concierge w Warszawie.' ), 'tagline' => 'Own the moment', 'navigation' => $copy( 'Navigation', 'Nawigacja' ), 'contact_heading' => $copy( 'Contact', 'Kontakt' ), 'location' => $copy( 'Warsaw, Poland', 'Warszawa' ), 'contact_placeholder' => '[Insert verified phone]' ),
 	);
 }

@@ -1,6 +1,6 @@
 # Home implementation map
 
-Source: `handoff/pages/Home.dc.html`. Status: fidelity-corrected first phase. The approved English defaults remain template-owned pending an approved native WordPress content migration.
+Source: `handoff/pages/Home.dc.html`. Status: fidelity-corrected first phase. The approved EN/PL defaults remain template-owned and are the fallback; Home text and images are now overridable per page via the Venix Page Content meta box (see `site-implementation-map.md` → Editable page content).
 
 | Ordered section | Production mapping and owner | Notes |
 | --- | --- | --- |
@@ -18,6 +18,6 @@ Source: `handoff/pages/Home.dc.html`. Status: fidelity-corrected first phase. Th
 | Who we serve | Inverse audience band | Editorial translation approval pending. |
 | Testimonial | Placeholder band | Explicit approved no-fabricated-testimonial and client permission placeholder retained. |
 | Inquiry | Shared inquiry-form partial (disabled prototype) | Rendered by `template-parts/components/inquiry-form/inquiry-form.php` (also used by Contact). Labels/required semantics/select/textarea/consent are present; the submit button is disabled (“Form setup pending”); no backend or success state. Privacy URL, destination, anti-spam, contact details are blockers. |
-| Footer | Shared footer home variant | Menu-owned navigation; verified contact/legal details pending. |
+| Footer | Shared footer (identical on every page) | Menu-owned navigation; contact rows come from Venix → Site Settings (empty until the client supplies them); legal menu unassigned. |
 
 Files: `front-page.php`, `template-parts/sections/home.php`, shared header/footer, `assets/css/pages/home.css`, component button/input/capacity/inquiry-form CSS, and reveal behavior. The section reveal is visual-only and disabled for reduced motion. Current media is intentional CSS geometry only, not Media Library output; final images must be Media Library attachments with responsive WordPress output.

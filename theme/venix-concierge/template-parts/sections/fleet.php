@@ -10,12 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $venix_concierge_contact_url   = venix_concierge_page_url( 'contact' );
-$venix_concierge_fleet_content = venix_concierge_fleet_content();
+$venix_concierge_fleet_content = venix_concierge_get_page_content( 'fleet', venix_concierge_fleet_content() );
 $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 ?>
 <main id="main-content" class="site-main venix-fleet">
 	<section class="fleet-hero">
-		<?php venix_concierge_render_media( venix_concierge_media_attachment_id( 'fleet.hero' ), array( 'class' => 'fleet-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
+		<?php venix_concierge_render_media_slot( 'fleet.hero', array( 'class' => 'fleet-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
 		<div class="container fleet-hero__content">
 			<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_fleet_content['hero']['eyebrow'] ); ?></p>
 			<h1><?php echo esc_html( $venix_concierge_fleet_content['hero']['title'] ); ?></h1>
@@ -35,7 +35,7 @@ $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 			<?php foreach ( $venix_concierge_vehicles as $venix_concierge_vehicle ) : ?>
 				<article id="<?php echo esc_attr( $venix_concierge_vehicle['id'] ); ?>" class="fleet-vehicle">
 					<div class="fleet-vehicle__card fleet-vehicle__card--<?php echo esc_attr( $venix_concierge_vehicle['columns'] ); ?>">
-						<?php venix_concierge_render_media( venix_concierge_media_attachment_id( 'fleet.' . str_replace( 'vclassxl', 'v_class_extra_long', str_replace( 'class', '_class', $venix_concierge_vehicle['id'] ) ) . '.exterior' ), array( 'class' => 'fleet-vehicle__media', 'alt' => str_replace( 'Alt: ', '', $venix_concierge_vehicle['media_alt'] ), 'sizes' => '(min-width: 769px) 55vw, 100vw' ) ); ?>
+						<?php venix_concierge_render_media_slot( 'fleet.' . $venix_concierge_vehicle['slot'] . '.exterior', array( 'class' => 'fleet-vehicle__media', 'alt' => $venix_concierge_fleet_content['media_alt'][ $venix_concierge_vehicle['slot'] . '.exterior' ], 'sizes' => '(min-width: 769px) 55vw, 100vw' ) ); ?>
 						<div class="fleet-vehicle__details">
 							<div class="fleet-vehicle__badges">
 								<?php get_template_part( 'template-parts/components/badge/badge', null, array( 'label' => $venix_concierge_vehicle['badge'], 'tone' => 'solid' ) ); ?>
@@ -57,8 +57,8 @@ $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 					</div>
 					<?php if ( ! empty( $venix_concierge_vehicle['interior'] ) ) : ?>
 						<div class="fleet-vehicle__interior">
-							<?php foreach ( $venix_concierge_vehicle['interior'] as $venix_concierge_interior_index => $venix_concierge_interior_intent ) : ?>
-								<?php venix_concierge_render_media( venix_concierge_media_attachment_id( 'fleet.' . str_replace( 'class', '_class', $venix_concierge_vehicle['id'] ) . '.interior_' . ( $venix_concierge_interior_index + 1 ) ), array( 'class' => 'fleet-vehicle__interior-media', 'alt' => $venix_concierge_interior_intent, 'sizes' => '(min-width: 769px) 45vw, 100vw' ) ); ?>
+							<?php foreach ( $venix_concierge_vehicle['interior'] as $venix_concierge_interior_image ) : ?>
+								<?php venix_concierge_render_media_slot( 'fleet.' . $venix_concierge_vehicle['slot'] . '.' . $venix_concierge_interior_image, array( 'class' => 'fleet-vehicle__interior-media', 'alt' => $venix_concierge_fleet_content['media_alt'][ $venix_concierge_vehicle['slot'] . '.' . $venix_concierge_interior_image ], 'sizes' => '(min-width: 769px) 45vw, 100vw' ) ); ?>
 							<?php endforeach; ?>
 						</div>
 					<?php endif; ?>

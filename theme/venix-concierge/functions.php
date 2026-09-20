@@ -23,6 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'/inc/content/services.php',
 		'/inc/content/fleet.php',
 		'/inc/content/contact.php',
+		'/inc/content/footer.php',
+		'/inc/site-settings.php',
+		'/inc/page-content.php',
 		'/inc/template-tags.php',
 		'/inc/navigation.php',
 	);

@@ -28,6 +28,7 @@ function venix_concierge_fleet_content() {
 		'vehicles' => array(
 			array(
 				'id'        => 'sclass',
+				'slot'      => 's_class',
 				'name'      => 'Mercedes-Benz S-Class',
 				'badge'     => $copy( 'Flagship sedan', 'Flagowy sedan' ),
 				'sub_badge' => $copy( 'Executive · VIP · Diplomatic', 'Kadra · VIP · Dyplomacja' ),
@@ -39,14 +40,11 @@ function venix_concierge_fleet_content() {
 					$copy( 'VIP airport arrivals and departures', 'Przyloty i wyloty VIP' ),
 				),
 				'cta'       => $copy( 'Request the S-Class', 'Zamów S-Klasa' ),
-				'media_alt' => $copy( 'Alt: A black Mercedes-Benz S-Class on a Warsaw boulevard at golden hour.', 'Alt: Czarny Mercedes-Benz S-Class na warszawskim bulwarze o zmierzchu.' ),
-				'interior'  => array(
-					$copy( 'Rear cabin — warm leather upholstery, ambient lighting, refined materials. Serene, composed.', 'Kabina tylna — ciepła skórzana tapicerka, oświetlenie ambientowe, wyrafinowane materiały. Spokojne, stonowane.' ),
-					$copy( "Front cabin detail — instrumentation, steering wheel, driver's environment. Professional and precise.", 'Detal kabiny przedniej — instrumentarium, kierownica, środowisko kierowcy. Profesjonalne i precyzyjne.' ),
-				),
+				'interior'  => array( 'interior_1', 'interior_2' ),
 			),
 			array(
 				'id'        => 'eclass',
+				'slot'      => 'e_class',
 				'name'      => 'Mercedes-Benz E-Class',
 				'badge'     => $copy( 'Executive sedan', 'Sedan biznesowy' ),
 				'sub_badge' => $copy( 'Corporate · Airport · Daily', 'Korporacja · Lotnisko · Codzienny' ),
@@ -58,10 +56,10 @@ function venix_concierge_fleet_content() {
 					$copy( 'Daily and multi-day chauffeur hire', 'Wynajem szofera na jeden dzień i dłużej' ),
 				),
 				'cta'       => $copy( 'Request the E-Class', 'Zamów E-Klasa' ),
-				'media_alt' => $copy( 'Alt: A black Mercedes-Benz E-Class in a Warsaw business district.', 'Alt: Czarny Mercedes-Benz E-Class w warszawskiej dzielnicy biznesowej.' ),
 			),
 			array(
 				'id'        => 'vclass',
+				'slot'      => 'v_class',
 				'name'      => 'Mercedes-Benz V-Class',
 				'badge'     => $copy( 'Luxury van', 'Van klasy premium' ),
 				'sub_badge' => $copy( 'Families · Groups · Events', 'Rodziny · Grupy · Wydarzenia' ),
@@ -73,14 +71,11 @@ function venix_concierge_fleet_content() {
 					$copy( 'Event guest transportation', 'Transport gości na wydarzenia' ),
 				),
 				'cta'       => $copy( 'Request the V-Class', 'Zamów V-Klasa' ),
-				'media_alt' => $copy( 'Alt: A black Mercedes-Benz V-Class at a Warsaw hotel entrance.', 'Alt: Czarny Mercedes-Benz V-Class przed wejściem do warszawskiego hotelu.' ),
-				'interior'  => array(
-					$copy( 'Rear seating area — individual seats, warm ambient tone, generous legroom. Comfortable for longer journeys.', 'Tylna strefa siedzeń — fotele indywidualne, ciepły ton ambientowy, duże odstępy między siedzeniami. Komfortowy na dłuższe trasy.' ),
-					$copy( 'Luggage area — clean, accessible, suitable for airport transfers with checked baggage.', 'Przestrzeń bagażowa — czysta, dostępna, odpowiednia do transferów lotniskowych z bagażem rejestrowanym.' ),
-				),
+				'interior'  => array( 'interior_1', 'interior_2' ),
 			),
 			array(
 				'id'        => 'vclassxl',
+				'slot'      => 'v_class_extra_long',
 				'name'      => 'Mercedes-Benz V-Class Extra Long',
 				'badge'     => $copy( 'Luxury van · Extended', 'Van premium · Przedłużony' ),
 				'sub_badge' => $copy( 'Groups · Luggage · Long routes', 'Grupy · Bagaż · Długie trasy' ),
@@ -92,10 +87,10 @@ function venix_concierge_fleet_content() {
 					$copy( 'Event and delegation transport', 'Transport na wydarzenia i delegacje' ),
 				),
 				'cta'       => $copy( 'Request the V-Class XL', 'Zamów V-Klasa XL' ),
-				'media_alt' => $copy( 'Alt: A Mercedes-Benz V-Class Extra Long on a Warsaw airport road.', 'Alt: Mercedes-Benz V-Class Extra Long na drodze lotniskowej w Warszawie.' ),
 			),
 			array(
 				'id'        => 'sprinter',
+				'slot'      => 'sprinter',
 				'name'      => 'Mercedes-Benz Sprinter',
 				'badge'     => $copy( 'Group transport', 'Transport grupowy' ),
 				'sub_badge' => $copy( '9 · 16 · 19 passenger configurations', 'Konfiguracje 9 · 16 · 19 miejsc' ),
@@ -107,7 +102,6 @@ function venix_concierge_fleet_content() {
 					$copy( 'Wedding guest coordination', 'Koordynacja gości weselnych' ),
 				),
 				'cta'       => $copy( 'Request a Sprinter', 'Zamów Sprinter' ),
-				'media_alt' => $copy( 'Alt: A Mercedes-Benz Sprinter at a Warsaw conference centre for group transport.', 'Alt: Mercedes-Benz Sprinter przed centrum konferencyjnym w Warszawie.' ),
 			),
 		),
 		'recommendation' => array(
@@ -121,13 +115,18 @@ function venix_concierge_fleet_content() {
 				array( $copy( 'Occasion', 'Okazja' ), $copy( 'Business, event, airport, private?', 'Biznes, wydarzenie, lotnisko, prywatna?' ) ),
 			),
 		),
-		'footer' => array(
-			'brand_copy'          => $copy( 'Chauffeur services, executive transportation and luxury concierge in Warsaw.', 'Usługi szoferskie, transport reprezentacyjny i concierge w Warszawie.' ),
-			'tagline'             => 'Own the moment',
-			'navigation'          => $copy( 'Navigation', 'Nawigacja' ),
-			'contact_heading'     => $copy( 'Contact', 'Kontakt' ),
-			'location'            => $copy( 'Warsaw, Poland', 'Warszawa' ),
-			'contact_placeholder' => '[Insert verified phone]',
+		// Default slot alt text keyed by `<vehicle slot>.<image>`: used only when neither a page-slot alt
+		// override nor a Media Library alt exists. The hero is decorative and keeps an empty alt.
+		'media_alt' => array(
+			's_class.exterior'           => $copy( 'A black Mercedes-Benz S-Class on a Warsaw boulevard at golden hour.', 'Czarny Mercedes-Benz S-Class na warszawskim bulwarze o zmierzchu.' ),
+			's_class.interior_1'         => $copy( 'Rear cabin — warm leather upholstery, ambient lighting, refined materials. Serene, composed.', 'Kabina tylna — ciepła skórzana tapicerka, oświetlenie ambientowe, wyrafinowane materiały. Spokojne, stonowane.' ),
+			's_class.interior_2'         => $copy( "Front cabin detail — instrumentation, steering wheel, driver's environment. Professional and precise.", 'Detal kabiny przedniej — instrumentarium, kierownica, środowisko kierowcy. Profesjonalne i precyzyjne.' ),
+			'e_class.exterior'           => $copy( 'A black Mercedes-Benz E-Class in a Warsaw business district.', 'Czarny Mercedes-Benz E-Class w warszawskiej dzielnicy biznesowej.' ),
+			'v_class.exterior'           => $copy( 'A black Mercedes-Benz V-Class at a Warsaw hotel entrance.', 'Czarny Mercedes-Benz V-Class przed wejściem do warszawskiego hotelu.' ),
+			'v_class.interior_1'         => $copy( 'Rear seating area — individual seats, warm ambient tone, generous legroom. Comfortable for longer journeys.', 'Tylna strefa siedzeń — fotele indywidualne, ciepły ton ambientowy, duże odstępy między siedzeniami. Komfortowy na dłuższe trasy.' ),
+			'v_class.interior_2'         => $copy( 'Luggage area — clean, accessible, suitable for airport transfers with checked baggage.', 'Przestrzeń bagażowa — czysta, dostępna, odpowiednia do transferów lotniskowych z bagażem rejestrowanym.' ),
+			'v_class_extra_long.exterior' => $copy( 'A Mercedes-Benz V-Class Extra Long on a Warsaw airport road.', 'Mercedes-Benz V-Class Extra Long na drodze lotniskowej w Warszawie.' ),
+			'sprinter.exterior'          => $copy( 'A Mercedes-Benz Sprinter at a Warsaw conference centre for group transport.', 'Mercedes-Benz Sprinter przed centrum konferencyjnym w Warszawie.' ),
 		),
 	);
 }

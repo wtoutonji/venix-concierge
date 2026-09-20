@@ -80,12 +80,11 @@ function venix_concierge_about_content() {
 			'copy'  => $copy( 'Share your journey requirements with us. Our team will review the details and prepare a considered response.', 'Prosimy podzielić się wymaganiami dotyczącymi podróży. Nasz zespół przeanalizuje szczegóły i przygotuje przemyślaną odpowiedź.' ),
 			'button' => $copy( 'Discuss your journey', 'Omów swoją podróż' ),
 		),
-		'footer' => array(
-			'brand_copy'     => $copy( 'Chauffeur services, executive transportation and luxury concierge in Warsaw — precise, discreet, personal.', 'Usługi szoferskie, transport reprezentacyjny i concierge w Warszawie — precyzyjne, dyskretne, osobiste.' ),
-			'navigation'     => $copy( 'Navigation', 'Nawigacja' ),
-			'contact_heading' => $copy( 'Contact', 'Kontakt' ),
-			'location'        => $copy( 'Warsaw, Poland', 'Warszawa' ),
-			'contact_placeholder' => '[Insert verified phone]',
+		// Default slot alt text: used only when neither a page-slot alt override nor a Media Library alt exists.
+		// The hero is decorative and keeps an empty alt.
+		'media_alt' => array(
+			'story'   => $copy( 'A black Mercedes-Benz on a Warsaw boulevard in warm evening light.', 'Czarny Mercedes-Benz na warszawskim bulwarze w ciepłym wieczornym świetle.' ),
+			'culture' => $copy( 'International travellers arriving at Warsaw airport, greeted by a Venix Concierge representative.', 'Podróżni z zagranicy przylatujący na warszawskie lotnisko, witani przez przedstawiciela Venix Concierge.' ),
 		),
 	);
 }

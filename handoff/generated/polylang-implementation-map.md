@@ -23,11 +23,11 @@ Gutenberg blocks.
 
 | Role | EN / PL entity | Shared slug | PHP template | Content | Relationship/menu | SEO |
 | --- | --- | --- | --- | --- | --- | --- |
-| Home | Home / Strona główna | static front-page pair | `front-page.php` + `sections/home.php` | theme data | Polylang pair; primary/footer menus | EN approved in handoff; PL unresolved |
-| About | About / O nas | `about` | `page.php` + `sections/about.php` | theme data | Polylang pair; primary/footer menus | EN approved; PL unresolved |
-| Services | Services / Usługi | `services` | `page.php` + `sections/services.php` | theme data | Polylang pair; primary/footer menus | EN approved; PL unresolved |
-| Fleet | Fleet / Flota | `fleet` | `page.php` + `sections/fleet.php` | theme data | Polylang pair; primary/footer menus | EN approved; PL unresolved |
-| Contact | Contact / Kontakt | `contact` | `page.php` + `sections/contact.php` | theme data | Polylang pair; primary/footer menus | EN approved; PL unresolved |
+| Home | Home / Strona główna | static front-page pair | `front-page.php` + `sections/home.php` | theme data + per-page overrides (`_venix_page_content`, per language) | Polylang pair; primary/footer menus | EN approved in handoff; PL unresolved |
+| About | About / O nas | `about` | `page.php` + `sections/about.php` | theme data + per-page overrides (`_venix_page_content`, per language) | Polylang pair; primary/footer menus | EN approved; PL unresolved |
+| Services | Services / Usługi | `services` | `page.php` + `sections/services.php` | theme data + per-page overrides (`_venix_page_content`, per language) | Polylang pair; primary/footer menus | EN approved; PL unresolved |
+| Fleet | Fleet / Flota | `fleet` | `page.php` + `sections/fleet.php` | theme data + per-page overrides (`_venix_page_content`, per language) | Polylang pair; primary/footer menus | EN approved; PL unresolved |
+| Contact | Contact / Kontakt | `contact` | `page.php` + `sections/contact.php` | theme data + per-page overrides (`_venix_page_content`, per language) | Polylang pair; primary/footer menus | EN approved; PL unresolved |
 
 Polylang Pro shared slugs are required for the four non-home translation pairs.
 The services fragments remain unchanged in both languages: `chauffeur`,
@@ -99,17 +99,17 @@ is introduced here; those remain with Polylang and the future SEO owner.
 
 | Page | Status |
 | --- | --- |
-| Home | COMPLETE — `inc/content/home.php` explicitly maps all approved canonical Home visible EN/PL copy, including testimonial, inquiry form, and the Home-only footer. The inquiry (shared inquiry-form partial) remains a disabled prototype with no backend behavior. |
-| About | COMPLETE — `inc/content/about.php` explicitly maps all approved canonical About visible EN/PL copy and its About-specific shared-footer content. |
-| Services | COMPLETE — `inc/content/services.php` explicitly maps all approved canonical Services visible EN/PL copy and its Services-specific shared-footer content. |
-| Fleet | COMPLETE — `inc/content/fleet.php` explicitly maps all approved canonical Fleet visible EN/PL copy and its Fleet-specific shared-footer content. |
-| Contact | COMPLETE — `inc/content/contact.php` explicitly maps the approved Contact hero, information column, next-steps and map copy plus its Contact-specific shared-footer content. The form is the shared Home inquiry form (`inc/content/home.php` `form` group); submission remains disabled. |
+| Home | COMPLETE — `inc/content/home.php` explicitly maps all approved canonical Home visible EN/PL copy, including testimonial and inquiry form (the footer is shared; see below). The inquiry (shared inquiry-form partial) remains a disabled prototype with no backend behavior. |
+| About | COMPLETE — `inc/content/about.php` explicitly maps all approved canonical About visible EN/PL copy (footer copy lives in the shared `inc/content/footer.php`). |
+| Services | COMPLETE — `inc/content/services.php` explicitly maps all approved canonical Services visible EN/PL copy (footer copy lives in the shared `inc/content/footer.php`). |
+| Fleet | COMPLETE — `inc/content/fleet.php` explicitly maps all approved canonical Fleet visible EN/PL copy (footer copy lives in the shared `inc/content/footer.php`). |
+| Contact | COMPLETE — `inc/content/contact.php` explicitly maps the approved Contact hero, information column, next-steps and map copy; phone, WhatsApp, email and address come from Venix → Site Settings, and footer copy lives in the shared `inc/content/footer.php`. The form is the shared Home inquiry form (`inc/content/home.php` `form` group); submission remains disabled. |
 
 ### Home completion findings
 
 - Testimonial: COMPLETE — approved quote and attribution placeholders are explicitly mapped.
 - Inquiry Form: COMPLETE — approved eyebrow, introduction, field labels, service options, consent, and prototype status text are explicitly mapped; the disabled `Form setup pending` button is an approved unresolved implementation placeholder retained as explicit Home data.
-- Home Footer: COMPLETE — Home-only brand copy, column headings, service labels, and contact placeholder are explicitly mapped. WordPress/Polylang remains the owner of menu labels and legal-menu content.
+- Shared Footer: COMPLETE — one footer for every page; brand copy, column headings and service labels are mapped EN/PL in `inc/content/footer.php`. Contact rows come from Venix → Site Settings (no in-code contact placeholder). WordPress/Polylang remains the owner of menu labels and legal-menu content.
 - Accessibility-only strings without approved Polish wording in `Home.dc.html`: `Venix Concierge home`, `Open menu`, `Primary navigation`, `Photography placeholder: chauffeur beside a premium vehicle in Warsaw.`, `Photography placeholder: chauffeur adjusting cufflinks.`, and `Legal navigation`. These remain safe current-language-neutral/English accessibility labels and do not affect approved visible Home copy completion.
 
 ### About completion findings
@@ -146,7 +146,7 @@ is introduced here; those remain with Polylang and the future SEO owner.
 - Inquiry UI: intentional design override — Contact renders the exact shared Home inquiry form (9 fields plus consent, 7 service options plus placeholder) via `template-parts/components/inquiry-form/inquiry-form.php`. The canonical four-step wizard, its step/vehicle/journey option lists, and its inline-validation script were removed.
 - Validation: native browser required/type semantics only; no custom validation summary or per-field error script is loaded on Contact.
 - Submission: intentionally disabled (`Form setup pending`); no backend, recipient, network, storage, simulated success, or processing behavior is present.
-- Client placeholders retained: `[Insert verified phone number]`, `[Insert WhatsApp number]`, `[Insert verified email address]`, `Warsaw, Poland · [Confirm operating hours]`, and `[Insert verified phone]` in the shared footer. All remain unresolved client data.
+- Contact detail rows (phone, WhatsApp, email, address) come from Venix → Site Settings and are shared across languages; only the row labels (Phone/Telefon, WhatsApp, Email/E-mail, Address/Adres) are translated. Empty settings omit the row. The footer reads the same settings. All values remain unresolved client data until supplied in Site Settings.
 - Contact footer: COMPLETE — Contact-specific brand copy, tagline, navigation/contact headings, and location are explicitly mapped; WordPress/Polylang remains the owner of actual menu labels.
 - Accessibility-only strings without approved Polish wording in `Contact.dc.html`: `Venix Concierge home`, `Open menu`, `Primary navigation`, and `Legal navigation`. The map label has approved Polish wording and is explicitly mapped.
 - Polish SEO: UNRESOLVED — no approved Polish title or description exists; no SEO system or English meta is forced onto Polish.

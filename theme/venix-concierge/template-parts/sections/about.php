@@ -35,7 +35,7 @@ $venix_concierge_culture_points = array(
 	'Awareness of cultural expectations',
 	'Discretion in all contexts',
 );
-$venix_concierge_about_content = venix_concierge_about_content();
+$venix_concierge_about_content = venix_concierge_get_page_content( 'about', venix_concierge_about_content() );
 $venix_concierge_pmv           = $venix_concierge_about_content['pmv']['items'];
 $venix_concierge_approach      = $venix_concierge_about_content['approach']['items'];
 $venix_concierge_values        = $venix_concierge_about_content['values']['items'];
@@ -43,7 +43,7 @@ $venix_concierge_culture_points = $venix_concierge_about_content['culture']['poi
 ?>
 <main id="primary" class="site-main venix-about">
 	<section class="about-hero">
-		<?php venix_concierge_render_media( venix_concierge_media_attachment_id( 'about.hero' ), array( 'class' => 'about-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
+		<?php venix_concierge_render_media_slot( 'about.hero', array( 'class' => 'about-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
 		<div class="container about-hero__content">
 			<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_about_content['hero']['eyebrow'] ); ?></p>
 			<h1><?php echo esc_html( $venix_concierge_about_content['hero']['title'] ); ?></h1>
@@ -59,7 +59,7 @@ $venix_concierge_culture_points = $venix_concierge_about_content['culture']['poi
 				<p><?php echo esc_html( $venix_concierge_about_content['story']['copy'] ); ?></p>
 				<p class="about-copy__muted"><?php echo esc_html( $venix_concierge_about_content['story']['supporting_copy'] ); ?></p>
 			</div>
-			<?php venix_concierge_render_media( venix_concierge_media_attachment_id( 'about.story' ), array( 'class' => 'about-media about-media--portrait', 'alt' => 'A black Mercedes-Benz on a Warsaw boulevard in warm evening light.', 'sizes' => '(min-width: 769px) 50vw, 100vw' ) ); ?>
+			<?php venix_concierge_render_media_slot( 'about.story', array( 'class' => 'about-media about-media--portrait', 'alt' => $venix_concierge_about_content['media_alt']['story'], 'sizes' => '(min-width: 769px) 50vw, 100vw' ) ); ?>
 		</div>
 	</section>
 
@@ -112,7 +112,7 @@ $venix_concierge_culture_points = $venix_concierge_about_content['culture']['poi
 
 	<section class="section about-culture">
 		<div class="container about-split about-culture__grid">
-			<?php venix_concierge_render_media( venix_concierge_media_attachment_id( 'about.culture' ), array( 'class' => 'about-media about-media--landscape', 'alt' => 'International travellers arriving at Warsaw airport, greeted by a Venix Concierge representative.', 'sizes' => '(min-width: 769px) 50vw, 100vw' ) ); ?>
+			<?php venix_concierge_render_media_slot( 'about.culture', array( 'class' => 'about-media about-media--landscape', 'alt' => $venix_concierge_about_content['media_alt']['culture'], 'sizes' => '(min-width: 769px) 50vw, 100vw' ) ); ?>
 			<div class="about-copy">
 				<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_about_content['culture']['eyebrow'] ); ?></p>
 				<h2><?php echo esc_html( $venix_concierge_about_content['culture']['title'] ); ?></h2>
