@@ -53,6 +53,14 @@ function venix_concierge_core_site_setting_fields() {
 			'label' => __( 'Facebook', 'venix-concierge-core' ),
 			'type'  => 'url',
 		),
+		'logo_id'        => array(
+			'label' => __( 'Primary Logo', 'venix-concierge-core' ),
+			'type'  => 'media',
+		),
+		'footer_logo_id' => array(
+			'label' => __( 'Footer Logo Override', 'venix-concierge-core' ),
+			'type'  => 'media',
+		),
 	);
 }
 
@@ -68,6 +76,12 @@ function venix_concierge_core_sanitize_site_setting( $key, $value ) {
 
 	if ( ! isset( $fields[ $key ] ) || ! is_scalar( $value ) ) {
 		return '';
+	}
+
+	if ( 'media' === $fields[ $key ]['type'] ) {
+		$attachment_id = absint( $value );
+
+		return $attachment_id && wp_attachment_is_image( $attachment_id ) ? (string) $attachment_id : '';
 	}
 
 	$value = trim( (string) $value );
@@ -135,6 +149,51 @@ function venix_concierge_core_get_site_setting( $key, $default = '' ) {
 }
 
 /**
+ * Get the selected primary logo attachment ID.
+ *
+ * Revalidated on read, so a since-deleted attachment never leaves a broken
+ * reference behind.
+ *
+ * @return int Attachment ID, or 0 when unset or no longer a valid image.
+ */
+function venix_concierge_core_get_logo_id() {
+	$attachment_id = absint( venix_concierge_core_get_site_setting( 'logo_id' ) );
+
+	return $attachment_id && wp_attachment_is_image( $attachment_id ) ? $attachment_id : 0;
+}
+
+/**
+ * Get the selected footer logo attachment ID, falling back to the primary logo.
+ *
+ * @return int Attachment ID, or 0 when neither override is set.
+ */
+function venix_concierge_core_get_footer_logo_id() {
+	$attachment_id = absint( venix_concierge_core_get_site_setting( 'footer_logo_id' ) );
+
+	if ( $attachment_id && wp_attachment_is_image( $attachment_id ) ) {
+		return $attachment_id;
+	}
+
+	return venix_concierge_core_get_logo_id();
+}
+
+/**
+ * Get the display alt text for a Media Library logo.
+ *
+ * Falls back to the Company Name setting, then the site title, when the
+ * attachment itself has no alt text.
+ *
+ * @param int $attachment_id Attachment ID.
+ * @return string
+ */
+function venix_concierge_core_get_logo_alt( $attachment_id ) {
+	$alt = get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
+	$alt = is_string( $alt ) ? trim( $alt ) : '';
+
+	return '' !== $alt ? $alt : venix_concierge_core_get_site_setting( 'company_name', get_bloginfo( 'name' ) );
+}
+
+/**
  * Register the option and its Settings API fields.
  *
  * @return void
@@ -154,17 +213,23 @@ function venix_concierge_core_register_site_settings() {
 	add_settings_section( 'venix_site_settings_main', '', '__return_false', VENIX_CONCIERGE_CORE_SITE_SETTINGS_PAGE );
 
 	foreach ( venix_concierge_core_site_setting_fields() as $key => $field ) {
+		$field_args = array(
+			'key'   => $key,
+			'type'  => $field['type'],
+			'label' => $field['label'],
+		);
+
+		if ( 'media' !== $field['type'] ) {
+			$field_args['label_for'] = 'venix_site_setting_' . $key;
+		}
+
 		add_settings_field(
 			'venix_site_setting_' . $key,
 			$field['label'],
 			'venix_concierge_core_render_site_setting_field',
 			VENIX_CONCIERGE_CORE_SITE_SETTINGS_PAGE,
 			'venix_site_settings_main',
-			array(
-				'key'       => $key,
-				'type'      => $field['type'],
-				'label_for' => 'venix_site_setting_' . $key,
-			)
+			$field_args
 		);
 	}
 }
@@ -177,6 +242,27 @@ add_action( 'admin_init', 'venix_concierge_core_register_site_settings' );
  * @return void
  */
 function venix_concierge_core_render_site_setting_field( $args ) {
+	if ( 'media' === $args['type'] ) {
+		$name          = VENIX_CONCIERGE_CORE_SITE_SETTINGS_OPTION . '[' . $args['key'] . ']';
+		$attachment_id = absint( venix_concierge_core_get_site_setting( $args['key'] ) );
+		$attachment_id = $attachment_id && wp_attachment_is_image( $attachment_id ) ? $attachment_id : 0;
+
+		venix_concierge_core_render_media_picker_field(
+			$name,
+			$args['label'],
+			$attachment_id,
+			array(
+				'show_label'    => false,
+				'select_label'  => __( 'Select Logo', 'venix-concierge-core' ),
+				'replace_label' => __( 'Replace Logo', 'venix-concierge-core' ),
+				'remove_label'  => __( 'Remove Logo', 'venix-concierge-core' ),
+				'empty_label'   => __( 'No logo selected. The current theme logo is used.', 'venix-concierge-core' ),
+			)
+		);
+
+		return;
+	}
+
 	printf(
 		'<input type="%1$s" id="%2$s" name="%3$s[%4$s]" value="%5$s" class="regular-text" />',
 		esc_attr( $args['type'] ),
@@ -186,6 +272,23 @@ function venix_concierge_core_render_site_setting_field( $args ) {
 		esc_attr( venix_concierge_core_get_site_setting( $args['key'] ) )
 	);
 }
+
+/**
+ * Load the Media Library picker only on the Venix Site Settings screen.
+ *
+ * @return void
+ */
+function venix_concierge_core_enqueue_site_settings_assets() {
+	$page = isset( $_GET['page'] ) ? sanitize_key( wp_unslash( $_GET['page'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+	if ( ! in_array( $page, array( VENIX_CONCIERGE_CORE_SITE_SETTINGS_PAGE, 'venix' ), true ) ) {
+		return;
+	}
+
+	wp_enqueue_media();
+	venix_concierge_core_enqueue_media_picker_assets();
+}
+add_action( 'admin_enqueue_scripts', 'venix_concierge_core_enqueue_site_settings_assets' );
 
 /**
  * Add Venix → Site Settings, reusing an existing Venix parent when present.
@@ -263,7 +366,7 @@ function venix_concierge_core_site_setting_shortcode( $atts ) {
 	$key    = sanitize_key( $atts['key'] );
 	$fields = venix_concierge_core_site_setting_fields();
 
-	if ( ! isset( $fields[ $key ] ) ) {
+	if ( ! isset( $fields[ $key ] ) || 'media' === $fields[ $key ]['type'] ) {
 		return '';
 	}
 

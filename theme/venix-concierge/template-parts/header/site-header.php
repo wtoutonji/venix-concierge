@@ -2,10 +2,13 @@
 /** Shared production header. @package VenixConcierge */
 $venix_concierge_contact_url = venix_concierge_page_url( 'contact' );
 $venix_concierge_labels      = venix_concierge_shell_labels();
+$venix_concierge_logo_html   = venix_concierge_get_settings_logo_html( 'header' );
 ?>
 <header class="site-header" data-site-header>
 	<div class="container site-header__inner">
-		<?php if ( has_custom_logo() ) : ?>
+		<?php if ( '' !== $venix_concierge_logo_html ) : ?>
+			<div class="site-header__brand"><?php echo $venix_concierge_logo_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the helper. ?></div>
+		<?php elseif ( has_custom_logo() ) : ?>
 			<div class="site-header__brand"><?php the_custom_logo(); ?></div>
 		<?php else : ?>
 			<a class="site-header__brand" href="<?php echo esc_url( venix_concierge_page_url( 'home' ) ); ?>" aria-label="<?php esc_attr_e( 'Venix Concierge home', 'venix-concierge' ); ?>"><span>VENIX <small>CONCIERGE</small></span></a>

@@ -1,7 +1,8 @@
 /**
- * Venix Page Content: native Media Library picker for image fields.
+ * Shared native Media Library picker for admin image fields.
  *
- * Each field stores only the attachment ID in a hidden input.
+ * Used by the Venix Page Content meta box and the Venix Site Settings logo
+ * fields. Each field stores only the attachment ID in a hidden input.
  */
 ( function () {
 	'use strict';

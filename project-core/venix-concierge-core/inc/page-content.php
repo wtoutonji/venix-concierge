@@ -434,22 +434,7 @@ function venix_concierge_core_enqueue_page_content_assets( $hook_suffix ) {
 	}
 
 	wp_enqueue_media( array( 'post' => $post->ID ) );
-
-	$dir = plugin_dir_path( VENIX_CONCIERGE_CORE_FILE );
-
-	wp_enqueue_style(
-		'venix-concierge-core-page-content',
-		plugins_url( 'assets/admin/page-content.css', VENIX_CONCIERGE_CORE_FILE ),
-		array(),
-		(string) filemtime( $dir . 'assets/admin/page-content.css' )
-	);
-	wp_enqueue_script(
-		'venix-concierge-core-page-content',
-		plugins_url( 'assets/admin/page-content.js', VENIX_CONCIERGE_CORE_FILE ),
-		array( 'media-editor' ),
-		(string) filemtime( $dir . 'assets/admin/page-content.js' ),
-		array( 'in_footer' => true )
-	);
+	venix_concierge_core_enqueue_media_picker_assets();
 }
 add_action( 'admin_enqueue_scripts', 'venix_concierge_core_enqueue_page_content_assets' );
 
@@ -479,35 +464,22 @@ function venix_concierge_core_render_page_content_media_field( $slot, $label, $a
 	$name     = VENIX_CONCIERGE_CORE_PAGE_CONTENT_FIELD . '[media][' . $slot . ']';
 	$alt_name = VENIX_CONCIERGE_CORE_PAGE_CONTENT_FIELD . '[media_alt][' . $slot . ']';
 	$alt_id   = 'venix-pc-media-alt-' . sanitize_key( str_replace( '.', '-', $slot ) );
-	$has      = $attachment_id > 0;
-	$filename = $has ? wp_basename( (string) get_attached_file( $attachment_id ) ) : '';
-	?>
-	<div class="venix-pc-media" data-venix-pc-media>
-		<span class="venix-pc-media__label"><?php echo esc_html( $label ); ?></span>
-		<input type="hidden" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $has ? (string) $attachment_id : '' ); ?>" data-venix-pc-media-input />
-		<div class="venix-pc-media__preview" data-venix-pc-media-preview>
-			<?php
-			if ( $has ) {
-				echo wp_get_attachment_image( $attachment_id, 'medium', false, array( 'loading' => 'lazy' ) );
-			}
-			?>
-		</div>
-		<p class="venix-pc-media__empty description" data-venix-pc-media-empty<?php echo $has ? ' hidden' : ''; ?>><?php esc_html_e( 'No image selected. The default is used.', 'venix-concierge-core' ); ?></p>
-		<p class="venix-pc-media__filename description" data-venix-pc-media-filename<?php echo $has ? '' : ' hidden'; ?>><?php echo esc_html( $filename ); ?></p>
-		<p class="venix-pc-media__actions">
-			<button type="button" class="button" data-venix-pc-media-select
-				data-label-select="<?php esc_attr_e( 'Select Image', 'venix-concierge-core' ); ?>"
-				data-label-replace="<?php esc_attr_e( 'Replace Image', 'venix-concierge-core' ); ?>"
-				data-frame-title="<?php echo esc_attr( $label ); ?>"
-				data-frame-button="<?php esc_attr_e( 'Use this image', 'venix-concierge-core' ); ?>"><?php echo $has ? esc_html__( 'Replace Image', 'venix-concierge-core' ) : esc_html__( 'Select Image', 'venix-concierge-core' ); ?></button>
-			<button type="button" class="button-link button-link-delete" data-venix-pc-media-remove<?php echo $has ? '' : ' hidden'; ?>><?php esc_html_e( 'Remove Image', 'venix-concierge-core' ); ?></button>
-		</p>
-		<p class="venix-pc-media__alt">
-			<label for="<?php echo esc_attr( $alt_id ); ?>"><?php esc_html_e( 'Alt Text (optional)', 'venix-concierge-core' ); ?></label>
-			<input class="widefat" type="text" id="<?php echo esc_attr( $alt_id ); ?>" name="<?php echo esc_attr( $alt_name ); ?>" value="<?php echo esc_attr( $alt ); ?>" placeholder="<?php esc_attr_e( 'Media Library alt if empty', 'venix-concierge-core' ); ?>" />
-		</p>
-	</div>
-	<?php
+
+	venix_concierge_core_render_media_picker_field(
+		$name,
+		$label,
+		$attachment_id,
+		array(
+			'after' => function () use ( $alt_id, $alt_name, $alt ) {
+				?>
+				<p class="venix-pc-media__alt">
+					<label for="<?php echo esc_attr( $alt_id ); ?>"><?php esc_html_e( 'Alt Text (optional)', 'venix-concierge-core' ); ?></label>
+					<input class="widefat" type="text" id="<?php echo esc_attr( $alt_id ); ?>" name="<?php echo esc_attr( $alt_name ); ?>" value="<?php echo esc_attr( $alt ); ?>" placeholder="<?php esc_attr_e( 'Media Library alt if empty', 'venix-concierge-core' ); ?>" />
+				</p>
+				<?php
+			},
+		)
+	);
 }
 
 /**

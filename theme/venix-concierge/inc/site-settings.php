@@ -40,6 +40,53 @@ function venix_concierge_get_site_setting( $key, $default = '' ) {
 }
 
 /**
+ * Render the Media Library logo chosen in Venix → Site Settings.
+ *
+ * Reuses core's `custom-logo-link` / `custom-logo` classes so the existing logo
+ * geometry rules apply unchanged. Returns an empty string when no valid Media
+ * Library logo is selected (or the core plugin is inactive), so callers fall
+ * back to the theme logo.
+ *
+ * @param string $context Either 'header' or 'footer'; the footer falls back to the primary logo.
+ * @return string Escaped markup, or an empty string.
+ */
+function venix_concierge_get_settings_logo_html( $context = 'header' ) {
+	$getter = 'footer' === $context ? 'venix_concierge_core_get_footer_logo_id' : 'venix_concierge_core_get_logo_id';
+
+	if ( ! function_exists( $getter ) || ! function_exists( 'venix_concierge_core_get_logo_alt' ) ) {
+		return '';
+	}
+
+	$attachment_id = $getter();
+
+	if ( ! $attachment_id ) {
+		return '';
+	}
+
+	$image = wp_get_attachment_image(
+		$attachment_id,
+		'full',
+		false,
+		array(
+			'class'    => 'custom-logo',
+			'alt'      => venix_concierge_core_get_logo_alt( $attachment_id ),
+			'loading'  => 'header' === $context ? 'eager' : 'lazy',
+			'decoding' => 'async',
+		)
+	);
+
+	if ( '' === $image ) {
+		return '';
+	}
+
+	return sprintf(
+		'<a href="%1$s" class="custom-logo-link" rel="home">%2$s</a>',
+		esc_url( venix_concierge_page_url( 'home' ) ),
+		$image
+	);
+}
+
+/**
  * Build a safe link URL for a contact or social setting.
  *
  * @param string $key One of phone, whatsapp, email, instagram or facebook.

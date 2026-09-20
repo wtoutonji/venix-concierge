@@ -45,18 +45,18 @@
 	margin-top: 12px;
 }
 
-.venix-pc .venix-pc-media {
+.venix-pc-media {
 	border: 1px solid #dcdcde;
 	padding: 10px;
 }
 
-.venix-pc .venix-pc-media__label {
+.venix-pc-media__label {
 	display: block;
 	font-weight: 600;
 	margin-bottom: 8px;
 }
 
-.venix-pc .venix-pc-media__preview img {
+.venix-pc-media__preview img {
 	display: block;
 	height: auto;
 	max-height: 140px;
@@ -64,7 +64,7 @@
 	object-fit: cover;
 }
 
-.venix-pc .venix-pc-media p {
+.venix-pc-media p {
 	margin: 6px 0 0;
 }
 
@@ -72,7 +72,7 @@
 	margin-top: 12px;
 }
 
-.venix-pc .venix-pc-media__alt label {
+.venix-pc-media__alt label {
 	display: block;
 	margin-bottom: 2px;
 }

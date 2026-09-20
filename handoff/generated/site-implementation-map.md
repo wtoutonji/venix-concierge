@@ -9,9 +9,44 @@
 
 ## Footer
 
-- One shared PHP footer (`template-parts/footer/site-footer.php`, copy and service links from `venix_concierge_footer_content()`) renders the same four columns on every page: Brand, WordPress footer-menu Navigation, production service-anchor links, and Contact. Contact rows (address, phone, WhatsApp, email) come from the global Venix → Site Settings option `venix_site_settings` and are omitted when empty; the copyright name uses Legal Name when set.
+- One shared PHP footer (`template-parts/footer/site-footer.php`, copy and service links from `venix_concierge_footer_content()`) renders the same four columns on every page: Brand (Site Settings logo when set, otherwise the existing `VENIX CONCIERGE` wordmark; see Site Settings and logo below), WordPress footer-menu Navigation, production service-anchor links, and Contact. Contact rows (address, phone, WhatsApp, email) come from the global Venix → Site Settings option `venix_site_settings` and are omitted when empty; the copyright name uses Legal Name when set.
 - The copyright/legal row sits below the four columns on every page. Legal and footer navigation remain WordPress menu-owned.
 - Live configuration: the `footer` location is assigned per language (Footer EN / Footer PL, five page links each) through Polylang; the `legal` location is registered but **unassigned**. See `polylang-implementation-map.md`.
+
+## Site Settings and logo (Venix → Site Settings)
+
+One global option, `venix_site_settings`, owned by Project Core (`inc/site-settings.php`) and shared across every language. Whitelisted keys (anything else is dropped on save and on read):
+
+| Key | Type | Notes |
+| --- | --- | --- |
+| `company_name` | text | Footer `aria-label`; logo alt fallback |
+| `legal_name` | text | Copyright name |
+| `address` | text | Footer and Contact row |
+| `phone` | tel | Footer and Contact row (`tel:` link) |
+| `whatsapp` | text | Footer and Contact row |
+| `email` | email | Footer and Contact row (`mailto:` link) |
+| `instagram` | url | http/https only |
+| `facebook` | url | http/https only |
+| `logo_id` | media | Primary Logo: attachment ID only (validated as an image) |
+| `footer_logo_id` | media | Footer Logo Override: attachment ID only (validated as an image) |
+
+An unset option and an option of empty strings are equivalent. Media keys never store a URL and are excluded from the `[venix_setting]` shortcode.
+
+**Logo fallback rules** (`venix_concierge_get_settings_logo_html()` in the theme `inc/site-settings.php`; attachments are revalidated on every read, so a since-deleted image falls through instead of leaving a broken reference):
+
+- Header: `logo_id` → WordPress Custom Logo (`has_custom_logo()`) → existing `VENIX CONCIERGE` wordmark.
+- Footer: `footer_logo_id` → `logo_id` → WordPress Custom Logo → existing `VENIX CONCIERGE` wordmark.
+- A footer override never changes the header; removing it returns the footer to the primary logo.
+- Output is `wp_get_attachment_image()` (class `custom-logo`, linked to the language home); the header image loads eagerly, the footer image lazily. Alt text: attachment alt, then Company Name, then the site title.
+
+## Shared admin media picker
+
+`assets/admin/media-picker.js` and `assets/admin/media-picker.css` in Project Core (renamed from `page-content.js/css`) provide the one native WordPress Media Library picker (Select / Replace / Remove; only the attachment ID is stored in a hidden input). Markup contract `data-venix-pc-media*`, rendered by `venix_concierge_core_render_media_picker_field()` and enqueued through `venix_concierge_core_enqueue_media_picker_assets()` (handle `venix-concierge-core-media-picker`, both in `project-core.php`). It loads only on the two consumers:
+
+- Page Content image slots (Venix Page Content meta box on Home, About, Services, Fleet and Contact pages).
+- Site Settings logo fields (Primary Logo and Footer Logo Override).
+
+Each field creates its own lazily opened media frame, so one field never reacts to another field's selection.
 
 ## Current ownership and gaps
 
@@ -22,7 +57,7 @@
 
 All five page types support structured editable text and Media Library images from WP Admin. Layout, CSS, templates and PHP are never edited by editors.
 
-- **Architecture:** `existing PHP defaults → page-specific _venix_page_content overrides → existing frozen templates`. Project Core (`inc/page-content.php` plus one explicit schema per page: `inc/page-content/schema-{home,about,services,fleet,contact}.php`, and `assets/admin/page-content.*`) owns the schema, the "Venix Page Content" meta box, sanitization and save logic. The theme (`inc/page-content.php`) only reads: `venix_concierge_get_page_content()`, `venix_concierge_get_page_value()`, the image override in `venix_concierge_media_attachment_id()` and the alt override in `venix_concierge_render_media_slot()`. Templates never call `get_post_meta()`. No ACF or third-party plugin.
+- **Architecture:** `existing PHP defaults → page-specific _venix_page_content overrides → existing frozen templates`. Project Core (`inc/page-content.php` plus one explicit schema per page: `inc/page-content/schema-{home,about,services,fleet,contact}.php`, and the shared picker assets `assets/admin/media-picker.{js,css}`) owns the schema, the "Venix Page Content" meta box, sanitization and save logic. The theme (`inc/page-content.php`) only reads: `venix_concierge_get_page_content()`, `venix_concierge_get_page_value()`, the image override in `venix_concierge_media_attachment_id()` and the alt override in `venix_concierge_render_media_slot()`. Templates never call `get_post_meta()`. No ACF or third-party plugin.
 - **`_venix_page_content` ownership:** one meta array per page. Text overrides mirror the paths of the theme content array of that page (for example `story.copy`, `main.1.benefits.2`, `vehicles.3.name`, `info.next_steps.1`); `media` maps a semantic slot to an attachment ID; `media_alt` maps a slot to an optional contextual alt string. Only paths whitelisted in that page's schema are read or written; unknown keys are dropped on save **and** on read.
 - **Fallback behavior:** the theme content arrays stay canonical. A never-saved or emptied field resolves to the theme value; only edits create overrides (defaults are never copied into meta). An override can only replace an existing string, so item counts, order, ids and structure stay fixed. Clearing a field, or ticking "Reset everything on this page" and saving, restores the default; a page with no overrides has no meta row and renders exactly as the theme defaults.
 - **EN/PL separation:** each translated page is its own Polylang page entity and owns its own `_venix_page_content`. The key is removed from Polylang meta copy/sync (`pll_copy_post_metas`), so an EN edit never reaches PL (verified on all four page pairs). Templates contain no language checks; language-specific defaults come from the theme content arrays.
@@ -40,7 +75,7 @@ All five page types support structured editable text and Media Library images fr
 | Contact | 11 | 1 (`contact.hero`) | Hero, Contact Information, Location, Inquiry Introduction, Images |
 
 - **Not editable (any page):** CSS/layout values, ids/anchors, surfaces and split direction, the Services tab bar position/sticky behaviour, step/value numbering, icons, card counts/order and every CTA destination.
-- **Site Settings vs page content:** company name, legal name, address, phone, WhatsApp, email, Instagram and Facebook are owned **only** by Venix → Site Settings and are never stored in page meta. The Contact info column renders its phone, WhatsApp, email and address rows from Site Settings (empty setting = row omitted); they are deliberately **not** in the Contact schema, and operating hours are not a Site Settings field and are not shown.
+- **Site Settings vs page content:** company name, legal name, address, phone, WhatsApp, email, Instagram, Facebook and the primary and footer logos are owned **only** by Venix → Site Settings and are never stored in page meta. The Contact info column renders its phone, WhatsApp, email and address rows from Site Settings (empty setting = row omitted); they are deliberately **not** in the Contact schema, and operating hours are not a Site Settings field and are not shown.
 - **Shared components stay separate:** the 9-field inquiry form is owned by `template-parts/components/inquiry-form/` and is not part of Contact (or Home) page meta — only the wording around it is editable. Fleet passenger/luggage capacity is owned only by `venix_concierge_fleet_capacity_data()` and the capacity component; it is not present in any schema.
 - **Editor note:** in the block editor the meta box sits in the collapsed "Meta Boxes" panel at the bottom; open it to edit.
 
