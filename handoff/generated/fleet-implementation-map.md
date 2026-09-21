@@ -29,8 +29,8 @@ All current vehicle and interior media use CSS fallback geometry only; no Media 
 
 ## Capacity component
 
-- **Data source (only file to edit when values arrive):** `venix_concierge_fleet_capacity_data()` in `inc/content/fleet.php`, keyed by vehicle id: `sclass`, `eclass`, `vclass`, `vclassxl`, `sprinter`. Each entry is `passengers` and `luggage`, currently **`null` for every vehicle**.
+- **Data source (edit in WordPress Admin when values arrive):** Venix → Fleet Capacities, stored in the global option `venix_fleet_capacities` (owned by `project-core`, `inc/fleet-capacities.php`) keyed by vehicle id: `sclass`, `eclass`, `vclass`, `vclassxl`, `sprinter`. Each entry is `passengers` and `luggage` (whole number ≥ 1, or `null` when blank). `venix_concierge_fleet_capacity_data()` in `inc/content/fleet.php` returns the saved value, else the `null` default. Values are global, not per language and not in page meta; currently **`null` for every vehicle**.
 - **Rendering:** `venix_concierge_vehicle_capacity()` builds display items. A missing value renders **`TBC`** in English and **`Do potw.`** in Polish; labels are `Passengers`/`Pasażerowie` and `Luggage`/`Bagaż` (screen-reader text; the icons are decorative).
 - **Shared component:** `template-parts/components/capacity/capacity.php` (argument: `vehicle` id) with `assets/css/components/capacity.css`.
-- **Used on:** Home Fleet (featured card and four cards) and the Fleet page (each vehicle). `assets/css/components/capacity.css` is enqueued only for the front page and the Fleet page.
+- **Used on:** Home Fleet (four cards: S-Class, E-Class, V-Class, Sprinter — V-Class Extra Long is Fleet-page only) and the Fleet page (each vehicle). `assets/css/components/capacity.css` is enqueued only for the front page and the Fleet page.
 - **Status:** passenger/luggage numbers are **unconfirmed client data**. No values have been invented. When confirmed values arrive, only the data function needs editing; the Sprinter 9/16/19-seat configuration wording is separate, approved copy.

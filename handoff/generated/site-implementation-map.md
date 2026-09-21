@@ -68,7 +68,7 @@ All five page types support structured editable text and Media Library images fr
 
 | Page | Text fields | Image slots | Admin panels |
 | --- | --- | --- | --- |
-| Home | 144 | 13 | Hero, Introduction, Main Services, Quote, Brand Promise, Fleet, Why Venix, Events, How It Works, Other Services, Who We Serve, Testimonial, Inquiry, Images |
+| Home | 140 | 12 | Hero, Introduction, Main Services, Quote, Brand Promise, Fleet, Why Venix, Events, How It Works, Other Services, Who We Serve, Testimonial, Inquiry, Images |
 | About | 55 | 3 (`about.hero`, `about.story`, `about.culture`) | Hero, Our Story, Purpose / Mission / Vision, How We Work, Values, International Service, Final CTA, Images |
 | Services | 72 | 10 (hero + nine services) | Hero (incl. tab labels), Shared Labels, Chauffeur, Airport, Events, Delegations, Other Services Introduction, Protection, Private Flights, Embassy, Concierge, Weddings, Final CTA, Images |
 | Fleet | 56 | 10 (hero, five exteriors, four interiors) | Hero, Disclaimer, S-Class, E-Class, V-Class, V-Class Extra Long, Sprinter, Recommendation, Images |
@@ -76,7 +76,7 @@ All five page types support structured editable text and Media Library images fr
 
 - **Not editable (any page):** CSS/layout values, ids/anchors, surfaces and split direction, the Services tab bar position/sticky behaviour, step/value numbering, icons, card counts/order and every CTA destination.
 - **Site Settings vs page content:** company name, legal name, address, phone, WhatsApp, email, Instagram, Facebook and the primary and footer logos are owned **only** by Venix → Site Settings and are never stored in page meta. The Contact info column renders its phone, WhatsApp, email and address rows from Site Settings (empty setting = row omitted); they are deliberately **not** in the Contact schema, and operating hours are not a Site Settings field and are not shown.
-- **Shared components stay separate:** the 9-field inquiry form is owned by `template-parts/components/inquiry-form/` and is not part of Contact (or Home) page meta — only the wording around it is editable. Fleet passenger/luggage capacity is owned only by `venix_concierge_fleet_capacity_data()` and the capacity component; it is not present in any schema.
+- **Shared components stay separate:** the 9-field inquiry form is owned by `template-parts/components/inquiry-form/` and is not part of Contact (or Home) page meta — only the wording around it is editable. Fleet passenger/luggage capacity is owned only by the global `venix_fleet_capacities` option (Venix → Fleet Capacities) and the capacity component; it is not present in any page schema.
 - **Editor note:** in the block editor the meta box sits in the collapsed "Meta Boxes" panel at the bottom; open it to edit.
 
 ## Responsive and interaction contracts
@@ -87,7 +87,7 @@ All five page types support structured editable text and Media Library images fr
 
 ### Vehicle capacity (Home + Fleet)
 
-- **Data source:** `venix_concierge_fleet_capacity_data()` in `inc/content/fleet.php`; vehicle ids `sclass`, `eclass`, `vclass`, `vclassxl`, `sprinter`; each has `passengers` and `luggage`, currently **`null`** (unconfirmed).
+- **Data source:** Venix → Fleet Capacities (global option `venix_fleet_capacities`, `project-core` `inc/fleet-capacities.php`), read by `venix_concierge_fleet_capacity_data()` in `inc/content/fleet.php`; vehicle ids `sclass`, `eclass`, `vclass`, `vclassxl`, `sprinter`; each has `passengers` and `luggage` (integer ≥ 1 or `null`), currently **`null`** (unconfirmed). One value feeds Home and Fleet in every language.
 - **Rendering:** `venix_concierge_vehicle_capacity()`; a missing value shows `TBC` (EN) / `Do potw.` (PL). The component renders passenger and luggage icons (decorative inline SVG) with screen-reader labels.
 - **Component:** `template-parts/components/capacity/capacity.php` + `assets/css/components/capacity.css`, enqueued only on the front page and the Fleet page.
 - **Rule:** passenger/luggage numbers are unconfirmed client data and must not be invented. When confirmed values arrive, only the data function is edited.

@@ -87,6 +87,8 @@
 .home-fleet__card-content h3::after { background: var(--wp--preset--color--gold); content: ''; display: block; height: 1px; margin-top: 14px; width: 28px; }
 .home-fleet__card-content p { font-size: 12.5px; line-height: 1.85; margin: 0; }
 .home-fleet__card-content a { margin-top: auto; }
+.home-fleet__card-meta { align-items: center; display: flex; flex-wrap: wrap; gap: 12px; }
+.home-fleet__card-meta small { color: var(--venix-fg-muted); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
 @media (max-width: 768px) { .home-fleet__row { grid-template-columns: 1fr; } .home-fleet__row, .home-fleet__row + .home-fleet__row { margin-bottom: 24px; } }
 
 /* DC wrapper contract: Home sections use an explicit 1360px frame, not a global gutter inference. */

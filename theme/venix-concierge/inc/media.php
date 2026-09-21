@@ -23,7 +23,7 @@ function venix_concierge_media_slots() {
 			'home.hero', 'home.about', 'home.services.chauffeur', 'home.services.airport',
 			'home.services.events', 'home.services.delegations', 'home.promise',
 			'home.fleet.s_class', 'home.fleet.e_class', 'home.fleet.v_class',
-			'home.fleet.v_class_extra_long', 'home.fleet.sprinter', 'home.events',
+			'home.fleet.sprinter', 'home.events',
 			'about.hero', 'about.story', 'about.culture',
 			'services.hero', 'services.chauffeur', 'services.airport', 'services.events',
 			'services.delegations', 'services.protection', 'services.flights',

@@ -7,8 +7,9 @@
  * card column variants and CTA destinations are deliberately absent.
  *
  * Passenger and luggage capacity is NOT part of this schema: it is owned solely
- * by `venix_concierge_fleet_capacity_data()` in the theme and rendered by the
- * shared capacity component.
+ * by the global `venix_fleet_capacities` option (Venix → Fleet Capacities),
+ * read by `venix_concierge_fleet_capacity_data()` in the theme and rendered by
+ * the shared capacity component.
  *
  * @package VenixConciergeCore
  */
@@ -63,7 +64,7 @@ function venix_concierge_core_fleet_page_content_schema() {
 				),
 				$g( __( 'Suitable for', 'venix-concierge-core' ), $points ),
 			),
-			__( 'Passenger and luggage capacity is managed separately and is not edited here.', 'venix-concierge-core' )
+			__( 'Passenger and luggage capacity is edited in Venix → Fleet Capacities, not here.', 'venix-concierge-core' )
 		);
 	}
 

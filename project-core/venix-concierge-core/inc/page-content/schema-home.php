@@ -62,7 +62,6 @@ function venix_concierge_core_home_page_content_schema() {
 	$vehicle_names = array(
 		__( 'E-Class', 'venix-concierge-core' ),
 		__( 'V-Class', 'venix-concierge-core' ),
-		__( 'V-Class Extra Long', 'venix-concierge-core' ),
 		__( 'Sprinter', 'venix-concierge-core' ),
 	);
 	$extra_names   = array(
@@ -363,7 +362,6 @@ function venix_concierge_core_home_page_content_schema() {
 			'home.fleet.s_class'           => __( 'Fleet: S-Class', 'venix-concierge-core' ),
 			'home.fleet.e_class'           => __( 'Fleet: E-Class', 'venix-concierge-core' ),
 			'home.fleet.v_class'           => __( 'Fleet: V-Class', 'venix-concierge-core' ),
-			'home.fleet.v_class_extra_long' => __( 'Fleet: V-Class Extra Long', 'venix-concierge-core' ),
 			'home.fleet.sprinter'          => __( 'Fleet: Sprinter', 'venix-concierge-core' ),
 			'home.events'                  => __( 'Events image', 'venix-concierge-core' ),
 		),

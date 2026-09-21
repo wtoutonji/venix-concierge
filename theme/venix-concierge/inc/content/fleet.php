@@ -132,37 +132,41 @@ function venix_concierge_fleet_content() {
 }
 
 /**
- * Confirmed passenger and luggage capacity per vehicle id.
+ * Passenger and luggage capacity per vehicle id.
  *
- * Single source for Home and Fleet. Capacities are still unconfirmed client
- * data: keep null until confirmed, then set a number or short string, for
- * example 'passengers' => 3. Null, empty or non-scalar values render as TBC.
+ * Single source for Home and Fleet. A value saved in Venix → Fleet Capacities
+ * (option `venix_fleet_capacities`, owned by project-core) wins; otherwise the
+ * null default below is used and renders as TBC / Do potw.
  *
  * @return array<string, array{passengers: int|string|null, luggage: int|string|null}>
  */
 function venix_concierge_fleet_capacity_data() {
-	return array(
-		'sclass'   => array(
+	$data = array();
+
+	foreach ( array( 'sclass', 'eclass', 'vclass', 'vclassxl', 'sprinter' ) as $vehicle_id ) {
+		$data[ $vehicle_id ] = array(
 			'passengers' => null,
 			'luggage'    => null,
-		),
-		'eclass'   => array(
-			'passengers' => null,
-			'luggage'    => null,
-		),
-		'vclass'   => array(
-			'passengers' => null,
-			'luggage'    => null,
-		),
-		'vclassxl' => array(
-			'passengers' => null,
-			'luggage'    => null,
-		),
-		'sprinter' => array(
-			'passengers' => null,
-			'luggage'    => null,
-		),
-	);
+		);
+	}
+
+	$saved = get_option( 'venix_fleet_capacities', array() );
+
+	if ( ! is_array( $saved ) ) {
+		return $data;
+	}
+
+	foreach ( $data as $vehicle_id => $capacity ) {
+		foreach ( array_keys( $capacity ) as $key ) {
+			$value = isset( $saved[ $vehicle_id ][ $key ] ) ? $saved[ $vehicle_id ][ $key ] : null;
+
+			if ( is_scalar( $value ) && preg_match( '/^[0-9]{1,3}$/', (string) $value ) && (int) $value >= 1 ) {
+				$data[ $vehicle_id ][ $key ] = (int) $value;
+			}
+		}
+	}
+
+	return $data;
 }
 
 /**
