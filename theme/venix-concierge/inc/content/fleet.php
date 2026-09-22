@@ -25,8 +25,12 @@ function venix_concierge_fleet_content() {
 			'copy'       => $copy( 'Exact model, configuration, colour and availability may vary. Passenger and luggage capacities to be confirmed.', 'Dokładny model, konfiguracja, kolor i dostępność mogą się różnić. Pojemność pasażerska i bagażowa do potwierdzenia.' ),
 			'link'       => $copy( 'Need a vehicle recommendation? Contact us', 'Potrzebują Państwo rekomendacji? Skontaktuj się' ),
 		),
+		// Keyed by the vehicle's original array position (0, 1, 2, 4) so a stale saved
+		// override for Sprinter at path `vehicles.4.*` still resolves to Sprinter after
+		// V-Class Extra Long (formerly index 3) was removed as a Fleet-page vehicle.
+		// See schema-fleet.php for the matching editor field paths.
 		'vehicles' => array(
-			array(
+			0 => array(
 				'id'        => 'sclass',
 				'slot'      => 's_class',
 				'name'      => 'Mercedes-Benz S-Class',
@@ -42,7 +46,7 @@ function venix_concierge_fleet_content() {
 				'cta'       => $copy( 'Request the S-Class', 'Zamów S-Klasa' ),
 				'interior'  => array( 'interior_1', 'interior_2' ),
 			),
-			array(
+			1 => array(
 				'id'        => 'eclass',
 				'slot'      => 'e_class',
 				'name'      => 'Mercedes-Benz E-Class',
@@ -56,13 +60,14 @@ function venix_concierge_fleet_content() {
 					$copy( 'Daily and multi-day chauffeur hire', 'Wynajem szofera na jeden dzień i dłużej' ),
 				),
 				'cta'       => $copy( 'Request the E-Class', 'Zamów E-Klasa' ),
+				'interior'  => array( 'interior_1', 'interior_2' ),
 			),
-			array(
+			2 => array(
 				'id'        => 'vclass',
 				'slot'      => 'v_class',
 				'name'      => 'Mercedes-Benz V-Class',
 				'badge'     => $copy( 'Luxury van', 'Van klasy premium' ),
-				'sub_badge' => $copy( 'Families · Groups · Events', 'Rodziny · Grupy · Wydarzenia' ),
+				'sub_badge' => 'SHORT · LONG · XL',
 				'columns'   => 'media-wide',
 				'copy'      => $copy( 'Families, executive teams and small groups travelling together in comfort. The V-Class combines generous interior space with premium presentation, making it equally suited to airport transfers, event transport and multi-stop city journeys.', 'Rodziny, zespoły zarządzające i małe grupy podróżujące razem w komforcie. V-Class łączy przestronną kabinę z elegancką prezentacją — równie dobry do transferów lotniskowych, transportu na wydarzenia i wieloprzystankowych podróży po mieście.' ),
 				'use_cases' => array(
@@ -73,22 +78,11 @@ function venix_concierge_fleet_content() {
 				'cta'       => $copy( 'Request the V-Class', 'Zamów V-Klasa' ),
 				'interior'  => array( 'interior_1', 'interior_2' ),
 			),
-			array(
-				'id'        => 'vclassxl',
-				'slot'      => 'v_class_extra_long',
-				'name'      => 'Mercedes-Benz V-Class Extra Long',
-				'badge'     => $copy( 'Luxury van · Extended', 'Van premium · Przedłużony' ),
-				'sub_badge' => $copy( 'Groups · Luggage · Long routes', 'Grupy · Bagaż · Długie trasy' ),
-				'columns'   => 'details-wide',
-				'copy'      => $copy( 'The extended version of the V-Class provides additional cabin length for groups with more luggage, longer intercity journeys or when extra interior space improves comfort for the passengers.', 'Wersja przedłużona V-Class zapewnia większą przestrzeń kabiny dla grup z większą ilością bagażu, dłuższych tras między miastami lub gdy dodatkowa przestrzeń wewnętrzna poprawia komfort pasażerów.' ),
-				'use_cases' => array(
-					$copy( 'Groups with substantial luggage', 'Grupy z dużą ilością bagażu' ),
-					$copy( 'Longer intercity journeys', 'Dłuższe trasy między miastami' ),
-					$copy( 'Event and delegation transport', 'Transport na wydarzenia i delegacje' ),
-				),
-				'cta'       => $copy( 'Request the V-Class XL', 'Zamów V-Klasa XL' ),
-			),
-			array(
+			// V-Class Extra Long removed as a separate Fleet-page vehicle (index 3 was
+			// never reused, so index 4 below still identifies Sprinter). The `vclassxl`
+			// capacity record is kept in `venix_concierge_fleet_capacity_data()` for
+			// backward compatibility; it simply has no Fleet-page vehicle anymore.
+			4 => array(
 				'id'        => 'sprinter',
 				'slot'      => 'sprinter',
 				'name'      => 'Mercedes-Benz Sprinter',
@@ -102,6 +96,7 @@ function venix_concierge_fleet_content() {
 					$copy( 'Wedding guest coordination', 'Koordynacja gości weselnych' ),
 				),
 				'cta'       => $copy( 'Request a Sprinter', 'Zamów Sprinter' ),
+				'interior'  => array( 'interior_1', 'interior_2' ),
 			),
 		),
 		'recommendation' => array(
@@ -122,11 +117,14 @@ function venix_concierge_fleet_content() {
 			's_class.interior_1'         => $copy( 'Rear cabin — warm leather upholstery, ambient lighting, refined materials. Serene, composed.', 'Kabina tylna — ciepła skórzana tapicerka, oświetlenie ambientowe, wyrafinowane materiały. Spokojne, stonowane.' ),
 			's_class.interior_2'         => $copy( "Front cabin detail — instrumentation, steering wheel, driver's environment. Professional and precise.", 'Detal kabiny przedniej — instrumentarium, kierownica, środowisko kierowcy. Profesjonalne i precyzyjne.' ),
 			'e_class.exterior'           => $copy( 'A black Mercedes-Benz E-Class in a Warsaw business district.', 'Czarny Mercedes-Benz E-Class w warszawskiej dzielnicy biznesowej.' ),
+			'e_class.interior_1'         => $copy( 'Rear cabin detail — refined materials, discreet presentation. Suited to business travel.', 'Detal tylnej kabiny — wyrafinowane materiały, dyskretna prezentacja. Odpowiedni do podróży biznesowych.' ),
+			'e_class.interior_2'         => $copy( "Front cabin detail — instrumentation, driver's environment. Professional and precise.", 'Detal kabiny przedniej — instrumentarium, środowisko kierowcy. Profesjonalne i precyzyjne.' ),
 			'v_class.exterior'           => $copy( 'A black Mercedes-Benz V-Class at a Warsaw hotel entrance.', 'Czarny Mercedes-Benz V-Class przed wejściem do warszawskiego hotelu.' ),
 			'v_class.interior_1'         => $copy( 'Rear seating area — individual seats, warm ambient tone, generous legroom. Comfortable for longer journeys.', 'Tylna strefa siedzeń — fotele indywidualne, ciepły ton ambientowy, duże odstępy między siedzeniami. Komfortowy na dłuższe trasy.' ),
 			'v_class.interior_2'         => $copy( 'Luggage area — clean, accessible, suitable for airport transfers with checked baggage.', 'Przestrzeń bagażowa — czysta, dostępna, odpowiednia do transferów lotniskowych z bagażem rejestrowanym.' ),
-			'v_class_extra_long.exterior' => $copy( 'A Mercedes-Benz V-Class Extra Long on a Warsaw airport road.', 'Mercedes-Benz V-Class Extra Long na drodze lotniskowej w Warszawie.' ),
 			'sprinter.exterior'          => $copy( 'A Mercedes-Benz Sprinter at a Warsaw conference centre for group transport.', 'Mercedes-Benz Sprinter przed centrum konferencyjnym w Warszawie.' ),
+			'sprinter.interior_1'        => $copy( 'Cabin interior — coordinated seating suited to group transport.', 'Wnętrze kabiny — skoordynowane siedzenia odpowiednie do transportu grupowego.' ),
+			'sprinter.interior_2'        => $copy( 'Cabin interior detail — clean, professional presentation for groups.', 'Detal wnętrza kabiny — czysta, profesjonalna prezentacja dla grup.' ),
 		),
 	);
 }

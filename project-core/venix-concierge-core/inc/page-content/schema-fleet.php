@@ -29,16 +29,21 @@ function venix_concierge_core_fleet_page_content_schema() {
 	$eyebrow = __( 'Small heading above the title', 'venix-concierge-core' );
 	$heading = __( 'Heading', 'venix-concierge-core' );
 
+	// Each tuple's third value is the vehicle's original position in the theme's
+	// `vehicles` array (see inc/content/fleet.php). Index 3 (V-Class Extra Long) is
+	// retired, not reassigned, so a previously saved Sprinter override at
+	// `vehicles.4.*` keeps resolving to Sprinter instead of silently vanishing or
+	// landing on the wrong vehicle.
 	$vehicles = array(
-		array( __( 'S-Class', 'venix-concierge-core' ), 's_class' ),
-		array( __( 'E-Class', 'venix-concierge-core' ), 'e_class' ),
-		array( __( 'V-Class', 'venix-concierge-core' ), 'v_class' ),
-		array( __( 'V-Class Extra Long', 'venix-concierge-core' ), 'v_class_extra_long' ),
-		array( __( 'Sprinter', 'venix-concierge-core' ), 'sprinter' ),
+		array( __( 'S-Class', 'venix-concierge-core' ), 's_class', 0 ),
+		array( __( 'E-Class', 'venix-concierge-core' ), 'e_class', 1 ),
+		array( __( 'V-Class', 'venix-concierge-core' ), 'v_class', 2 ),
+		array( __( 'Sprinter', 'venix-concierge-core' ), 'sprinter', 4 ),
 	);
 
 	$vehicle_sections = array();
-	foreach ( $vehicles as $i => $vehicle ) {
+	foreach ( $vehicles as $vehicle ) {
+		$i      = $vehicle[2];
 		$points = array();
 		for ( $u = 0; $u < 3; $u++ ) {
 			$points[] = $f(
@@ -129,16 +134,19 @@ function venix_concierge_core_fleet_page_content_schema() {
 			)
 		),
 		'media'    => array(
-			'fleet.hero'                        => __( 'Hero background', 'venix-concierge-core' ),
-			'fleet.s_class.exterior'            => __( 'S-Class: main image', 'venix-concierge-core' ),
-			'fleet.s_class.interior_1'          => __( 'S-Class: interior image 1', 'venix-concierge-core' ),
-			'fleet.s_class.interior_2'          => __( 'S-Class: interior image 2', 'venix-concierge-core' ),
-			'fleet.e_class.exterior'            => __( 'E-Class: main image', 'venix-concierge-core' ),
-			'fleet.v_class.exterior'            => __( 'V-Class: main image', 'venix-concierge-core' ),
-			'fleet.v_class.interior_1'          => __( 'V-Class: interior image 1', 'venix-concierge-core' ),
-			'fleet.v_class.interior_2'          => __( 'V-Class: interior image 2', 'venix-concierge-core' ),
-			'fleet.v_class_extra_long.exterior' => __( 'V-Class Extra Long: main image', 'venix-concierge-core' ),
-			'fleet.sprinter.exterior'           => __( 'Sprinter: main image', 'venix-concierge-core' ),
+			'fleet.hero'                => __( 'Hero background', 'venix-concierge-core' ),
+			'fleet.s_class.exterior'    => __( 'S-Class: main image', 'venix-concierge-core' ),
+			'fleet.s_class.interior_1'  => __( 'S-Class: secondary image 1', 'venix-concierge-core' ),
+			'fleet.s_class.interior_2'  => __( 'S-Class: secondary image 2', 'venix-concierge-core' ),
+			'fleet.e_class.exterior'    => __( 'E-Class: main image', 'venix-concierge-core' ),
+			'fleet.e_class.interior_1'  => __( 'E-Class: secondary image 1', 'venix-concierge-core' ),
+			'fleet.e_class.interior_2'  => __( 'E-Class: secondary image 2', 'venix-concierge-core' ),
+			'fleet.v_class.exterior'    => __( 'V-Class: main image', 'venix-concierge-core' ),
+			'fleet.v_class.interior_1'  => __( 'V-Class: secondary image 1', 'venix-concierge-core' ),
+			'fleet.v_class.interior_2'  => __( 'V-Class: secondary image 2', 'venix-concierge-core' ),
+			'fleet.sprinter.exterior'   => __( 'Sprinter: main image', 'venix-concierge-core' ),
+			'fleet.sprinter.interior_1' => __( 'Sprinter: secondary image 1', 'venix-concierge-core' ),
+			'fleet.sprinter.interior_2' => __( 'Sprinter: secondary image 2', 'venix-concierge-core' ),
 		),
 	);
 }

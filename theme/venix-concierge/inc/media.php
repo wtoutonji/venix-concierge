@@ -29,9 +29,11 @@ function venix_concierge_media_slots() {
 			'services.delegations', 'services.protection', 'services.flights',
 			'services.embassy', 'services.concierge', 'services.weddings',
 			'fleet.hero', 'fleet.s_class.exterior', 'fleet.s_class.interior_1',
-			'fleet.s_class.interior_2', 'fleet.e_class.exterior', 'fleet.v_class.exterior',
+			'fleet.s_class.interior_2', 'fleet.e_class.exterior', 'fleet.e_class.interior_1',
+			'fleet.e_class.interior_2', 'fleet.v_class.exterior',
 			'fleet.v_class.interior_1', 'fleet.v_class.interior_2',
-			'fleet.v_class_extra_long.exterior', 'fleet.sprinter.exterior', 'contact.hero',
+			'fleet.sprinter.exterior', 'fleet.sprinter.interior_1', 'fleet.sprinter.interior_2',
+			'contact.hero',
 		),
 		0
 	);

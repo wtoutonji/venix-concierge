@@ -133,9 +133,9 @@ is introduced here; those remain with Polylang and the future SEO owner.
 ### Fleet completion findings
 
 - Fleet PL status: COMPLETE.
-- Frozen page areas: COMPLETE — Hero, availability notice, five vehicles, and recommendation retain the 8-area sequence.
-- Vehicles: COMPLETE — S-Class, E-Class, V-Class, V-Class Extra Long, and Sprinter remain in canonical order; each retains 3 use cases.
-- Interiors: COMPLETE — S-Class has 2 approved interior descriptions and V-Class has 2; no interiors were introduced for other vehicles.
+- Frozen page areas: COMPLETE — Hero, availability notice, four vehicles, and recommendation retain the 7-area sequence (V-Class Extra Long removed as a separate Fleet-page vehicle; see `fleet-implementation-map.md`).
+- Vehicles: COMPLETE — S-Class, E-Class, V-Class and Sprinter remain in canonical order (array indices 0, 1, 2 and 4; index 3 retired); each retains 3 use cases. V-Class's category line is now "SHORT · LONG · XL" (identical string, EN and PL), matching Home.
+- Secondary images: COMPLETE — every vehicle now has 2 secondary images alongside its primary image (S-Class and V-Class carry their original approved interior descriptions; generic, non-fabricated secondary-image alt text was added for E-Class and Sprinter, whose secondary slots are new this pass).
 - Capacity: the earlier `[Confirm passenger & luggage capacity]` text placeholder is superseded by the shared capacity component. Values are `null` in `venix_concierge_fleet_capacity_data()` and render as `TBC` (EN) / `Do potw.` (PL); no capacities are fabricated (see `site-implementation-map.md`).
 - Fleet footer: COMPLETE — Fleet-specific brand copy, navigation/contact headings, and location are explicitly mapped; WordPress/Polylang remains the owner of actual menu labels.
 - Accessibility-only strings without approved Polish wording in `Fleet.dc.html`: `Venix Concierge home`, `Open menu`, `Primary navigation`, and `Legal navigation`; the approved vehicle and interior accessibility wording is explicitly mapped. These remaining safe labels do not affect approved visible Fleet copy completion.
