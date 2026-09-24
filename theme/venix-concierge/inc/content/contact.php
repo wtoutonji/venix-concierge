@@ -15,6 +15,12 @@ function venix_concierge_contact_content() {
 				'whatsapp' => 'WhatsApp',
 				'email' => $copy( 'Email', 'E-mail' ),
 				'address' => $copy( 'Address', 'Adres' ),
+				'instagram' => 'Instagram',
+				'facebook' => 'Facebook',
+			),
+			'social_handles' => array(
+				'instagram' => '@venix.concierge',
+				'facebook' => '@venix.concierge',
 			),
 			'next_title' => $copy( 'What happens next', 'Co się stanie dalej' ),
 			'next_steps' => array(

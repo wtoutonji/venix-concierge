@@ -135,6 +135,30 @@ function venix_concierge_get_whatsapp_url( $value ) {
 }
 
 /**
+ * Get the approved inline SVG markup for a social network icon.
+ *
+ * Single source of the Instagram/Facebook icon paths so the footer's
+ * icon-only presentation and the Contact page's labelled rows never
+ * duplicate the SVG definitions.
+ *
+ * @param string $network Either 'instagram' or 'facebook'.
+ * @param string $class   CSS class applied to the <svg> so each context sizes/colors it.
+ * @return string Static, hand-authored SVG markup, or an empty string for an unknown network.
+ */
+function venix_concierge_get_social_icon_svg( $network, $class = '' ) {
+	$icons = array(
+		'instagram' => '<svg class="%1$s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".6" fill="currentColor" stroke="none"></circle></svg>',
+		'facebook'  => '<svg class="%1$s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>',
+	);
+
+	if ( ! isset( $icons[ $network ] ) ) {
+		return '';
+	}
+
+	return sprintf( $icons[ $network ], esc_attr( $class ) );
+}
+
+/**
  * Get the footer contact rows that have a value; empty settings yield no row.
  *
  * @return array<int, array{type: string, text: string, url: string}>
