@@ -52,7 +52,9 @@ function venix_concierge_core_enqueue_media_picker_assets() {
  * @param string               $label         Field label.
  * @param int                  $attachment_id Saved attachment ID, or 0.
  * @param array<string, mixed> $args          Optional overrides: select_label, replace_label,
- *                                             remove_label, empty_label, preview_size, after
+ *                                             remove_label, empty_label, preview_size, media_type
+ *                                             (image or video; restricts the Media Library picker
+ *                                             and skips the image preview for video), after
  *                                             (callable, echoes extra markup inside the field).
  * @return void
  */
@@ -66,6 +68,7 @@ function venix_concierge_core_render_media_picker_field( $name, $label, $attachm
 			'empty_label'   => __( 'No image selected. The default is used.', 'venix-concierge-core' ),
 			'preview_size'  => 'medium',
 			'show_label'    => true,
+			'media_type'    => 'image',
 			'after'         => null,
 		)
 	);
@@ -73,14 +76,14 @@ function venix_concierge_core_render_media_picker_field( $name, $label, $attachm
 	$has      = $attachment_id > 0;
 	$filename = $has ? wp_basename( (string) get_attached_file( $attachment_id ) ) : '';
 	?>
-	<div class="venix-pc-media" data-venix-pc-media>
+	<div class="venix-pc-media" data-venix-pc-media data-venix-pc-media-type="<?php echo esc_attr( $args['media_type'] ); ?>">
 		<?php if ( $args['show_label'] ) : ?>
 			<span class="venix-pc-media__label"><?php echo esc_html( $label ); ?></span>
 		<?php endif; ?>
 		<input type="hidden" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $has ? (string) $attachment_id : '' ); ?>" data-venix-pc-media-input />
 		<div class="venix-pc-media__preview" data-venix-pc-media-preview>
 			<?php
-			if ( $has ) {
+			if ( $has && 'image' === $args['media_type'] ) {
 				echo wp_get_attachment_image( $attachment_id, $args['preview_size'], false, array( 'loading' => 'lazy' ) );
 			}
 			?>

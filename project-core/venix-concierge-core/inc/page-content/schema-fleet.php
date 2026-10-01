@@ -148,5 +148,8 @@ function venix_concierge_core_fleet_page_content_schema() {
 			'fleet.sprinter.interior_1' => __( 'Sprinter: secondary image 1', 'venix-concierge-core' ),
 			'fleet.sprinter.interior_2' => __( 'Sprinter: secondary image 2', 'venix-concierge-core' ),
 		),
+		'media_video' => array(
+			'fleet.hero_video' => __( 'Hero background video (optional)', 'venix-concierge-core' ),
+		),
 	);
 }

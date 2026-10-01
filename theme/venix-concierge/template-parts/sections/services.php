@@ -15,7 +15,7 @@ $venix_concierge_main_services    = $venix_concierge_services_content['main'];
 $venix_concierge_compact_services = $venix_concierge_services_content['compact'];
 ?>
 <main id="main-content" class="site-main venix-services">
-	<section class="services-hero"><?php venix_concierge_render_media_slot( 'services.hero', array( 'class' => 'services-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?><div class="container services-hero__content"><p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_services_content['hero']['eyebrow'] ); ?></p><h1><?php echo esc_html( $venix_concierge_services_content['hero']['title'] ); ?></h1></div></section>
+	<section class="services-hero"><?php venix_concierge_render_page_hero_media( 'services', array( 'class' => 'services-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?><div class="container services-hero__content"><p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_services_content['hero']['eyebrow'] ); ?></p><h1><?php echo esc_html( $venix_concierge_services_content['hero']['title'] ); ?></h1></div></section>
 	<nav class="services-anchor-nav" aria-label="Service sections"><div class="container services-anchor-nav__inner"><?php foreach ( $venix_concierge_services_content['anchors'] as $venix_concierge_anchor => $venix_concierge_label ) : ?><a href="#<?php echo esc_attr( $venix_concierge_anchor ); ?>"><?php echo esc_html( $venix_concierge_label ); ?></a><?php endforeach; ?></div></nav>
 	<div class="services-main">
 		<?php foreach ( $venix_concierge_main_services as $venix_concierge_service ) : ?>

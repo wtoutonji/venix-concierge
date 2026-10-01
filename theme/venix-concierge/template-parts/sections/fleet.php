@@ -15,7 +15,7 @@ $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 ?>
 <main id="main-content" class="site-main venix-fleet">
 	<section class="fleet-hero">
-		<?php venix_concierge_render_media_slot( 'fleet.hero', array( 'class' => 'fleet-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
+		<?php venix_concierge_render_page_hero_media( 'fleet', array( 'class' => 'fleet-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
 		<div class="container fleet-hero__content">
 			<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_fleet_content['hero']['eyebrow'] ); ?></p>
 			<h1><?php echo esc_html( $venix_concierge_fleet_content['hero']['title'] ); ?></h1>

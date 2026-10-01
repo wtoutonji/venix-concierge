@@ -108,5 +108,8 @@ function venix_concierge_core_contact_page_content_schema() {
 		'media'    => array(
 			'contact.hero' => __( 'Hero background', 'venix-concierge-core' ),
 		),
+		'media_video' => array(
+			'contact.hero_video' => __( 'Hero background video (optional)', 'venix-concierge-core' ),
+		),
 	);
 }

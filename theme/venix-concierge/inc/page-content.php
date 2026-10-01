@@ -19,13 +19,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @param string $page_key Page key the caller renders, such as `home`.
  * @param int    $post_id  Optional page ID; defaults to the queried page.
- * @return array{text: array<string, mixed>, media: array<string, int>, media_alt: array<string, string>}
+ * @return array{text: array<string, mixed>, media: array<string, int>, media_alt: array<string, string>, media_video: array<string, int>}
  */
 function venix_concierge_get_page_overrides( $page_key, $post_id = 0 ) {
 	$empty = array(
-		'text'      => array(),
-		'media'     => array(),
-		'media_alt' => array(),
+		'text'        => array(),
+		'media'       => array(),
+		'media_alt'   => array(),
+		'media_video' => array(),
 	);
 
 	if ( ! function_exists( 'venix_concierge_core_get_page_overrides' ) ) {
@@ -134,6 +135,19 @@ function venix_concierge_get_page_media_alt( $slot ) {
 	$alts     = venix_concierge_get_page_overrides( (string) $page_key )['media_alt'];
 
 	return isset( $alts[ $slot ] ) ? (string) $alts[ $slot ] : '';
+}
+
+/**
+ * Get the page-level Media Library video override for a semantic media slot.
+ *
+ * @param string $slot Slot key, such as `home.hero_video`.
+ * @return int Attachment ID, or 0 when the current page has no override.
+ */
+function venix_concierge_get_page_video_media_id( $slot ) {
+	$page_key = strtok( (string) $slot, '.' );
+	$media    = venix_concierge_get_page_overrides( (string) $page_key )['media_video'];
+
+	return isset( $media[ $slot ] ) ? absint( $media[ $slot ] ) : 0;
 }
 
 /**

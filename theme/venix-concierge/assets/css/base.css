@@ -23,6 +23,10 @@ html {
     transition-delay: 0s !important;
     transition-duration: 0.01ms !important;
   }
+
+  .venix-hero-video {
+    display: none;
+  }
 }
 
 body {
@@ -139,3 +143,5 @@ textarea {
 /* Media Library slots retain their parent frame while awaiting an attachment. */
 .venix-media-slot { background: var(--wp--preset--color--blush); overflow: hidden; }
 .venix-media-slot__image { display: block; height: 100%; object-fit: cover; width: 100%; }
+/* Shared decorative Hero background video layer: sits above the Hero Image inside its existing media wrapper, below the page's own overlay. */
+.venix-hero-video { height: 100%; inset: 0; object-fit: cover; object-position: center; position: absolute; width: 100%; }

@@ -91,17 +91,20 @@ function venix_concierge_enqueue_global_assets() {
 		venix_concierge_enqueue_component( 'input' );
 		venix_concierge_enqueue_component( 'inquiry-form' );
 		venix_concierge_enqueue_script( 'venix-concierge-reveal', '/assets/js/components/reveal.js' );
+		venix_concierge_maybe_enqueue_hero_video_script( 'home' );
 	}
 
 	if ( venix_concierge_is_about_page() ) {
 		venix_concierge_enqueue_style( 'venix-concierge-about', '/assets/css/pages/about.css', array( 'venix-concierge-layout' ) );
 		venix_concierge_enqueue_component( 'button' );
+		venix_concierge_maybe_enqueue_hero_video_script( 'about' );
 	}
 
 	if ( venix_concierge_is_services_page() ) {
 		venix_concierge_enqueue_style( 'venix-concierge-services', '/assets/css/pages/services.css', array( 'venix-concierge-layout' ) );
 		venix_concierge_enqueue_component( 'button' );
 		venix_concierge_enqueue_component( 'badge' );
+		venix_concierge_maybe_enqueue_hero_video_script( 'services' );
 	}
 
 	if ( venix_concierge_is_fleet_page() ) {
@@ -109,6 +112,7 @@ function venix_concierge_enqueue_global_assets() {
 		venix_concierge_enqueue_component( 'button' );
 		venix_concierge_enqueue_component( 'badge' );
 		venix_concierge_enqueue_component( 'capacity' );
+		venix_concierge_maybe_enqueue_hero_video_script( 'fleet' );
 	}
 
 	if ( venix_concierge_is_contact_page() ) {
@@ -116,12 +120,35 @@ function venix_concierge_enqueue_global_assets() {
 		venix_concierge_enqueue_component( 'button' );
 		venix_concierge_enqueue_component( 'input' );
 		venix_concierge_enqueue_component( 'inquiry-form' );
+		venix_concierge_maybe_enqueue_hero_video_script( 'contact' );
 	}
 
 	venix_concierge_enqueue_script( 'venix-concierge-menu', '/assets/js/components/mobile-menu.js' );
 	venix_concierge_enqueue_style( 'venix-concierge-mobile-menu', '/assets/css/components/mobile-menu.css', array( 'venix-concierge-header' ) );
 }
 add_action( 'wp_enqueue_scripts', 'venix_concierge_enqueue_global_assets' );
+
+/**
+ * Enqueue the shared Hero Video reduced-motion script, but only on a page that
+ * actually has a valid Hero Video configured for its `{page_key}.hero_video` slot.
+ *
+ * Shared by every page with a Hero (Home, About, Services, Fleet, Contact) so the
+ * script never loads site-wide and is requested at most once per page.
+ *
+ * @param string $page_key Page key, e.g. `home`, `about`, `services`, `fleet`, `contact`.
+ * @return void
+ */
+function venix_concierge_maybe_enqueue_hero_video_script( $page_key ) {
+	if ( ! function_exists( 'venix_concierge_hero_video_attachment_id' ) ) {
+		return;
+	}
+
+	if ( ! venix_concierge_hero_video_attachment_id( $page_key . '.hero_video' ) ) {
+		return;
+	}
+
+	venix_concierge_enqueue_script( 'venix-concierge-hero-video', '/assets/js/components/hero-video.js' );
+}
 
 /**
  * Load a theme component's CSS/JS only when that component is used.

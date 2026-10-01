@@ -365,5 +365,8 @@ function venix_concierge_core_home_page_content_schema() {
 			'home.fleet.sprinter'          => __( 'Fleet: Sprinter', 'venix-concierge-core' ),
 			'home.events'                  => __( 'Events image', 'venix-concierge-core' ),
 		),
+		'media_video' => array(
+			'home.hero_video' => __( 'Hero background video (optional)', 'venix-concierge-core' ),
+		),
 	);
 }

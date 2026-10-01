@@ -20,14 +20,17 @@
 		preview.textContent = '';
 
 		if ( has ) {
-			var sizes = attachment.sizes || {};
-			var source = sizes.medium || sizes.thumbnail || sizes.full || { url: attachment.url };
-			var img = document.createElement( 'img' );
-
-			img.src = source.url;
-			img.alt = '';
-			preview.appendChild( img );
 			filename.textContent = attachment.filename || attachment.title || '';
+
+			if ( ! attachment.type || 'image' === attachment.type ) {
+				var sizes = attachment.sizes || {};
+				var source = sizes.medium || sizes.thumbnail || sizes.full || { url: attachment.url };
+				var img = document.createElement( 'img' );
+
+				img.src = source.url;
+				img.alt = '';
+				preview.appendChild( img );
+			}
 		}
 
 		empty.hidden = has;
@@ -39,6 +42,7 @@
 	function init( root ) {
 		var select = root.querySelector( '[data-venix-pc-media-select]' );
 		var remove = root.querySelector( '[data-venix-pc-media-remove]' );
+		var mediaType = root.getAttribute( 'data-venix-pc-media-type' ) || 'image';
 		var frame = null;
 
 		select.addEventListener( 'click', function () {
@@ -50,7 +54,7 @@
 				frame = window.wp.media( {
 					title: select.getAttribute( 'data-frame-title' ),
 					button: { text: select.getAttribute( 'data-frame-button' ) },
-					library: { type: 'image' },
+					library: { type: mediaType },
 					multiple: false
 				} );
 

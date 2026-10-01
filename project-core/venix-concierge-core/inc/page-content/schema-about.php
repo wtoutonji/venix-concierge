@@ -171,5 +171,8 @@ function venix_concierge_core_about_page_content_schema() {
 			'about.story'   => __( 'Our Story image', 'venix-concierge-core' ),
 			'about.culture' => __( 'International Service image', 'venix-concierge-core' ),
 		),
+		'media_video' => array(
+			'about.hero_video' => __( 'Hero background video (optional)', 'venix-concierge-core' ),
+		),
 	);
 }

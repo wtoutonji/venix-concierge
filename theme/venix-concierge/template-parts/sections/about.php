@@ -43,7 +43,7 @@ $venix_concierge_culture_points = $venix_concierge_about_content['culture']['poi
 ?>
 <main id="primary" class="site-main venix-about">
 	<section class="about-hero">
-		<?php venix_concierge_render_media_slot( 'about.hero', array( 'class' => 'about-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
+		<?php venix_concierge_render_page_hero_media( 'about', array( 'class' => 'about-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
 		<div class="container about-hero__content">
 			<p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_about_content['hero']['eyebrow'] ); ?></p>
 			<h1><?php echo esc_html( $venix_concierge_about_content['hero']['title'] ); ?></h1>

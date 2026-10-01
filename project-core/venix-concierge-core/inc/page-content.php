@@ -247,6 +247,18 @@ function venix_concierge_core_valid_image_id( $attachment_id ) {
 }
 
 /**
+ * Check that a value is a usable Media Library video attachment ID.
+ *
+ * @param mixed $attachment_id Attachment ID.
+ * @return int Attachment ID, or 0 when it is missing or not a video.
+ */
+function venix_concierge_core_valid_video_id( $attachment_id ) {
+	$attachment_id = absint( $attachment_id );
+
+	return $attachment_id && wp_attachment_is( 'video', $attachment_id ) ? $attachment_id : 0;
+}
+
+/**
  * Sanitize one text-like value by field type.
  *
  * @param string $type  Field type.
@@ -320,6 +332,18 @@ function venix_concierge_core_sanitize_page_content( $page_key, $input ) {
 		}
 	}
 
+	// Video slots are a separate, optional media kind (e.g. an optional Hero
+	// background video) and are validated as video attachments, never images.
+	$video_input = isset( $input['media_video'] ) && is_array( $input['media_video'] ) ? $input['media_video'] : array();
+
+	foreach ( array_keys( isset( $schema['media_video'] ) ? $schema['media_video'] : array() ) as $slot ) {
+		$attachment_id = isset( $video_input[ $slot ] ) ? venix_concierge_core_valid_video_id( $video_input[ $slot ] ) : 0;
+
+		if ( $attachment_id ) {
+			$clean['media_video'][ $slot ] = $attachment_id;
+		}
+	}
+
 	return $clean;
 }
 
@@ -327,14 +351,15 @@ function venix_concierge_core_sanitize_page_content( $page_key, $input ) {
  * Get the saved, schema-limited overrides for a page.
  *
  * @param int $post_id Page ID.
- * @return array{page_key: string, text: array<string, mixed>, media: array<string, int>, media_alt: array<string, string>}
+ * @return array{page_key: string, text: array<string, mixed>, media: array<string, int>, media_alt: array<string, string>, media_video: array<string, int>}
  */
 function venix_concierge_core_get_page_overrides( $post_id ) {
 	$empty    = array(
-		'page_key'  => '',
-		'text'      => array(),
-		'media'     => array(),
-		'media_alt' => array(),
+		'page_key'    => '',
+		'text'        => array(),
+		'media'       => array(),
+		'media_alt'   => array(),
+		'media_video' => array(),
 	);
 	$page_key = venix_concierge_core_get_page_content_key( $post_id );
 	$schema   = '' === $page_key ? null : venix_concierge_core_get_page_content_schema( $page_key );
@@ -345,10 +370,11 @@ function venix_concierge_core_get_page_overrides( $post_id ) {
 	}
 
 	$overrides = array(
-		'page_key'  => $page_key,
-		'text'      => array(),
-		'media'     => array(),
-		'media_alt' => array(),
+		'page_key'    => $page_key,
+		'text'        => array(),
+		'media'       => array(),
+		'media_alt'   => array(),
+		'media_video' => array(),
 	);
 
 	foreach ( venix_concierge_core_page_content_schema_fields( $schema ) as $field ) {
@@ -376,6 +402,16 @@ function venix_concierge_core_get_page_overrides( $post_id ) {
 
 		if ( '' !== $alt ) {
 			$overrides['media_alt'][ $slot ] = $alt;
+		}
+	}
+
+	$stored_video = isset( $stored['media_video'] ) && is_array( $stored['media_video'] ) ? $stored['media_video'] : array();
+
+	foreach ( array_keys( isset( $schema['media_video'] ) ? $schema['media_video'] : array() ) as $slot ) {
+		$attachment_id = isset( $stored_video[ $slot ] ) ? venix_concierge_core_valid_video_id( $stored_video[ $slot ] ) : 0;
+
+		if ( $attachment_id ) {
+			$overrides['media_video'][ $slot ] = $attachment_id;
 		}
 	}
 
@@ -483,6 +519,31 @@ function venix_concierge_core_render_page_content_media_field( $slot, $label, $a
 }
 
 /**
+ * Render one media (video) field.
+ *
+ * @param string $slot          Semantic media slot.
+ * @param string $label         Editor-facing label.
+ * @param int    $attachment_id Saved attachment ID, or 0.
+ * @return void
+ */
+function venix_concierge_core_render_page_content_video_field( $slot, $label, $attachment_id ) {
+	$name = VENIX_CONCIERGE_CORE_PAGE_CONTENT_FIELD . '[media_video][' . $slot . ']';
+
+	venix_concierge_core_render_media_picker_field(
+		$name,
+		$label,
+		$attachment_id,
+		array(
+			'media_type'    => 'video',
+			'select_label'  => __( 'Select Video', 'venix-concierge-core' ),
+			'replace_label' => __( 'Replace Video', 'venix-concierge-core' ),
+			'remove_label'  => __( 'Remove Video', 'venix-concierge-core' ),
+			'empty_label'   => __( 'No video selected. The Hero Image is used.', 'venix-concierge-core' ),
+		)
+	);
+}
+
+/**
  * Render the Venix Page Content meta box.
  *
  * @param WP_Post $post Page being edited.
@@ -496,10 +557,11 @@ function venix_concierge_core_render_page_content_meta_box( $post ) {
 		return;
 	}
 
-	$overrides = venix_concierge_core_get_page_overrides( $post->ID );
-	$defaults  = venix_concierge_core_get_page_content_defaults( $page_key, $post );
-	$sections  = $schema['sections'];
-	$media     = isset( $schema['media'] ) ? $schema['media'] : array();
+	$overrides   = venix_concierge_core_get_page_overrides( $post->ID );
+	$defaults    = venix_concierge_core_get_page_content_defaults( $page_key, $post );
+	$sections    = $schema['sections'];
+	$media       = isset( $schema['media'] ) ? $schema['media'] : array();
+	$media_video = isset( $schema['media_video'] ) ? $schema['media_video'] : array();
 
 	wp_nonce_field( VENIX_CONCIERGE_CORE_PAGE_CONTENT_ACTION, VENIX_CONCIERGE_CORE_PAGE_CONTENT_NONCE );
 	?>
@@ -557,6 +619,26 @@ function venix_concierge_core_render_page_content_meta_box( $post ) {
 								$label,
 								isset( $overrides['media'][ $slot ] ) ? (int) $overrides['media'][ $slot ] : 0,
 								isset( $overrides['media_alt'][ $slot ] ) ? $overrides['media_alt'][ $slot ] : ''
+							);
+						}
+						?>
+					</div>
+				</div>
+			</details>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $media_video ) ) : ?>
+			<details class="venix-pc__section">
+				<summary><?php esc_html_e( 'Hero Video', 'venix-concierge-core' ); ?></summary>
+				<div class="venix-pc__body">
+					<p class="description"><?php esc_html_e( 'Optional. When set, this video plays muted and looped behind the matching image above, which remains the poster and fallback.', 'venix-concierge-core' ); ?></p>
+					<div class="venix-pc__media-grid">
+						<?php
+						foreach ( $media_video as $slot => $label ) {
+							venix_concierge_core_render_page_content_video_field(
+								$slot,
+								$label,
+								isset( $overrides['media_video'][ $slot ] ) ? (int) $overrides['media_video'][ $slot ] : 0
 							);
 						}
 						?>

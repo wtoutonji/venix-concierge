@@ -226,5 +226,8 @@ function venix_concierge_core_services_page_content_schema() {
 			'services.concierge'   => __( 'Concierge image', 'venix-concierge-core' ),
 			'services.weddings'    => __( 'Weddings image', 'venix-concierge-core' ),
 		),
+		'media_video' => array(
+			'services.hero_video' => __( 'Hero background video (optional)', 'venix-concierge-core' ),
+		),
 	);
 }
