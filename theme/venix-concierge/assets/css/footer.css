@@ -4,8 +4,8 @@
 .site-footer__contact .venix-social-links__link { color: var(--venix-fg-inverse-muted); }
 .site-footer__contact .venix-social-links__link:hover, .site-footer__contact .venix-social-links__link:focus-visible { color: var(--wp--preset--color--brand); }
 
-.site-footer__brand .custom-logo-link { display: inline-block; }
-.site-footer__brand .custom-logo { display: block; height: 32px; max-width: 100%; object-fit: contain; width: auto; }
+.site-footer__brand .custom-logo-link { display: inline-block; margin-bottom: 8px; }
+.site-footer__brand .custom-logo { display: block; height: 76px; max-width: 100%; object-fit: contain; width: auto; }
 .site-footer > .container { inline-size: min(100%, 1360px); padding-inline: 52px; }
 @media (max-width: 1280px) { .site-footer > .container { padding-inline: 40px; } }
 @media (max-width: 768px) { .site-footer > .container { padding-inline: 32px; } }
