@@ -37,4 +37,4 @@ Global company data is owned only by **Venix → Site Settings**. The Contact de
 
 The values are shared across languages; only the labels are translated theme strings (screen-reader prefixes, and the visible `WhatsApp ·` prefix). They are not Contact page meta and are absent from the Contact editor schema. Operating hours are not a Site Settings field, are not rendered, and are not invented; if wanted later they become their own Site Settings field.
 
-Also noted, unchanged: Home `form.contact_note` (`Warsaw, Poland · [Confirm operating area]`, editable on Home as wording around the shared form) is an area/hours line, not a Site Settings field. No Instagram/Facebook, company-name or legal-name values exist in any page body; the brand name appears only inside running prose.
+Also noted, unchanged: Home `form.contact_note` (now `Warsaw, Poland`; the `[Confirm operating area]` suffix was removed 2026-10-18, area still unconfirmed; editable on Home as wording around the shared form) is an area/hours line, not a Site Settings field. No Instagram/Facebook, company-name or legal-name values exist in any page body; the brand name appears only inside running prose.

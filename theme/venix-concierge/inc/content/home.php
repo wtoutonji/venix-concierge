@@ -67,7 +67,7 @@ function venix_concierge_home_content() {
 			'eyebrow'    => $copy( 'Beyond the journey', 'Poza samą podróżą', 'Больше, чем поездка' ),
 			'title'      => $copy( 'Other services', 'Inne usługi', 'Дополнительные услуги' ),
 			'link'       => $copy( 'Inquire', 'Zapytaj', 'Запросить' ),
-			'disclaimer' => $copy( 'Selected specialist services are coordinated through authorised partners and are subject to assessment, availability, licensing requirements and applicable regulations. [Confirm service partner arrangements]', 'Wybrane usługi specjalistyczne koordynujemy z autoryzowanymi partnerami; podlegają one ocenie, dostępności, wymogom licencyjnym i obowiązującym przepisom. [Do potwierdzenia: ustalenia partnerskie]', 'Отдельные специализированные услуги организуются через уполномоченных партнёров и зависят от оценки задачи, наличия, лицензионных требований и действующего законодательства. [Требует подтверждения: условия работы с партнёрами]' ),
+			'disclaimer' => $copy( 'Selected specialist services are coordinated through authorised partners and are subject to assessment, availability, licensing requirements and applicable regulations.', 'Wybrane usługi specjalistyczne koordynujemy z autoryzowanymi partnerami; podlegają one ocenie, dostępności, wymogom licencyjnym i obowiązującym przepisom.', 'Отдельные специализированные услуги организуются через уполномоченных партнёров и зависят от оценки задачи, наличия, лицензионных требований и действующего законодательства.' ),
 		),
 		'process' => array(
 			array( '01', $copy( 'Share your requirements', 'Przekaż wymagania', 'Расскажите о задаче' ), $copy( 'Provide the journey, date, passengers, vehicle preference and any special requirements.', 'Prosimy o trasę, datę, liczbę pasażerów, preferencje pojazdu i wymagania specjalne.', 'Укажите маршрут, дату, число пассажиров, пожелания к автомобилю и особые условия.' ) ),
@@ -130,9 +130,11 @@ function venix_concierge_home_content() {
 			),
 			'cta' => $copy( 'Request a Chauffeur', 'Zamów szofera', 'Заказать водителя' ),
 		),
+		// PENDING: no approved client testimonial exists. Empty values keep the section out of the
+		// rendered page; it appears again once a quote is saved in the Home page content.
 		'testimonial' => array(
-			'quote'       => $copy( '[Approved client testimonial to be supplied. No fabricated quotations are used in this prototype.]', '[Miejsce na zatwierdzoną opinię klienta. W prototypie nie stosujemy fikcyjnych cytatów.]', '[Здесь будет размещён утверждённый отзыв клиента. В прототипе вымышленные цитаты не используются.]' ),
-			'attribution' => $copy( '[Client name & role — with permission]', '[Imię i rola klienta — za zgodą]', '[Имя и должность клиента — с согласия]' ),
+			'quote'       => '',
+			'attribution' => '',
 		),
 		'quote' => $copy( 'When every detail is considered, the journey becomes the experience.', 'Gdy każdy szczegół jest przemyślany, podróż staje się przeżyciem.', 'Когда продумана каждая деталь, сама дорога становится событием.' ),
 		'promise' => array(
@@ -151,7 +153,7 @@ function venix_concierge_home_content() {
 			'eyebrow' => $copy( 'Begin the arrangement', 'Rozpocznij ustalenia', 'Оставьте запрос' ),
 			'title'   => $copy( 'Tell us where you need to be. We handle the rest.', 'Prosimy powiedzieć, gdzie mają Państwo być. Resztą zajmiemy się my.', 'Скажите, куда Вам нужно попасть. Остальное — наша забота.' ),
 			'lead'    => $copy( 'Share your route, schedule and requirements. Our team will review the details and reply with a tailored proposal through your preferred method of contact.', 'Prosimy o przekazanie trasy, terminu i wymagań. Nasz zespół przeanalizuje szczegóły i odpowie dopasowaną propozycją wybraną przez Państwa drogą kontaktu.', 'Укажите маршрут, время и пожелания. Наша команда изучит детали и ответит индивидуальным предложением тем способом связи, который Вам удобен.' ),
-			'contact_note' => $copy( 'Warsaw, Poland · [Confirm operating area]', 'Warszawa · [Do potwierdzenia: obszar działania]', 'Варшава, Польша · [Требует подтверждения: зона обслуживания]' ),
+			'contact_note' => $copy( 'Warsaw, Poland', 'Warszawa', 'Варшава, Польша' ),
 			'fields' => array(
 				array( 'home-name', $copy( 'Full Name', 'Imię i nazwisko', 'Имя и фамилия' ), 'text', 'full_name', true, 'name' ),
 				array( 'home-email', $copy( 'Email Address', 'Adres e-mail', 'Адрес электронной почты' ), 'email', 'email', true, 'email' ),

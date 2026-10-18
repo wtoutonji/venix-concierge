@@ -111,8 +111,8 @@ None of these has been supplied; none has been invented or filled in.
 | Phone | UNRESOLVED — Site Settings `phone` is empty; footer and Contact omit the row until supplied |
 | WhatsApp | UNRESOLVED — Site Settings `whatsapp` is empty; footer and Contact omit the row until supplied |
 | Email | UNRESOLVED — Site Settings `email` is empty; footer and Contact omit the row until supplied |
-| Operating hours / area | UNRESOLVED — not a Site Settings field and no longer shown on Contact; Home keeps `[Confirm operating area]` |
-| Specialist-partner arrangements | UNRESOLVED — Home services disclaimer still carries `[Confirm service partner arrangements]` (PL: `[Do potwierdzenia: ustalenia partnerskie]`) |
+| Operating hours / area | UNRESOLVED — not a Site Settings field and no longer shown on Contact; Home bracket placeholder removed 2026-10-18 (question still open) |
+| Specialist-partner arrangements | UNRESOLVED — bracket placeholder removed from the Home services disclaimer 2026-10-18 (EN/PL/RU); arrangements still unconfirmed. Home Testimonial section disabled (not rendered) pending an approved testimonial |
 | Privacy policy URL/text | UNRESOLVED — no link; consent text carries no policy claim |
 | Form recipient / backend | UNRESOLVED — none exists; submit disabled |
 | Retention policy | UNRESOLVED |

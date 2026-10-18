@@ -350,7 +350,7 @@ in the fleet), alts mentioning "diplomatic" transport. Home V-Class alt is only
 service area undefined); "typically within one business day" (Contact; RU meta no longer
 repeats it); "Warsaw Chopin and other airports" (EN/PL Services); delegation, protection,
 flight and airport notices; partner/licensing wording; privacy/consent text and the
-draft Privacy Policy (no PL/RU versions); `[Confirm operating area]` and capacity
+draft Privacy Policy (no PL/RU versions); operating area (bracket placeholder removed, question still open) and capacity
 placeholders; the disabled prototype inquiry form. SEO recommendations above do not
 change any of them.
 
@@ -479,9 +479,15 @@ Europe-wide transfer / transfer w Europie / трансфер по Европе; 
    and implies intercity travel. Existing claim, left untouched; **do not build on it**.
 4. **"in Warsaw and beyond" / "i poza nią" / "за её пределами"** — Home hero; service area
    still undefined (§12). Left untouched; the proposed hero edit for RU keeps it verbatim.
-5. **Visible placeholders in public Home copy** — `[Confirm service partner arrangements]`,
-   `[Confirm operating area]`, the testimonial placeholder text (EN/PL/RU variants). They are
-   indexable text; resolve before launch. Not touched.
+5. **Visible placeholders in public Home copy — removed (content cleanup, 2026-10-18)** —
+   the bracketed `[Confirm service partner arrangements]`, `[Confirm operating area]` and
+   the Testimonial placeholder text (EN/PL/RU variants) were **removed from the rendered
+   site rather than filled with unapproved claims**. The Home contact note now reads
+   "Warsaw, Poland" / "Warszawa" / "Варшава, Польша". The Testimonial section is
+   **temporarily disabled**: it is not output at all (no hidden HTML) until an approved
+   testimonial is saved in Home content (Home → Testimonial). These are cleanup decisions,
+   **not** evidence that the underlying questions are resolved: service-partner
+   arrangements, the operating area and testimonial approval remain **pending client input**.
 6. **Fleet capacities** ("Passenger and luggage capacities to be confirmed", passenger/luggage numbers) — unchanged.
 7. **"Luxury / luksusowe / люкс"** — About title "Luxury …" is itself still listed as needing approval (audit §9). The client list contains "Luksusowe samochody", so the *intent* is client-supplied, but the first use of "luksusowe" on a page is a new wording choice → covered by the Fleet approval row.
 8. **"Okęcie" / "Warsaw Chopin and other airports"** on Services — pending airport wording, not strengthened.
@@ -772,7 +778,7 @@ embassy cards are *not* given new links (no strengthening of pending claims).
 8. Confirm "chauffeur hire" (Services) / "chauffeur service" (Home) split for English.
 9. Does "obsługa eventowa" mean transport coordination only?
 10. Is the S-Class offered for weddings ("S-Class na ślub")? Is "Luksusowe samochody" meant as chauffeur-driven only?
-11. Replace the visible placeholders on Home (partner arrangements, operating area, testimonial).
+11. Home placeholders were removed and the Testimonial section disabled (2026-10-18); still need client input on partner arrangements, operating area and an approved testimonial.
 
 ## 15. Applied content round — Services, Fleet, Home (2026-10-18)
 
