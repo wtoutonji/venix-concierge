@@ -3,6 +3,7 @@
 .venix-field__control { background: var(--venix-bg-page); border: 1px solid var(--venix-border-subtle); border-radius: var(--venix-radius-sm); color: var(--venix-fg-default); font-family: var(--venix-font-body); font-size: var(--wp--preset--font-size--sm); letter-spacing: 0.02em; min-height: 44px; padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--4); transition: border-color var(--venix-motion-base); width: 100%; }
 .venix-field__control::placeholder { color: var(--venix-fg-muted); }
 .venix-field__control:focus { border-color: var(--venix-border-focus); outline: none; }
+.venix-field__control:focus-visible { outline: 2px solid var(--venix-border-focus); outline-offset: 2px; }
 .venix-field--invalid .venix-field__control { border-color: var(--venix-fg-danger); }
 .venix-field__control--textarea { min-height: 96px; resize: vertical; }
 .venix-field__select-wrap { display: flex; position: relative; }

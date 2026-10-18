@@ -1,6 +1,6 @@
 <?php
 /**
- * Idempotent local bootstrap for the Venix Concierge Polylang page entities.
+ * Idempotent local bootstrap for the Venix Concierge Polylang page entities (EN, PL and RU).
  *
  * Run only from the LocalWP Site Shell:
  * wp eval-file "D:\Wordpress Projects\Projects\venix-concierge\scripts\setup-polylang-site.php"
@@ -46,7 +46,7 @@ foreach ( $languages as $language ) {
 	}
 }
 
-foreach ( array( 'en' => 'en_US', 'pl' => 'pl_PL' ) as $slug => $locale ) {
+foreach ( array( 'en' => 'en_US', 'pl' => 'pl_PL', 'ru' => 'ru_RU' ) as $slug => $locale ) {
 	if ( empty( $by_slug[ $slug ] ) ) {
 		venix_concierge_setup_fail( "Required Polylang language '{$slug}' does not exist." );
 	}
@@ -141,7 +141,9 @@ function venix_concierge_setup_page( $title, $slug, $language ) {
 		if ( is_wp_error( $updated_page_id ) ) {
 			venix_concierge_setup_fail( "Could not set shared slug '{$slug}' for {$language} page '{$title}': {$updated_page_id->get_error_message()}" );
 		}
-	} else {
+	} elseif ( 'publish' !== get_post_status( $page_id ) ) {
+		// Only publish a page that is not already published. Rewriting an
+		// already-published page would falsely change its post_modified date.
 		$updated_page_id = wp_update_post(
 			array(
 				'ID'          => $page_id,
@@ -160,7 +162,7 @@ function venix_concierge_setup_page( $title, $slug, $language ) {
 
 /** Verify a non-home translation pair retained its configured shared slug. */
 function venix_concierge_setup_verify_shared_slug( $role, $translations ) {
-	foreach ( array( 'en', 'pl' ) as $language ) {
+	foreach ( array( 'en', 'pl', 'ru' ) as $language ) {
 		$actual_slug = get_post_field( 'post_name', $translations[ $language ] );
 
 		if ( $role !== $actual_slug ) {
@@ -170,11 +172,11 @@ function venix_concierge_setup_verify_shared_slug( $role, $translations ) {
 }
 
 $roles = array(
-	'home'     => array( 'en' => array( 'Home', 'home' ), 'pl' => array( 'Strona główna', 'home' ) ),
-	'about'    => array( 'en' => array( 'About', 'about' ), 'pl' => array( 'O nas', 'about' ) ),
-	'services' => array( 'en' => array( 'Services', 'services' ), 'pl' => array( 'Usługi', 'services' ) ),
-	'fleet'    => array( 'en' => array( 'Fleet', 'fleet' ), 'pl' => array( 'Flota', 'fleet' ) ),
-	'contact'  => array( 'en' => array( 'Contact', 'contact' ), 'pl' => array( 'Kontakt', 'contact' ) ),
+	'home'     => array( 'en' => array( 'Home', 'home' ), 'pl' => array( 'Strona główna', 'home' ), 'ru' => array( 'Главная', 'home' ) ),
+	'about'    => array( 'en' => array( 'About', 'about' ), 'pl' => array( 'O nas', 'about' ), 'ru' => array( 'О компании', 'about' ) ),
+	'services' => array( 'en' => array( 'Services', 'services' ), 'pl' => array( 'Usługi', 'services' ), 'ru' => array( 'Услуги', 'services' ) ),
+	'fleet'    => array( 'en' => array( 'Fleet', 'fleet' ), 'pl' => array( 'Flota', 'fleet' ), 'ru' => array( 'Автопарк', 'fleet' ) ),
+	'contact'  => array( 'en' => array( 'Contact', 'contact' ), 'pl' => array( 'Kontakt', 'contact' ), 'ru' => array( 'Контакты', 'contact' ) ),
 );
 $records = array();
 
@@ -188,8 +190,10 @@ foreach ( $roles as $role => $translations ) {
 	pll_save_post_translations( $records[ $role ] );
 	$actual = pll_get_post_translations( $records[ $role ]['en'] );
 
-	if ( (int) $actual['en'] !== $records[ $role ]['en'] || (int) $actual['pl'] !== $records[ $role ]['pl'] ) {
-		venix_concierge_setup_fail( "Polylang did not save the {$role} EN/PL translation relationship." );
+	foreach ( array( 'en', 'pl', 'ru' ) as $language ) {
+		if ( ! isset( $actual[ $language ] ) || (int) $actual[ $language ] !== $records[ $role ][ $language ] ) {
+			venix_concierge_setup_fail( "Polylang did not save the {$role} EN/PL/RU translation relationship." );
+		}
 	}
 
 	if ( 'home' !== $role ) {
@@ -205,12 +209,14 @@ if ( 'page' !== get_option( 'show_on_front' ) || $records['home']['en'] !== (int
 	venix_concierge_setup_fail( 'WordPress did not retain the English static front-page assignment.' );
 }
 
-if ( $records['home']['pl'] !== (int) pll_get_post( (int) get_option( 'page_on_front' ), 'pl' ) ) {
-	venix_concierge_setup_fail( 'Polylang did not resolve the Polish Home page from the English static front page.' );
+foreach ( array( 'pl', 'ru' ) as $language ) {
+	if ( $records['home'][ $language ] !== (int) pll_get_post( (int) get_option( 'page_on_front' ), $language ) ) {
+		venix_concierge_setup_fail( "Polylang did not resolve the {$language} Home page from the English static front page." );
+	}
 }
 
 echo "SUCCESS: Venix page translation sets and English static front page are ready.\n";
 foreach ( $records as $role => $translations ) {
-	echo strtoupper( $role ) . ': en=' . $translations['en'] . ' pl=' . $translations['pl'] . "\n";
+	echo strtoupper( $role ) . ': en=' . $translations['en'] . ' pl=' . $translations['pl'] . ' ru=' . $translations['ru'] . "\n";
 }
 echo "Menus intentionally require WordPress Admin assignment; see handoff/generated/polylang-implementation-map.md.\n";

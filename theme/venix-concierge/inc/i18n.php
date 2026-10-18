@@ -21,7 +21,7 @@ function venix_concierge_current_language() {
 	if ( function_exists( 'pll_current_language' ) ) {
 		$language = pll_current_language( 'slug' );
 
-		if ( in_array( $language, array( 'en', 'pl' ), true ) ) {
+		if ( in_array( $language, array( 'en', 'pl', 'ru' ), true ) ) {
 			return $language;
 		}
 	}
@@ -32,12 +32,23 @@ function venix_concierge_current_language() {
 /**
  * Select approved server-side copy for the current language.
  *
- * @param string $english Approved English source.
- * @param string $polish  Approved Polish source.
+ * Russian is a transcreation of the approved English source, not a literal
+ * translation. A caller that omits the Russian copy deliberately shows the
+ * English source rather than Polish text on a /ru/ page.
+ *
+ * @param string      $english Approved English source.
+ * @param string      $polish  Approved Polish source.
+ * @param string|null $russian Approved Russian transcreation.
  * @return string
  */
-function venix_concierge_language_copy( $english, $polish ) {
-	return 'pl' === venix_concierge_current_language() ? $polish : $english;
+function venix_concierge_language_copy( $english, $polish, $russian = null ) {
+	$language = venix_concierge_current_language();
+
+	if ( 'pl' === $language ) {
+		return $polish;
+	}
+
+	return 'ru' === $language && null !== $russian ? $russian : $english;
 }
 
 /**
@@ -46,16 +57,14 @@ function venix_concierge_language_copy( $english, $polish ) {
  * @return array<string, string>
  */
 function venix_concierge_shell_labels() {
-	$polish = 'pl' === venix_concierge_current_language();
-
 	return array(
-		'home'           => $polish ? 'Strona główna' : 'Home',
-		'about'          => $polish ? 'O nas' : 'About',
-		'services'       => $polish ? 'Usługi' : 'Services',
-		'other_services' => $polish ? 'Inne usługi' : 'Other services',
-		'fleet'          => $polish ? 'Flota' : 'Fleet',
-		'contact'        => $polish ? 'Kontakt' : 'Contact',
-		'navigation'     => $polish ? 'Nawigacja' : 'Navigation',
-		'request'        => $polish ? 'Zamów szofera' : 'Request a chauffeur',
+		'home'           => venix_concierge_language_copy( 'Home', 'Strona główna', 'Главная' ),
+		'about'          => venix_concierge_language_copy( 'About', 'O nas', 'О компании' ),
+		'services'       => venix_concierge_language_copy( 'Services', 'Usługi', 'Услуги' ),
+		'other_services' => venix_concierge_language_copy( 'Other services', 'Inne usługi', 'Дополнительные услуги' ),
+		'fleet'          => venix_concierge_language_copy( 'Fleet', 'Flota', 'Автопарк' ),
+		'contact'        => venix_concierge_language_copy( 'Contact', 'Kontakt', 'Контакты' ),
+		'navigation'     => venix_concierge_language_copy( 'Navigation', 'Nawigacja', 'Навигация' ),
+		'request'        => venix_concierge_language_copy( 'Request a chauffeur', 'Zamów szofera', 'Заказать водителя' ),
 	);
 }

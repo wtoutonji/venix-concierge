@@ -160,3 +160,126 @@ Polylang APIs. Do not use SQL or modify rewrite settings. Verify resulting
 `post_name` values are exactly `about`, `services`, `fleet`, and `contact` for
 both translations; report a shared-slug configuration issue if WordPress
 instead produces a suffixed slug.
+
+## Russian (`ru`, `/ru/`) addition
+
+Russian is a transcreation of the approved English copy, not a literal
+translation. It follows the existing EN/PL architecture; no parallel framework.
+
+- **Language:** Polylang `ru` / `ru_RU` / name «Русский», order 3, directory mode
+  (`/ru/`). The `ru_RU` core language pack is installed (`wp language core install ru_RU`).
+- **Pages (shared slugs, same as PL):** Главная (172, static-front-page pair),
+  О компании (174, `about`), Услуги (176, `services`), Автопарк (178, `fleet`),
+  Контакты (180, `contact`). Created and linked by
+  `scripts/setup-polylang-site.php`, which now handles `en`/`pl`/`ru`.
+- **Copy ownership:** `inc/content/*.php` take a third `$russian` argument via
+  `venix_concierge_language_copy( $en, $pl, $ru )`. `venix_concierge_current_language()`
+  accepts `ru`. A caller that omits the Russian copy falls back to English, never Polish.
+- **Theme gettext (a11y/system strings):** `languages/ru_RU.l10n.php` (native WP PHP
+  translation file; theme-local files are named by locale only).
+- **Typography:** Cinzel has no Cyrillic glyphs. `assets/css/lang-ru.css`
+  (enqueued on Russian only) declares Forum (SIL OFL 1.1, Cyrillic subsets only,
+  self-hosted) for `--venix-font-display` under `:lang(ru)`. Latin brand/vehicle
+  names inside Russian headings keep rendering in Cinzel.
+- **Menus:** Primary RU (24) and Footer RU (25) created with the core menu API and
+  assigned through the Appearance → Menus → Locations form (`primary___ru`,
+  `footer___ru`); EN/PL assignments were preserved. `legal` remains unassigned.
+- **Image alt:** per-page `media_alt` overrides on the RU pages (the Media Library
+  alt is English and would otherwise win). Media IDs and the hero video were copied
+  from the English page meta.
+- **SEO:** Russian title, meta description and focus keyword are stored per RU page
+  in Rank Math's meta keys (`rank_math_title`, `rank_math_description`,
+  `rank_math_focus_keyword`). **Rank Math is not installed**, so nothing outputs
+  them yet; install/activate Rank Math to apply them. Polylang already outputs
+  EN/PL/RU `hreflang` and self-referencing canonicals; the core sitemap lists
+  `/ru/` pages in `/ru/wp-sitemap-posts-page-1.xml`.
+
+| Page | Search intent | Primary | Secondary |
+| --- | --- | --- | --- |
+| Home | find a chauffeur company in Warsaw | персональный водитель Варшава | VIP трансфер Варшава; трансфер с водителем в Варшаве; консьерж сервис Варшава |
+| About | trust in the company | Venix Concierge Варшава | премиальный трансфер Варшава |
+| Services | compare transfer/delegation services | VIP трансфер Варшава | трансфер из аэропорта Варшавы; транспорт для делегаций Варшава |
+| Fleet | choose a vehicle | аренда Mercedes с водителем Варшава | Mercedes S-Class с водителем; Sprinter аренда с водителем |
+| Contact | place an enquiry | заказать трансфер Варшава | VIP трансфер заказ |
+
+Intentionally unchanged on `/ru/`: brand and vehicle names, contact values, legal
+name, the English brand slogan «Own the moment» (footer, site tagline, home
+`<title>`), and the `SHORT · LONG · XL` V-Class label (identical in EN/PL).
+
+### Russian review decisions
+
+- **Brand slogan.** «Own the moment» is an intentional Venix brand slogan and stays
+  untranslated in visible branding in EN, PL and RU (footer tagline, site tagline).
+  It is **not** used as the Russian SEO title: each RU page carries its own
+  localized `rank_math_title` (see SEO above). The Russian home `<title>` shown
+  locally ("Venix Concierge — Own The Moment") comes from the WordPress site
+  tagline only because Rank Math is not installed locally; production Rank Math
+  outputs the stored Russian title instead.
+- **`SHORT · LONG · XL`.** These are the V-Class body-length variants (Mercedes-Benz
+  compact / long / extra-long) used as product terminology, not marketing copy.
+  Kept identical in EN, PL and RU on purpose, as with the model names.
+- **Modification dates.** Adding a language must not change unrelated pages.
+  `scripts/setup-polylang-site.php` now only publishes an existing page that is
+  not already published, so re-running it leaves EN/PL `post_modified` untouched.
+  The dates changed by the first RU run were restored to their original values.
+- **Image alt.** Sprinter interior Media Library alt (attachments 163, 164) said
+  "V-Class"; both now describe the Sprinter. EN/PL/RU pages carry per-language
+  `media_alt` overrides for every media slot (PL previously inherited English alt).
+  Known remaining EN library alt issue: attachment 160 repeats "Venix Concierge".
+
+### Pending human / legal approval (not finalized)
+
+Russian wording mirrors the English text and changes no meaning; none of the
+following is approved for production:
+
+- Form consent / privacy sentence (and the absence of any Russian Privacy Policy page).
+- Delegation disclaimer (no diplomatic accreditation, police escort, special road
+  privileges or government authorization).
+- Private protection, private flights and "other services" partner/licensing
+  disclaimers, including the bracketed placeholder «[Требует подтверждения: условия работы с партнёрами]».
+- Placeholders «[Требует подтверждения: зона обслуживания]» and the testimonial
+  placeholders.
+- Airport notice (flight tracking, free waiting time, terminal access "subject to confirmation").
+- Form prototype status text and disabled «Форма в настройке» button.
+
+### Rank Math status — PENDING PRODUCTION/STAGING VERIFICATION
+
+Rank Math is not installed locally. The Russian `rank_math_title`,
+`rank_math_description` and `rank_math_focus_keyword` values are stored on pages
+172–180 and must be preserved. Rank Math output (title, description, canonical,
+robots, hreflang handling, sitemap) is **not validated** locally. The local
+WordPress core sitemap is not evidence for production: production must be
+validated against the active Rank Math sitemap after deployment.
+
+### Production verification checklist
+
+1. Rank Math active; Russian pages show the stored Russian titles/descriptions
+   (view-source on each `/ru/` URL); the slogan is not the title.
+2. Rank Math sitemap index lists the `/ru/` URLs, with no `noindex` and no
+   English/Polish URL canonicalizing for `/ru/` pages.
+3. `<link rel="canonical">` on each `/ru/` page is its own URL; hreflang `en`, `pl`,
+   `ru` (plus x-default per policy) are present and reciprocal.
+4. Polylang language `ru` exists with `/ru/` directory mode; five page sets linked;
+   Primary RU / Footer RU assigned (`primary___ru`, `footer___ru`).
+5. `ru_RU` language pack present; `Forum` Cyrillic fonts load on `/ru/` only.
+6. Pending legal approvals above resolved before launch.
+7. Re-run keyboard, reduced-motion and `/ru/services/` anchor checks on staging.
+
+### Russian interaction QA (local, headless Chrome via DevTools protocol)
+
+- **Keyboard/focus:** every interactive element on the five `/ru/` pages is reachable
+  by Tab at 1440 and 390 px; no focusable-but-invisible stops; skip link first.
+  Language switcher, nav, anchors, buttons and form controls show a visible focus
+  ring. Text inputs previously suppressed it (`outline: none` with only a border
+  colour change); `components/input.css` now adds a `:focus-visible` ring (shared
+  component, so EN/PL gain it too). The only non-ringed stop is Chrome's internal
+  date-picker icon inside the date field (the field itself is ringed).
+- **Mobile menu:** Enter opens, focus moves into the panel, Escape closes from the
+  toggle and from inside the panel, and focus returns to the toggle.
+- **Dialogs:** the dialog component is not used on any page; N/A on the live site.
+- **Reduced motion:** `scroll-behavior: auto`, hero video hidden and paused, reveal
+  items fully visible, no infinite animations, no timed transitions.
+- **`/ru/services/` anchors:** all 9 anchors land clear of the fixed header at
+  1440, 768 and 390 px; deep link `#airport` verified at all three widths.
+- **Not done locally:** screen-reader testing, real-device testing, and any
+  verification of Rank Math output.

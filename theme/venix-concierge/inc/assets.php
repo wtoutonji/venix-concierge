@@ -80,6 +80,11 @@ function venix_concierge_enqueue_script( $handle, $relative_path, $deps = array(
 function venix_concierge_enqueue_global_assets() {
 	venix_concierge_enqueue_style( 'venix-concierge-tokens', '/assets/css/tokens.css' );
 	venix_concierge_enqueue_style( 'venix-concierge-base', '/assets/css/base.css', array( 'venix-concierge-tokens' ) );
+
+	if ( 'ru' === venix_concierge_current_language() ) {
+		venix_concierge_enqueue_style( 'venix-concierge-lang-ru', '/assets/css/lang-ru.css', array( 'venix-concierge-tokens' ) );
+	}
+
 	venix_concierge_enqueue_style( 'venix-concierge-layout', '/assets/css/layout.css', array( 'venix-concierge-base' ) );
 	venix_concierge_enqueue_style( 'venix-concierge-header', '/assets/css/header.css', array( 'venix-concierge-layout' ) );
 	venix_concierge_enqueue_style( 'venix-concierge-footer', '/assets/css/footer.css', array( 'venix-concierge-layout' ) );

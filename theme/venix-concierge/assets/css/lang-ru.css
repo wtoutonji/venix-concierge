@@ -1,0 +1,30 @@
+/*
+ * Russian typography.
+ *
+ * Cinzel, the display face, has no Cyrillic glyphs. Forum (SIL OFL 1.1) is a
+ * classical Roman serif with full Cyrillic coverage and a similar inscriptional
+ * proportion. Only the Cyrillic subsets are declared, so Latin text inside a
+ * Russian heading (brand and vehicle names) keeps rendering in Cinzel.
+ * Loaded on Russian pages only.
+ */
+@font-face {
+  font-family: "Forum";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Forum-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: "Forum";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Forum-cyrillic-ext.woff2") format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+:root:lang(ru) {
+  --venix-font-display: "Forum", var(--wp--preset--font-family--cinzel);
+}
