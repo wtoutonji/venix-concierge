@@ -22,6 +22,15 @@ Full audit: `docs/SEO-AUDIT-2026-10-18.md`.
   published page. Exit code 1 on any problem.
 - **Dry-run by default.** Nothing is written without the `apply` argument.
 
+**Metadata and copy travel separately.** The script carries only titles, descriptions and
+focus keywords (data file `scripts/seo/rank-math-seo-data.php`). The matching page copy
+(Services lead, Fleet guidance paragraph, revised headings and in-body links, 2026-10-18
+content round) ships with the **theme** and **project-core** (new editor fields), so deploy
+both before or together with the script; none of that copy is stored in the database
+(`_venix_page_content` holds only media and alt overrides). Inline links in copy use
+`{{link text|page#anchor}}` tokens resolved per language by
+`venix_concierge_linked_text()`, so they point at the right `/pl/`, `/ru/` URL on any host.
+
 Not done by the script (by design): Rank Math setup wizard, module changes, x-default
 hreflang, site logo/social image, schema other than the options above. The
 homepage `SearchAction` is removed by a filter in `project-core`

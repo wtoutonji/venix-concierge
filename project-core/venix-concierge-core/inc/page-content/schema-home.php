@@ -90,6 +90,7 @@ function venix_concierge_core_home_page_content_schema() {
 				$f( array( 'services', 'eyebrow' ), __( 'Small heading above the title', 'venix-concierge-core' ) ),
 				$f( array( 'services', 'title' ), __( 'Heading', 'venix-concierge-core' ) ),
 				$f( array( 'services', 'link' ), __( 'Link text on every card', 'venix-concierge-core' ) ),
+				$f( array( 'services', 'all' ), __( 'Link text to the Services page', 'venix-concierge-core' ) ),
 			)
 		),
 	);
@@ -132,6 +133,7 @@ function venix_concierge_core_home_page_content_schema() {
 				$f( array( 'fleet', 'title' ), __( 'Heading', 'venix-concierge-core' ) ),
 				$f( array( 'fleet', 'copy' ), __( 'Intro text', 'venix-concierge-core' ), 'textarea' ),
 				$f( array( 'fleet', 'note' ), __( 'Note about models', 'venix-concierge-core' ) ),
+				$f( array( 'fleet', 'all' ), __( 'Link text to the Fleet page', 'venix-concierge-core' ) ),
 			)
 		),
 		$g(

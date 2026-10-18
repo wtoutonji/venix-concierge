@@ -5,15 +5,18 @@
  * Page families match the shared canonical slug used by every language
  * (home, about, services, fleet, contact). EN values are the approved handoff
  * records. PL values are pending human approval; see docs/SEO-AUDIT-2026-10-18.md.
+ * Home, Services and Fleet (EN/PL/RU) follow docs/SEO-KEYWORD-STRATEGY.md §14 as
+ * amended by the 2026-10-18 approval (EN Services = chauffeur service; EN Home =
+ * chauffeur and concierge company; EN Fleet keeps its approved title).
  */
 
 return array(
 	'pages'                => array(
 		'en' => array(
 			'home'     => array(
-				'title'         => 'Venix Concierge | Chauffeur Service in Warsaw',
-				'description'   => 'Private chauffeur services, executive transportation and airport transfers in Warsaw. Venix Concierge — every journey, handled with precision.',
-				'focus_keyword' => 'chauffeur service Warsaw',
+				'title'         => 'Venix Concierge | Chauffeur and Concierge Company in Warsaw',
+				'description'   => 'Venix Concierge is a Warsaw chauffeur and concierge company: private chauffeurs, executive transportation and airport transfers, handled with precision.',
+				'focus_keyword' => 'chauffeur and concierge company',
 			),
 			'about'    => array(
 				'title'         => 'About Venix Concierge | Luxury Chauffeur Service Warsaw',
@@ -21,14 +24,14 @@ return array(
 				'focus_keyword' => 'Venix Concierge',
 			),
 			'services' => array(
-				'title'         => 'Chauffeur and Private Transfer Services in Warsaw | Venix Concierge',
-				'description'   => 'Private transfers, airport chauffeur, event transportation, diplomatic transfers, concierge services and weddings in Warsaw. Venix Concierge.',
-				'focus_keyword' => 'private transfer services Warsaw',
+				'title'         => 'Chauffeur Service and Hire in Warsaw | Venix Concierge',
+				'description'   => 'Chauffeur service in Warsaw by the hour or the day: chauffeur hire, airport transfers, events, delegations, concierge services and weddings. Venix Concierge.',
+				'focus_keyword' => 'chauffeur service',
 			),
 			'fleet'    => array(
 				'title'         => 'Luxury Chauffeur Fleet in Warsaw | Venix Concierge',
-				'description'   => 'Explore the Venix Concierge fleet — Mercedes-Benz S-Class, E-Class, V-Class and Sprinter, each matched to the journey, the passengers and the occasion.',
-				'focus_keyword' => 'luxury chauffeur fleet Warsaw',
+				'description'   => 'Explore the Venix Concierge luxury chauffeur fleet — Mercedes-Benz S-Class, E-Class, V-Class and Sprinter, each matched to the journey, passengers and occasion.',
+				'focus_keyword' => 'luxury chauffeur fleet',
 			),
 			'contact'  => array(
 				'title'         => 'Request a Chauffeur in Warsaw | Venix Concierge',
@@ -38,9 +41,9 @@ return array(
 		),
 		'pl' => array(
 			'home'     => array(
-				'title'         => 'Venix Concierge | Szofer i transfery VIP w Warszawie',
-				'description'   => 'Prywatny szofer, transport biznesowy i transfery lotniskowe w Warszawie. Venix Concierge — każda podróż dopracowana z precyzją.',
-				'focus_keyword' => 'szofer Warszawa',
+				'title'         => 'Venix Concierge | Usługi szoferskie i concierge w Warszawie',
+				'description'   => 'Prywatne usługi szoferskie, transport biznesowy, transfery lotniskowe i usługi concierge w Warszawie. Venix Concierge — każda podróż dopracowana z precyzją.',
+				'focus_keyword' => 'usługi szoferskie',
 			),
 			'about'    => array(
 				'title'         => 'O Venix Concierge | Szofer i concierge w Warszawie',
@@ -48,14 +51,14 @@ return array(
 				'focus_keyword' => 'Venix Concierge',
 			),
 			'services' => array(
-				'title'         => 'Transfery z szoferem w Warszawie – usługi | Venix Concierge',
-				'description'   => 'Transfery prywatne i lotniskowe, transport na wydarzenia i dla delegacji, usługi concierge oraz śluby w Warszawie. Venix Concierge.',
-				'focus_keyword' => 'transfery z szoferem Warszawa',
+				'title'         => 'Wynajem samochodu z kierowcą w Warszawie | Venix Concierge',
+				'description'   => 'Wynajem samochodu z kierowcą w Warszawie na godziny lub cały dzień. Transfery lotniskowe, transport na wydarzenia i dla delegacji, concierge. Venix Concierge.',
+				'focus_keyword' => 'wynajem samochodu z kierowcą',
 			),
 			'fleet'    => array(
-				'title'         => 'Flota Mercedes-Benz z szoferem w Warszawie | Venix Concierge',
-				'description'   => 'Poznaj flotę Venix Concierge — Mercedes-Benz Klasa S, Klasa E, Klasa V i Sprinter, dobrane do podróży, liczby pasażerów i okazji.',
-				'focus_keyword' => 'Mercedes z kierowcą Warszawa',
+				'title'         => 'Luksusowe samochody z kierowcą w Warszawie | Venix Concierge',
+				'description'   => 'Luksusowe samochody z kierowcą w Warszawie: Mercedes-Benz S-Class, E-Class, V-Class i Sprinter, dobrane do podróży, liczby pasażerów i okazji.',
+				'focus_keyword' => 'luksusowe samochody',
 			),
 			'contact'  => array(
 				'title'         => 'Zamów szofera w Warszawie – kontakt | Venix Concierge',
@@ -66,8 +69,8 @@ return array(
 		'ru' => array(
 			'home'     => array(
 				'title'         => 'Персональный водитель в Варшаве | Venix Concierge',
-				'description'   => 'Персональный водитель, VIP-трансфер и консьерж-сервис в Варшаве: деловые поездки, трансфер из аэропорта, транспорт для делегаций и мероприятий.',
-				'focus_keyword' => 'персональный водитель Варшава',
+				'description'   => 'Персональный водитель, деловые трансферы, трансфер из аэропорта и консьерж-сервис в Варшаве: транспорт для частных клиентов, компаний, делегаций и мероприятий.',
+				'focus_keyword' => 'персональный водитель',
 			),
 			'about'    => array(
 				'title'         => 'О компании Venix Concierge | Премиальный сервис в Варшаве',
@@ -75,14 +78,14 @@ return array(
 				'focus_keyword' => 'Venix Concierge Варшава',
 			),
 			'services' => array(
-				'title'         => 'Услуги водителя и VIP-трансферы в Варшаве | Venix Concierge',
-				'description'   => 'Трансфер из аэропорта, персональный водитель, транспорт для делегаций и мероприятий, консьерж-сервис и свадьбы в Варшаве. Venix Concierge.',
-				'focus_keyword' => 'VIP трансфер Варшава',
+				'title'         => 'Аренда автомобиля с водителем в Варшаве | Venix Concierge',
+				'description'   => 'Аренда автомобиля с водителем в Варшаве на часы или на день: трансфер из аэропорта, транспорт для мероприятий и делегаций, консьерж-сервис. Venix Concierge.',
+				'focus_keyword' => 'аренда автомобиля с водителем',
 			),
 			'fleet'    => array(
-				'title'         => 'Автопарк Mercedes-Benz в Варшаве | Venix Concierge',
-				'description'   => 'S-Class, E-Class, V-Class и Sprinter для деловых поездок, трансферов из аэропорта, мероприятий и групп. Подберём автомобиль под Вашу задачу.',
-				'focus_keyword' => 'аренда Mercedes с водителем Варшава',
+				'title'         => 'Автомобили премиум-класса с водителем в Варшаве | Venix Concierge',
+				'description'   => 'Автомобили премиум-класса с водителем: Mercedes-Benz S-Class, E-Class, V-Class и Sprinter для деловых поездок, трансферов из аэропорта и мероприятий.',
+				'focus_keyword' => 'автомобили премиум-класса',
 			),
 			'contact'  => array(
 				'title'         => 'Контакты и заказ трансфера в Варшаве | Venix Concierge',

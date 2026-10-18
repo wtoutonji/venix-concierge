@@ -35,6 +35,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 } )();
 
+if ( is_admin() ) {
+	require_once get_theme_file_path( '/inc/seo-analysis.php' );
+}
+
 if ( class_exists( 'WooCommerce' ) ) {
 	require_once get_theme_file_path( '/inc/woocommerce.php' );
 }

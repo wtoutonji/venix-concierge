@@ -135,3 +135,44 @@ function venix_concierge_render_language_switcher() {
 	}
 	echo '</nav>';
 }
+
+/**
+ * Render editorial copy with optional inline page links.
+ *
+ * Copy strings may contain `{{link text|page}}` or `{{link text|page#anchor}}`,
+ * where `page` is a shared canonical page slug (`services`, `fleet`, `about`,
+ * `contact`). Everything else is escaped as plain text, so editor overrides can
+ * keep, move or remove a link but can never inject markup.
+ *
+ * @param string $text Copy string, possibly containing link tokens.
+ * @return string Safe HTML for direct output.
+ */
+function venix_concierge_linked_text( $text ) {
+	$text   = (string) $text;
+	$output = '';
+	$offset = 0;
+
+	if ( preg_match_all( '/\{\{([^|{}]+)\|([a-z-]+)(?:#([a-z-]+))?\}\}/u', $text, $matches, PREG_SET_ORDER | PREG_OFFSET_CAPTURE ) ) {
+		foreach ( $matches as $match ) {
+			$token_start = $match[0][1];
+			$url         = venix_concierge_page_url( $match[2][0], isset( $match[3][0] ) ? $match[3][0] : '' );
+			$output     .= esc_html( substr( $text, $offset, $token_start - $offset ) );
+			$output     .= '' !== $url
+				? '<a class="venix-inline-link" href="' . esc_url( $url ) . '">' . esc_html( $match[1][0] ) . '</a>'
+				: esc_html( $match[1][0] );
+			$offset      = $token_start + strlen( $match[0][0] );
+		}
+	}
+
+	return $output . esc_html( substr( $text, $offset ) );
+}
+
+/**
+ * Strip link tokens, keeping the link text (for attributes and plain-text uses).
+ *
+ * @param string $text Copy string, possibly containing link tokens.
+ * @return string
+ */
+function venix_concierge_plain_text( $text ) {
+	return (string) preg_replace( '/\{\{([^|{}]+)\|[a-z-]+(?:#[a-z-]+)?\}\}/u', '$1', (string) $text );
+}

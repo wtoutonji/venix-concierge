@@ -128,6 +128,7 @@ function venix_concierge_core_services_page_content_schema() {
 							array(
 								$f( array( 'hero', 'eyebrow' ), $eyebrow ),
 								$f( array( 'hero', 'title' ), $heading ),
+								$f( array( 'hero', 'lead' ), __( 'Introduction under the heading', 'venix-concierge-core' ), 'textarea' ),
 							)
 						),
 						$g( __( 'Tab bar labels', 'venix-concierge-core' ), $tab_fields ),

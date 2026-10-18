@@ -165,3 +165,6 @@
    padding even once the grid stacks to one column, misaligning it against the other
    four cards. Restore it for the stacked (<=768px) layout. */
 @media (max-width: 768px) { .home-additional .home-extras article:nth-child(4) { padding-left: 28px; } }
+.home-section-link { margin: 40px 0 0; text-align: center; }
+.home-service h3 a.home-service__link { color: inherit; font: inherit; letter-spacing: inherit; margin-top: 0; text-decoration: none; text-transform: none; }
+.home-service h3 a.home-service__link:hover, .home-service h3 a.home-service__link:focus-visible { text-decoration: underline; text-decoration-color: var(--wp--preset--color--gold); text-underline-offset: 0.2em; }

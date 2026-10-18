@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $venix_concierge_contact_url   = venix_concierge_page_url( 'contact' );
 $venix_concierge_fleet_content = venix_concierge_get_page_content( 'fleet', venix_concierge_fleet_content() );
 $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
+$venix_concierge_link_html     = array( 'a' => array( 'class' => true, 'href' => true ) );
 ?>
 <main id="main-content" class="site-main venix-fleet">
 	<section class="fleet-hero">
@@ -48,7 +49,7 @@ $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 							<p class="fleet-vehicle__copy"><?php echo esc_html( $venix_concierge_vehicle['copy'] ); ?></p>
 							<ul>
 								<?php foreach ( $venix_concierge_vehicle['use_cases'] as $venix_concierge_use_case ) : ?>
-									<li><?php echo esc_html( $venix_concierge_use_case ); ?></li>
+									<li><?php echo wp_kses( venix_concierge_linked_text( $venix_concierge_use_case ), $venix_concierge_link_html ); ?></li>
 								<?php endforeach; ?>
 							</ul>
 							<?php get_template_part( 'template-parts/components/capacity/capacity', null, array( 'vehicle' => $venix_concierge_vehicle['id'] ) ); ?>
@@ -72,6 +73,9 @@ $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 			<div class="fleet-recommendation__copy">
 				<p class="venix-eyebrow"><span><?php echo esc_html( $venix_concierge_fleet_content['recommendation']['eyebrow'] ); ?></span></p>
 				<h2><?php echo esc_html( $venix_concierge_fleet_content['recommendation']['title'] ); ?></h2>
+				<?php if ( ! empty( $venix_concierge_fleet_content['recommendation']['guide'] ) ) : ?>
+					<p><?php echo wp_kses( venix_concierge_linked_text( $venix_concierge_fleet_content['recommendation']['guide'] ), $venix_concierge_link_html ); ?></p>
+				<?php endif; ?>
 				<p><?php echo esc_html( $venix_concierge_fleet_content['recommendation']['copy'] ); ?></p>
 				<?php get_template_part( 'template-parts/components/button/button', null, array( 'label' => $venix_concierge_fleet_content['recommendation']['button'], 'url' => $venix_concierge_contact_url, 'variant' => 'ghost-inverse' ) ); ?>
 			</div>

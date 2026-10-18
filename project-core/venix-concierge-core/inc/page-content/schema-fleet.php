@@ -79,6 +79,7 @@ function venix_concierge_core_fleet_page_content_schema() {
 			array(
 				$f( array( 'recommendation', 'eyebrow' ), $eyebrow ),
 				$f( array( 'recommendation', 'title' ), $heading ),
+				$f( array( 'recommendation', 'guide' ), __( 'Model guidance paragraph', 'venix-concierge-core' ), 'textarea' ),
 				$f( array( 'recommendation', 'copy' ), __( 'Text', 'venix-concierge-core' ), 'textarea' ),
 				$f( array( 'recommendation', 'button' ), __( 'Button text', 'venix-concierge-core' ) ),
 			)

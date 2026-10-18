@@ -54,3 +54,4 @@
 .services-compact .venix-button--text::after { block-size: 12px; inline-size: 12px; }
 /* Compact cards: canonical badge */
 .services-compact .venix-badge { align-self: flex-start; border: 0; font-size: 8.5px; letter-spacing: .22em; padding: 3px 10px; }
+.services-hero__lead { color: rgba(230, 216, 199, .8); font-size: 14px; line-height: 1.85; margin: 20px 0 0; max-width: 620px; }

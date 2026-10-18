@@ -145,3 +145,6 @@ textarea {
 .venix-media-slot__image { display: block; height: 100%; object-fit: cover; width: 100%; }
 /* Shared decorative Hero background video layer: sits above the Hero Image inside its existing media wrapper, below the page's own overlay. */
 .venix-hero-video { height: 100%; inset: 0; object-fit: cover; object-position: center; position: absolute; width: 100%; }
+/* Contextual links inside editorial copy: inherit the surrounding colour (copy sits on light and dark surfaces) and stay visibly linked. */
+.venix-inline-link { color: inherit; text-decoration: underline; text-decoration-color: var(--wp--preset--color--gold); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.venix-inline-link:hover, .venix-inline-link:focus-visible { color: inherit; text-decoration-thickness: 2px; }
