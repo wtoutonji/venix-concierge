@@ -15,7 +15,7 @@ $venix_concierge_main_services    = $venix_concierge_services_content['main'];
 $venix_concierge_compact_services = $venix_concierge_services_content['compact'];
 $venix_concierge_link_html         = array( 'a' => array( 'class' => true, 'href' => true ) );
 ?>
-<main id="main-content" class="site-main venix-services">
+<main id="primary" class="site-main venix-services">
 	<section class="services-hero"><?php venix_concierge_render_page_hero_media( 'services', array( 'class' => 'services-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?><div class="container services-hero__content"><p class="venix-eyebrow"><?php echo esc_html( $venix_concierge_services_content['hero']['eyebrow'] ); ?></p><h1><?php echo esc_html( $venix_concierge_services_content['hero']['title'] ); ?></h1><?php if ( ! empty( $venix_concierge_services_content['hero']['lead'] ) ) : ?><p class="services-hero__lead"><?php echo wp_kses( venix_concierge_linked_text( $venix_concierge_services_content['hero']['lead'] ), $venix_concierge_link_html ); ?></p><?php endif; ?></div></section>
 	<nav class="services-anchor-nav" aria-label="<?php echo esc_attr( $venix_concierge_services_content['anchors_label'] ); ?>"><div class="container services-anchor-nav__inner"><?php foreach ( $venix_concierge_services_content['anchors'] as $venix_concierge_anchor => $venix_concierge_label ) : ?><a href="#<?php echo esc_attr( $venix_concierge_anchor ); ?>"><?php echo esc_html( $venix_concierge_label ); ?></a><?php endforeach; ?></div></nav>
 	<div class="services-main">

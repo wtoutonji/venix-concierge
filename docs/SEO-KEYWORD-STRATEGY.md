@@ -1,6 +1,6 @@
 # Venix Concierge — multilingual keyword strategy
 
-Date: 2026-10-18 · Companion to `docs/SEO-AUDIT-2026-10-18.md` (historical audit, unchanged),
+Date: 2026-10-18 (Arabic added 2026-10-20, §16) · Companion to `docs/SEO-AUDIT-2026-10-18.md` (historical audit, unchanged),
 `docs/SEO-DEPLOYMENT.md` and `docs/SEO-RANK-MATH-CONTENT-ANALYSIS.md`.
 
 **Status of this document: analysis and proposals, plus §15 (applied).** §1–§13 are analysis. The
@@ -843,3 +843,125 @@ stays at 594 words, just under the 600 recommendation. Accepted remaining warnin
 keyword in image alt (alts are not stuffed), Fleet length (313–341 words) and Fleet subheadings
 (model-name H2s), external links, table of contents, title number/sentiment/power-word, Content AI.
 EN Services lost the "power word" point (the previous title happened to contain one); not chased.
+
+## 16. Arabic (ar) — fourth language (2026-10-20)
+
+Status: **applied.** The five Arabic pages exist (`/ar/…`, shared slugs); their copy ships in the theme and
+their Rank Math title, description and focus keyword are applied by `scripts/apply-seo-metadata.php` from
+`scripts/seo/rank-math-seo-data.php`. No landing page was created. This section extends §3 (matrix) and
+§6 (ownership) with Arabic; it does not replace them. Implementation detail: `docs/ARABIC-RTL.md`.
+
+**Search-volume data: still not available** (no keyword tool is connected). Arabic priorities, like the
+others, are commercial fit and the client's seed list; no volume, CPC, difficulty or traffic figure exists
+in this document.
+
+### 16.1 Rules used for Arabic
+
+- Natural Modern Standard Arabic commercial wording, not a calque of the Polish list. Arabic words are written
+  **without tashkeel and without tatweel** in focus keywords (`apply-seo-metadata.php` now rejects an
+  Arabic focus keyword that contains either). Model names stay Latin (S-Class, E-Class, V-Class,
+  Sprinter, Mercedes-Benz) because that is how they are searched and recognised.
+- One primary focus keyword per page; related phrases are expressed through the copy, not as extra Rank
+  Math keywords. No phrase is repeated to raise a score.
+- Blocked or unconfirmed terms (BMW 7, armoured vehicle, limousine, Europe-wide transfer, defined
+  intercity transfer, VIP Line, direct protection) are **not** in any Arabic title, description, focus
+  keyword or new copy.
+
+### 16.2 Arabic column of the master matrix (all 41 client lines accounted for)
+
+Status: **TARGET** primary on a page · **SUPPORTING** natural in copy, not a focus keyword · **FUTURE**
+needs its own page (none created) · **HOLD** needs client confirmation · **BLOCKED** do not target ·
+**NOT RECOMMENDED**.
+
+| Cluster | Client keyword (PL) | Natural Arabic | Status | Where it is used in the Arabic pages |
+|---|---|---|---|---|
+| A | Wynajem samochodu z kierowcą · Wynajem auta z kierowcą | تأجير سيارة مع سائق | **TARGET** (Services) | Services title, description, lead, H2; the Fleet recommendation text links to Services with this anchor |
+| A | Szofer service · Wynajem kierowcy | خدمة سائق خاص (استئجار سائق not used: awkward) | **TARGET** (Home) | Home title, description, hero lead; Services H2 |
+| A | Kierowca | سائق | SUPPORTING | inside the phrases above |
+| A | Dyspozycja | سيارة مع سائق تحت الطلب | SUPPORTING | Services chauffeur bullet (hourly / full-day / multi-day, which the service already offers) |
+| A | Limo serwis | خدمة ليموزين | **BLOCKED** | not used — no limousine in the fleet |
+| B | Sclass, Wynajem s class, Wynajem sclass z kierowcą | S-Class · تأجير S-Class مع سائق | SUPPORTING | Fleet cards; Fleet text "تأجير S-Class أو E-Class أو V-Class مع سائق" (a coordinated phrase — the exact per-model phrase is not repeated) |
+| B | Vclass, Wynajem v class, Wynajem z kierowcą Vclass | V-Class · تأجير V-Class مع سائق | SUPPORTING | same |
+| B | Eclass, Wynajem eclasss (typo) | E-Class · تأجير E-Class | SUPPORTING (typo never used) | same |
+| B | Sprinter, Wynajem sprinter, Wynajem Sprinter z kierowcą | Sprinter · تأجير Sprinter | SUPPORTING | same; group-transport copy |
+| B | Luksusowe samochody | سيارات فاخرة (visible title: سيارات فاخرة مع سائق) | **TARGET** (Fleet) | Fleet title, H1, description, hero text |
+| B | Samochody VIP | سيارات VIP / سيارات لكبار الشخصيات | SUPPORTING (low) | "VIP" in the S-Class copy only; no defined VIP product |
+| B | Bmw 7 · Wynajem BMW 7 z kierowcą | BMW الفئة السابعة | **BLOCKED** | not used — BMW is not in the fleet |
+| B | Wynajem samochodu | تأجير سيارات | NOT RECOMMENDED alone | self-drive intent; only as "… مع سائق" |
+| C | Airport transfer · Transfer lotniskowy | خدمة نقل المطار · النقل من المطار وإليه | SUPPORTING (FUTURE page) | Services airport H2 "خدمة نقل المطار في وارسو"; menu and footer labels use "النقل من المطار وإليه" |
+| D | Transfer międzymiastowy | نقل بين المدن | **HOLD** | the existing English card says "city-to-city"; translated at the same strength ("بين المدن"), not targeted, not built on |
+| D | Transfer w Europie | خدمات نقل داخل أوروبا | **BLOCKED** | not used (About keeps a European *vision*, as in the other languages) |
+| E | Usługi Concierge · Concierge | خدمات الكونسيرج · كونسيرج | SUPPORTING (FUTURE page) | Services concierge block, menus, Home description |
+| F | Obsługę eventową | نقل الفعاليات / النقل للفعاليات والمناسبات (never "إدارة الفعاليات") | SUPPORTING | Services events H2; deliberately not "event management" |
+| F | Samochód na ślub · Sclass na ślub | سيارة للزفاف · Mercedes-Benz S-Class للزفاف | FUTURE / **HOLD** | Services weddings block only ("حفلات الزفاف"); S-Class-for-weddings is unconfirmed |
+| G | Delegacje rządowe · Delegacja | نقل الوفود الحكومية · نقل الوفود | SUPPORTING | Services delegations H2 "نقل الوفود والتنقلات الدبلوماسية"; the pending no-accreditation disclaimer is translated in full |
+| I | Transfer VIP | خدمة نقل VIP / نقل لكبار الشخصيات | SUPPORTING (low) | S-Class copy ("استقبال VIP في المطار") only |
+| I | VIP line | VIP Line | **BLOCKED** | not used |
+| I | Samochód pancerny | سيارة مصفحة | **BLOCKED** | not used |
+| I | Ochrona | حماية شخصية | NOT RECOMMENDED for SEO | exists only as the approved "coordination through authorised providers" block and a menu label; no title, description or keyword |
+| K | Biznes · Trip · Podróż | أعمال / النقل التنفيذي · رحلة · سفر | SUPPORTING / NOT RECOMMENDED | natural vocabulary in copy ("النقل التنفيذي" in the Home description) |
+
+### 16.3 Page ownership (Arabic)
+
+| Page | Primary focus keyword | Role | Related concepts (copy only) | Cannibalization note |
+|---|---|---|---|---|
+| Home `/ar/` | خدمة سائق خاص | company umbrella | خدمات الكونسيرج · النقل التنفيذي · نقل المطار · Venix Concierge | Does not target the Services transactional phrase |
+| About `/ar/about/` | Venix Concierge | brand / entity | — | no generic service keyword forced on it |
+| Services `/ar/services/` | تأجير سيارة مع سائق | owns the transactional "car with driver" intent | خدمة سائق خاص · خدمة نقل المطار · نقل الفعاليات · نقل الوفود · سيارة مع سائق تحت الطلب | Home uses "خدمة سائق خاص", Services "تأجير سيارة مع سائق" |
+| Fleet `/ar/fleet/` | سيارات فاخرة (shown as سيارات فاخرة مع سائق) | model hub | S-Class · E-Class · V-Class · Sprinter | models only for supported vehicles |
+| Contact `/ar/contact/` | تواصل مع Venix Concierge | branded contact intent | — | shares no phrase with Home/Services; About keeps the bare brand |
+
+### 16.4 Arabic Rank Math metadata (applied)
+
+| Page | SEO title | Meta description |
+|---|---|---|
+| Home | خدمة سائق خاص في وارسو \| Venix Concierge | Venix Concierge شركة مقرها وارسو تقدّم خدمة سائق خاص ونقلًا تنفيذيًا وخدمات كونسيرج، مع النقل من المطار وإليه ونقل الفعاليات والوفود بدقة وكتمان. |
+| About | من نحن \| Venix Concierge، سائق خاص وكونسيرج في وارسو | Venix Concierge شركة مقرها وارسو تقدّم خدمات السائق الخاص والكونسيرج منذ عام 2024، قائمة على الدقة والكتمان والاهتمام الشخصي. |
+| Services | تأجير سيارة مع سائق في وارسو \| Venix Concierge | تأجير سيارة مع سائق في وارسو بالساعة أو ليوم كامل، إلى جانب خدمة نقل المطار ونقل الفعاليات والوفود وحفلات الزفاف وخدمات الكونسيرج. Venix Concierge. |
+| Fleet | سيارات فاخرة مع سائق في وارسو \| Venix Concierge | سيارات فاخرة مع سائق في وارسو: Mercedes-Benz S-Class وE-Class وV-Class وSprinter، تُختار بما يناسب الرحلة وعدد الركاب والمناسبة. Venix Concierge. |
+| Contact | تواصل مع Venix Concierge \| اطلب سائقًا في وارسو | تواصل مع Venix Concierge لترتيب سائق خاص أو نقل من المطار أو نقل لفعالية أو وفد في وارسو. أرسل تفاصيل رحلتك لنعدّ لك عرضًا مخصصًا. |
+
+Titles are 40–52 characters, descriptions 125–147. Warsaw is written وارسو in titles, descriptions and
+copy and is deliberately **not** part of any focus keyword. These are independent Arabic texts, not
+translations of the EN/PL/RU metadata. Open Graph/Twitter titles and descriptions are generated by Rank
+Math from the same values; there is still no default social image (unchanged decision for all languages).
+
+### 16.5 Rank Math content analysis for Arabic (real editor, same mechanism)
+
+The existing bridge (`rank_math_content` filter → theme renders the page's own section template in the
+page's Polylang language → editorial HTML) works for Arabic **unchanged**: no second mechanism, nothing in
+`post_content`. Measured through the editor's own data, Rank Math sees on every Arabic page: the Arabic
+body text, one H1, the H2/H3 headings, Arabic-language internal links (`/ar/…`) and the Arabic alt text of
+every image (Home 11/11, About 2/2, Services 9/9, Fleet 12/12). No Cyrillic or Polish text and no English
+copy reaches the analyzer. Nothing was rewritten to raise a score.
+
+| Page | Focus keyword | Score | Words | In SEO title | In description | First 10 % | In body | In subheadings | Internal links | Image alt |
+|---|---|---|---|---|---|---|---|---|---|---|
+| AR Home | خدمة سائق خاص | **81** | 816 | yes (and at the start) | yes | yes | yes (1×, 0.12 %) | no | 5/5 | no |
+| AR About | Venix Concierge | **68** | 469 | yes | yes | yes | yes (2×) | yes | 5/5 | yes |
+| AR Services | تأجير سيارة مع سائق | **65** | 577 | yes | yes | yes | yes (2×, 0.35 %) | yes | 5/5 | no |
+| AR Fleet | سيارات فاخرة | **64** | 301 | yes | yes | yes | yes (2×, 0.66 %) | no (it is in the H1) | 5/5 | no |
+| AR Contact | تواصل مع Venix Concierge | **51** | 67 | yes | yes | **no** | **no** | no | 0 (4 external) | n/a (no images) |
+
+Remaining warnings, classified:
+
+| Warning | Pages | Class |
+|---|---|---|
+| Keyword absent from the Contact body | Contact | **REAL SEO ISSUE (copy decision, not applied).** The phrase "تواصل مع Venix Concierge" does not appear in the page text; the eyebrow could read exactly that if the client wants it. Not changed, to avoid editing copy for a test |
+| Content shorter than 600 words | Services 577, About 469, Fleet 301, Contact 67 | OPTIONAL RANK MATH RECOMMENDATION — Arabic is more compact than EN/RU (613/623 words on Services); not padded |
+| Focus keyword not in subheadings | Home, Fleet | OPTIONAL (Fleet carries it in the H1; the subheadings are model names) |
+| Keyword not in image alt | Home, Services, Fleet | OPTIONAL — alt text describes the picture and is not stuffed, by decision |
+| Keyword density low (0.12–0.66 %) | all | OPTIONAL — natural usage, no repetition for density |
+| "You have already used this Focus Keyword" | About | ARCHITECTURE-LIMITED — "Venix Concierge" is the brand keyword of the EN and PL About pages too; Rank Math compares across languages |
+| Keyword not in URL | Home (test skipped), Services, Fleet, Contact | ARCHITECTURE-LIMITED — slugs are shared English by decision (About matches only because the local host name contains "venix-concierge"; production will not) |
+| Title sentiment / power word / number; table of contents; no outbound links; Content AI | all | OPTIONAL — and for the sentiment/power-word checks ARCHITECTURE/LANGUAGE-LIMITED: they appear to rely on English word lists (not verified in the plugin source, which was not modified) |
+| No internal links on Contact | Contact | OPTIONAL — the page links to phone, email, WhatsApp and social profiles only |
+
+Arabic morphology note: Rank Math Free matches strings, not lemmas. The phrases chosen are the base
+(un-inflected) forms, so they match natural copy ("تأجير سيارة مع سائق") without bending grammar; a
+definite or prefixed form (للسائق، والسائق) would not count as a match, which is expected.
+
+### 16.6 Not done here
+
+No new SEO landing page; no volume data; Search Console submission of `/ar/` pages and the sitemap are
+production steps (see `SEO-DEPLOYMENT.md`).

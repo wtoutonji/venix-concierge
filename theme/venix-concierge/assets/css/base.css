@@ -96,7 +96,7 @@ textarea {
 .screen-reader-text:focus {
   position: fixed;
   top: 1rem;
-  left: 1rem;
+  inset-inline-start: 1rem;
   z-index: 10000;
   width: auto;
   height: auto;
@@ -138,6 +138,7 @@ textarea {
 }
 
 [dir="rtl"] .venix-icon-directional {
+  display: inline-block; /* transforms do not apply to inline boxes */
   transform: scaleX(-1);
 }
 /* Media Library slots retain their parent frame while awaiting an attachment. */

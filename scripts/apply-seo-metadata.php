@@ -1,11 +1,13 @@
 <?php
 /**
- * Idempotent Rank Math metadata deployment for Venix Concierge (EN, PL, RU).
+ * Idempotent Rank Math metadata deployment for Venix Concierge (EN, PL, RU, AR).
  *
  * Dry-run by default. Pages are matched by Polylang language + shared page-family
  * slug (never by database ID). Only post meta, three targeted option keys,
  * attachment alt meta and menu-item URL meta are written; no post is updated, so
- * post_modified never changes. Safe to run repeatedly.
+ * post_modified never changes. Safe to run repeatedly. Arabic (ar) pages are matched
+ * exactly like the other languages (Polylang language `ar` + shared slug); an Arabic
+ * focus keyword is rejected if it carries diacritics (tashkeel) or tatweel.
  *
  *   wp eval-file scripts/apply-seo-metadata.php           (report only)
  *   wp eval-file scripts/apply-seo-metadata.php apply     (write changes)
@@ -58,6 +60,16 @@ function venix_seo_set_meta( $post_id, $key, $value, $label, $apply ) {
 		return;
 	}
 	venix_seo_say( 'WOULD', "$label $key: " . wp_json_encode( $current, JSON_UNESCAPED_UNICODE ) . ' -> ' . wp_json_encode( $value, JSON_UNESCAPED_UNICODE ) );
+}
+
+/** Reject an Arabic focus keyword that carries diacritics (U+064B-U+0652) or tatweel (U+0640). */
+function venix_seo_keyword_is_clean( $lang, $keyword ) {
+	if ( 'ar' === $lang && preg_match( '/[\x{064B}-\x{0652}\x{0640}]/u', $keyword ) ) {
+		venix_seo_say( 'PROBLEM', "[$lang] focus keyword '$keyword' contains diacritics or tatweel; use plain Arabic letters" );
+		return false;
+	}
+
+	return true;
 }
 
 /** Find the single published page for a language + slug, or null after reporting why. */
@@ -116,6 +128,9 @@ foreach ( $venix_seo_data['pages'] as $venix_seo_lang => $venix_seo_families ) {
 			continue;
 		}
 		$venix_seo_label = "[$venix_seo_lang/$venix_seo_slug #{$venix_seo_page->ID}]";
+		if ( ! venix_seo_keyword_is_clean( $venix_seo_lang, $venix_seo_values['focus_keyword'] ) ) {
+			continue;
+		}
 		venix_seo_set_meta( $venix_seo_page->ID, 'rank_math_title', $venix_seo_values['title'], $venix_seo_label, $venix_seo_apply );
 		venix_seo_set_meta( $venix_seo_page->ID, 'rank_math_description', $venix_seo_values['description'], $venix_seo_label, $venix_seo_apply );
 		venix_seo_set_meta( $venix_seo_page->ID, 'rank_math_focus_keyword', $venix_seo_values['focus_keyword'], $venix_seo_label, $venix_seo_apply );

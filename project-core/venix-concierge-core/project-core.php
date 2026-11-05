@@ -107,6 +107,7 @@ require_once __DIR__ . '/inc/post-types.php';
 require_once __DIR__ . '/inc/taxonomies.php';
 require_once __DIR__ . '/inc/meta.php';
 require_once __DIR__ . '/inc/integrations.php';
+require_once __DIR__ . '/inc/inquiry.php';
 require_once __DIR__ . '/inc/site-settings.php';
 require_once __DIR__ . '/inc/fleet-capacities.php';
 require_once __DIR__ . '/inc/page-content.php';

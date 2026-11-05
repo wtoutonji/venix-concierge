@@ -14,7 +14,7 @@ $venix_concierge_fleet_content = venix_concierge_get_page_content( 'fleet', veni
 $venix_concierge_vehicles      = $venix_concierge_fleet_content['vehicles'];
 $venix_concierge_link_html     = array( 'a' => array( 'class' => true, 'href' => true ) );
 ?>
-<main id="main-content" class="site-main venix-fleet">
+<main id="primary" class="site-main venix-fleet">
 	<section class="fleet-hero">
 		<?php venix_concierge_render_page_hero_media( 'fleet', array( 'class' => 'fleet-hero__media', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
 		<div class="container fleet-hero__content">

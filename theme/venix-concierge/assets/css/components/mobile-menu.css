@@ -1,4 +1,4 @@
-@media(max-width:1024px){.sub-menu[hidden]{display:none!important}.menu-item-has-children{position:relative}.site-navigation .menu-item-has-children>a{padding-inline-end:48px;position:relative}.site-navigation .menu-item-has-children>a::after{color:var(--venix-fg-inverse);content:'+';font-size:20px;font-weight:400;line-height:1;position:absolute;right:12px;top:50%;transform:translateY(-50%)}.site-navigation .menu-item-has-children>a[aria-expanded=true]::after{content:'−'}}
+@media(max-width:1024px){.sub-menu[hidden]{display:none!important}.menu-item-has-children{position:relative}.site-navigation .menu-item-has-children>a{padding-inline-end:48px;position:relative}.site-navigation .menu-item-has-children>a::after{color:var(--venix-fg-inverse);content:'+';font-size:20px;font-weight:400;line-height:1;position:absolute;inset-inline-end: 12px;top:50%;transform:translateY(-50%)}.site-navigation .menu-item-has-children>a[aria-expanded=true]::after{content:'−'}}
 
 @media (min-width: 1025px) {
   .site-header__inner { height: 76px; min-height: 0; }

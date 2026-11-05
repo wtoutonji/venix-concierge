@@ -73,7 +73,7 @@ keywords and does not touch `post_content`.
 - **Data:** nothing written to `post_content` or any meta. `post_modified` unchanged.
 - **Failure mode:** if rendering fails or returns nothing, the filter is not registered and
   Rank Math behaves exactly as before.
-- Works for EN, PL and RU (language taken from the page being edited via Polylang).
+- Works for EN, PL, RU and AR (language taken from the page being edited via Polylang; Arabic verified in §6).
 
 ## 3. Score validation (real Rank Math editor, headless Chromium)
 
@@ -129,6 +129,28 @@ After the approved Home/Services/Fleet content and metadata changes (`SEO-KEYWOR
 §15) the nine pages score 62–85 (Home 85, Services 65–69, Fleet 62–64; they were 17–20). The
 remaining failures are the legitimate ones listed in §4 plus low keyword density; none are
 fixed by bending Polish or Russian grammar.
+
+## 5b. Arabic (2026-10-20)
+
+Arabic needed **no change** to this mechanism: the section templates render in the edited page's Polylang
+language, so the Arabic copy arrays, Arabic alt text and `/ar/…` links reach the analyzer exactly as the
+other languages' do. Measured in the real Rank Math editor (headless Chromium, throw-away admin session,
+deleted afterwards) from `window.venixRankMathContent` and Rank Math's own results:
+
+| Page | Words seen | H1/H2/H3 | Links | Images with Arabic alt | Rank Math score |
+|---|---|---|---|---|---|
+| AR Home | 816 | 1 / 10 / 38 | 26 (Arabic-language internal) | 11/11 | 81 |
+| AR About | 469 | 1 / 6 / 14 | 1 | 2/2 | 68 |
+| AR Services | 577 | 1 / 11 / 0 | 12 | 9/9 | 65 |
+| AR Fleet | 301 | 1 / 5 / 3 | 12 | 12/12 | 64 |
+| AR Contact | 67 | 1 / 1 / 1 | 5 (tel, WhatsApp, email, Instagram, Facebook) | n/a | 51 |
+
+The focus keyword (no tashkeel) is recognised as one phrase and matched in the SEO title, description,
+first 10 % and body on Home, About, Services and Fleet; Contact's phrase is not in its short body. No
+Cyrillic, Polish or English prose reaches the analyzer and nothing is written to `post_content`. The
+remaining warnings and their classification (real issue / optional / architecture-limited) are in
+`SEO-KEYWORD-STRATEGY.md` §16.5. Word counts differ by a few words from the raw extraction because Rank
+Math tokenises punctuation and Latin brand words its own way. Scores were not optimized.
 
 ## 5. Reproduce
 

@@ -8,6 +8,11 @@
  * Home, Services and Fleet (EN/PL/RU) follow docs/SEO-KEYWORD-STRATEGY.md §14 as
  * amended by the 2026-10-18 approval (EN Services = chauffeur service; EN Home =
  * chauffeur and concierge company; EN Fleet keeps its approved title).
+ *
+ * AR (Modern Standard Arabic) is written independently, not translated from EN/PL/RU:
+ * Home = خدمة سائق خاص, Services = تأجير سيارة مع سائق, Fleet = سيارات فاخرة,
+ * About = Venix Concierge, Contact = تواصل مع Venix Concierge. Arabic focus keywords
+ * carry no diacritics or tatweel. See docs/SEO-KEYWORD-STRATEGY.md section 16.
  */
 
 return array(
@@ -91,6 +96,33 @@ return array(
 				'title'         => 'Контакты и заказ трансфера в Варшаве | Venix Concierge',
 				'description'   => 'Оставьте запрос на трансфер, персонального водителя или консьерж-сервис в Варшаве. Подготовим индивидуальное предложение под Ваши задачи.',
 				'focus_keyword' => 'заказать трансфер Варшава',
+			),
+		),
+		'ar' => array(
+			'home'     => array(
+				'title'         => 'خدمة سائق خاص في وارسو | Venix Concierge',
+				'description'   => 'Venix Concierge شركة مقرها وارسو تقدّم خدمة سائق خاص ونقلًا تنفيذيًا وخدمات كونسيرج، مع النقل من المطار وإليه ونقل الفعاليات والوفود بدقة وكتمان.',
+				'focus_keyword' => 'خدمة سائق خاص',
+			),
+			'about'    => array(
+				'title'         => 'من نحن | Venix Concierge، سائق خاص وكونسيرج في وارسو',
+				'description'   => 'Venix Concierge شركة مقرها وارسو تقدّم خدمات السائق الخاص والكونسيرج منذ عام 2024، قائمة على الدقة والكتمان والاهتمام الشخصي.',
+				'focus_keyword' => 'Venix Concierge',
+			),
+			'services' => array(
+				'title'         => 'تأجير سيارة مع سائق في وارسو | Venix Concierge',
+				'description'   => 'تأجير سيارة مع سائق في وارسو بالساعة أو ليوم كامل، إلى جانب خدمة نقل المطار ونقل الفعاليات والوفود وحفلات الزفاف وخدمات الكونسيرج. Venix Concierge.',
+				'focus_keyword' => 'تأجير سيارة مع سائق',
+			),
+			'fleet'    => array(
+				'title'         => 'سيارات فاخرة مع سائق في وارسو | Venix Concierge',
+				'description'   => 'سيارات فاخرة مع سائق في وارسو: Mercedes-Benz S-Class وE-Class وV-Class وSprinter، تُختار بما يناسب الرحلة وعدد الركاب والمناسبة. Venix Concierge.',
+				'focus_keyword' => 'سيارات فاخرة',
+			),
+			'contact'  => array(
+				'title'         => 'تواصل مع Venix Concierge | اطلب سائقًا في وارسو',
+				'description'   => 'تواصل مع Venix Concierge لترتيب سائق خاص أو نقل من المطار أو نقل لفعالية أو وفد في وارسو. أرسل تفاصيل رحلتك لنعدّ لك عرضًا مخصصًا.',
+				'focus_keyword' => 'تواصل مع Venix Concierge',
 			),
 		),
 	),

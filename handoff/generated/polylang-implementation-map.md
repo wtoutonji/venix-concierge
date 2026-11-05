@@ -283,3 +283,35 @@ validated against the active Rank Math sitemap after deployment.
   1440, 768 and 390 px; deep link `#airport` verified at all three widths.
 - **Not done locally:** screen-reader testing, real-device testing, and any
   verification of Rank Math output.
+
+## Arabic (`ar`, `/ar/`) addition
+
+Arabic is a transcreation of the approved English copy in Modern Standard Arabic and the first RTL
+language. It reuses the EN/PL/RU architecture; full detail in `docs/ARABIC-RTL.md`.
+
+- **Language:** Polylang `ar` / locale `ar` / name «العربية», RTL, flag `arab`, order 3, directory mode
+  (`/ar/`). WordPress core pack `ar` installed (`wp language core install ar`); `ary` (Moroccan Arabic)
+  is not used. `<html dir="rtl" lang="ar">` comes from Polylang/WordPress.
+- **Pages (shared slugs):** 202 Home (translation of the static front page), 204 `about`, 206 `services`,
+  208 `fleet`, 210 `contact`; translation groups EN ↔ PL ↔ RU ↔ AR (Home 6/8/172/202, About
+  10/12/174/204, Services 14/16/176/206, Fleet 18/20/178/208, Contact 22/24/180/210). Created, linked,
+  given media + Arabic alt text and menus by `scripts/setup-polylang-site.php` (data:
+  `scripts/arabic-site-data.php`); a second run changes nothing and does not touch `post_modified`.
+- **Copy:** `venix_concierge_language_copy( $en, $pl, $ru, $ar )`; a missing Arabic argument falls back to
+  English. gettext strings: `languages/ar.l10n.php`.
+- **Menus:** Primary AR (31) and Footer AR (32), assigned to `primary`/`footer` for `ar` through Polylang's
+  `nav_menus` option. The switcher shows EN · PL · RU · AR and exposes native language names as
+  `aria-label`/`title` (العربية for Arabic).
+- **RTL and typography:** logical CSS properties plus `assets/css/lang-ar.css` (Arabic only), Noto Sans
+  Arabic (bundled, SIL OFL 1.1) for display and body.
+- **SEO:** Rank Math title/description/focus keyword per Arabic page from
+  `scripts/seo/rank-math-seo-data.php`; Polylang outputs reciprocal en/pl/ru/ar hreflang and
+  self-referencing canonicals; the Rank Math sitemap lists 20 page URLs.
+
+| Page | Primary Focus Keyword | Role |
+| --- | --- | --- |
+| Home | خدمة سائق خاص | company umbrella |
+| About | Venix Concierge | brand / entity |
+| Services | تأجير سيارة مع سائق | primary transactional intent |
+| Fleet | سيارات فاخرة | model hub (always shown as «سيارات فاخرة مع سائق») |
+| Contact | تواصل مع Venix Concierge | branded contact intent |

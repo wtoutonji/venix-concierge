@@ -131,7 +131,10 @@ function venix_concierge_render_language_switcher() {
 			continue;
 		}
 
-		printf( '<a href="%1$s" lang="%2$s"%3$s>%4$s</a>', esc_url( $language['url'] ), esc_attr( ! empty( $language['hreflang'] ) ? $language['hreflang'] : $language['slug'] ), ! empty( $language['current_lang'] ) ? ' aria-current="page"' : '', esc_html( strtoupper( $language['slug'] ) ) );
+		// The visible label stays the short language code; the accessible name and tooltip are the native language name (for example العربية).
+		$native_name = ! empty( $language['name'] ) ? ' aria-label="' . esc_attr( $language['name'] ) . '" title="' . esc_attr( $language['name'] ) . '"' : '';
+
+		printf( '<a href="%1$s" lang="%2$s"%3$s%4$s>%5$s</a>', esc_url( $language['url'] ), esc_attr( ! empty( $language['hreflang'] ) ? $language['hreflang'] : $language['slug'] ), $native_name, ! empty( $language['current_lang'] ) ? ' aria-current="page"' : '', esc_html( strtoupper( $language['slug'] ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $native_name is built from esc_attr() above.
 	}
 	echo '</nav>';
 }

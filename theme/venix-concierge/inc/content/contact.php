@@ -2,19 +2,19 @@
 /** Approved Contact page copy. @package VenixConcierge */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 function venix_concierge_contact_content() {
-	$copy = static function ( $english, $polish, $russian = null ) { return venix_concierge_language_copy( $english, $polish, $russian ); };
+	$copy = static function ( $english, $polish, $russian = null, $arabic = null ) { return venix_concierge_language_copy( $english, $polish, $russian, $arabic ); };
 	return array(
-		'hero' => array( 'eyebrow' => $copy( 'Contact', 'Kontakt', 'Контакты' ), 'title' => $copy( 'Let us arrange the details', 'Pozwól nam zająć się szczegółami', 'Позвольте нам позаботиться о деталях' ) ),
+		'hero' => array( 'eyebrow' => $copy( 'Contact', 'Kontakt', 'Контакты', 'تواصل معنا' ), 'title' => $copy( 'Let us arrange the details', 'Pozwól nam zająć się szczegółami', 'Позвольте нам позаботиться о деталях', 'دعنا نتولى التفاصيل' ) ),
 		'info' => array(
-			'eyebrow' => $copy( 'Begin the arrangement', 'Rozpocznij ustalenia', 'Оставьте запрос' ),
-			'title' => $copy( 'Share your requirements. We will handle the rest.', 'Prosimy opisać wymagania. Resztą zajmiemy się my.', 'Расскажите о задаче. Остальное — на нас.' ),
-			'copy' => $copy( 'Provide your journey details, schedule and any special requirements. Our team will review the information and contact you through your preferred method with a considered proposal.', 'Prosimy podać szczegóły podróży, harmonogram i wszelkie specjalne wymagania. Nasz zespół przeanalizuje informacje i skontaktuje się z Państwem wybraną drogą z przemyślaną propozycją.', 'Укажите детали поездки, график и особые пожелания. Наша команда изучит информацию и свяжется с Вами удобным для Вас способом с продуманным предложением.' ),
-			'details_label' => $copy( 'Contact details', 'Dane kontaktowe', 'Контактные данные' ),
+			'eyebrow' => $copy( 'Begin the arrangement', 'Rozpocznij ustalenia', 'Оставьте запрос', 'ابدأ ترتيب رحلتك' ),
+			'title' => $copy( 'Share your requirements. We will handle the rest.', 'Prosimy opisać wymagania. Resztą zajmiemy się my.', 'Расскажите о задаче. Остальное — на нас.', 'أخبرنا باحتياجاتك، ونتولى الباقي.' ),
+			'copy' => $copy( 'Provide your journey details, schedule and any special requirements. Our team will review the information and contact you through your preferred method with a considered proposal.', 'Prosimy podać szczegóły podróży, harmonogram i wszelkie specjalne wymagania. Nasz zespół przeanalizuje informacje i skontaktuje się z Państwem wybraną drogą z przemyślaną propozycją.', 'Укажите детали поездки, график и особые пожелания. Наша команда изучит информацию и свяжется с Вами удобным для Вас способом с продуманным предложением.', 'زودنا بتفاصيل رحلتك وموعدها وأي متطلبات خاصة. سيراجع فريقنا المعلومات ويتواصل معك بالوسيلة التي تفضلها مع عرض مدروس.' ),
+			'details_label' => $copy( 'Contact details', 'Dane kontaktowe', 'Контактные данные', 'بيانات التواصل' ),
 			'detail_labels' => array(
-				'phone' => $copy( 'Phone', 'Telefon', 'Телефон' ),
+				'phone' => $copy( 'Phone', 'Telefon', 'Телефон', 'الهاتف' ),
 				'whatsapp' => 'WhatsApp',
-				'email' => $copy( 'Email', 'E-mail', 'Эл. почта' ),
-				'address' => $copy( 'Address', 'Adres', 'Адрес' ),
+				'email' => $copy( 'Email', 'E-mail', 'Эл. почта', 'البريد الإلكتروني' ),
+				'address' => $copy( 'Address', 'Adres', 'Адрес', 'العنوان' ),
 				'instagram' => 'Instagram',
 				'facebook' => 'Facebook',
 			),
@@ -22,13 +22,13 @@ function venix_concierge_contact_content() {
 				'instagram' => '@venix.concierge',
 				'facebook' => '@venix.concierge',
 			),
-			'next_title' => $copy( 'What happens next', 'Co się stanie dalej', 'Что будет дальше' ),
+			'next_title' => $copy( 'What happens next', 'Co się stanie dalej', 'Что будет дальше', 'ماذا يحدث بعد ذلك' ),
 			'next_steps' => array(
-				$copy( 'Your request is reviewed by our team — typically within one business day.', 'Zapytanie jest weryfikowane przez nasz zespół — zazwyczaj w ciągu jednego dnia roboczego.', 'Наша команда рассматривает запрос — как правило, в течение одного рабочего дня.' ),
-				$copy( 'We prepare a tailored proposal based on your requirements.', 'Przygotowujemy dopasowaną propozycję na podstawie Państwa wymagań.', 'Мы готовим индивидуальное предложение с учётом Ваших требований.' ),
-				$copy( 'Once confirmed, all details are provided and the arrangement is set.', 'Po potwierdzeniu przekazujemy wszystkie szczegóły i umawiamy zlecenie.', 'После подтверждения мы передаём все детали, и договорённости вступают в силу.' ),
+				$copy( 'Your request is reviewed by our team — typically within one business day.', 'Zapytanie jest weryfikowane przez nasz zespół — zazwyczaj w ciągu jednego dnia roboczego.', 'Наша команда рассматривает запрос — как правило, в течение одного рабочего дня.', 'يراجع فريقنا طلبك، وذلك عادةً خلال يوم عمل واحد.' ),
+				$copy( 'We prepare a tailored proposal based on your requirements.', 'Przygotowujemy dopasowaną propozycję na podstawie Państwa wymagań.', 'Мы готовим индивидуальное предложение с учётом Ваших требований.', 'نعد عرضًا مخصصًا بحسب احتياجاتك.' ),
+				$copy( 'Once confirmed, all details are provided and the arrangement is set.', 'Po potwierdzeniu przekazujemy wszystkie szczegóły i umawiamy zlecenie.', 'После подтверждения мы передаём все детали, и договорённости вступают в силу.', 'بعد التأكيد، نزودك بكل التفاصيل ويعتمد الترتيب.' ),
 			),
 		),
-		'location' => array( 'aria_label' => $copy( 'Map showing the Venix Concierge Warsaw base location.', 'Mapa przedstawiająca bazową lokalizację Venix Concierge w Warszawie.', 'Карта с расположением варшавской базы Venix Concierge.' ) ),
+		'location' => array( 'aria_label' => $copy( 'Map showing the Venix Concierge Warsaw base location.', 'Mapa przedstawiająca bazową lokalizację Venix Concierge w Warszawie.', 'Карта с расположением варшавской базы Venix Concierge.', 'خريطة توضح موقع مقر Venix Concierge في وارسو.' ) ),
 	);
 }

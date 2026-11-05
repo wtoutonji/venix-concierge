@@ -1,0 +1,84 @@
+/*
+ * Arabic typography and right-to-left refinements.
+ *
+ * Loaded on Arabic pages only (see inc/assets.php). Direction itself
+ * (<html lang="ar" dir="rtl">) comes from Polylang and WordPress; component and
+ * page CSS already uses logical properties, so this file only adds what a
+ * mirrored layout cannot infer on its own:
+ *
+ *  - Typeface. Cinzel and Montserrat contain no Arabic glyphs, so without this
+ *    the browser would fall back to an arbitrary system font. Noto Sans Arabic
+ *    (SIL OFL 1.1, bundled variable font, declared in theme.json) is used for
+ *    display and body text, as documented in the design-system handoff. Its Latin
+ *    glyphs keep brand and vehicle names (Mercedes-Benz, S-Class) consistent.
+ *  - Spacing and case. Letter-spacing breaks the joins of connected Arabic
+ *    letters and uppercase does not exist, so both are reset.
+ *  - Scale. Arabic needs a larger size than Latin at the same nominal value;
+ *    small px sizes in the theme are multiplied by --venix-type-scale.
+ *  - Direction-sensitive icons, gradients and inherently left-to-right data.
+ */
+:root:lang(ar) {
+  --venix-font-display: var(--venix-font-arabic);
+  --venix-font-body: var(--venix-font-arabic);
+  --venix-type-scale: 1.25;
+}
+
+/*
+ * No Latin tracking, case or slant on connected script. Page and component rules set
+ * tracking at several specificities (up to four classes), so the reset is !important:
+ * letter-spacing detaches the joins of connected letters and must never reach Arabic.
+ * Synthesised italics distort Arabic letter shapes, so emphasis uses weight instead.
+ */
+:root:lang(ar) body,
+:root:lang(ar) body *,
+:root:lang(ar) body *::before,
+:root:lang(ar) body *::after {
+  font-style: normal;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* The brand slogan is intentionally untranslated Latin text and keeps its tracked capitals. */
+:root:lang(ar) .site-footer__brand > span {
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+}
+
+:root:lang(ar) body {
+  line-height: 1.9;
+}
+
+:root:lang(ar) h1,
+:root:lang(ar) h2,
+:root:lang(ar) h3,
+:root:lang(ar) h4,
+:root:lang(ar) h5,
+:root:lang(ar) h6 {
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Arrows that point along the reading direction point left in RTL. */
+:root:lang(ar) .venix-button--text::after {
+  content: "←";
+}
+
+:root:lang(ar) .services-split--additional .venix-button--text::after,
+:root:lang(ar) .services-compact .venix-button--text::after {
+  transform: scaleX(-1);
+}
+
+/* The Home hero scrim darkens the side the text sits on. */
+:root:lang(ar) .home-hero__media::before {
+  background: linear-gradient(to left, rgba(30, 6, 8, 0.2) 0%, transparent 55%);
+}
+
+/* Email, phone, date and number values are left-to-right data: keep them readable, aligned to the form's reading edge. */
+:root:lang(ar) input[type="email"],
+:root:lang(ar) input[type="tel"],
+:root:lang(ar) input[type="url"],
+:root:lang(ar) input[type="number"],
+:root:lang(ar) input[type="date"] {
+  direction: ltr;
+  text-align: end;
+}
