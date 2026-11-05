@@ -37,7 +37,8 @@
 		button.disabled = true;
 		button.textContent = form.getAttribute( 'data-msg-sending' );
 
-		fetch( form.action, {
+		// form.action is shadowed by the hidden input named "action", so read the attribute.
+		fetch( form.getAttribute( 'action' ), {
 			method: 'POST',
 			body: new FormData( form ),
 			headers: { Accept: 'application/json' },
